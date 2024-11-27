@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_CibilscoreXtraL99Rules'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_CibilscoreXtraL99Rules</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anDeviation is some Deviation initially an Deviation;
+tempArray is some array of string initially an array of string;
+AppFilterDeviation is some array of Deviation initially an array of Deviation;
+
+for each Deviation in blazeMessage.response.applicationDecision.deviations such that (it is not null and it is known) do {
+  AppFilterDeviation.append(it);
+}
+ for each Deviation in AppFilterDeviation do {
+      //Banking ABB rule
+	if(it.ruleID is known and (it.ruleID=("Banking010" or "Banking011" or "Banking031" or "Banking032" or "Banking033" or "Banking034") ) and theBlazeMessageBT.appLevelCibilScore>=730)then{
+			it.overrideLevel ="L2";
+      it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+		}
+      //Eligibility>30%
+   if(it.ruleID is known and it.ruleID="Common072" )then{
+    if(  (theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+               it.overrideLevel ="L2";
+      it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+   }     else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+         it.overrideLevel ="L1";
+     it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }     else {
+       it.overrideLevel ="L99";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+     }
+   }
+   //IIR>300
+        if( it.reasonText is known and it.reasonText="REJ - IIR deviation more than  200%" and blazeMessage.request.application.schemeGroup="143" ) then{
+           if(  (theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+               it.overrideLevel ="L2";
+             it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+   }     else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+         it.overrideLevel ="L1";
+     it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }     else {
+       it.overrideLevel ="L99";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }
+      }
+ ///LTV>10%
+    if( it.reasonText is known and it.reasonText="REJ - LTV more than 10%"  ) then{
+           if(  (theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+               it.overrideLevel ="L2";
+             it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+   }     else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+         it.overrideLevel ="L1";
+     it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }     else {
+       it.overrideLevel ="L99";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }
+      }
+   //Premium car
+      if( it.ruleID is known and it.ruleID=("PremiumCar011" or "PremiumCar013")  ) then{
+           if(  (theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+               it.overrideLevel ="L2";
+             it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+   }     else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+         it.overrideLevel ="L1";
+     it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }     else {
+       it.overrideLevel ="L99";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }
+      }
+///Mimimum Income norms   
+     if( it.reasonCode is known and it.reasonCode=("40003")  ) then{
+           if(  (theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+               it.overrideLevel ="L2";
+             it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+   }     else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+         it.overrideLevel ="L1";
+     it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }     else {
+       it.overrideLevel ="L99";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }
+      }
+   //Care/Caution
+   
+    if(it.ruleID is known and it.ruleID=("KerelaNIP013" or "PremiumCar013" or "Banking036" or
+       "Banking017" or "Banking021" or "Normal023") )then{
+    if(  (theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+               it.overrideLevel ="L2";
+      it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+   }     else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+         it.overrideLevel ="L1";
+     it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }     else {
+       it.overrideLevel ="L99";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+     }
+   }
+  
+   //FD lien
+if(blazeMessage.request.application.schemeGroup="8")then{
+ if(  theBlazeMessageBT.maxEligibleAmount/2>=(0.75*blazeMessage.request.application.loanDetails.loanAmount) and
+    it.overrideLevel="L99")then{
+	it.overrideLevel ="L2";
+   it.decisionResult="Deviation";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+    }
+ } 
+ }// for loop closing
+
+ ]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='5jC069'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

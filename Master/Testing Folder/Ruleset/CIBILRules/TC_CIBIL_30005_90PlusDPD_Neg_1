@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_CIBIL_30005_90PlusDPD_Neg'>
+ <ide-name>TC_CIBIL_30005_90PlusDPD_Neg</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Eo3mvihp4iOEdnSsYROeKMa6ZOf'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>CIBIL Rules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='Eo3mvihp4iOEdnSsYROeKMa6ZOf'>
+   <name>TC_CIBIL_30005_90PlusDPD_Neg</name>
+   <body>account is some Account initially an Account.<template:br/>account.paymentHistory1="001009030029025";<template:br/>account.paymentHistory2="XXX080020020";<template:br/>account.amountOverdue=10001;<template:br/>accountArr is some array of Account initially an array of Account;<template:br/>accountArr.append(account);<template:br/><template:br/>cibil is some CibilReport initially a CibilReport;<template:br/>cibil.accounts=accountArr;<template:br/><template:br/>multib is some MultiBureauReport initially a MultiBureauReport;<template:br/>multib.cibilResponse=cibil;<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/>applicant.multiBureauReport=multib;<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.applicants = applicantArr;<template:br/>application.scheme="35";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>RS_CIBILRules(blazeMessage);<template:br/><template:br/><template:br/>assert().checkFalse("TC_CIBIL_30005_90PlusDPD_Neg",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonCode is equal to "30005"));<template:br/>assert().checkFalse("TC_CIBIL_30005_90PlusDPD_Neg",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonText is equal to "OOPC - 90 DPD with overdue more than 10000"));</body>
+  </function></template:content>
+</template>

@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_TWL_LtvProcess'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_TWL_LtvProcess</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[aDeviation is some Deviation initially a Deviation;
+empCategory is a string initially "";
+ltvForEV is an integer initially 0;
+if(theBlazeMessageBT.termSetInput.request.application.product="TWL")then{
+
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants such that (it.applicantType is known and it.applicantType ="P") do {
+  empCategory = it.customerSegment;
+}
+theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+if(theBlazeMessageBT.termSetInput.request.application.product="TWL")then{
+   DT_TWOWheller_scheme_specific_addonLTV();
+		 }
+print("ltvLook up " theBlazeMessageBT.isLookUpNeeded);
+if(theBlazeMessageBT.isLookUpNeeded= true) then{	
+  if( theBlazeMessageBT.termSetInput.request.application.product="TWL") then {
+                 DT_TwoWheeler_LTVStandardGrid_RiskBased(theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.assetType,theBlazeMessageBT.termSetInput.request.application.loanDetails.tenure);     
+                print("riskcat process="theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory);
+                }
+}else {
+                 DT_TwoWheeler_LTVStandardGrid_RiskBased(theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.assetType,theBlazeMessageBT.termSetInput.request.application.loanDetails.tenure);     
+                print("riskcat process="theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory);
+  
+}
+  if(theBlazeMessageBT.standardLtv <> -999)then
+                  	  {              
+                  				//Additional Ltv case when we need to combine the Ltv from add on ltv and standard ltv grid
+             					theBlazeMessageBT.standardLtv = theBlazeMessageBT.standardLtv +theBlazeMessageBT.ltvLookup ;
+                        		print("prinitng the ltvLookup val in IF " theBlazeMessageBT.ltvLookup);
+         				 }
+    			else{
+                  			//Follows Ltv grid when we need to take the ltv from standard grid
+      						theBlazeMessageBT.standardLtv =theBlazeMessageBT.ltvLookup;
+                  			print("prinitng the ltvLookup val in else " theBlazeMessageBT.ltvLookup);
+  						  }
+
+  print("TWO WHEELER standardLtv====" theBlazeMessageBT.standardLtv);
+  print("TWO WHEELER actualLtv====" theBlazeMessageBT.actualLtv);
+  
+if( theBlazeMessageBT.termSetInput.request.application.product="TWL") then{
+			aDeviation =  DT_TwoWheeler_LTV_Deviations();
+  	        fn_AppendDeviations(aDeviation);
+}
+;
+}
+
+return 0;
+
+
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='YKxcUK'>
+    <instance ref='ParameterNameVH'>
+     <value>isCalledForLookup</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>boolean</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

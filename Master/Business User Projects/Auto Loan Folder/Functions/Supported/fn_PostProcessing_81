@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_PostProcessing'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_PostProcessing</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[ AppFilterDeviation is some array of Deviation initially an array of Deviation;
+STPFilterDeviation is some array of Deviation initially an array of Deviation;
+ExcludeFilterDeviation is some array of Deviation initially an array of Deviation;
+count is a integer initially 0;
+
+print("NonIndividual=="theBlazeMessageBT.nonindividual);
+LogMessage("fn_PostProcessing started...");
+theMessage.response.requestId=theMessage.invocation.requestId;
+customerIdOfApplicant is a string;
+for each Applicant in theMessage.request.application.applicants do
+  {
+     customerIdOfApplicant=it.customerID;
+     if(it.cpvTvrChecks is known) then
+      {
+      	for each FICheck in it.cpvTvrChecks do
+      	{
+       	 it.customerID=customerIdOfApplicant;
+       	 theMessage.response.applicationDecision.fieldInvestigationDetails.append(it);
+      }
+     }    
+  }
+fn_Nasik_loanAmount_Supress(theMessage);
+if(theMessage.invocation.decisionPoint<>"YESBOT" and theMessage.invocation.lineOfBusiness="AL"
+  and theMessage.request.application.product<>"UCL")then
+  {
+   	//print("inside colorpolicy");
+     fn_colorCodingForSTPRed(theMessage);
+  	fn_colorCodingForSTPAmber(theMessage);
+   	 fn_manualSpecialtieup(theMessage);
+	 fn_L99toL3(theMessage);
+    if(theMessage.request.application.loanDetails.assesmentMethod is known and theMessage.request.application.loanDetails.assesmentMethod<>("DEFENSE" and "GUJARAT") )then{
+    	fn_CibilscoreXtraL99Rules(theMessage);
+    }
+    if(theBlazeMessageBT.CibilScoreXtra=true and theMessage.response.applicationDecision.responseCode="GREEN" )then{
+theMessage.response.applicationDecision.responseCode ="AMBER" ;
+theMessage.response.applicationDecision.scorecardResult[0].scorecardScore=700;
+    }
+    if(theMessage.request.application.schemeGroup="15" )then{
+theMessage.response.applicationDecision.responseCode ="GREEN" ;
+theMessage.response.applicationDecision.scorecardResult[0].scorecardScore=701;
+    }
+    
+    if(theMessage.response.applicationDecision.responseCode="RED" and theMessage.request.application.specialTieup is known and
+       theMessage.request.application.specialTieup="40220212" and theMessage.request.application.product<>"UCL")then
+{
+theMessage.response.applicationDecision.responseCode ="AMBER" ;
+theMessage.response.applicationDecision.scorecardResult[0].scorecardScore=700;
+for each Deviation in theMessage.response.applicationDecision.deviations such that (it is not null and it is known) do {
+  AppFilterDeviation.append(it);
+}
+   for each Deviation in AppFilterDeviation do {
+ if( it.ruleID is known and it.ruleID <> "STP006")then {
+             				STPFilterDeviation.append(it);
+        } else{ 
+          			count=count+1;
+                  }
+}
+		 
+if(count>0 and STPFilterDeviation.count =0)then{
+   theMessage.response.applicationDecision.deviations = ExcludeFilterDeviation as a array of Deviation;
+}
+ else if STPFilterDeviation.count = 0 then {
+    theMessage.response.applicationDecision.deviations = AppFilterDeviation as a array of Deviation;
+  }
+ else if STPFilterDeviation.count > 0 then {
+    theMessage.response.applicationDecision.deviations = STPFilterDeviation as a array of Deviation;
+  }
+}
+       fn_FDlien_Supress_deviations(theMessage);
+       fn_SuppressDeviationMessagesBefore9March(theMessage);
+  }
+if(theBlazeMessageBT.appLevelCibilScore>775 and theBlazeMessageBT.applicationIncome>500000 and
+   theBlazeMessageBT.GreenXtra=true and 
+ theMessage.response.applicationDecision.responseCode ="AMBER" )then{
+  //print("inside");
+  theMessage.response.applicationDecision.responseCode ="GREEN";
+  theMessage.response.applicationDecision.scorecardResult[0].scorecardScore=701;
+   //  fn_STPFilteration(theMessage);
+}
+print("theBlazeMessageBT.GreenXtra==post"theBlazeMessageBT.GreenXtra" theMessage.response.applicationDecision.responseCode=" theMessage.response.applicationDecision.responseCode);
+if(theBlazeMessageBT.GreenXtra=true and theMessage.response.applicationDecision.responseCode ="AMBER" )then{
+     theMessage.response.applicationDecision.responseCode ="GREEN" ;
+  theMessage.response.applicationDecision.scorecardResult[0].scorecardScore=701;
+}
+ if(theMessage.response.applicationDecision.scorecardResult[0].scorecardScore>=663 and theMessage.request.application.schemeGroup = "41") then{
+theMessage.response.applicationDecision.responseCode ="AMBER" ;
+theMessage.response.applicationDecision.scorecardResult[0].scorecardScore=700;
+}
+
+if(theMessage.request.application.product="UCL")then{
+  fn_UCL_CibilScoreXtraRules(theMessage);
+ // 
+  apply fn_l99tol3_UCL(theMessage);
+  //  if(theMessage.request.application.applicationInfo.applicationBranch  is (known and available) and 
+     //  theMessage.request.application.applicationInfo.applicationBranch = ("59" or "9" or "09" or "14" or "12" or "11" ))then{
+    //apply fn_l99tol3_UCL(theMessage);
+  //}   
+   print("Assetagematruty=="theBlazeMessageBT.assetAgeMaturity);
+  if(theMessage.request.application.assetDetails.detailAssetLoan.assetAge is (known and available) and theBlazeMessageBT.assetAgeMaturity is (known and available))then{
+fn_AppendActionMessage("AssetAge:"theMessage.request.application.assetDetails.detailAssetLoan.assetAge "  AssetAgeAtMaturity:"  theBlazeMessageBT.assetAgeMaturity);
+}
+  theMessage.response.applicationDecision.responseCode ="AMBER" 
+  }
+fn_LTV_DeviationRulesXtra(theMessage);
+ //if UAT Enbled
+
+//
+fn_GreenToAmberExtraConditions(theMessage);
+if(theMessage.request.application.product ="ALN")then  {
+ 		fn_supressDeviationGreenCase(theMessage);
+}
+fn_ColourCodeBrownAndExempt(theMessage);
+// fn_UAT(theMessage);
+if(theMessage.request.application.product ="ALN")then  {
+
+if(theBlazeMessageBT.nonindividual=false )then{
+theMessage.response.applicationDecision.scorecardResult[0].scorecardScore=700;
+  theMessage.response.applicationDecision.responseCode ="AMBER" ;
+}else{
+    theMessage.response.applicationDecision.responseCode =theMessage.response.applicationDecision.responseCode ;
+    theMessage.response.applicationDecision.scorecardResult[0].scorecardScore=theMessage.response.applicationDecision.scorecardResult[0].scorecardScore;
+  }
+}
+
+if(theMessage.request.application.product=("UCL" or "AL" or "ALN") )then{
+  //applicationBranch =Hyderabad (11) •	Bangalore (8)
+  if(theMessage.request.application.applicationInfo.applicationBranch is (known and available) and theMessage.request.application.applicationInfo.applicationBranch =("11" or "8" or "08"))then{
+          fn_applicantBankingDetails(theMessage); 
+         fn_applicantCibilDetails(theMessage);
+         fn_applicantIncomeDetails(theMessage);
+         fn_applicantOfficeStabilityDetails(theMessage);
+         fn_applicantProfileDetails(theMessage);
+         fn_applicantResidenceStabilityDetails(theMessage);
+         fn_CMRScoreDetails(theMessage);
+        apply  fn_wheelsChanges(theMessage);
+}
+}
+
+if(theMessage.request.application.scheme="529")then{
+  theBlazeMessageBT.maxEligibleAmount=math().min(theBlazeMessageBT.maxEligibleAmount, (0.9*theMessage.request.application.assetDetails.newVehicleDetails.assetCost));
+}else{
+  theBlazeMessageBT.maxEligibleAmount=theBlazeMessageBT.maxEligibleAmount;
+}
+
+if(theMessage.request.application.schemeGroup is (known and available) and theMessage.request.application.schemeGroup =("10" or "17" or "13" or "143" or "18" or "19" ))then{
+		theBlazeMessageBT.maxEligibleAmount=theBlazeMessageBT.maxEligibleAmount-theBlazeMessageBT.repeatMultiplierBasedFunding;
+}else{
+  		theBlazeMessageBT.maxEligibleAmount=theBlazeMessageBT.maxEligibleAmount;
+}
+
+//if(theMessage.request.application.product ="ALN")then{
+//fn_AppendActionMessage("Overall Application Score is "theMessage.response.applicationDecision.scorecardResult[0].scorecardScore);
+//}
+fn_UCL_Restructured(theMessage);
+if(theMessage.request.application.product=("ALN" or "AL"))then{
+  if(theMessage.response.applicationDecision.responseCode="GREEN" )then{
+  fn_alnColorGreentoAmber(theMessage);
+  fn_alnGreentoAmberPoint2and3(theMessage);
+  fn_alnColotGreentoAmber5(theMessage);
+  fn_alnColotGreentoAmberPoint6(theMessage);
+    //Surrogate case  scheme  start
+    if(theMessage.request.application.schemeGroup  is (known and available) and theMessage.request.application.schemeGroup<>("6" and "7" and "10" and "13" and "143" and "17" and "18" and "19" and "15" ) )then{
+      print("Surrogate case  scheme ");
+      fn_greenToBlueFilteration(theMessage);
+      	
+    }
+    //Surrogate case  scheme  end
+  }
+  apply fn_aln_LTV_ABB_IncomeBased(theMessage);
+}
+if(theMessage.request.application.product="UCL")then{
+  fn_uclCibilExtraAbbRatioCondition(theMessage);
+}
+theMessage.response.applicationDecision.systemDecisionDate = calendar().currentTimestamp(true);
+theMessage.response.applicationDecision.maxEligibleLoanAmount= theBlazeMessageBT.maxEligibleAmount;
+
+LogMessage("fn_PostProcessing completed...");]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='PZekzc'>
+    <instance ref='ParameterNameVH'>
+     <value>theMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

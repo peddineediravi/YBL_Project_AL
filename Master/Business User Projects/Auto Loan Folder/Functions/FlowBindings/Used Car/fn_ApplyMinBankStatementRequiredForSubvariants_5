@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_ApplyMinBankStatementRequiredForSubvariants'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_ApplyMinBankStatementRequiredForSubvariants</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anDeviation is some Deviation initially an Deviation;
+isInwardMonthlyChequeReturnssec is a boolean initially false;  
+countApplicant is a integer initially 0;
+indexCount is a integer initially 0;
+//logic of NIP007  has been replicated 
+for each Applicant in theMesage.request.application.applicants do{ 
+count is a integer initially 0;
+countApplicant = countApplicant + 1;  
+
+  for each BankDetails in it.bankDetails do
+  {
+   for each StatementDetails in it.bankStatements do {
+	  count = count+1;
+   }
+   }
+   print("count::"count);
+   if(count<6)then{
+      indexCount = indexCount +1 ;
+    
+   }
+     
+}
+print("indexCount::" indexCount "countApplicant::" countApplicant);
+if(indexCount = countApplicant)then {
+  isInwardMonthlyChequeReturnssec = true;
+}
+print("isInwardMonthlyChequeReturnssec::" isInwardMonthlyChequeReturnssec);
+//for each Deviation in theMesage.response.applicationDecision.deviations do {
+             if((theMesage.request.application.schemeGroup = "45") and (theMesage.request.application.scheme = ("163" or "164" or "165" or  "376" or "377" or "491" or "506")) and (isInwardMonthlyChequeReturnssec = true))then{
+             print("This rule will get triggered");  
+            anDeviation.ruleID="ID_001";
+            anDeviation.ruleName="Banking norms";
+            anDeviation.ruleDescription="Banking norms";
+            anDeviation.decisionResult = "Reject";
+            anDeviation.reasonText = " 6 months banking norms not met";
+            anDeviation.reasonCode = "ID_001";
+            anDeviation.overrideLevel ="L99";
+            fn_AppendDeviations(anDeviation);      
+         }    
+ //}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='H6s4DX'>
+    <instance ref='ParameterNameVH'>
+     <value>theMesage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

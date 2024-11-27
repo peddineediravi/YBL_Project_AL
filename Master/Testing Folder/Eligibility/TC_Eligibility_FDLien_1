@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_Eligibility_FDLien'>
+ <ide-name>TC_Eligibility_FDLien</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='8jOOJ7lMo6WiBXwoYPmsMquCuUX'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>Eligibility</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='8jOOJ7lMo6WiBXwoYPmsMquCuUX'>
+   <name>TC_Eligibility_FDLien</name>
+   <body>fdDetails is some FDDetails;<template:br/>fdDetails = a FDDetails initially{<template:br/>it.amount = 200000;<template:br/>}<template:br/><template:br/>fdDetailsArr is some array of FDDetails initially an array of FDDetails;<template:br/>fdDetailsArr.append(fdDetails);<template:br/><template:br/>applicant is some Applicant;<template:br/>applicant = an Applicant initially{<template:br/>it.FDDetails = fdDetailsArr;<template:br/>}<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/>application is some Application;<template:br/>application = an Application initially{<template:br/>it.schemeGroup = "8";<template:br/>it.applicants = applicantArr;.<template:br/>}<template:br/><template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>fn_Apply_NewCar_EligibilityCompuation(blazeMessage);<template:br/><template:br/>assert().checkTrue("TC_Eligibility_Normal_CorporateIncome_Pos", theBlazeMessageBT.maxEligibleAmount = 266600);</body>
+  </function></template:content>
+</template>

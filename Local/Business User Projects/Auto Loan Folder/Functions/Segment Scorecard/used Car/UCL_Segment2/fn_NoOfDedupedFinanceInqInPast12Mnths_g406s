@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_NoOfDedupedFinanceInqInPast12Mnths_g406s'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_NoOfDedupedFinanceInqInPast12Mnths_g406s</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value>print("fn_NoOfDedupedFinanceInqInPast12Mnths_g406s Entering");
+NoOfDedupedFinanceInqInPast12Mnths_g406s  is a real ;
+
+if(financialApplicant is (known and available)) then {
+  	
+		if(financialApplicant.multiBureauReport is known and financialApplicant.multiBureauReport.cibilResponse is (known and available) )then{
+             		 if (financialApplicant.multiBureauReport.cibilResponse.cvVariables.variable36 is  (known and available) ) then {
+                       			NoOfDedupedFinanceInqInPast12Mnths_g406s = financialApplicant.multiBureauReport.cibilResponse.cvVariables.variable36;
+                      	}else   if (financialApplicant.multiBureauReport.cibilResponse.cvVariables.variable36 is  (unknown or unavailable)  ) then { 
+                      		NoOfDedupedFinanceInqInPast12Mnths_g406s =-999.00;
+                      }
+		  }
+}
+print("NoOfDedupedFinanceInqInPast12Mnths_g406s="NoOfDedupedFinanceInqInPast12Mnths_g406s);
+
+return NoOfDedupedFinanceInqInPast12Mnths_g406s;
+</value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='9dA9bp'>
+    <instance ref='ParameterNameVH'>
+     <value>financialApplicant</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Applicant</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

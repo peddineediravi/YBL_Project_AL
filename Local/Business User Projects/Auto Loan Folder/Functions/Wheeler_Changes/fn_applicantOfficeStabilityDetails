@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_applicantOfficeStabilityDetails'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_applicantOfficeStabilityDetails</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("fn_applicantOfficeStabilityDetails Entering...");
+anApplicant is some Applicant;		
+tempDesignation is a string ;
+cotempDesignation is a string ;
+tempPrimaryAppOffAddress is  a string ;
+tempcoAppOffAddress is a string;
+//Primary Applicant 
+for each Applicant in ablazeMessage1.request.application.applicants  such that (it.applicantType  is (known and available) and it.applicantType ="P")do{
+			anApplicant=it;
+  			   if(it.constitution  is (known and available) and  it.constitution ="1" )then{
+			   if(  it.customerSegment  is (known and available) and it.customerSegment =("1" ))then{
+                 if( it.employmentDetails.designation is  (known and available) )then{
+                  
+
+                                  if(it.employmentDetails.designation=("ABS"))then{tempDesignation="ABLE BODY SEAMAN";} 
+                                  else if(it.employmentDetails.designation=("ACCO"))then{tempDesignation="ACCOUNTANT";}  
+                                  else if(it.employmentDetails.designation=("ADMIN"))then{tempDesignation="ADMIN MANAGER";}  
+                                  else if(it.employmentDetails.designation=("ADVO"))then{tempDesignation="ADVOCATE ";} 
+                                  else if(it.employmentDetails.designation=("AGEM"))then{tempDesignation="AGENCY MANAGER";}  
+                                  else if(it.employmentDetails.designation=("ANALYST"))then{tempDesignation="ANALYST";}  
+                                  else if(it.employmentDetails.designation=("ARCH"))then{tempDesignation="ARCHITECT";}  
+                                  else if(it.employmentDetails.designation=("ASSIST"))then{tempDesignation="ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=("AM"))then{tempDesignation="ASSISTANT MANAGER";}  
+                                  else if(it.employmentDetails.designation=("AS"))then{tempDesignation="ASSISTANT SUPERVISOR";}  
+                                  else if(it.employmentDetails.designation=("ACA"))then{tempDesignation="ASSOC CREDIT ADMIN";} 
+                                  else if(it.employmentDetails.designation=("ASSO"))then{tempDesignation="ASSOCIATE";}  
+                                  else if(it.employmentDetails.designation=("AO"))then{tempDesignation="ASSOCIATE OFFICER";}  
+                                  else if(it.employmentDetails.designation=("AP"))then{tempDesignation="ASSOCIATE PROFESSOR";}  
+                                  else if(it.employmentDetails.designation=("ACOM"))then{tempDesignation="ASST COMMISSIONER";}  
+                                  else if(it.employmentDetails.designation=("AE"))then{tempDesignation="ASST ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("ALP"))then{tempDesignation="ASST LOCO PILOT";}  
+                                  else if(it.employmentDetails.designation=("AVP"))then{tempDesignation="AVP";}  
+                                  else if(it.employmentDetails.designation=("BAR"))then{tempDesignation="BARBER";}  
+                                  else if(it.employmentDetails.designation=("BODC"))then{tempDesignation="BODYSHOP CONTROLLER";}  
+                                  else if(it.employmentDetails.designation=("BRAC"))then{tempDesignation="BRANCH ACCOUNTANT";}  
+                                  else if(it.employmentDetails.designation=("BUSC"))then{tempDesignation="BUS CONDUCTOR";}  
+                                  else if(it.employmentDetails.designation=("CM"))then{tempDesignation="CAMERAMAN";}  
+                                  else if(it.employmentDetails.designation=("CAP"))then{tempDesignation="CAPTAIN";}  
+                                  else if(it.employmentDetails.designation=("CART"))then{tempDesignation="CARE TAKER";}  
+                                  else if(it.employmentDetails.designation=("CC"))then{tempDesignation="CARPENTER CONTRACTOR";}  
+                                  else if(it.employmentDetails.designation=("CASHIER"))then{tempDesignation="CASHIER";}  
+                                  else if(it.employmentDetails.designation=("CA"))then{tempDesignation="CHARTERED ACCOUNTANT";}  
+                                  else if(it.employmentDetails.designation=("CHEF"))then{tempDesignation="CHEF";}  
+                                  else if(it.employmentDetails.designation=("CEO"))then{tempDesignation="CHIEF EXECUTIVE OFFICER";}  
+                                  else if(it.employmentDetails.designation=("CFO"))then{tempDesignation="CHIEF FIN OFFICER";}  
+                                  else if(it.employmentDetails.designation=("CLEANER"))then{tempDesignation="CLEANER";}  
+                                  else if(it.employmentDetails.designation=("CLERK"))then{tempDesignation="CLERK";}  
+                                  else if(it.employmentDetails.designation=("CDS"))then{tempDesignation="CLINICAL DATA SP";}  
+                                  else if(it.employmentDetails.designation=("COLL A"))then{tempDesignation="COLLECTION AGENT";}  
+                                  else if(it.employmentDetails.designation=("COLONEL"))then{tempDesignation="COLONEL";}  
+                                  else if(it.employmentDetails.designation=("CONST"))then{tempDesignation="CONSTABLE";}  
+                                  else if(it.employmentDetails.designation=("CONULT"))then{tempDesignation="CONSULTANT";}  
+                                  else if(it.employmentDetails.designation=("DS"))then{tempDesignation="DEPART SUPERITENDENT";}  
+                                  else if(it.employmentDetails.designation=("DM"))then{tempDesignation="DEPUTY MANAGER";}  
+                                  else if(it.employmentDetails.designation=("DE"))then{tempDesignation="DESIGN ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("DESIGN"))then{tempDesignation="DESINGER";}  
+                                  else if(it.employmentDetails.designation=("DF"))then{tempDesignation="DIAMOND FIXING";}  
+                                  else if(it.employmentDetails.designation=("DIERECT"))then{tempDesignation="DIRECTOR";}  
+                                  else if(it.employmentDetails.designation=("DOC"))then{tempDesignation="DOCTOR";}  
+                                  else if(it.employmentDetails.designation=("DRESSER"))then{tempDesignation="DRESSER";}  
+                                  else if(it.employmentDetails.designation=("DRIVER"))then{tempDesignation="DRIVER";}  
+                                  else if(it.employmentDetails.designation=("ELECTR"))then{tempDesignation="ELECTRICIAN";}  
+                                  else if(it.employmentDetails.designation=("ENG"))then{tempDesignation="ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("EXECU"))then{tempDesignation="EXECUTIVE";}  
+                                  else if(it.employmentDetails.designation=("Ex O"))then{tempDesignation="EXECUTIVE OFFICER";}  
+                                  else if(it.employmentDetails.designation=("FARM"))then{tempDesignation="FARMER";}  
+                                  else if(it.employmentDetails.designation=("FITTER"))then{tempDesignation="FITTER";}  
+                                  else if(it.employmentDetails.designation=("FOREM"))then{tempDesignation="FOREMAN";}  
+                                  else if(it.employmentDetails.designation=("F G"))then{tempDesignation="FOREMAN GAZZETTED";}  
+                                  else if(it.employmentDetails.designation=("GANGM"))then{tempDesignation="GANGMAN";}  
+                                  else if(it.employmentDetails.designation=("GRADN"))then{tempDesignation="GARDNER";}  
+                                  else if(it.employmentDetails.designation=("GM"))then{tempDesignation="GENERAL MANAGER";}  
+                                  else if(it.employmentDetails.designation=("GOV E"))then{tempDesignation="GOVT. EMPLOYEE";}  
+                                  else if(it.employmentDetails.designation=("HOUSEW"))then{tempDesignation="HOUSEWelse ifE";}  
+                                  else if(it.employmentDetails.designation=("HR"))then{tempDesignation="HR";}  
+                                  else if(it.employmentDetails.designation=("IT E"))then{tempDesignation=" IT ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("JD"))then{tempDesignation="JUNIOR DESIGNER";}  
+                                  else if(it.employmentDetails.designation=("JEX"))then{tempDesignation="JUNIOR EXECUTIVE";}  
+                                  else if(it.employmentDetails.designation=("LA"))then{tempDesignation="LAB ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=(" LT"))then{tempDesignation="LAB TECHNICIAN";}  
+                                  else if(it.employmentDetails.designation=("LA A"))then{tempDesignation="LAUNDERY ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=("LAW A"))then{tempDesignation="LAW ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=("LAWYER"))then{tempDesignation="LAWYER";}  
+                                  else if(it.employmentDetails.designation=("LECTURER"))then{tempDesignation="LECTURER";}  
+                                  else if(it.employmentDetails.designation=("LIBRA"))then{tempDesignation=" LIBRIAN";}  
+                                  else if(it.employmentDetails.designation=("LINE A"))then{tempDesignation="LINE ATTENDER";}  
+                                  else if(it.employmentDetails.designation=("LINEMAN"))then{tempDesignation="LINEMAN";}  
+                                  else if(it.employmentDetails.designation=("Loader"))then{tempDesignation="LOADER";}  
+                                  else if(it.employmentDetails.designation=("LOG A"))then{tempDesignation="LOGISTIC ANALYST";}  
+                                  else if(it.employmentDetails.designation=("LMAN"))then{tempDesignation="LOWER THAN MANAGER";}  
+                                  else if(it.employmentDetails.designation=("Maid"))then{tempDesignation="MAID";}  
+                                  else if(it.employmentDetails.designation=("Maintena"))then{tempDesignation="MAINTENANCE";}  
+                                  else if(it.employmentDetails.designation=("MAJOR"))then{tempDesignation="MAJOR";}  
+                                  else if(it.employmentDetails.designation=("MAN"))then{tempDesignation="MANAGER";}  
+                                  else if(it.employmentDetails.designation=("Mech"))then{tempDesignation="MECHANIST";}  
+                                  else if(it.employmentDetails.designation=("Milk Man"))then{tempDesignation="MILK MAN";}  
+                                  else if(it.employmentDetails.designation=("Motorman"))then{tempDesignation="MOTORMAN";}  
+                                  else if(it.employmentDetails.designation=("MUKADAM"))then{tempDesignation="MUKADAM";}  
+                                  else if(it.employmentDetails.designation=("OFA"))then{tempDesignation="OFFICE ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=("OfficeB"))then{tempDesignation="OFFICE BOY";}  
+                                  else if(it.employmentDetails.designation=("Officer"))then{tempDesignation="OFFICER";}  
+                                  else if(it.employmentDetails.designation=("Operator"))then{tempDesignation="OPERATOR";}  
+                                  else if(it.employmentDetails.designation=("Partner"))then{tempDesignation="PARTNER";}  
+                                  else if(it.employmentDetails.designation=("Pension"))then{tempDesignation="PENSIONER";}  
+                                  else if(it.employmentDetails.designation=("Peon"))then{tempDesignation="PEON";}  
+                                  else if(it.employmentDetails.designation=("Plumber"))then{tempDesignation="PLUMBER";}  
+                                  else if(it.employmentDetails.designation=("Postman"))then{tempDesignation="POSTMAN";}  
+                                  else if(it.employmentDetails.designation=("Pres"))then{tempDesignation="PRESIDENT";}  
+                                  else if(it.employmentDetails.designation=("Priest"))then{tempDesignation="PRIEST";}  
+                                  else if(it.employmentDetails.designation=("Princi"))then{tempDesignation="PRINCIPAL";}  
+                                  else if(it.employmentDetails.designation=("PS"))then{tempDesignation="PRIVATE SECRETARY";}  
+                                  else if(it.employmentDetails.designation=("PM"))then{tempDesignation="PRODUCTION MANAGER";}  
+                                  else if(it.employmentDetails.designation=("PROF"))then{tempDesignation="PROFESSOR";}  
+                                  else if(it.employmentDetails.designation=("PC"))then{tempDesignation="PROJECT COORDINATOR";}  
+                                  else if(it.employmentDetails.designation=("PL"))then{tempDesignation="PROJECT LEADER";}  
+                                  else if(it.employmentDetails.designation=("Prop"))then{tempDesignation="PROPRIETOR";}  
+                                  else if(it.employmentDetails.designation=("Regional"))then{tempDesignation="REGIONAL HEAD";}  
+                                  else if(it.employmentDetails.designation=("Retired"))then{tempDesignation="RETIRED";}  
+                                  else if(it.employmentDetails.designation=("Sailer"))then{tempDesignation="SAILER";}  
+                                  else if(it.employmentDetails.designation=("Sales As"))then{tempDesignation="SALES ASSOCIATE";}  
+                                  else if(it.employmentDetails.designation=("Sales C"))then{tempDesignation="SALES COORDINATOR";}  
+                                  else if(it.employmentDetails.designation=("SAEX"))then{tempDesignation="SALES EXECUTIVE";}  
+                                  else if(it.employmentDetails.designation=("Security"))then{tempDesignation="SECURITY GUARD";}  
+                                  else if(it.employmentDetails.designation=("Secret"))then{tempDesignation="SECRETARY";}  
+                                  else if(it.employmentDetails.designation=("S CH"))then{tempDesignation="SENIOR CHARGEMAN";}  
+                                  else if(it.employmentDetails.designation=("S GA"))then{tempDesignation="SENIOR GANGMAN";}  
+                                  else if(it.employmentDetails.designation=("SMAN"))then{tempDesignation="SENIOR MANAGER";}  
+                                  else if(it.employmentDetails.designation=("SPOM"))then{tempDesignation="SENIOR POINT MAN";}  
+                                  else if(it.employmentDetails.designation=("Share H"))then{tempDesignation="SHARE HOLDER";}  
+                                  else if(it.employmentDetails.designation=("SVP"))then{tempDesignation="SR VICE PRESIDENT";}  
+                                  else if(it.employmentDetails.designation=("S AS"))then{tempDesignation="SR. ASSOCIATE";}  
+                                  else if(it.employmentDetails.designation=("SSE"))then{tempDesignation="SR. SOFTWARE ENG";}  
+                                  else if(it.employmentDetails.designation=("SN"))then{tempDesignation="STAFF NURSE";}  
+                                  else if(it.employmentDetails.designation=("Steno"))then{tempDesignation="STENOGRAPHER";}  
+                                  else if(it.employmentDetails.designation=("Student"))then{tempDesignation="STUDENT";}  
+                                  else if(it.employmentDetails.designation=("Supervi"))then{tempDesignation="SUPERVISOR";}  
+                                  else if(it.employmentDetails.designation=("Sweeper"))then{tempDesignation="SWEEPER";}  
+                                  else if(it.employmentDetails.designation=("SA"))then{tempDesignation="SYSTEM ADMINSTRATOR";}  
+                                  else if(it.employmentDetails.designation=("TEACH"))then{tempDesignation="TEACHER";}  
+                                  else if(it.employmentDetails.designation=("TL"))then{tempDesignation="TEAM LEADER";}  
+                                  else if(it.employmentDetails.designation=("TSN"))then{tempDesignation="TECHL SERV MANAGER";}  
+                                  else if(it.employmentDetails.designation=("Techni"))then{tempDesignation="TECHNICIAN";}  
+                                  else if(it.employmentDetails.designation=("TE"))then{tempDesignation="TELEPHONE ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("T M"))then{tempDesignation="TELEPHONE MECHANIC";}  
+                                  else if(it.employmentDetails.designation=("TESM"))then{tempDesignation="TERRITORY SALES M";}  
+                                  else if(it.employmentDetails.designation=("Trainer"))then{tempDesignation="TRAINER";}  
+                                  else if(it.employmentDetails.designation=("Treas"))then{tempDesignation="TREASURER";}  
+                                  else if(it.employmentDetails.designation=("Truck Dr"))then{tempDesignation="TRUCK DRIVER";}  
+                                  else if(it.employmentDetails.designation=("Trustee"))then{tempDesignation="TRUSTEE";}  
+                                  else if(it.employmentDetails.designation=("V P"))then{tempDesignation="VICE PRESIDENT";}  
+                                  else if(it.employmentDetails.designation=("Vi Prin"))then{tempDesignation="VICE PRINCIPAL";}  
+                                  else if(it.employmentDetails.designation=("VPA"))then{tempDesignation="VP AND ABOVE";}  
+                                  else if(it.employmentDetails.designation=("W I"))then{tempDesignation="WAREHOUSE INCHARGE";}  
+                                  else if(it.employmentDetails.designation=("Watchman"))then{tempDesignation="WATCHMAN";}  
+                                  else if(it.employmentDetails.designation=("Worker"))then{tempDesignation="WORKER";}  
+                                  else if(it.employmentDetails.designation=("DOA"))then{tempDesignation="DEFENCE OFFR & ABOVE";}  
+                                  else if(it.employmentDetails.designation=("DSSM"))then{tempDesignation="DEFENCE SUBEDAR & SUBEDAR MAJOR";}  
+                                  else if(it.employmentDetails.designation=("DNSB"))then{tempDesignation="DEFENCE NAIB SUBEDAR & BELOW";}  
+                                  else if(it.employmentDetails.designation=("ABMGR"))then{tempDesignation="MANAGER AND ABOVE";}  
+                                  else if(it.employmentDetails.designation=("BLMGR"))then{tempDesignation="BELOW MANAGER";}  
+                                  else if(it.employmentDetails.designation=("AIR MARS"))then{tempDesignation="AIR MARSHAL";}  
+                                  else if(it.employmentDetails.designation=("GROUP CA"))then{tempDesignation="GROUP CAPTAIN";}  
+                                  else if(it.employmentDetails.designation=("AIR CHIE"))then{tempDesignation="AIR CHIEF MARSHAL";}  
+                                  else if(it.employmentDetails.designation=("WING COM"))then{tempDesignation="WING COMMANDER";}  
+                                  else if(it.employmentDetails.designation=("MAROTAF"))then{tempDesignation="MARSHAL OF THE AIR FORCE";}  
+                                  else if(it.employmentDetails.designation=("SUB LIEU"))then{tempDesignation="SUB LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("SQUADRON"))then{tempDesignation="SQUADRON LEADER";}  
+                                  else if(it.employmentDetails.designation=("VICE ADM"))then{tempDesignation="VICE ADMIRAL";}  
+                                  else if(it.employmentDetails.designation=("ADMFLEET"))then{tempDesignation="ADMIRAL OF THE FLEET";}  
+                                  else if(it.employmentDetails.designation=("ADMIRAL"))then{tempDesignation="ADMIRAL";}  
+                                  else if(it.employmentDetails.designation=("AIR VICE"))then{tempDesignation="AIR VICE MARSHAL";}  
+                                  else if(it.employmentDetails.designation=("BRIGADIE"))then{tempDesignation="BRIGADIER";}  
+                                  else if(it.employmentDetails.designation=("COMMANDE"))then{tempDesignation="COMMANDER";}  
+                                  else if(it.employmentDetails.designation=("FIELD MA"))then{tempDesignation="FIELD MARSHAL";}  
+                                  else if(it.employmentDetails.designation=("FIRST LI"))then{tempDesignation="FIRST LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("FLIGHT L"))then{tempDesignation="FLIGHT LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("FLIGHTLI"))then{tempDesignation="FLIGHT LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("FLYING O"))then{tempDesignation="FLYING OFFICER";}  
+                                  else if(it.employmentDetails.designation=("GENERAL"))then{tempDesignation="GENERAL";}  
+                                  else if(it.employmentDetails.designation=("LIEUTCOL"))then{tempDesignation="LIEUTANANT COLONEL";}  
+                                  else if(it.employmentDetails.designation=("LIEUTENA"))then{tempDesignation="LIEUTANANT GENERAL";}  
+                                  else if(it.employmentDetails.designation=("AIR COMM"))then{tempDesignation="AIR COMMODORE";}  
+                                  else if(it.employmentDetails.designation=("LIEUTCOM"))then{tempDesignation="LIEUTANANT COMMANDER";}  
+                                  else if(it.employmentDetails.designation=("REAR ADM"))then{tempDesignation="REAR ADMIRAL";}  
+                                  else if(it.employmentDetails.designation=("MAJOR GE"))then{tempDesignation="MAJOR GENERAL";}  
+                                  else if(it.employmentDetails.designation=("SECOND L"))then{tempDesignation="SECOND LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("DNSB"))then{tempDesignation="DEFENCE NAIB SUBEDAR & BELOW";}  
+                                  else if(it.employmentDetails.designation=("19050903"))then{tempDesignation="DEFENCE NAIB SUBEDAR & BELOW";}  
+                                  else if(it.employmentDetails.designation=("DSSM"))then{tempDesignation="DEFENCE SUBEDAR & SUBEDAR MAJOR";}  
+                                  else if(it.employmentDetails.designation=("19050902"))then{tempDesignation="DEFENCE SUBEDAR & SUBEDAR MAJOR";}  
+                                  else if(it.employmentDetails.designation=("19050901"))then{tempDesignation="19050901";}  
+                 }		
+                 
+                 fn_AppendActionMessage("Applicant is working as salaried employee in  since "it.employmentDetails.yearsInPresentJob " years "it.employmentDetails.monthsInPresentJob " months  as "  tempDesignation
+                                        " . Total work experience is "it.employmentDetails.totalWorkExperienceInYears "  years   "it.employmentDetails.totalWorkExperienceInMonths " months ." );
+			   }else if(  it.customerSegment  is (known and available) and it.customerSegment =("2" ))then{
+				    	 for each Address in anApplicant.addresses do{
+							if(it.addressType  is (known and available) and it.addressType=(ignoring case)("BUS" or "OFFICE"))then{
+								if(it.propertyType  is (known and available) and  it.propertyType=(ignoring case)("O" or "OP" or "OWN_COAP" or "OWNERSHI") )then{
+									tempPrimaryAppOffAddress="owned";
+								}else if(it.propertyType  is (known and available) and it.propertyType=(ignoring case)("R"))then{
+									tempPrimaryAppOffAddress ="Rented"
+								}
+							}
+						 }
+					  fn_AppendActionMessage("Applicant is self employed in Professional since "it.businessDetails.businessVintageInYears " years "it.businessDetails.businessVintageInMonths " months   Office "tempPrimaryAppOffAddress);
+			  
+               }else if(  it.customerSegment  is (known and available) and it.customerSegment =("3" ))then{
+				   
+					 for each Address in anApplicant.addresses do{
+							if(it.addressType  is (known and available) and it.addressType=(ignoring case)("BUS" or "OFFICE"))then{
+								if(it.propertyType  is (known and available) and  it.propertyType=(ignoring case)("O" or "OP" or "OWN_COAP" or "OWNERSHI") )then{
+									tempPrimaryAppOffAddress="owned";
+								}else if(it.propertyType  is (known and available) and it.propertyType=(ignoring case)("R"))then{
+									tempPrimaryAppOffAddress ="Rented"
+								}
+							}
+						 }
+				   
+					  fn_AppendActionMessage("Applicant is self employed non professional since "it.businessDetails.businessVintageInYears " years "it.businessDetails.businessVintageInMonths " months   Office "tempPrimaryAppOffAddress);
+			   }
+               }else    if(it.constitution  is (known and available) and  it.constitution <> "1")then{
+				   
+				    for each Address in anApplicant.addresses do{
+							if(it.addressType  is (known and available) and it.addressType=(ignoring case)("BUS" or "OFFICE"))then{
+								if(it.propertyType  is (known and available) and  it.propertyType=(ignoring case)("O" or "OP" or "OWN_COAP" or "OWNERSHI") )then{
+									tempPrimaryAppOffAddress="owned";
+								}else if(it.propertyType  is (known and available) and it.propertyType=(ignoring case)("R"))then{
+									tempPrimaryAppOffAddress ="Rented"
+								}
+							}
+						 }
+				   
+                 fn_AppendActionMessage("Applicant is self employed in"it.businessDetails.businessName " since "it.businessDetails.businessVintageInYears " years "it.businessDetails.businessVintageInMonths " months   Office "tempPrimaryAppOffAddress);
+               }
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Ir2pI7'>
+    <instance ref='ParameterNameVH'>
+     <value>ablazeMessage1</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='DSG71szD5AH5G0pcZCfjmcoPvq0' name='IsIncomeMorethanLoanAmt'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='nameVH'>
+  <value>IsIncomeMorethanLoanAmt</value>
+ </instance>
+ <instance ref='typeVH'>
+  <value>boolean</value>
+ </instance>
+ <instance ref='descriptionVH'>
+  <value></value>
+ </instance>
+ <instance ref='termPropertyVH'>
+ </instance>
+ <instance ref='isNeededEventRuleVH'>
+  <instance ref='__ENTITY_PROPERTIES__VH__'>
+  </instance>
+  <instance ref='calculationVH'>
+   <value><![CDATA[anApplicant is some Applicant;
+maxincome is a real initially 0.0;
+incomeList is some array of real initially an array of real;
+theBlazeMessageBT.IsIncomeMorethanLoanAmt=false;
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants do {   
+	anApplicant =it;
+	if(anApplicant.annualIncome.totalIncome is (known and available ))then{
+		incomeList.append(it.annualIncome.totalIncome);
+	}
+}
+maxincome =incomeList.max;
+print("maxincome income max loan amount"maxincome);
+if (maxincome is (known and available))then{
+if at least 1 Applicant in theBlazeMessageBT.termSetInput.request.application.applicants such that( theBlazeMessageBT.termSetInput.request.application.loanDetails is known and theBlazeMessageBT.termSetInput.request.application.loanDetails.loanAmount is known and it.annualIncome is known and it.annualIncome.totalIncome is known )
+satisfies(maxincome> theBlazeMessageBT.termSetInput.request.application.loanDetails.loanAmount)
+then{
+//print("income=="maxincome);
+//print("loanAmount"theBlazeMessageBT.termSetInput.request.application.loanDetails.loanAmount);
+theBlazeMessageBT.IsIncomeMorethanLoanAmt=true;
+}
+else{
+//print("income=="maxincome);
+//print("loanAmount"theBlazeMessageBT.termSetInput.request.application.loanDetails.loanAmount);
+//print("inside2");
+theBlazeMessageBT.IsIncomeMorethanLoanAmt=false;
+}
+}
+
+
+print("Income more than loan amount "theBlazeMessageBT.IsIncomeMorethanLoanAmt );]]></value>
+  </instance>
+ </instance>
+ <instance ref='constraintContainerVH'>
+  <instance-selection ref='constraintVH'>
+   <item template='Atv03JffIeVVgsPZppyIx4mkGHC.template5' id='TXTKna'>
+    <instance ref='fromVH'>
+     <value></value>
+    </instance>
+    <instance ref='toVH'>
+     <value></value>
+    </instance>
+    <instance ref='constraintNameVH'>
+     <value>Range</value>
+    </instance>
+    <instance ref='constraintEntriesVH'>
+    </instance>
+   </item>
+  </instance-selection>
+  <instance ref='termTypeConstraintTemplateAssocVH'>
+   <value>Atv03JffIeVVgsPZppyIx4mkGHC.template5</value>
+  </instance>
+ </instance>
+</instantiation>

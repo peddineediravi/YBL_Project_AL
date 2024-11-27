@@ -1,0 +1,590 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='5nrT9calkTxODnluALdD788RpOy' name='DF_UsedCar_SchemesFlow'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='GDFPropertiesVH'>
+  <instance ref='instanceName'>
+   <value></value>
+  </instance>
+  <instance ref='FlowCommentsVH'>
+   <value></value>
+  </instance>
+  <instance ref='FlowStartEventClassVH'>
+   <value>BlazeMessage</value>
+  </instance>
+  <instance ref='FlowStartEventObjectVH'>
+   <value>theMessage</value>
+  </instance>
+  <instance-list ref='FlowVariablesVH'>
+   <item template='5nrT9calkTxODnluALdD788RpOy.template21' id='YNSWss'>
+    <instance ref='FlowVariableTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+    <instance ref='FlowVariableCommentsVH'>
+     <value></value>
+    </instance>
+    <instance-selection ref='FlowVariableInitialValueVH'>
+     <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='HZUny0'>
+      <instance ref='value'>
+       <value></value>
+      </instance>
+     </item>
+    </instance-selection>
+    <instance ref='FlowVariableNameVH'>
+     <value>theMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance ref='FlowNameVH'>
+   <value>DF_UsedCar_SchemesFlow</value>
+  </instance>
+ </instance>
+ <instance-list ref='FlowElementsVH'>
+  <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='EpPKRW'>
+   <instance ref='TaskImplementationVH'>
+    <value>RS_UsedCar_CommonRules(BlazeMessage)</value>
+   </instance>
+   <instance ref='TaskImplementationParameterCountVH'>
+    <value></value>
+   </instance>
+   <instance ref='TaskImplementationTypeVH'>
+    <value></value>
+   </instance>
+   <instance-list ref='TaskArgumentsVH'>
+    <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='GwX5LA'>
+     <instance ref='ArgumentIndexVH'>
+      <value></value>
+     </instance>
+     <instance ref='ArgumentTypeVH'>
+      <value></value>
+     </instance>
+     <instance ref='ParameterName'>
+      <value></value>
+     </instance>
+     <instance-selection ref='ArgumentValueVH'>
+      <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='JmZsnW'>
+       <instance ref='value'>
+        <value>theMessage</value>
+       </instance>
+      </item>
+     </instance-selection>
+    </item>
+   </instance-list>
+   <instance ref='TaskReturnTypeVH'>
+    <value></value>
+   </instance>
+   <instance-selection ref='TaskReturnValueVH'>
+    <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='QAPlZc'>
+     <instance ref='value'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-selection>
+   <instance ref='TaskCommentsVH'>
+    <value></value>
+   </instance>
+   <instance ref='TaskNameVH'>
+    <value>Common Rules</value>
+   </instance>
+  </item>
+  <item template='5nrT9calkTxODnluALdD788RpOy.template12' id='RLbiX0'>
+   <instance ref='SplitCommentsVH'>
+    <value></value>
+   </instance>
+   <instance-list ref='BranchesVH'>
+    <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='5dysb9'>
+     <instance-list ref='BranchFlowElementsVH'>
+      <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='RtDVF0'>
+       <instance ref='TaskImplementationVH'>
+        <value>Rs_Normal(BlazeMessage)</value>
+       </instance>
+       <instance ref='TaskImplementationParameterCountVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskImplementationTypeVH'>
+        <value></value>
+       </instance>
+       <instance-list ref='TaskArgumentsVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='YhCXf4'>
+         <instance ref='ArgumentIndexVH'>
+          <value></value>
+         </instance>
+         <instance ref='ArgumentTypeVH'>
+          <value></value>
+         </instance>
+         <instance ref='ParameterName'>
+          <value></value>
+         </instance>
+         <instance-selection ref='ArgumentValueVH'>
+          <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='IN71Kz'>
+           <instance ref='value'>
+            <value>theMessage</value>
+           </instance>
+          </item>
+         </instance-selection>
+        </item>
+       </instance-list>
+       <instance ref='TaskReturnTypeVH'>
+        <value></value>
+       </instance>
+       <instance-selection ref='TaskReturnValueVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='PJR1nS'>
+         <instance ref='value'>
+          <value></value>
+         </instance>
+        </item>
+       </instance-selection>
+       <instance ref='TaskCommentsVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskNameVH'>
+        <value>Normal Ruleset</value>
+       </instance>
+      </item>
+     </instance-list>
+     <instance ref='BranchConditionVH'>
+      <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"schemeGroup","fqName":"theMessage.request.application.schemeGroup","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"42","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"schemeGroup","fqName":"theMessage.request.application.schemeGroup","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"43","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+     </instance>
+    </item>
+    <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='12Lr5C'>
+     <instance-list ref='BranchFlowElementsVH'>
+      <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='rcsPXt'>
+       <instance ref='TaskImplementationVH'>
+        <value>Rs_Premium(BlazeMessage)</value>
+       </instance>
+       <instance ref='TaskImplementationParameterCountVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskImplementationTypeVH'>
+        <value></value>
+       </instance>
+       <instance-list ref='TaskArgumentsVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='49F5US'>
+         <instance ref='ArgumentIndexVH'>
+          <value></value>
+         </instance>
+         <instance ref='ArgumentTypeVH'>
+          <value></value>
+         </instance>
+         <instance ref='ParameterName'>
+          <value></value>
+         </instance>
+         <instance-selection ref='ArgumentValueVH'>
+          <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='2ET4JZ'>
+           <instance ref='value'>
+            <value>theMessage</value>
+           </instance>
+          </item>
+         </instance-selection>
+        </item>
+       </instance-list>
+       <instance ref='TaskReturnTypeVH'>
+        <value></value>
+       </instance>
+       <instance-selection ref='TaskReturnValueVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='TsvTQp'>
+         <instance ref='value'>
+          <value></value>
+         </instance>
+        </item>
+       </instance-selection>
+       <instance ref='TaskCommentsVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskNameVH'>
+        <value>Premium Ruleset</value>
+       </instance>
+      </item>
+     </instance-list>
+     <instance ref='BranchConditionVH'>
+      <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"schemeGroup","fqName":"theMessage.request.application.schemeGroup","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"119","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+     </instance>
+    </item>
+    <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='8A20b8'>
+     <instance-list ref='BranchFlowElementsVH'>
+      <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='DUgyu9'>
+       <instance ref='TaskImplementationVH'>
+        <value>RS_UsedCar_FDLienRules(BlazeMessage)</value>
+       </instance>
+       <instance ref='TaskImplementationParameterCountVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskImplementationTypeVH'>
+        <value></value>
+       </instance>
+       <instance-list ref='TaskArgumentsVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='FisVwC'>
+         <instance ref='ArgumentIndexVH'>
+          <value></value>
+         </instance>
+         <instance ref='ArgumentTypeVH'>
+          <value></value>
+         </instance>
+         <instance ref='ParameterName'>
+          <value></value>
+         </instance>
+         <instance-selection ref='ArgumentValueVH'>
+          <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='RCw1IP'>
+           <instance ref='value'>
+            <value>theMessage</value>
+           </instance>
+          </item>
+         </instance-selection>
+        </item>
+       </instance-list>
+       <instance ref='TaskReturnTypeVH'>
+        <value></value>
+       </instance>
+       <instance-selection ref='TaskReturnValueVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='GVDzac'>
+         <instance ref='value'>
+          <value></value>
+         </instance>
+        </item>
+       </instance-selection>
+       <instance ref='TaskCommentsVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskNameVH'>
+        <value>FDLIenRules</value>
+       </instance>
+      </item>
+     </instance-list>
+     <instance ref='BranchConditionVH'>
+      <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"schemeGroup","fqName":"theMessage.request.application.schemeGroup","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"46","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+     </instance>
+    </item>
+    <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='1MMXtD'>
+     <instance-list ref='BranchFlowElementsVH'>
+      <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='PJLDU9'>
+       <instance ref='TaskImplementationVH'>
+        <value>RS_UsedCar_YesBankRules(BlazeMessage)</value>
+       </instance>
+       <instance ref='TaskImplementationParameterCountVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskImplementationTypeVH'>
+        <value></value>
+       </instance>
+       <instance-list ref='TaskArgumentsVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='M2GLxj'>
+         <instance ref='ArgumentIndexVH'>
+          <value></value>
+         </instance>
+         <instance ref='ArgumentTypeVH'>
+          <value></value>
+         </instance>
+         <instance ref='ParameterName'>
+          <value></value>
+         </instance>
+         <instance-selection ref='ArgumentValueVH'>
+          <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='6r9la5'>
+           <instance ref='value'>
+            <value>theMessage</value>
+           </instance>
+          </item>
+         </instance-selection>
+        </item>
+       </instance-list>
+       <instance ref='TaskReturnTypeVH'>
+        <value></value>
+       </instance>
+       <instance-selection ref='TaskReturnValueVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='ZkxN3n'>
+         <instance ref='value'>
+          <value></value>
+         </instance>
+        </item>
+       </instance-selection>
+       <instance ref='TaskCommentsVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskNameVH'>
+        <value>YBL Ruleset</value>
+       </instance>
+      </item>
+     </instance-list>
+     <instance ref='BranchConditionVH'>
+      <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"schemeGroup","fqName":"theMessage.request.application.schemeGroup","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"47","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+     </instance>
+    </item>
+    <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='2Rqfdr'>
+     <instance-list ref='BranchFlowElementsVH'>
+      <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='3r1yYy'>
+       <instance ref='TaskImplementationVH'>
+        <value>RS_UsedCar_AgrBased(BlazeMessage)</value>
+       </instance>
+       <instance ref='TaskImplementationParameterCountVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskImplementationTypeVH'>
+        <value></value>
+       </instance>
+       <instance-list ref='TaskArgumentsVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='Ods6Ik'>
+         <instance ref='ArgumentIndexVH'>
+          <value></value>
+         </instance>
+         <instance ref='ArgumentTypeVH'>
+          <value></value>
+         </instance>
+         <instance ref='ParameterName'>
+          <value></value>
+         </instance>
+         <instance-selection ref='ArgumentValueVH'>
+          <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='a5PgFN'>
+           <instance ref='value'>
+            <value>theMessage</value>
+           </instance>
+          </item>
+         </instance-selection>
+        </item>
+       </instance-list>
+       <instance ref='TaskReturnTypeVH'>
+        <value></value>
+       </instance>
+       <instance-selection ref='TaskReturnValueVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='2WVFg0'>
+         <instance ref='value'>
+          <value></value>
+         </instance>
+        </item>
+       </instance-selection>
+       <instance ref='TaskCommentsVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskNameVH'>
+        <value>Agri Ruleset</value>
+       </instance>
+      </item>
+     </instance-list>
+     <instance ref='BranchConditionVH'>
+      <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"schemeGroup","fqName":"theMessage.request.application.schemeGroup","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"154","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+     </instance>
+    </item>
+    <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='HMEI1f'>
+     <instance-list ref='BranchFlowElementsVH'>
+      <item template='5nrT9calkTxODnluALdD788RpOy.template12' id='Q8vnKi'>
+       <instance ref='SplitCommentsVH'>
+        <value></value>
+       </instance>
+       <instance-list ref='BranchesVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='IRBOcG'>
+         <instance-list ref='BranchFlowElementsVH'>
+          <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='QMsVlS'>
+           <instance ref='TaskImplementationVH'>
+            <value>Rs_RefinanceIncome(BlazeMessage)</value>
+           </instance>
+           <instance ref='TaskImplementationParameterCountVH'>
+            <value></value>
+           </instance>
+           <instance ref='TaskImplementationTypeVH'>
+            <value></value>
+           </instance>
+           <instance-list ref='TaskArgumentsVH'>
+            <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='LU1A3h'>
+             <instance ref='ArgumentIndexVH'>
+              <value></value>
+             </instance>
+             <instance ref='ArgumentTypeVH'>
+              <value></value>
+             </instance>
+             <instance ref='ParameterName'>
+              <value></value>
+             </instance>
+             <instance-selection ref='ArgumentValueVH'>
+              <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='EdpOam'>
+               <instance ref='value'>
+                <value>theMessage</value>
+               </instance>
+              </item>
+             </instance-selection>
+            </item>
+           </instance-list>
+           <instance ref='TaskReturnTypeVH'>
+            <value></value>
+           </instance>
+           <instance-selection ref='TaskReturnValueVH'>
+            <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='AMN7t9'>
+             <instance ref='value'>
+              <value></value>
+             </instance>
+            </item>
+           </instance-selection>
+           <instance ref='TaskCommentsVH'>
+            <value></value>
+           </instance>
+           <instance ref='TaskNameVH'>
+            <value>RefinanceIncome</value>
+           </instance>
+          </item>
+         </instance-list>
+         <instance ref='BranchConditionVH'>
+          <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"scheme","fqName":"theMessage.request.application.scheme","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"177","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+         </instance>
+        </item>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='INBuNa'>
+         <instance-list ref='BranchFlowElementsVH'>
+          <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='YxbIDH'>
+           <instance ref='TaskImplementationVH'>
+            <value>RS_UsedCar_Refinance_Repayment(BlazeMessage)</value>
+           </instance>
+           <instance ref='TaskImplementationParameterCountVH'>
+            <value></value>
+           </instance>
+           <instance ref='TaskImplementationTypeVH'>
+            <value></value>
+           </instance>
+           <instance-list ref='TaskArgumentsVH'>
+            <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='CDfVAs'>
+             <instance ref='ArgumentIndexVH'>
+              <value></value>
+             </instance>
+             <instance ref='ArgumentTypeVH'>
+              <value></value>
+             </instance>
+             <instance ref='ParameterName'>
+              <value></value>
+             </instance>
+             <instance-selection ref='ArgumentValueVH'>
+              <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='DDC1KO'>
+               <instance ref='value'>
+                <value>theMessage</value>
+               </instance>
+              </item>
+             </instance-selection>
+            </item>
+           </instance-list>
+           <instance ref='TaskReturnTypeVH'>
+            <value></value>
+           </instance>
+           <instance-selection ref='TaskReturnValueVH'>
+            <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='VOT9N8'>
+             <instance ref='value'>
+              <value></value>
+             </instance>
+            </item>
+           </instance-selection>
+           <instance ref='TaskCommentsVH'>
+            <value></value>
+           </instance>
+           <instance ref='TaskNameVH'>
+            <value>Refinance_Repayment</value>
+           </instance>
+          </item>
+         </instance-list>
+         <instance ref='BranchConditionVH'>
+          <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"scheme","fqName":"theMessage.request.application.scheme","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"178","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+         </instance>
+        </item>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='WamC7h'>
+         <instance-list ref='BranchFlowElementsVH'>
+         </instance-list>
+         <instance ref='BranchConditionVH'>
+          <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"scheme","fqName":"theMessage.request.application.scheme","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"175","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"},{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"scheme","fqName":"theMessage.request.application.scheme","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"176","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"or","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+         </instance>
+        </item>
+       </instance-list>
+       <instance ref='SplitNameVH'>
+        <value>Split1</value>
+       </instance>
+      </item>
+     </instance-list>
+     <instance ref='BranchConditionVH'>
+      <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"schemeGroup","fqName":"theMessage.request.application.schemeGroup","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"50","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+     </instance>
+    </item>
+    <item template='5nrT9calkTxODnluALdD788RpOy.template13' id='CN4Mp1'>
+     <instance-list ref='BranchFlowElementsVH'>
+      <item template='5nrT9calkTxODnluALdD788RpOy.template25' id='aIBbZ4'>
+       <instance ref='TaskImplementationVH'>
+        <value>RS_UsedCar_PreApproveLimitRules(BlazeMessage)</value>
+       </instance>
+       <instance ref='TaskImplementationParameterCountVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskImplementationTypeVH'>
+        <value></value>
+       </instance>
+       <instance-list ref='TaskArgumentsVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template23' id='C5LKds'>
+         <instance ref='ArgumentIndexVH'>
+          <value></value>
+         </instance>
+         <instance ref='ArgumentTypeVH'>
+          <value></value>
+         </instance>
+         <instance ref='ParameterName'>
+          <value></value>
+         </instance>
+         <instance-selection ref='ArgumentValueVH'>
+          <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='KMq8xU'>
+           <instance ref='value'>
+            <value>theMessage</value>
+           </instance>
+          </item>
+         </instance-selection>
+        </item>
+       </instance-list>
+       <instance ref='TaskReturnTypeVH'>
+        <value></value>
+       </instance>
+       <instance-selection ref='TaskReturnValueVH'>
+        <item template='5nrT9calkTxODnluALdD788RpOy.template40' id='ChFZe4'>
+         <instance ref='value'>
+          <value></value>
+         </instance>
+        </item>
+       </instance-selection>
+       <instance ref='TaskCommentsVH'>
+        <value></value>
+       </instance>
+       <instance ref='TaskNameVH'>
+        <value>Pre_Approved_Ruleset</value>
+       </instance>
+      </item>
+     </instance-list>
+     <instance ref='BranchConditionVH'>
+      <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"schemeGroup","fqName":"theMessage.request.application.schemeGroup","externalType":"string","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"48","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='SplitNameVH'>
+    <value>Scheme Groups</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='StylesheetVH'>
+ </instance>
+</instantiation>

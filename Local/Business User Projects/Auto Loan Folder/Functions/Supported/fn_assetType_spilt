@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='fn_assetType_spilt'>
+ <ide-name>fn_assetType_spilt</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='xMEMLGYj79Now27hED3wJfXdm7'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='xMEMLGYj79Now27hED3wJfXdm7'>
+   <name>fn_assetType_spilt</name>
+   <parameters>
+    <parameter>
+     <name>theMessage</name>
+     <type>BlazeMessage</type>
+    </parameter>
+   </parameters>
+   <body>assetType is a string ;<template:br/>regex is some RegularExpression ;<template:br/>regex=regularExpression(" ");<template:br/>result is some fixed array of string ;<template:br/>assetType =theMessage.request.application.assetDetails.detailAssetLoan.assetType;<template:br/>if(theMessage.request.application.assetDetails is (known and available))then<template:br/>{<template:br/>print("assetType"assetType);<template:br/>if(assetType ="MUVR1" or assetType ="SUVR1")then{<template:br/>theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory ="R1";<template:br/>}else if(assetType ="MUV RISK" or assetType ="SUV RISK")then{<template:br/>theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory ="R2";<template:br/>}else {<template:br/>result =regex.split(assetType); <template:br/><template:br/>count is a integer initially 0;<template:br/>count =result.count;<template:br/>//print("count"count);<template:br/> //print("resultt"result[count-1]);<template:br/><template:br/><![CDATA[if(count <> 0)then{]]><template:br/>if (result[0] ="EV")then{<template:br/>theBlazeMessageBT.EvValue=true;<template:br/><template:br/><template:tab/>print("Electrical vechicle");<template:br/><template:tab/>if(result[count-1] contains match "R1")then{<template:br/><template:tab/>print("Electrical R1");<template:br/> <template:tab/>theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory ="R1";<template:br/><template:tab/>}else if(result[count-1] contains match "R2")then{<template:br/><template:tab/>theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory ="R2";<template:br/><template:tab/>}<template:br/>}else{<template:br/><template:tab/>print("Standared vechicle");<template:br/><template:tab/>if(result[count-1] contains match "RISK1")then{<template:br/><template:tab/><template:tab/>theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory="RISK1" ;<template:br/><template:tab/>}else if(result[count-1] contains match "RISK2")then{<template:br/><template:tab/><template:tab/>theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory="RISK2" ;<template:br/><template:tab/>}<template:br/>}<template:br/>print("risk"theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory);<template:br/>}<template:br/>}<template:br/>}<template:br/>//print("result"result);<template:br/></body>
+  </function></template:content>
+</template>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_Eligibility_BankingScheme'>
+ <ide-name>TC_Eligibility_BankingScheme</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='AkpAy91fD72ekpPQVMAQiKpVftk'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>Eligibility</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='AkpAy91fD72ekpPQVMAQiKpVftk'>
+   <name>TC_Eligibility_BankingScheme</name>
+   <body>liability is some Liability;<template:br/>liability = a Liability initially{<template:br/>it.typeOfLoanProduct = "19070502";<template:br/>it.balanceTenure = 10;<template:br/>it.loanAmount =100000;<template:br/>it.principalOutstanding = 100000<template:br/>}<template:br/><template:br/>liabilityArr is some array of Liability initially an array of Liability;<template:br/>liabilityArr.append(liability);<template:br/><template:br/>applicant is some Applicant;<template:br/>applicant = an Applicant initially{<template:br/>it.applicantType = "P";<template:br/>it.liabilities = liabilityArr;<template:br/>}<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/>loanDetails is some LoanDetails;<template:br/>loanDetails = a LoanDetails initially{<template:br/>it.tenure=30;<template:br/>it.loanAmount=1000000;<template:br/>}<template:br/><template:br/>newVehicleDetails is some NewVehicleDetails;<template:br/>newVehicleDetails = a NewVehicleDetails initially {<template:br/>it.assetCost =  500000;<template:br/>} <template:br/><template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel="27424";<template:br/><template:br/><template:br/>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>assetDetails.detailAssetLoan = detailAssetLoan;<template:br/>assetDetails.newVehicleDetails = newVehicleDetails;<template:br/><template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.schemeGroup = "20";<template:br/>application.scheme = "50";<template:br/>application.loanDetails=loanDetails;<template:br/>application.applicants=applicantArr;<template:br/>application.assetDetails = assetDetails;<template:br/><template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>invocation is some Invocation initially a Invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation=invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation.lineOfBusiness = LineOfBusiness.AL;<template:br/><template:br/><template:br/>fn_Apply_NewCar_EligibilityCompuation(blazeMessage);<template:br/><template:br/><template:br/>assert().checkTrue("TC_Eligibility_Normal_CorporateIncome_Pos", theBlazeMessageBT.maxEligibleAmount = 350000);</body>
+  </function></template:content>
+</template>

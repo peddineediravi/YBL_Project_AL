@@ -1,0 +1,488 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_UsedTractor_Depreciationgrid'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_UsedTractor_Depreciationgrid</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("====entering the function usedTracterDepreciationGrid");
+   asset_Age is a real initially 0;
+	asset_Cost is a real initially 0;
+	counter is an integer initially 1;
+	counter1 is an integer initially 13;
+	counter2 is an integer initially 61;
+	counter3 is an integer initially 121;
+	assetvalue is a real initially 0;
+	actualLtv is a real initially 0;
+	asset_Age1 is a real initially 0;
+	//// Used Car Depreciation grid
+	asset_Age=math().ceil(theFMABT.FMAAssetAge/365);
+   //asset_Age = theFMABT.FMAAssetAge/365;
+	//asset_Age1=math().ceil(theFMABT.FMAAssetAge/30);
+  asset_Age1 = math().ceil(theFMABT.FMAAssetAge*12/365);
+	asset_Cost=blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost;
+	print("asset_Age::"asset_Age"asset_Cost::"asset_Cost);
+	print("asset_Age1:::"asset_Age1);
+	asset_Cost1 is a real initially 0;
+	asset_Cost2 is a real initially 0;
+	asset_Cost3 is a real initially 0;
+	asset_Cost4 is a real initially 0;
+	asset_Cost5 is a real initially 0;
+	asset_Cost6 is a real initially 0;
+	asset_Cost7 is a real initially 0;
+	asset_Cost8 is a real initially 0;
+	asset_Cost9 is a real initially 0;
+	asset_Cost10 is a real initially 0;
+	asset_Cost11 is a real initially 0;
+	asset_Cost12 is a real initially 0;
+	asset_Cost13 is a real initially 0;
+	asset_Cost14 is a real initially 0;
+	asset_Cost0 is a real initially 0;
+	
+	
+	while(asset_Age>0 and counter<=asset_Age)do{
+		
+		if(counter=1)then {
+			asset_Cost= math().round(asset_Cost*0.85);
+			print("asset_Cost Year1="asset_Cost);
+			asset_Cost0=asset_Cost;
+			}else if(counter>1 and counter<=5)then{
+					while(asset_Age1>0 and  (counter1>counter and counter1<=asset_Age1))do{
+						//2
+							if	(counter1 >=13 and counter1<=15)then{         //13-14-15
+								asset_Cost1= math().round(asset_Cost*0.975);
+								print("asset_Cost 2YQ1="asset_Cost1);
+							}else if(counter1 >=16 and counter1<=18)then{  //16-17-18
+								asset_Cost1= math().round(asset_Cost*0.95);
+								print("asset_Cost 2yQ2="asset_Cost1);
+							}else if(counter1 >=19 and counter1<=21)then{  //19-20-21
+								asset_Cost1= math().round(asset_Cost*0.925);
+								print("asset_Cost 2yQ3="asset_Cost1);
+							}else if(counter1 >=22 and counter1<=24)then{ //22-23-24
+								asset_Cost1= math().round(asset_Cost*0.9);
+								print("asset_Cost 2yQ4="asset_Cost1);
+							}else if	(counter1 >=25 and counter1<=27)then{//25-26-27
+								asset_Cost2= math().round(asset_Cost1*0.975);
+								print("asset_Cost 2YQ5="asset_Cost2);
+							}else if(counter1 >=28 and counter1<30)then{ //28-29-30
+								asset_Cost2= math().round(asset_Cost1*0.95);
+								print("asset_Cost 2yQ6="asset_Cost2);
+							}else if(counter1 >=31 and counter1<=33)then{ //31-32-33
+								asset_Cost2= math().round(asset_Cost1*0.925);
+								print("asset_Cost 2yQ7="asset_Cost2);
+							}else if(counter1 >=34 and counter1<=36)then{  //34-35-36
+								asset_Cost2= math().round(asset_Cost1*0.9);
+								print("asset_Cost 2yQ8="asset_Cost2);
+							}else if	(counter1 >=37 and counter1<=39)then{ //37-38-39
+								asset_Cost3= math().round(asset_Cost2*0.975);
+								print("asset_Cost 2YQ9="asset_Cost3);
+							}else if(counter1 >=40 and counter1<=42)then{ //40-41-42
+								asset_Cost3= math().round(asset_Cost2*0.95);
+								print("asset_Cost 2yQ10="asset_Cost3);
+							}else if(counter1 >=43 and counter1<=45)then{ //43-44-45
+								asset_Cost3= math().round(asset_Cost2*0.925);
+								print("asset_Cost 2yQ11="asset_Cost3);
+							}else if(counter1 >=46 and counter1<=48)then{//46-47-48
+								asset_Cost3= math().round(asset_Cost2*0.9);
+								print("asset_Cost 2yQ12="asset_Cost3);
+							}else if(counter1 >=49 and counter1<=51)then{ //49-50-51
+								asset_Cost4= math().round(asset_Cost3*0.975);
+								print("asset_Cost 2YQ13="asset_Cost4);
+							}else if(counter1 >=52 and counter1<=54)then{ //51-52-53
+								asset_Cost4= math().round(asset_Cost3*0.95);
+								print("asset_Cost 2yQ14="asset_Cost4);
+							}else if(counter1 >=55 and counter1<=57)then{ //54-55-56
+								asset_Cost4= math().round(asset_Cost3*0.925);
+								print("asset_Cost 2yQ15="asset_Cost4);
+							}else if(counter1 >=58 and counter1<=60)then{ //57-58-59
+								asset_Cost4= math().round(asset_Cost3*0.9);
+								print("asset_Cost 2yQ16="asset_Cost4);
+								
+							}
+							
+							
+							counter1=counter1+1;
+					}
+				
+				
+			
+			}else if(counter>=6 and counter<=10)then{
+				print("++++++++++++++asset_Age1"asset_Age1 "++counter2++" counter2);
+				while(asset_Age1>0 and counter2<=asset_Age1)do{
+							
+						//6
+						    print("+++++++++counter2+++++" counter2);
+							 if	(counter2 >=61 and counter2<=63)then{
+								asset_Cost5= math().round(asset_Cost4*0.98);
+								print("asset_Cost y6Q1="asset_Cost5);
+							}else if(counter2 >=64 and counter2<=66)then{
+								asset_Cost5= math().round(asset_Cost4*0.96);
+								print("asset_Cost y6Q2="asset_Cost5);
+							}else if(counter2 >=67 and counter2<=69)then{
+								asset_Cost5= math().round(asset_Cost4*0.94);
+								print("asset_Cost y6Q3="asset_Cost5);
+							}else if(counter2 >=70 and counter2<=72)then{
+								asset_Cost5= math().round(asset_Cost4*0.92);
+								print("asset_Cost y6Q4="asset_Cost5);
+							}
+							//7
+						    else if(counter2 >=73 and counter2<=75)then{
+								asset_Cost6= math().round(asset_Cost5*0.98);
+								print("asset_Cost y7Q1="asset_Cost6);
+							}else if(counter2 >=76 and counter2<=78)then{
+								asset_Cost6= math().round(asset_Cost5*0.96);
+								print("asset_Cost y7Q2="asset_Cost6);
+							}else if(counter2 >=79 and counter2<=81)then{
+								asset_Cost6= math().round(asset_Cost5*0.94);
+								print("asset_Cost y7Q3="asset_Cost6);
+							}else if(counter2 >=82 and counter2<=84)then{
+								asset_Cost6= math().round(asset_Cost5*0.92);
+								print("asset_Cost y7Q4="asset_Cost6);
+							}
+							//8
+							
+							else if(counter2 >=85 and counter2<=87)then{
+								asset_Cost7= math().round(asset_Cost6*0.98);
+								print("asset_Cost y8Q1="asset_Cost7);
+							}else if(counter2 >=88 and counter2<=90)then{
+								asset_Cost7= math().round(asset_Cost6*0.96);
+								print("asset_Cost y8Q2="asset_Cost7);
+							}else if(counter2 >=91 and counter2<=93)then{
+								asset_Cost7= math().round(asset_Cost6*0.94);
+								print("asset_Cost y8Q3="asset_Cost7);
+							}else if(counter2 >=94 and counter2<=96)then{
+								asset_Cost7= math().round(asset_Cost6*0.92);
+								print("asset_Cost y8Q4="asset_Cost7);
+							}
+							//9
+							else if(counter2 >=97 and counter2<=99)then{
+								asset_Cost8= math().round(asset_Cost7*0.98);
+								print("asset_Cost y9Q1="asset_Cost8);
+							}else if(counter2 >=100 and counter2<=102)then{
+								asset_Cost8= math().round(asset_Cost7*0.96);
+								print("asset_Cost y9Q2="asset_Cost8);
+							}else if(counter2 >=103 and counter2<=105)then{
+								asset_Cost8= math().round(asset_Cost7*0.94);
+								print("asset_Cost y9Q3="asset_Cost8);
+							}else if(counter2 >=106 and counter2<=108)then{
+								asset_Cost8= math().round(asset_Cost7*0.92);
+								print("asset_Cost y9Q4="asset_Cost8);
+							}
+							//10
+							else if(counter2 >=109 and counter2<=111)then{
+								asset_Cost9= math().round(asset_Cost8*0.98);
+								print("asset_Cost y10Q1="asset_Cost9);
+							}else if(counter2 >=112 and counter2<=114)then{
+								asset_Cost9= math().round(asset_Cost8*0.96);
+								print("asset_Cost y10Q2="asset_Cost9);
+							}else if(counter2 >=115 and counter2<=117)then{
+								asset_Cost9= math().round(asset_Cost8*0.94);
+								print("asset_Cost y10Q3="asset_Cost9);
+							}else if(counter2 >=118 and counter2<=120)then{
+								asset_Cost9= math().round(asset_Cost8*0.92);
+								print("asset_Cost y10Q4="asset_Cost9);
+							}
+							counter2=counter2+1;
+				}
+}			
+			
+			
+			else if(counter>=11)then{
+				
+				while(asset_Age1>0 and counter3<=asset_Age1)do{
+							
+							//11
+							 if	(counter3 >=121 and counter3<=123)then{
+								asset_Cost10= math().round(asset_Cost9*0.985);
+								print("asset_Cost y11Q1="asset_Cost10);
+							}else if(counter3 >=124 and counter3<=126)then{
+								asset_Cost10= math().round(asset_Cost9*0.97);
+								print("asset_Cost y11Q2="asset_Cost10);
+							}else if(counter3 >=127 and counter3<=129)then{
+								asset_Cost10= math().round(asset_Cost9*0.955);
+								print("asset_Cost y11Q3="asset_Cost10);
+							}else if(counter3 >=130 and counter3<=132)then{
+								asset_Cost10= math().round(asset_Cost9*0.94);
+								print("asset_Cost y11Q4="asset_Cost10);
+							}
+							//12
+							else if(counter3 >=133 and counter3<=135)then{
+								asset_Cost11= math().round(asset_Cost10*0.985);
+								print("asset_Cost y12Q1="asset_Cost11);
+							}else if(counter3 >=136 and counter3<=138)then{
+								asset_Cost11= math().round(asset_Cost10*0.97);
+								print("asset_Cost y12Q2="asset_Cost11);
+							}else if(counter3 >=139 and counter3<=141)then{
+								asset_Cost11= math().round(asset_Cost10*0.955);
+								print("asset_Cost y12Q3="asset_Cost11);
+							}else if(counter3 >=142 and counter3<=144)then{
+								asset_Cost11= math().round(asset_Cost10*0.94);
+								print("asset_Cost y12Q4="asset_Cost11);
+							}
+							//14
+							
+							else if(counter3 >=145 and counter3<=147)then{
+								asset_Cost12= math().round(asset_Cost11*0.985);
+								print("asset_Cost y13Q1="asset_Cost12);
+							}else if(counter3 >=148 and counter3<=150)then{
+								asset_Cost12= math().round(asset_Cost11*0.97);
+								print("asset_Cost y13Q2="asset_Cost12);
+							}else if(counter3 >=151 and counter3<=153)then{
+								asset_Cost12= math().round(asset_Cost11*0.955);
+								print("asset_Cost y13Q3="asset_Cost12);
+							}else if(counter3 >=154 and counter3<=156)then{
+								asset_Cost12= math().round(asset_Cost11*0.94);
+								print("asset_Cost y13Q4="asset_Cost12);
+							}
+							//9
+							else if(counter3 >=157 and counter3<=159)then{
+								asset_Cost13= math().round(asset_Cost12*0.985);
+								print("asset_Cost y14Q1="asset_Cost13);
+							}else if(counter3 >=160 and counter3<=162)then{
+								asset_Cost13= math().round(asset_Cost12*0.97);
+								print("asset_Cost y14Q2="asset_Cost13);
+							}else if(counter3 >=163 and counter3<=165)then{
+								asset_Cost13= math().round(asset_Cost12*0.955);
+								print("asset_Cost y14Q3="asset_Cost13);
+							}else if(counter3 >=166 and counter3<=168)then{
+								asset_Cost13= math().round(asset_Cost12*0.94);
+								print("asset_Cost y14Q4="asset_Cost13);
+							}
+							//10
+							
+							counter3=counter3+1;
+					}
+					
+			}
+				counter=counter+1;
+	}
+	
+	
+	print("theFMABT.FMAAssetAge"theFMABT.FMAAssetAge);
+	print("counter"counter "asset_Age1======" asset_Age1 "asset_Cost+++++++" asset_Cost);
+	tempasset_Cost is a real initially 0;
+	
+	if(asset_Age1 <=12 )then {
+			tempasset_Cost = asset_Cost;
+    }else if (asset_Age1 >=13 and asset_Age1 <=24)then {
+			tempasset_Cost = asset_Cost1;
+	}else if (asset_Age1 >=25 and asset_Age1 <=36)then {
+			tempasset_Cost = asset_Cost2;
+	}else if (asset_Age1 >=37 and asset_Age1 <=48)then {
+			tempasset_Cost = asset_Cost3;
+	}else if (asset_Age1 >=49 and asset_Age1 <=60)then {
+			tempasset_Cost = asset_Cost4;
+	}else if (asset_Age1 >=61 and asset_Age1 <=72)then {
+			tempasset_Cost = asset_Cost5;
+	}else if (asset_Age1 >=73 and asset_Age1 <=84)then {
+			tempasset_Cost = asset_Cost6;
+	}else if (asset_Age1 >=85 and asset_Age1 <=96)then {
+			tempasset_Cost = asset_Cost7;
+	}else if (asset_Age1 >=97 and asset_Age1 <=108)then {
+			tempasset_Cost = asset_Cost8;
+	}else if (asset_Age1 >=109 and asset_Age1 <=120)then {
+			tempasset_Cost = asset_Cost9;
+	}else if (asset_Age1 >=121 and asset_Age1 <=132)then {
+			tempasset_Cost = asset_Cost10;
+	}else if (asset_Age1 >=133 and asset_Age1 <=144)then {
+			tempasset_Cost = asset_Cost11;
+	}else if (asset_Age1 >=145 and asset_Age1 <=156)then {
+			tempasset_Cost = asset_Cost12;
+	}else if (asset_Age1 >=157 and asset_Age1 <=168)then {
+			tempasset_Cost = asset_Cost13;
+	}
+	//if(counter is  (known and available) )then{
+		//print("counter in side "counter);
+		//print("counter"counter"asset_Cost"asset_Cost"asset_Cost1"asset_Cost1"counter1="counter1);
+		//print("asset_Cost1="asset_Cost1"asset_Cost2="asset_Cost2"asset_Cost3="asset_Cost3"asset_Cost4="asset_Cost4"asset_Cost5="asset_Cost5"asset_Cost6="asset_Cost6"asset_Cost7="asset_Cost7"asset_Cost8="asset_Cost8"asset_Cost9="asset_Cost9"asset_Cost10="asset_Cost10"asset_Cost11="asset_Cost11"asset_Cost12="asset_Cost12"asset_Cost13="asset_Cost13);
+		//if(counter <=1 or counter1<=12)then{
+		//	tempasset_Cost =asset_Cost;
+		//}else if(counter=2 and counter1 >12)then{
+		//	tempasset_Cost =asset_Cost1;
+		//}else if(counter =3)then{
+		//	if(asset_Cost2>0)then{
+		//	tempasset_Cost =asset_Cost2;
+		//	}else{
+		//		tempasset_Cost=asset_Cost1;
+		//	}
+		//}else if(counter=4)then{
+		//	if(asset_Cost3>0)then{
+		//	tempasset_Cost =asset_Cost3;
+		//	}else{
+		//		tempasset_Cost =asset_Cost2;
+		//	}
+		//}else if(counter=5)then{
+		//	if(asset_Cost4>0)then{
+		//	tempasset_Cost =asset_Cost4;
+		//	}else{
+		//		tempasset_Cost =asset_Cost3;
+		//	}
+			
+		//}else if(counter=6)then{
+		//	if(asset_Cost5>0)then{
+		//	tempasset_Cost =asset_Cost5;
+		//	}else{
+		//		tempasset_Cost=asset_Cost4
+		//	}
+		//}else if(counter=7)then{
+		//	if(asset_Cost6>0)then{
+		//		tempasset_Cost =asset_Cost6;
+		//	}else{
+		//		tempasset_Cost =asset_Cost5;
+		//	}
+			
+		//}else if(counter=8)then{
+		//	if(asset_Cost7>0)then{
+		//		tempasset_Cost =asset_Cost7;
+		//	}else{
+		//		tempasset_Cost =asset_Cost6;
+		//	}
+			
+		//}else if(counter=9)then{
+		//	if(asset_Cost8>0)then{
+		//		tempasset_Cost =asset_Cost8;
+		//	}else{
+		//		tempasset_Cost =asset_Cost7;
+		//	}
+		//}else if(counter=10)then{
+		//	if(asset_Cost9>0)then{
+				//tempasset_Cost =asset_Cost9;
+			//}else{
+			//	tempasset_Cost =asset_Cost8;
+			//}
+		//}else if(counter=11)then{
+			//if(asset_Cost10>0)then{
+				//tempasset_Cost =asset_Cost10;
+			//}else{
+				//tempasset_Cost =asset_Cost9;
+			//}
+		//}else if(counter=12)then{
+			//if(asset_Cost11>0)then{
+				//tempasset_Cost =asset_Cost11;
+			//}else{
+				//tempasset_Cost =asset_Cost10;
+			//}
+			
+		//}else if(counter=13)then{
+			//if(asset_Cost12>0)then{
+				//tempasset_Cost =asset_Cost12;
+			//}else{
+				//tempasset_Cost =asset_Cost11;
+			//}
+			
+		//}else if(counter>13)then{
+			
+			//if(asset_Cost13>0)then{
+				//tempasset_Cost =asset_Cost13;
+			//}else{
+				//tempasset_Cost =asset_Cost12;
+			//}
+			
+	//	}
+	//}
+
+print("asset_Cost_After Depreciation=="tempasset_Cost);
+	if(theBlazeMessageBT.apraisedValue>0 and tempasset_Cost is (known and available))then{
+	  tempasset_Cost=math().min(theBlazeMessageBT.apraisedValue, tempasset_Cost)
+	}else{
+	tempasset_Cost=tempasset_Cost;
+	}
+	theFMABT.DepreciationAssetcost=tempasset_Cost;
+	print("===theFMABT.DepreciationAssetcost==="theFMABT.DepreciationAssetcost);
+
+	if(blazeMessage.request.application.scheme=("364" or "365"))then{
+	fn_AppendActionMessage("used car Depreciation assetcost is:"theFMABT.DepreciationAssetcost);
+	}
+
+	if(blazeMessage.request.application.scheme is not equal to ("364" and "365"))then{
+		 if(blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice is (known and available) and blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice>0 and  blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost is (known and available))then{
+			   assetvalue=math().min(blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice, blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+					actualLtv =  theBlazeMessageBT.InsuredLoanAmount/assetvalue;
+					actualLtv = actualLtv*100;
+					roundingUpto is an integer initially -2;
+					actualLtv = math().round(actualLtv, roundingUpto);
+						print("FMALTV_NEW=="actualLtv);
+				}  
+	}
+	if(blazeMessage.request.application.scheme is equal to ("364" or "365"))then{
+					actualLtv =(blazeMessage.request.application.loanDetails.loanAmount-theFMABT.InuranceAmount)/tempasset_Cost;
+					print("actualLtv==="actualLtv);
+				//	actualLtv =  theBlazeMessageBT.InsuredLoanAmount/asset_Cost;
+					actualLtv = actualLtv*100;
+					roundingUpto is an integer initially -2;
+					actualLtv = math().round(actualLtv, roundingUpto);
+						print("FMALTV_NEW=="actualLtv);
+				} 
+
+
+	theBlazeMessageBT.actualLtv=actualLtv;
+ print("=========asset_Age============ " asset_Age);
+    fn_AppendActionMessage("assetAge is:"asset_Age);
+    
+
+	fn_AppendActionMessage("Actual LTV value is:"theBlazeMessageBT.actualLtv); ]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='uUuRVb'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_applicantLiability'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_applicantLiability</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("fn_applicantLiability Entering");
+anApplicant is some Applicant; 
+tempFinancierName is a string ;
+tempTypeOfLoanProduct  is a string ;
+tempLoanAmount is a real;
+tempEMIAmount is a real;
+tempNoOfEmiPaid is a real;
+tempNoOfBounce is a integer;
+tempOutstandingBalance is a real;
+tempLoanClosureDate is a string; 
+
+tempNoOfPeakDPD is a integer;
+
+	for each Applicant in blazeMessage.request.application.applicants do{
+		anApplicant=it;
+                if(it.applicantType  is (known and available) and it.applicantType  ="P")then{
+                  		 if(it.liabilities  is (known and available) and it.liabilities.count>0) then{
+                           			for each Liability in anApplicant.liabilities do{
+                                      				if(it.financierName   is (known and available)  )then{
+                                                      		if(it.financierName =(ignoring case)("532" or "YESB" or "YBL" or "YES"))then{
+                                                      					tempFinancierName ="Yes Bank Ltd";
+                                                  			   }else 	if(it.financierName =(ignoring case)("HDB" or "HDFC"))then{
+                                                                 		tempFinancierName ="HDFC Bank Ltd"
+                                                               } else {
+                                                                 		tempFinancierName =it.financierName;
+                                                               }
+													}
+													if(it.typeOfLoanProduct is (known and available)  )then{
+														if(it.typeOfLoanProduct="12")then{
+														tempTypeOfLoanProduct ="BANK GUARANTEE";
+														}else if(it.typeOfLoanProduct=("2" or "02"))then{
+															tempTypeOfLoanProduct ="CREDIT CARD";
+														}else if(it.typeOfLoanProduct="16")then{
+															tempTypeOfLoanProduct ="EXPORT NEGOTIATION";
+														}else if(it.typeOfLoanProduct="23")then{
+															tempTypeOfLoanProduct ="Home loan";
+														}else if(it.typeOfLoanProduct=("4" or "04"))then{
+															tempTypeOfLoanProduct ="INVESTMENT TERM LOAN";
+														}else if(it.typeOfLoanProduct="14")then{
+															tempTypeOfLoanProduct =" L/C LINE ";
+														}else if(it.typeOfLoanProduct="18")then{
+															tempTypeOfLoanProduct ="L/C SUB LIMIT TR ";
+														}else if(it.typeOfLoanProduct="37")then{
+															tempTypeOfLoanProduct ="MEDICAL EQUIPMENT";
+														}else if(it.typeOfLoanProduct="EXISLOAN")then{
+															tempTypeOfLoanProduct ="MEF-EXISTING LOAN TYPE (OD/DOD/TL)!";
+														}else if(it.typeOfLoanProduct="FEES")then{
+															tempTypeOfLoanProduct ="MONTHLY FEES";
+														}else if(it.typeOfLoanProduct="22")then{
+															tempTypeOfLoanProduct ="Mortgage Loan";
+														}else if(it.typeOfLoanProduct="10")then{
+															tempTypeOfLoanProduct ="PEF/PSF";
+														}else if(it.typeOfLoanProduct=("3" or "03" or "24"))then{
+															tempTypeOfLoanProduct ="PERSONAL LOAN";
+														}else if(it.typeOfLoanProduct=("7" or "07"))then{
+															tempTypeOfLoanProduct ="PSE/SE";
+														}else if(it.typeOfLoanProduct="15")then{
+															tempTypeOfLoanProduct ="SIGHT L/C LINE";
+														}else if(it.typeOfLoanProduct="19")then{
+															tempTypeOfLoanProduct ="SIGHT L/C SUB LIMIT TR ";
+														}else if(it.typeOfLoanProduct="17")then{
+															tempTypeOfLoanProduct ="SKBDN";
+														}else if(it.typeOfLoanProduct="38")then{
+															tempTypeOfLoanProduct ="TRACTOR";
+														}else if(it.typeOfLoanProduct="13")then{
+															tempTypeOfLoanProduct ="TRUST RECEIPT";
+														}else if(it.typeOfLoanProduct="TW LOAN")then{
+															tempTypeOfLoanProduct ="TW LOAN";
+														}else if(it.typeOfLoanProduct="20")then{
+															tempTypeOfLoanProduct ="USANCE L/C LINE";
+														}else if(it.typeOfLoanProduct=("5" or "05"))then{
+															tempTypeOfLoanProduct ="WORKING CAPITAL DEMAND LOAN ";
+														}else if(it.typeOfLoanProduct="27")then{
+															tempTypeOfLoanProduct ="Working capital Loan";
+														}else if(it.typeOfLoanProduct=("8" or "08"))then{
+															tempTypeOfLoanProduct ="WORKING CAPITAL OVERDRAFT ";
+														}else if(it.typeOfLoanProduct=("9" or "09"))then{
+															tempTypeOfLoanProduct ="WORKING CAPITAL TERM LOAN";
+														}else if(it.typeOfLoanProduct="19070502")then{
+															tempTypeOfLoanProduct ="AUTO LOAN";
+														}else if(it.typeOfLoanProduct="19070503")then{
+															tempTypeOfLoanProduct ="USED CAR LOAN ";
+														}else if(it.typeOfLoanProduct="19070504")then{
+															tempTypeOfLoanProduct =" COMMERCIAL VEHICLE LOAN";
+														}else if(it.typeOfLoanProduct="19070505")then{
+															tempTypeOfLoanProduct ="BUSINESS LOAN";
+														}else if(it.typeOfLoanProduct="UCL")then{
+															tempTypeOfLoanProduct ="Used Car Loan";
+														}else if(it.typeOfLoanProduct="25")then{
+															tempTypeOfLoanProduct ="Auto Loan";
+														}
+														
+														
+													}
+													if(it.loanAmount  is (known and available)  )then{
+														tempLoanAmount =it.loanAmount;
+													}else{
+														tempLoanAmount =0.0;
+													}
+													if(it.EMIAmount is (known and available)  )then{
+														tempEMIAmount =it.EMIAmount
+													}else{
+														tempEMIAmount =0.0;
+													}
+													if( it.noOfEMIsPaid is (known and available)  )then{
+														tempNoOfEmiPaid = it.noOfEMIsPaid
+													}else{
+														tempNoOfEmiPaid = 0.0;
+													}
+													if( it.noOfBounces is (known and available)  )then{
+													tempNoOfBounce =it.noOfBounces;
+													}else{
+													tempNoOfBounce=0;
+													}
+													if(it.principalOutstanding is (known and available)  )then{
+														tempOutstandingBalance =it.principalOutstanding;
+													}else{
+														tempOutstandingBalance =0.0;
+													}
+													if( it.loanClosureDate is (known and available)  )then{
+														tempLoanClosureDate =calendar().date(it.loanClosureDate).toString();
+													} 	else{
+													tempLoanClosureDate =  "NA";
+                                                   
+													}
+													if( it.peakDPD is (known and available)  )then{
+														tempNoOfPeakDPD =it.peakDPD;
+													}else{
+														tempNoOfPeakDPD =0;
+													}
+									
+                                      //
+                                      fn_AppendActionMessage( tempFinancierName " ,Facility Type -"tempTypeOfLoanProduct " , Loan Amount "tempLoanAmount ",EMI Amount "tempEMIAmount" , EMIs paid "tempNoOfEmiPaid" , No. of Bounces "tempNoOfBounce" , Outstanding Balance "tempOutstandingBalance" , Loan Closure Date "tempLoanClosureDate" , Peak DPD"tempNoOfPeakDPD);
+                         }
+                }
+    	}
+    }]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='3DAhZe'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

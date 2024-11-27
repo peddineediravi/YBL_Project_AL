@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_RCUPostCompletionStage'>
+ <ide-name>DT_RCUPostCompletionStage</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='DJXUOfMnQYBR6JAb08QZjJkdspL'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>RCUPOST</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='P5SWHmFuRDPiNqsrri4Zm2sWfZ7'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>RCUPOST</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='2ebohRUx7uFJDSHSdQFGhETwVV8'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='DJXUOfMnQYBR6JAb08QZjJkdspL'>
+   <comment><template:br/></comment>
+   <name>TC_RCUPostCompletionStage002</name>
+   <body><template:br/>application is some Application initially an Application;<template:br/><template:br/>invocation is some Invocation initially an Invocation;<template:br/>invocation.lineOfBusiness =LineOfBusiness.AL;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/>message.invocation=invocation;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>RCUStatus is some RCURequestDetails initially an RCURequestDetails;<template:br/>RCUStatus.status = "NRCP";<template:br/><template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>RCUResponse is some RCUResponse initially an RCUResponse;<template:br/><template:br/>RCUResponse=DT_RCUPostCompletionStage(blazeMessage,RCUStatus);<template:br/><template:br/>assert().checkEquals("approval authority","RCU",RCUResponse.approvalAuthority);<template:br/>assert().checkEquals("approval Level ","L3",RCUResponse.approvalLevel);</body>
+  </function><function managementPropertiesRef='P5SWHmFuRDPiNqsrri4Zm2sWfZ7'>
+   <comment></comment>
+   <name>TC_RCUPostCompletionStage001</name>
+   <body>loanDetails is some LoanDetails initially a LoanDetails;<template:br/>//loanDetails.loanAmount=50000;<template:br/><template:br/><template:br/>rcuRequestDetails is some RCURequestDetails initially a RCURequestDetails;<template:br/>rcuRequestDetails.status="NRCD";<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.rcuRequest=rcuRequestDetails;<template:br/><template:br/>invocation is some Invocation initially an Invocation;<template:br/>invocation.lineOfBusiness =LineOfBusiness.AL;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/>message.invocation=invocation;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>rcuResponse1 is some RCUResponse;<template:br/>//blazeMessage.response.applicationDecision.rcuResponse=rcuResponse;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>rcuResponse1=DT_RCUPostCompletionStage(blazeMessage,rcuRequestDetails);<template:br/>print("$$"rcuResponse1.approvalLevel);<template:br/>assert().checkEquals("approval authority","RCU",rcuResponse1.approvalAuthority);<template:br/>assert().checkEquals("approval Level ","L4",rcuResponse1.approvalLevel);<template:br/></body>
+  </function><function managementPropertiesRef='2ebohRUx7uFJDSHSdQFGhETwVV8'>
+   <name>TC_RCUPostCompletionStage003</name>
+   <body>loanDetails is some LoanDetails initially a LoanDetails;<template:br/>loanDetails.loanAmount=10;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.loanDetails=loanDetails;<template:br/>invocation is some Invocation initially an Invocation;<template:br/>invocation.lineOfBusiness =LineOfBusiness.AL;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/>message.invocation=invocation;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>RCUStatus is some RCURequestDetails initially an RCURequestDetails;<template:br/>RCUStatus.status = "NEG";<template:br/><template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>RCUResponse is some RCUResponse initially an RCUResponse;<template:br/><template:br/>RCUResponse=DT_RCUPostCompletionStage(blazeMessage,RCUStatus);<template:br/><template:br/>assert().checkEquals("approval authority","Credit",RCUResponse.approvalAuthority);<template:br/>assert().checkEquals("approval Level ","L3",RCUResponse.approvalLevel);</body>
+  </function></template:content>
+</template>

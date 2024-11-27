@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_UP_LMH'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_UP_LMH</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("=====Entering into up LMH=====");
+anApplicant is some Applicant;
+theApplication is some Application;
+lowPincode is an integer initially 0;
+lowState is a real initially 0.0;
+mediumState is an integer initially 0;
+mediumPincode is an integer initially 0;
+UPcampaigncibil is a boolean initially false;
+thepincode is a real initially 0.0;
+numberofacresLow is a real initially 0.0;
+numberofacresMedium is a real initially 0.0;
+numberofacresHigh is a real initially 0.0;
+count is a real  initially 0.0;
+actualLTV is a real initially 0.0;
+isApplicant is a boolean initially false;
+restrictedLTV is a real initially 0.0;
+UPstate is a boolean initially false;
+
+  //Low Risk Districts
+  for each Applicant in theFMABT.termSetInput.request.application.applicants do{
+  anApplicant = it;
+if( it.applicantType=("P" or "C"))then{
+              if(it.noOfAcres is known)then{
+				  numberofacresLow = numberofacresLow + it.noOfAcres;
+			  }
+}		  
+}
+print("numberofacresLow==="numberofacresLow);
+   for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType=("P" or "C"))do{
+  anApplicant = it;
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants do{
+  		anApplicant=it;
+                          if((blazeMessage.request.application.campaign is (known and available) and blazeMessage.request.application.campaign = ("New to Credit Customer" or "34")) or 
+			 (theBlazeMessageBT.appLevelCibilScore is (known and available) and (theBlazeMessageBT.appLevelCibilScore = 0) or (theBlazeMessageBT.appLevelCibilScore = -1) or 
+			  (theBlazeMessageBT.appLevelCibilScore = 1) or (theBlazeMessageBT.appLevelCibilScore = 2) or (theBlazeMessageBT.appLevelCibilScore = 3) or (theBlazeMessageBT.appLevelCibilScore = 4) or
+			  (theBlazeMessageBT.appLevelCibilScore = 5) ))then{
+						UPcampaigncibil = true;
+					}
+				}
+     print("campaign@@"blazeMessage.request.application.campaign);
+   }
+print("UPcampaigncibil::::"UPcampaigncibil);
+
+for each Applicant in blazeMessage.request.application.applicants such that (it.applicantType is known and it.applicantType = ("P" or "c" )) do{
+anApplicant = it;
+for each Address in anApplicant.addresses do {
+for each Address in anApplicant.addresses such that( it.pincode is (known and available))do{
+
+thepincode = apply DT_LowRisk(blazeMessage, it.state, it.pincode);
+  print("it.state:::::::::::"it.state);
+  print("it.pincode ::::::::::"it.pincode);
+}
+}
+}
+ 
+ print("thepincodeLow==:::::::::::"thepincode);
+print("theBlazeMessageBT.standardLtv::::"theBlazeMessageBT.standardLtv);
+if(  blazeMessage.request.application.scheme is (known and available) and blazeMessage.request.application.scheme=("130" or "125") and  thepincode is (known and available) and  thepincode = 1 and
+UPcampaigncibil is (known and available) and UPcampaigncibil = true and numberofacresLow is (known and available) and numberofacresLow <=1 ) then {
+	actualLTV =theBlazeMessageBT.standardLtv;
+  actualLTV = actualLTV*100;
+if(actualLTV > 70) then {
+	 actualLTV = 70;
+}
+theBlazeMessageBT.standardLtv = (actualLTV/100);
+}
+print("theBlazeMessageBT.standardLtv UP-Low-pincode=="theBlazeMessageBT.standardLtv);
+
+ //Medium Risk Districts
+  for each Applicant in theFMABT.termSetInput.request.application.applicants do{
+  anApplicant = it;
+if( it.applicantType=("P" or "C"))then{
+              if(it.noOfAcres is known)then{
+				  numberofacresMedium = numberofacresMedium + it.noOfAcres;
+			  }
+}		  
+}
+print("numberofacresMedium==="numberofacresMedium);
+   for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType=("P" or "C"))do{
+  anApplicant = it;
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants do{
+  		anApplicant=it;
+                          if((blazeMessage.request.application.campaign is (known and available) and blazeMessage.request.application.campaign = ("New to Credit Customer" or "34")) or 
+			 (theBlazeMessageBT.appLevelCibilScore is (known and available) and (theBlazeMessageBT.appLevelCibilScore = 0) or (theBlazeMessageBT.appLevelCibilScore = -1) or 
+			  (theBlazeMessageBT.appLevelCibilScore = 1) or (theBlazeMessageBT.appLevelCibilScore = 2) or (theBlazeMessageBT.appLevelCibilScore = 3) or (theBlazeMessageBT.appLevelCibilScore = 4) or
+			  (theBlazeMessageBT.appLevelCibilScore = 5) or ( theBlazeMessageBT.appLevelCibilScore >680 and theBlazeMessageBT.appLevelCibilScore <701)))then{
+                UPcampaigncibil = true;
+					}
+				}
+          print("campaign@@"blazeMessage.request.application.campaign);
+   }
+print("UPcampaigncibil::::"UPcampaigncibil);
+for each Applicant in blazeMessage.request.application.applicants such that (it.applicantType is known and it.applicantType = ("P" or "c" )) do{
+anApplicant = it;
+for each Address in anApplicant.addresses do {
+for each Address in anApplicant.addresses such that( it.pincode is (known and available))do{
+
+thepincode = apply DT_Medium_Risk(blazeMessage,it.pincode, it.state);
+  print("it.state:::::::::::"it.state);
+  print("it.pincode ::::::::::"it.pincode);
+}
+}
+}
+ 
+ print("thepincodeMedium==:::::::::::"thepincode);
+print("theBlazeMessageBT.standardLtv::::"theBlazeMessageBT.standardLtv);
+if( blazeMessage.request.application.scheme is (known and available) and blazeMessage.request.application.scheme=("130" or "125" or "364" or "365") and thepincode is (known and available) and  thepincode = 1 and
+UPcampaigncibil is (known and available) and UPcampaigncibil = true and  numberofacresMedium is (known and available) and numberofacresMedium <=1  ) then {
+	actualLTV = theBlazeMessageBT.standardLtv;
+  actualLTV = actualLTV*100;
+if(actualLTV > 70) then {
+	 actualLTV = 70;
+}
+theBlazeMessageBT.standardLtv = (actualLTV/100);
+}
+print("theBlazeMessageBT.standardLtv UP-Medium-pincode=="theBlazeMessageBT.standardLtv);
+
+ //High Risk Districts
+  for each Applicant in theFMABT.termSetInput.request.application.applicants do{
+  anApplicant = it;
+if( it.applicantType=("P" or "C"))then{
+              if(it.noOfAcres is known)then{
+				  numberofacresHigh = numberofacresHigh + it.noOfAcres;
+			  }
+}		  
+}
+print("numberofacresHigh==="numberofacresHigh);
+  for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType=("P" or "C"))do{
+  anApplicant = it;
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants do{
+  		anApplicant=it;
+                          if((blazeMessage.request.application.campaign is (known and available) and blazeMessage.request.application.campaign = ("New to Credit Customer" or "34")) or 
+			 (theBlazeMessageBT.appLevelCibilScore is (known and available) and (theBlazeMessageBT.appLevelCibilScore = 0) or (theBlazeMessageBT.appLevelCibilScore = -1) or 
+			  (theBlazeMessageBT.appLevelCibilScore = 1) or (theBlazeMessageBT.appLevelCibilScore = 2) or (theBlazeMessageBT.appLevelCibilScore = 3) or (theBlazeMessageBT.appLevelCibilScore = 4) or
+			  (theBlazeMessageBT.appLevelCibilScore = 5) or ( theBlazeMessageBT.appLevelCibilScore >680 and theBlazeMessageBT.appLevelCibilScore <731)))then{
+                UPcampaigncibil = true;
+					}
+				}
+         print("campaign@@"blazeMessage.request.application.campaign);
+   }
+print("UPcampaigncibil::::"UPcampaigncibil);
+
+for each Applicant in blazeMessage.request.application.applicants such that (it.applicantType is known and it.applicantType = ("P" or "c" )) do{
+anApplicant = it;
+for each Address in anApplicant.addresses do {
+for each Address in anApplicant.addresses such that( it.pincode is (known and available))do{
+
+thepincode = apply DT_HighRisk(blazeMessage, it.state, it.pincode);
+  print("it.state:::::::::::"it.state);
+  print("it.pincode ::::::::::"it.pincode);
+}
+}
+}
+ 
+ print("thepincodeHigh==:::::::::::"thepincode);
+print("theBlazeMessageBT.standardLtv::::"theBlazeMessageBT.standardLtv);
+if( blazeMessage.request.application.scheme is (known and available) and blazeMessage.request.application.scheme=("130" or "125" or "364" or "365") and thepincode is (known and available) and  thepincode = 1 and
+ UPcampaigncibil is (known and available) and UPcampaigncibil = true and numberofacresHigh is (known and available) and numberofacresHigh <=1 ) then {
+	actualLTV = theBlazeMessageBT.standardLtv;
+   actualLTV = actualLTV*100;
+if(actualLTV > 70) then {
+	 actualLTV = 70;
+}
+theBlazeMessageBT.standardLtv = (actualLTV/100);
+}
+print("theBlazeMessageBT.standardLtv UP-High-pincode=="theBlazeMessageBT.standardLtv);
+return theBlazeMessageBT.standardLtv;
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='T1B85y'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

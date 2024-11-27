@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_AccessoriesFundingActualLTV'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_AccessoriesFundingActualLTV</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("entering fn_AccessoriesFundingActualLTV::");
+temploanAmount is a real initially 0.0;
+tempInsuranceDeclaredValue is a real initially 0.0;
+tempInsuranceAmt is a real initially 0.0;
+tempAssetCost  is a real initially 0.0;
+tempAccessoriesCost  is a real initially 0.0;
+tempBlueBookPrice is a real initially 0.0;
+actLtv is a real initially 0.0;
+
+if(blazeMessage.request.application.loanDetails.loanAmount  is (known and available) )then{
+	temploanAmount=blazeMessage.request.application.loanDetails.loanAmount;
+}else{
+  temploanAmount=0.0
+}
+
+if(blazeMessage.request.application.assetDetails.newVehicleDetails.insuranceDeclaredValue  is (known and available) )then{
+	tempInsuranceDeclaredValue=blazeMessage.request.application.assetDetails.newVehicleDetails.insuranceDeclaredValue
+}else{
+  tempInsuranceDeclaredValue=0.0
+}
+
+if(blazeMessage.request.application.assetDetails.detailAssetLoan.insuranceAmt  is (known and available))then{
+    tempInsuranceAmt=blazeMessage.request.application.assetDetails.detailAssetLoan.insuranceAmt;
+}else{
+	tempInsuranceAmt=0;
+}
+
+if(blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost   is (known and available) )then{
+tempAssetCost =blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost ;
+}else {
+  tempAssetCost =0.0;
+}
+
+if(blazeMessage.request.application.assetDetails.detailAssetLoan.accessoriesCost  is (known and available))then{
+    tempAccessoriesCost=blazeMessage.request.application.assetDetails.detailAssetLoan.accessoriesCost;
+}else{
+	tempAccessoriesCost=0;
+}
+
+if(blazeMessage.request.application.assetDetails.usedVehicleDetails.blueBookPrice   is (known and available) )then{
+tempBlueBookPrice =blazeMessage.request.application.assetDetails.usedVehicleDetails.blueBookPrice ;
+}else {
+  tempBlueBookPrice =0.0;
+}
+
+print("temploanAmount::"temploanAmount" tempInsuranceDeclaredValue::"tempInsuranceDeclaredValue" tempInsuranceAmt::"tempInsuranceAmt);
+print("tempAssetCost="tempAssetCost" tempAccessoriesCost::"tempAccessoriesCost" tempBlueBookPrice::"tempBlueBookPrice);
+
+if((tempAssetCost+tempAccessoriesCost-tempBlueBookPrice)>0)then{
+	actLtv = (temploanAmount-tempInsuranceDeclaredValue-tempInsuranceAmt)/(tempAssetCost+tempAccessoriesCost-tempBlueBookPrice);
+}
+
+print("actLtv::"actLtv);
+
+return actLtv;
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='6hv0C1'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

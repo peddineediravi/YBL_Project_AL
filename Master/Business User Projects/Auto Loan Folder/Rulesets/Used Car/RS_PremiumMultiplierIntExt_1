@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='ALkLIcd8E3xoGTFW2dY0CMXkiJL' name='RS_PremiumMultiplierIntExt'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='styleSheet'>
+ </instance>
+ <instance ref='rulesetMetadata'>
+  <instance ref='instanceName'>
+   <value></value>
+  </instance>
+  <instance ref='name'>
+   <value>RS_PremiumMultiplierIntExt</value>
+  </instance>
+  <instance ref='comment'>
+   <value></value>
+  </instance>
+ </instance>
+ <instance ref='rulesetInitialization'>
+  <instance-list ref='newEntity'>
+   <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New local entity template' id='EFRW5U'>
+    <instance ref='styleSheet'>
+    </instance>
+    <instance ref='comment'>
+     <value></value>
+    </instance>
+    <instance ref='entity'>
+     <value>Variable</value>
+    </instance>
+    <instance ref='name'>
+     <value>anAssetDetails</value>
+    </instance>
+    <instance ref='entitySrlType'>
+     <value>AssetDetails</value>
+    </instance>
+    <instance ref='entityTemplateList'>
+     <value>ALkLIcd8E3xoGTFW2dY0CMXkiJL.New variable</value>
+    </instance>
+    <instance-selection ref='entityTemplate'>
+     <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New variable' id='6PxADD'>
+      <instance ref='__ENTITY_PROPERTIES__VH__'>
+      </instance>
+      <instance ref='initialValue'>
+       <value>blazeMessage.request.application.assetDetails</value>
+      </instance>
+     </item>
+    </instance-selection>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='initializationRule'>
+  <instance ref='__ENTITY_PROPERTIES__VH__'>
+  </instance>
+  <instance ref='initializationAction'>
+   <value></value>
+  </instance>
+ </instance>
+ <instance-list ref='newRules'>
+  <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New Rule Template' id='PmRVUy'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='nameVH'>
+    <value>Vehicle Segment</value>
+   </instance>
+   <instance ref='ruleIDVH'>
+    <value>PremiumMultiplier001</value>
+   </instance>
+   <instance ref='descriptionVH'>
+    <value>Asset Segment is  A1,A2,A3,A4,MUV </value>
+   </instance>
+   <instance ref='conditionVH'>
+    <instance ref='andOrVH'>
+     <value>and</value>
+    </instance>
+    <instance-list ref='conditionsVH'>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='9vMNk4'>
+      <instance ref='vhEntities'>
+       <value>anAssetDetails</value>
+      </instance>
+      <instance ref='vhEntityType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntityProperties'>
+       <value>detailAssetLoan</value>
+      </instance>
+      <instance ref='vhEntityPropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntity2Properties'>
+       <value>assetType</value>
+      </instance>
+      <instance ref='vhEntity2PropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhOperator'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='vhOperator1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH2'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH3'>
+       <value>equal-to</value>
+      </instance>
+      <instance-selection ref='vhRHS'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='8w9DcY'>
+        <instance ref='valueVH'>
+         <value>null</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance-selection ref='vhRHS1'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.MultipleCodeListLookupTemplate' id='SzjbDH'>
+        <instance ref='andOrVH'>
+         <value>or</value>
+        </instance>
+        <instance-list ref='codeListLookupVH'>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='FTXlmq'>
+          <instance ref='vhCodeList'>
+           <value>A1 RISK1-A1 RISK1</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='Dx00Qt'>
+          <instance ref='vhCodeList'>
+           <value>A1 RISK2-A1 RISK2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='1Hcsex'>
+          <instance ref='vhCodeList'>
+           <value>A2 RISK1-A2 RISK1</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='RIN9Pa'>
+          <instance ref='vhCodeList'>
+           <value>A1 RISK2-A1 RISK2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='P7qvRN'>
+          <instance ref='vhCodeList'>
+           <value>A3 RISK1-A3 RISK1</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='3erFvV'>
+          <instance ref='vhCodeList'>
+           <value>A3 RISK2-A3 RISK2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='WhImto'>
+          <instance ref='vhCodeList'>
+           <value>A4 RISK1-A4 RISK1</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='6C3v2J'>
+          <instance ref='vhCodeList'>
+           <value>A3 RISK2-A3 RISK2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='IRmLMz'>
+          <instance ref='vhCodeList'>
+           <value>MUV RISK-MUV RISK2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='LfcIQ8'>
+          <instance ref='vhCodeList'>
+           <value>MUV RISK-MUV RISK2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='9oRtl1'>
+          <instance ref='vhCodeList'>
+           <value>EV A1R1-EV A1Risk1</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='IXQlwX'>
+          <instance ref='vhCodeList'>
+           <value>EV A1R2-EV A1Risk2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='GQ6gLJ'>
+          <instance ref='vhCodeList'>
+           <value>EV A2R1-EV A2Risk1</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='Du49QG'>
+          <instance ref='vhCodeList'>
+           <value>EV A2R2-EV A2Risk2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='Pd1cWk'>
+          <instance ref='vhCodeList'>
+           <value>EV A3R1-EV A3Risk1</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='PN8Ao3'>
+          <instance ref='vhCodeList'>
+           <value>EV A3R2-EV A3Risk2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='Ow57V7'>
+          <instance ref='vhCodeList'>
+           <value>EV A4R1-EV A4Risk1</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='5AXLJz'>
+          <instance ref='vhCodeList'>
+           <value>EV A4R2-EV A4Risk2</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='CwBR6b'>
+          <instance ref='vhCodeList'>
+           <value>EV MUVR1-EV MUVRisk1</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='BDBp1B'>
+          <instance ref='vhCodeList'>
+           <value>EV MUVR2-EV MUVRisk2</value>
+          </instance>
+         </item>
+        </instance-list>
+       </item>
+      </instance-selection>
+      <instance ref='Value Holder1'>
+       <value>contains</value>
+      </instance>
+     </item>
+    </instance-list>
+   </instance>
+   <instance-selection ref='action'>
+    <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.ActionTemplate - Deviation Rules' id='6VO4sH'>
+     <instance ref='vhActionAttribute'>
+      <value>REJECT</value>
+     </instance>
+     <instance ref='vhReasonText'>
+      <value>Vehicals segment for Multiplier Internal External</value>
+     </instance>
+     <instance ref='vhReasonCode'>
+      <value>60001</value>
+     </instance>
+     <instance ref='Value Holder1'>
+      <value>L99</value>
+     </instance>
+     <instance-list ref='vhPatternProvider'>
+     </instance-list>
+     <instance ref='vhYesNoList'>
+      <value>No</value>
+     </instance>
+    </item>
+   </instance-selection>
+   <instance ref='VH1'>
+    <value>true</value>
+   </instance>
+   <instance ref='Value Holder1'>
+    <value>0</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='rulesetParameters'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='ZGFEuF'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='rulesetReturnType'>
+  <value>void</value>
+ </instance>
+</instantiation>

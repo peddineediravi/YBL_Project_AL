@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_BP_20074_ABBEMIRatio_Pos'>
+ <ide-name>TC_BP_20074_ABBEMIRatio_Pos</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='UCqoeYq4lnJJlvjsZBAOsGHZQSm'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>Banking Program</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='UCqoeYq4lnJJlvjsZBAOsGHZQSm'>
+   <name>TC_BP_20074_ABBEMIRatio_Pos</name>
+   <body>bankDetails is some BankDetails initially an BankDetails;<template:br/>//bankDetails.averageBalance=140000;<template:br/>StatementDetailsArr is some array of  StatementDetails initially an array of StatementDetails;<template:br/>StatementDetails1 is some  StatementDetails initially a StatementDetails;<template:br/>StatementDetails1.avgMonthlyBalance=200000;<template:br/>StatementDetails2 is some  StatementDetails initially a StatementDetails;<template:br/>StatementDetails2.avgMonthlyBalance=80000;<template:br/>StatementDetailsArr.append(StatementDetails1);<template:br/>StatementDetailsArr.append(StatementDetails2);<template:br/>bankDetails.bankStatements=StatementDetailsArr;<template:br/>bankDetails.isRepaymentAccount=true;<template:br/><template:br/>bankDetailsArr is some array of BankDetails initially an array of BankDetails;<template:br/>bankDetailsArr.append(bankDetails);<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/><template:br/>applicant.bankDetails=bankDetailsArr;<template:br/><template:br/>applicanArr is some array of Applicant initially an array of Applicant;<template:br/>applicanArr.append(applicant);<template:br/><template:br/>loanDetails is some LoanDetails initially an LoanDetails;<template:br/>loanDetails.loanEMI=100000;<template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.applicants = applicanArr;<template:br/>application.scheme="52";<template:br/>application.loanDetails=loanDetails;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>apply RS_BankingProgramRules(blazeMessage);<template:br/><template:br/>//print("##########"theBlazeMessageBT.ABBEMIRatio);<template:br/>assert().checkTrue("TC_BP_20074_ABBEMIRatio_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonCode is equal to "20074"));<template:br/>assert().checkTrue("TC_BP_20074_ABBEMIRatio_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.decisionResult is equal to "DEVIATION"));<template:br/>assert().checkTrue("TC_BP_20074_ABBEMIRatio_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonText is equal to "Banking - ABB/EMI ratio less than 1.5 times"));</body>
+  </function></template:content>
+</template>

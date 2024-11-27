@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_CIBIL_30003_SEP_Neg'>
+ <ide-name>TC_CIBIL_30003_SEP_Neg</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='YQFt7mNN3Bn71r6wn608EJJXH8K'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>CIBIL Rules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='YQFt7mNN3Bn71r6wn608EJJXH8K'>
+   <name>TC_CIBIL_30003_SEP_Neg</name>
+   <body>scoreseg is some ScoreSegment initially a ScoreSegment;<template:br/>scoreseg.scoreName="CIBIL";<template:br/>scoreseg.score=776;<template:br/><template:br/>scores is some array of ScoreSegment  initially an array of ScoreSegment;<template:br/>scores.append(scoreseg);<template:br/><template:br/>cibilResponse is some CibilReport initially a CibilReport;<template:br/>cibilResponse.scores=scores;<template:br/><template:br/>multiBureauReport is some MultiBureauReport initially a MultiBureauReport;<template:br/>multiBureauReport.cibilResponse=cibilResponse;<template:br/><template:br/><template:br/>address is some Address initially an Address;<template:br/>address.propertyType = "r";<template:br/>address.addressType="RESIOFF";<template:br/><template:br/>addressArr is some array of Address initially an array of Address;<template:br/>addressArr.append(address);<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/>applicant.customerSegment="2";<template:br/>applicant.applicantType="P";<template:br/>applicant.educationalQualification="PG";<template:br/>applicant.multiBureauReport=multiBureauReport;<template:br/>applicant.addresses=addressArr;<template:br/><template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.applicants = applicantArr;<template:br/>application.schemeGroup = "13";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>RS_CIBILRules(blazeMessage);<template:br/><template:br/><template:br/>assert().checkFalse("TC_CIBIL_30003_SEP_Neg",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonCode is equal to "30004"));<template:br/>assert().checkFalse("TC_CIBIL_30003_SEP_Neg",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonText is equal to "Resi-cum-office Self-employed professional CIBIL score is less than775"));</body>
+  </function></template:content>
+</template>

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_LTVDeviations'>
+ <ide-name>DT_LTVDeviations</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='RBiNnjeVKaKmZIOHqxLFHWkgY7T'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>LTV</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Mg2duDTLRUbCljZO2pLH2atIHIc'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>LTV</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='RFlJOhrm8DNpir6os6LcqHKoCKi'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>LTV</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='4GzP1Qtp8lvAS2kQ4Kg9FlMp5UN'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>LTV</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='S5v5NSng5pgJoWvpxWkhVipRkw4'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>LTV</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='RBiNnjeVKaKmZIOHqxLFHWkgY7T'>
+   <name>TC_LTVDeviations1</name>
+   <body>application is some Application initially an Application;<template:br/>application.schemeGroup = "14";<template:br/>application.scheme ="31";<template:br/><template:br/>loanDetails is some LoanDetails initially an LoanDetails;<template:br/>application.loanDetails=loanDetails;<template:br/>application.loanDetails.tenure=4;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/>theBlazeMessageBT.standardLtv=2;<template:br/>theBlazeMessageBT.actualLtv=10;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation=DT_LTVDeviations();<template:br/><template:br/>assert().checkEquals("reason code", "L4", deviation.overrideLevel);<template:br/>assert().checkEquals("decisionResult ", "OOPC", deviation.decisionResult );<template:br/>assert().checkEquals("reasonText", "OOPC-LTV breach beyond 5%", deviation.reasonText);<template:br/><template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='Mg2duDTLRUbCljZO2pLH2atIHIc'>
+   <name>TC_LTVDeviations2</name>
+   <body>application is some Application initially an Application;<template:br/>application.schemeGroup = "20";<template:br/>application.scheme ="50";<template:br/><template:br/>loanDetails is some LoanDetails initially an LoanDetails;<template:br/>application.loanDetails=loanDetails;<template:br/>application.loanDetails.tenure=31;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/>theBlazeMessageBT.standardLtv=2;<template:br/>theBlazeMessageBT.actualLtv=3;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation=DT_LTVDeviations();<template:br/><template:br/>assert().checkEquals("reason code", "L1", deviation.overrideLevel);<template:br/>assert().checkEquals("decisionResult ", "DEVIATION", deviation.decisionResult );<template:br/>assert().checkEquals("reasonText", "LTV breach upto 5%", deviation.reasonText);<template:br/><template:br/><template:br/><template:br/><template:br/><template:br/><template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='RFlJOhrm8DNpir6os6LcqHKoCKi'>
+   <name>TC_LTVDevaitions4</name>
+   <body><template:br/>application is some Application initially an Application;<template:br/>application.schemeGroup = "14";<template:br/>application.scheme ="33";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/>theBlazeMessageBT.standardLtv=2;<template:br/>theBlazeMessageBT.actualLtv=11;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation=DT_LTVDeviations();<template:br/><template:br/><template:br/>assert().checkEquals("reason code", "L3", deviation.overrideLevel);<template:br/>assert().checkEquals("decisionResult ", "DEVIATION", deviation.decisionResult );<template:br/>assert().checkEquals("reasonText", "LTV breach upto 10%", deviation.reasonText);<template:br/><template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='4GzP1Qtp8lvAS2kQ4Kg9FlMp5UN'>
+   <name>TC_LTVDevaitions3</name>
+   <body><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.schemeGroup = "41";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/>//theBlazeMessageBT.termSetInput.invocation.lineOfBusiness=AL;<template:br/><template:br/>theBlazeMessageBT.standardLtv=1;<template:br/>theBlazeMessageBT.actualLtv=2;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation=DT_LTVDeviations();<template:br/><template:br/><template:br/>assert().checkEquals("reason code", "L2", deviation.overrideLevel);<template:br/>assert().checkEquals("decisionResult ", "DEVIATION", deviation.decisionResult );<template:br/>assert().checkEquals("reasonText", "LTV breach upto 5%", deviation.reasonText);<template:br/><template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='S5v5NSng5pgJoWvpxWkhVipRkw4'>
+   <name>TC_LTVDevaitions_MissingData</name>
+   <body>application is some Application initially an Application;<template:br/>application.schemeGroup = "14";<template:br/>application.scheme ="31";<template:br/><template:br/>loanDetails is some LoanDetails initially an LoanDetails;<template:br/>//application.loanDetails=loanDetails;<template:br/>//application.loanDetails.tenure=4;<template:br/><template:br/>invocation is some Invocation initially an Invocation;<template:br/>invocation.lineOfBusiness =LineOfBusiness.AL;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/>blazeMessage.invocation=invocation;<template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/>theBlazeMessageBT.standardLtv=2;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation=DT_LTVDeviations();<template:br/><template:br/>//print("@@@@@@@@"theBlazeMessageBT.actualLtv);<template:br/><template:br/>assert().checkEquals("reason code", unknown, deviation.overrideLevel);<template:br/><template:br/>//assert().checkEquals("decisionResult ", unknown, deviation.decisionResult );<template:br/>//assert().checkEquals("reasonText", "OOPC-LTV breach beyond 5%", deviation.reasonText);<template:br/></body>
+  </function></template:content>
+</template>

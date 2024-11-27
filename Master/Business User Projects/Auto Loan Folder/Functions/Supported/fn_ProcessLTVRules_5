@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_ProcessLTVRules'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>ProcessLTVRules</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[aDeviation is some Deviation initially a Deviation;
+empCategory is a string initially "";
+ltvForEV is an integer initially 0;
+
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants such that (it.applicantType is known and it.applicantType ="P") do {
+  empCategory = it.customerSegment;
+}
+
+if(theBlazeMessageBT.termSetInput.invocation.lineOfBusiness = LineOfBusiness.AL) then{
+	DT_SchemeSpecificAddOnLTV();
+	print("after DT Scheme spec addon");}
+else if(theBlazeMessageBT.termSetInput.invocation.lineOfBusiness = LineOfBusiness.UCL) then{
+	 DT_UsedCar_SchemeSpecificAddOnLtv();}
+print("ltvLook up " theBlazeMessageBT.isLookUpNeeded);
+if(theBlazeMessageBT.isLookUpNeeded= true) then
+{	
+            if(theBlazeMessageBT.termSetInput.invocation.lineOfBusiness = LineOfBusiness.AL) then {
+              print("emp Cat " empCategory);
+              if( theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.assetModel = ("24413" or "35947" or "40385") ) then {
+                	print("Electrical"theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory);
+                	print("tenure"theBlazeMessageBT.termSetInput.request.application.loanDetails.tenure);
+                	ltvForEV = DT_ElectricVehicle(theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory,theBlazeMessageBT.termSetInput.request.application.loanDetails.tenure);
+					print("LTV for EV is " ltvForEV);
+                	theBlazeMessageBT.ltvLookup = ltvForEV;
+              	} else{
+              		DT_LTVStandardGrid_RiskBased(theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory,theBlazeMessageBT.termSetInput.request.application.loanDetails.tenure,empCategory);
+                	print("riskcat process="theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory);
+                }
+            }
+  			else if(theBlazeMessageBT.termSetInput.invocation.lineOfBusiness = LineOfBusiness.UCL) then {
+            	 DT_UsedCar_LTVStandardGrid_RiskBased(theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory,theBlazeMessageBT.termSetInput.request.application.loanDetails.tenure);     
+            }    			
+  					if(theBlazeMessageBT.standardLtv <> -999)then
+                  	  {              
+                  				//Additional Ltv case when we need to combine the Ltv from add on ltv and standard ltv grid
+             					theBlazeMessageBT.standardLtv = theBlazeMessageBT.standardLtv +theBlazeMessageBT.ltvLookup ;
+                        		print("prinitng the ltvLookup val in IF " theBlazeMessageBT.ltvLookup);
+         				 }
+    			else{
+                  			//Follows Ltv grid when we need to take the ltv from standard grid
+      						theBlazeMessageBT.standardLtv =theBlazeMessageBT.ltvLookup;
+                  			print("prinitng the ltvLookup val in else " theBlazeMessageBT.ltvLookup);
+  						  }
+    }
+
+if(isCalledForLookup is true) then
+  {
+    return theBlazeMessageBT.standardLtv;
+  }
+else
+  {
+       print("Actual LTV  " theBlazeMessageBT.actualLtv);
+       print("Standard LTV  " theBlazeMessageBT.standardLtv);
+       print("App level CIBIL Score " theBlazeMessageBT.appLevelCibilScore);
+    
+        if(theBlazeMessageBT.isLookUpNeeded is false) then
+          {
+               if(theBlazeMessageBT.actualLtv > theBlazeMessageBT.standardLtv ) then
+                 {
+                   			aDeviation = a Deviation;
+                   			aDeviation.decisionResult ="OOP";
+                   			aDeviation.overrideLevel="L4";
+                   			aDeviation.reasonText="Actual LTV is Greater than standard ltv";               
+                   			//fn_AppendDeviations(aDeviation);
+                 }
+          }
+    
+    	if(theBlazeMessageBT.termSetInput.invocation.lineOfBusiness = LineOfBusiness.AL) then
+			aDeviation =  DT_LTVDeviations();
+		else if(theBlazeMessageBT.termSetInput.invocation.lineOfBusiness = LineOfBusiness.UCL) then
+			aDeviation =  DT_UsedCar_LTVDeviations();
+    	
+        fn_AppendDeviations(aDeviation);
+       return 0;
+  }
+
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='GB4jsl'>
+    <instance ref='ParameterNameVH'>
+     <value>isCalledForLookup</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>boolean</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

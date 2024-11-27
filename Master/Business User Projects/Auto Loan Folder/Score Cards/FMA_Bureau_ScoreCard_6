@@ -1,0 +1,2550 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='WYT4VDR2rFfBMJGquNzLDEzqQb0' name='FMA_Bureau_ScoreCard'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>FMA_Bureau_ScoreCard</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='WsPKm0'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='TuAHuo'>
+     <instance ref='CELL GROUP NAME'>
+      <value>DIFF_DLQ_C12M_P12M</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Rs3PTX'>
+       <instance ref='value'>
+        <value>High_Risk</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>High_Risk</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>61</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>High_Risk</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>DIFF_DLQ_C12M_P12M</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Change in delinquency status between last 12 months and 13-24 months</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Change_in_delinquency_status_between_last_12_months_and_13_24_months_0_High_Risk</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='EMRcTj'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='KbYbeC'>
+     <instance ref='CELL GROUP NAME'>
+      <value>DIFF_DLQ_C12M_P12M</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='VXyzix'>
+       <instance ref='value'>
+        <value>Medium_Risk</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Medium_Risk</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>72</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Medium_Risk</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>DIFF_DLQ_C12M_P12M</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Change in delinquency status between last 12 months and 13-24 months</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Change_in_delinquency_status_between_last_12_months_and_13_24_months_1_Medium_Risk</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='WDLgYp'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='G7GVpf'>
+     <instance ref='CELL GROUP NAME'>
+      <value>DIFF_DLQ_C12M_P12M</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='RkSrCI'>
+       <instance ref='value'>
+        <value>Low_Risk</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Low_Risk</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>81</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Low_Risk</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>DIFF_DLQ_C12M_P12M</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Change in delinquency status between last 12 months and 13-24 months</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Change_in_delinquency_status_between_last_12_months_and_13_24_months_2_Low_Risk</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='BKbq6H'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='F26z25'>
+     <instance ref='CELL GROUP NAME'>
+      <value>MOB_TPL</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='3fLFzV'>
+       <instance ref='value'>
+        <value>Very_High_Risk</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Ver_HighRisk</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>45</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Very_High_Risk</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MOB_TPL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Interaction of Customer's bureau vintage and total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Interaction_of_Customer_s_bureau_vintage_and_total_number_of_tradelines_opened_0_Very_High_Risk</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='ScTxFK'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='Qmk3OC'>
+     <instance ref='CELL GROUP NAME'>
+      <value>MOB_TPL</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='QMpR2R'>
+       <instance ref='value'>
+        <value>High_Risk</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>High_Risk</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>61</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>High_Risk</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MOB_TPL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Interaction of Customer's bureau vintage and total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Interaction_of_Customer_s_bureau_vintage_and_total_number_of_tradelines_opened_1_High_Risk</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='QRUyNF'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='bshEO2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>MOB_TPL</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='EZ95zi'>
+       <instance ref='value'>
+        <value>Medium_Risk</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Medium_Risk</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>69</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Medium_Risk</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MOB_TPL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Interaction of Customer's bureau vintage and total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Interaction_of_Customer_s_bureau_vintage_and_total_number_of_tradelines_opened_2_Medium_Risk</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='9653iX'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='ACHfqx'>
+     <instance ref='CELL GROUP NAME'>
+      <value>MOB_TPL</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='4U1KSF'>
+       <instance ref='value'>
+        <value>Low_Risk</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Low_Risk</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>82</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Low_Risk</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MOB_TPL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Interaction of Customer's bureau vintage and total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Interaction_of_Customer_s_bureau_vintage_and_total_number_of_tradelines_opened_3_Low_Risk</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='VHxrOm'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='2JJcUU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>MOB_TPL</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Lutwsc'>
+       <instance ref='value'>
+        <value>Very_Low_Risk</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Very_Low_Risk</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>91</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Very_Low_Risk</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MOB_TPL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Interaction of Customer's bureau vintage and total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Interaction_of_Customer_s_bureau_vintage_and_total_number_of_tradelines_opened_4_Very_Low_Risk</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='WUzjhG'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='9VjXJO'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='HuT1Aq'>
+       <instance ref='value1'>
+        <value>0.0</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>MonSinceL30P_SEC 1</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>38</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 30+ dpd on any secured loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Number_of_months_since_recent_30__dpd_on_any_secured_loans_0_MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='DlFKA3'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='9KdYgB'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='XjeUYT'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>MonSinceL30P_SEC 2 to 5</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>55</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 30+ dpd on any secured loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Number_of_months_since_recent_30__dpd_on_any_secured_loans_1_MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='T8nFYE'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='Arence'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='FaxMBc'>
+       <instance ref='value1'>
+        <value>5</value>
+       </instance>
+       <instance ref='value2'>
+        <value>36</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>MonSinceL30P_SEC 6 to 36</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>75</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 30+ dpd on any secured loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Number_of_months_since_recent_30__dpd_on_any_secured_loans_2_MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='V2Capo'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='HE8e2j'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='GvNwXO'>
+       <instance ref='value'>
+        <value>-111111</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>MonSinceL30P_SEC No 30+Dpds in 36 months</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>88</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 30+ dpd on any secured loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Number_of_months_since_recent_30__dpd_on_any_secured_loans_3_MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='DXnnHS'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='MEI8Z2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='BO1G4r'>
+       <instance ref='value'>
+        <value>-333333</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>No Secured loan</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>71</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 30+ dpd on any secured loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Number_of_months_since_recent_30__dpd_on_any_secured_loans_4_MonSinceL30P_SEC</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='NmG7ZB'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='JovJwa'>
+     <instance ref='CELL GROUP NAME'>
+      <value>MonSinceL90P_TL</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='ZdfagD'>
+       <instance ref='value'>
+        <value>90DPD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Tractor Loan 90 DPD</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>51</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Tractor Loan 90 DPD</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MonSinceL90P_TL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 90+ dpd on Tractor loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Number_of_months_since_recent_90__dpd_on_Tractor_loans_0_Tractor_Loan_90_DPD</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='POEMNo'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='DJ5n7N'>
+     <instance ref='CELL GROUP NAME'>
+      <value>MonSinceL90P_TL</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='a392Xv'>
+       <instance ref='value'>
+        <value>No_90DPD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Tractor loan  No 90 DPD</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>92</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Tractor loan  No 90 DPD</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MonSinceL90P_TL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 90+ dpd on Tractor loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Number_of_months_since_recent_90__dpd_on_Tractor_loans_1_Tractor_loan__No_90_DPD</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='51Lvnt'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='QvreKy'>
+     <instance ref='CELL GROUP NAME'>
+      <value>MonSinceL90P_TL</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='H2fB4Q'>
+       <instance ref='value'>
+        <value>No_TL_Loan</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>No Tractor Loans</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>70</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>No Tractor Loans</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MonSinceL90P_TL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 90+ dpd on Tractor loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Number_of_months_since_recent_90__dpd_on_Tractor_loans_2_No_Tractor_Loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='8b2jQV'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='WvXFWT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>PINCODE_1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='6DTUFx'>
+       <instance ref='value'>
+        <value>VHR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>PinCode_1</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>11</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>PinCode_1</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>PINCODE_1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pincode risk category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pincode_risk_category_0_PinCode_1</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='KZyIKX'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='IYKWOT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>PINCODE_1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Nu3ICe'>
+       <instance ref='value'>
+        <value>HR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>PinCode_1</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>43</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>PinCode_1</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>PINCODE_1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pincode risk category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pincode_risk_category_1_PinCode_1</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='P7PI0n'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='NLrXXW'>
+     <instance ref='CELL GROUP NAME'>
+      <value>PINCODE_1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Jnb70v'>
+       <instance ref='value'>
+        <value>MR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>PinCode_1</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>69</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>PinCode_1</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>PINCODE_1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pincode risk category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pincode_risk_category_2_PinCode_1</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='S8hLvv'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='Ti3lcU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>PINCODE_1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Tq7CYe'>
+       <instance ref='value'>
+        <value>LR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>PinCode_1</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>97</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>PinCode_1</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>PINCODE_1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pincode risk category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pincode_risk_category_3_PinCode_1</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='Lwrqzq'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='SYKxuw'>
+     <instance ref='CELL GROUP NAME'>
+      <value>PINCODE_1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='2mokhm'>
+       <instance ref='value'>
+        <value>VLR</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>PinCode_1</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>125</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>PinCode_1</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>PINCODE_1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pincode risk category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pincode_risk_category_4_PinCode_1</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='7AugUU'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='Tl9n6r'>
+     <instance ref='CELL GROUP NAME'>
+      <value>PINCODE_1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='8Tooiy'>
+       <instance ref='value'>
+        <value>OTH</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>PinCode_1</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>51</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>PinCode_1</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>PINCODE_1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pincode risk category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pincode_risk_category_5_PinCode_1</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='ZbsgtO'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='Yzbu2O'>
+     <instance ref='CELL GROUP NAME'>
+      <value>PINCODE_1</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='SudGhQ'>
+       <instance ref='value'>
+        <value>0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>PinCode_1</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>81</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>PinCode_1</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>PINCODE_1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pincode risk category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pincode_risk_category_6_PinCode_1</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='6Kw92F'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='RC9Mj2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>RATIO_30P_DEL_L24_LOANS</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='3rPplK'>
+       <instance ref='value'>
+        <value>-333333</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>RATIO_30P_DEL_L24_LOANS</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>76</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of 30+ dpd accounts in last 24 months to total number of tradelines opened in last 24 month</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Ratio_of_30__dpd_accounts_in_last_24_months_to_total_number_of_tradelines_opened_in_last_24_month_0_RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='AFwX6k'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='Cvlipe'>
+     <instance ref='CELL GROUP NAME'>
+      <value>RATIO_30P_DEL_L24_LOANS</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='RzMVLL'>
+       <instance ref='value'>
+        <value>0.0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>RATIO_30P_DEL_L24_LOANS</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>75</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of 30+ dpd accounts in last 24 months to total number of tradelines opened in last 24 month</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Ratio_of_30__dpd_accounts_in_last_24_months_to_total_number_of_tradelines_opened_in_last_24_month_1_RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='ISWjak'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='5bWbnf'>
+     <instance ref='CELL GROUP NAME'>
+      <value>RATIO_30P_DEL_L24_LOANS</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='9pMnoq'>
+       <instance ref='value1'>
+        <value>0.01</value>
+       </instance>
+       <instance ref='value2'>
+        <value>0.33</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>RATIO_30P_DEL_L24_LOANS</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>74</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of 30+ dpd accounts in last 24 months to total number of tradelines opened in last 24 month</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Ratio_of_30__dpd_accounts_in_last_24_months_to_total_number_of_tradelines_opened_in_last_24_month_2_RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='SmgyAm'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='TTzDrN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>RATIO_30P_DEL_L24_LOANS</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='HxHg0Z'>
+       <instance ref='value'>
+        <value>0.33</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>RATIO_30P_DEL_L24_LOANS</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>71</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of 30+ dpd accounts in last 24 months to total number of tradelines opened in last 24 month</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Ratio_of_30__dpd_accounts_in_last_24_months_to_total_number_of_tradelines_opened_in_last_24_month_3_RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='HH8m8X'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='Aa6J5K'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Oj5En0'>
+       <instance ref='value'>
+        <value>-111111</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>80</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Total overdue amount as a % of sanction amount__</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Total_overdue_amount_as_a___of_sanction_amount___0_pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='HBxn7S'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='JsbMRO'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='ZLWhtd'>
+       <instance ref='value'>
+        <value>0.0</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>82</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Total overdue amount as a % of sanction amount__</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Total_overdue_amount_as_a___of_sanction_amount___1_pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='EQjpKa'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='3RJLus'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='44iccD'>
+       <instance ref='value1'>
+        <value>0.0</value>
+       </instance>
+       <instance ref='value2'>
+        <value>0.99</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>75</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Total overdue amount as a % of sanction amount__</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Total_overdue_amount_as_a___of_sanction_amount___2_pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='MguMM5'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='OIyOXQ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='83dwzn'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>5.79</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>58</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Total overdue amount as a % of sanction amount__</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Total_overdue_amount_as_a___of_sanction_amount___3_pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='UVGnDv'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='4dEbkc'>
+     <instance ref='CELL GROUP NAME'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='BK2skG'>
+       <instance ref='value'>
+        <value>5.79</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>pct_tot_ovd_hicr</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>47</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Total overdue amount as a % of sanction amount__</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Total_overdue_amount_as_a___of_sanction_amount___4_pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='DSeFIq'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='AtFpAZ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>ratio_rec_6m_tot_loans</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='CpJkwt'>
+       <instance ref='value1'>
+        <value>0.0</value>
+       </instance>
+       <instance ref='value2'>
+        <value>0.25</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>ratio_rec_6m_tot_loans</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>78</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of number of accounts opened in last 6 months to total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Ratio_of_number_of_accounts_opened_in_last_6_months_to_total_number_of_tradelines_opened_0_ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='ZYXx7e'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='NIoqHr'>
+     <instance ref='CELL GROUP NAME'>
+      <value>ratio_rec_6m_tot_loans</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='2d9AK6'>
+       <instance ref='value1'>
+        <value>0.26</value>
+       </instance>
+       <instance ref='value2'>
+        <value>0.4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>ratio_rec_6m_tot_loans</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>69</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of number of accounts opened in last 6 months to total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Ratio_of_number_of_accounts_opened_in_last_6_months_to_total_number_of_tradelines_opened_1_ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='80Wzai'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='DuGh22'>
+     <instance ref='CELL GROUP NAME'>
+      <value>ratio_rec_6m_tot_loans</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='Ed5bxQ'>
+       <instance ref='value1'>
+        <value>0.41</value>
+       </instance>
+       <instance ref='value2'>
+        <value>0.5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>ratio_rec_6m_tot_loans</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>60</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of number of accounts opened in last 6 months to total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Ratio_of_number_of_accounts_opened_in_last_6_months_to_total_number_of_tradelines_opened_2_ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' id='A5kxed'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' id='Pz0syT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>ratio_rec_6m_tot_loans</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='MujcnF'>
+       <instance ref='value1'>
+        <value>0.5</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>ratio_rec_6m_tot_loans</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>50</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of number of accounts opened in last 6 months to total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Ratio_of_number_of_accounts_opened_in_last_6_months_to_total_number_of_tradelines_opened_3_ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance-list ref='__ND_ScoredCharacteristicInitializersVH'>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoredCharacteristicInitializerTemplate' id='7dOHy3'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>81.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>DIFF_DLQ_C12M_P12M</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Change in delinquency status between last 12 months and 13-24 months</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoredCharacteristicInitializerTemplate' id='DOFBAJ'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>91.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MOB_TPL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Interaction of Customer's bureau vintage and total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoredCharacteristicInitializerTemplate' id='KTcmfs'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>88.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 30+ dpd on any secured loans</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoredCharacteristicInitializerTemplate' id='70bReA'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>92.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>MonSinceL90P_TL</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Number of months since recent 90+ dpd on Tractor loans</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoredCharacteristicInitializerTemplate' id='1zlvDJ'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>125.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>PINCODE_1</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pincode risk category</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoredCharacteristicInitializerTemplate' id='4nJ7SB'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>76.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>RATIO_30P_DEL_L24_LOANS</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of 30+ dpd accounts in last 24 months to total number of tradelines opened in last 24 month</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoredCharacteristicInitializerTemplate' id='HdW0Lk'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>82.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>pct_tot_ovd_hicr</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Total overdue amount as a % of sanction amount</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoredCharacteristicInitializerTemplate' id='KkvQvY'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>78.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>0.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>ratio_rec_6m_tot_loans</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Ratio of number of accounts opened in last 6 months to total number of tradelines opened</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='__ND_ScoredCharacteristicCountVH'>
+  <value>8</value>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Info Template' id='IcX4rW'>
+    <instance ref='name'>
+     <value>DIFF_DLQ_C12M_P12M</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Change in delinquency status between last 12 months and 13-24 months</value>
+    </instance>
+    <instance ref='property'>
+     <value>DIFF_DLQ_C12M_P12M</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Info Template' id='Jc7CBk'>
+    <instance ref='name'>
+     <value>MOB_TPL</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Interaction of Customer's bureau vintage and total number of tradelines opened</value>
+    </instance>
+    <instance ref='property'>
+     <value>MOB_TPL</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Info Template' id='2JltQ4'>
+    <instance ref='name'>
+     <value>pct_tot_ovd_hicr1</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Number of months since recent 30+ dpd on any secured loans</value>
+    </instance>
+    <instance ref='property'>
+     <value>MonSinceL30P_SEC</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+   <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Info Template' id='3zawUw'>
+    <instance ref='name'>
+     <value>MonSinceL90P_TL</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Number of months since recent 90+ dpd on Tractor loans</value>
+    </instance>
+    <instance ref='property'>
+     <value>MonSinceL90P_TL</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Info Template' id='ICsJ5f'>
+    <instance ref='name'>
+     <value>PINCODE_1</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Pincode risk category</value>
+    </instance>
+    <instance ref='property'>
+     <value>PINCODE_1</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Info Template' id='KGttJC'>
+    <instance ref='name'>
+     <value>RATIO_30P_DEL_L24_LOANS</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Ratio of 30+ dpd accounts in last 24 months to total number of tradelines opened in last 24 month</value>
+    </instance>
+    <instance ref='property'>
+     <value>RATIO_30P_DEL_L24_LOANS</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+   <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Info Template' id='ZYrt3J'>
+    <instance ref='name'>
+     <value>pct_tot_ovd_hicr</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Total overdue amount as a % of sanction amount</value>
+    </instance>
+    <instance ref='property'>
+     <value>pct_tot_ovd_hicr</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+   <item template='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Info Template' id='FdgDno'>
+    <instance ref='name'>
+     <value>ratio_rec_6m_tot_loans</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Ratio of number of accounts opened in last 6 months to total number of tradelines opened</value>
+    </instance>
+    <instance ref='property'>
+     <value>ratio_rec_6m_tot_loans</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='editingInfo'>
+ </instance>
+</instantiation>

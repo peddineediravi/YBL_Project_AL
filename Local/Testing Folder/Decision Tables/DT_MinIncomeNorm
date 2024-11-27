@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_MinIncomeNorm'>
+ <ide-name>DT_MinIncomeNorm</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='ZvgG8mVRGpoBUQ7L8Uunxw1Z2qJ'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>MinIncNorm</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='4aPUfvXdhfGcSHUX3mrtwKvqMUV'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>MinIncNorm</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='MFtFHClytfyst0fO1OdtqfPdgQX'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>MinIncNorm</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='9wc7uMMk3kk9zfAFSgHR6KNz5RU'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>MinIncNorm</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='ZvgG8mVRGpoBUQ7L8Uunxw1Z2qJ'>
+   <name>TC_MinIncNorm4</name>
+   <body>app is some Application initially an Application;<template:br/>income is a real;<template:br/>customerSegment is a string;<template:br/>category is a string;<template:br/>cost is a real;<template:br/><template:br/>app.schemeGroup = "13";<template:br/>app.scheme = "27";<template:br/>customerSegment = "1";<template:br/>income=270000;<template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_MinimumIncomeNorm(app.schemeGroup,app.scheme,customerSegment,income,category,cost);<template:br/><template:br/>assert().checkEquals("Escalation Level", "L2", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("Reason Code", "40002", deviation.reasonCode);<template:br/><template:br/>assert().checkEquals("Message", "Income upto 20 %  Norms not met", deviation.reasonText);<template:br/></body>
+  </function><function managementPropertiesRef='4aPUfvXdhfGcSHUX3mrtwKvqMUV'>
+   <name>TC_MinIncNorm3</name>
+   <body>app is some Application initially an Application;<template:br/>income is a real;<template:br/>customerSegment is a string;<template:br/>category is a string;<template:br/>cost is a real;<template:br/><template:br/>app.schemeGroup = "19041119";<template:br/>app.scheme = "19041146";<template:br/>customerSegment = "10007";<template:br/>income=900000;<template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_MinimumIncomeNorm(app.schemeGroup,app.scheme,customerSegment,income,category,cost);<template:br/><template:br/>print("deviation override level : "deviation);<template:br/><template:br/>print("deviation reason code : "deviation.reasonCode);<template:br/><template:br/>print("deviation reson text  : "deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Escalation Level", unknown, deviation.overrideLevel);<template:br/></body>
+  </function><function managementPropertiesRef='MFtFHClytfyst0fO1OdtqfPdgQX'>
+   <name>TC_MinIncNorm2</name>
+   <body>app is some Application initially an Application;<template:br/>income is a real;<template:br/>customerSegment is a string;<template:br/>category is a string;<template:br/>cost is a real;<template:br/><template:br/>app.schemeGroup = "14";<template:br/>app.scheme = "30";<template:br/>customerSegment = "3";<template:br/>income=1500000;<template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_MinimumIncomeNorm(app.schemeGroup,app.scheme,customerSegment,income,category,cost);<template:br/><template:br/>assert().checkEquals("Escalation Level", "L3", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("Reason Code", "40003", deviation.reasonCode);<template:br/><template:br/>assert().checkEquals("Message", "Income more than  20 %  Norms not met", deviation.reasonText);<template:br/></body>
+  </function><function managementPropertiesRef='9wc7uMMk3kk9zfAFSgHR6KNz5RU'>
+   <name>TC_MinIncNorm1</name>
+   <body>app is some Application initially an Application;<template:br/>income is a real;<template:br/>customerSegment is a string;<template:br/>category is a string;<template:br/>cost is a real;<template:br/><template:br/>app.schemeGroup = "12";<template:br/>app.scheme = "25";<template:br/>customerSegment = "1";<template:br/>income=2800000;<template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_MinimumIncomeNorm(app.schemeGroup,app.scheme,customerSegment,income,category,cost);<template:br/><template:br/>assert().checkEquals("Escalation Level", "L1", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("Reason Code", "40001", deviation.reasonCode);<template:br/><template:br/>assert().checkEquals("Message", "Income upto 10 %  Norms not met", deviation.reasonText);<template:br/></body>
+  </function></template:content>
+</template>

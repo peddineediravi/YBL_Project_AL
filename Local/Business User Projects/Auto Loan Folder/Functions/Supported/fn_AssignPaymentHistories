@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_AssignPaymentHistories'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_AssignPaymentHistories</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[historyLength is an integer initially 0;
+numberOfMonths is an integer initially 0;
+paymentHistory is a string initially "";
+ 
+//Creating a paymentHistory string by initializing it to PaymentHistory1
+if(blazeAccount.paymentHistory1 is (known and available)) then{
+	paymentHistory = blazeAccount.paymentHistory1;
+}
+ 
+//Creating a paymentHistory string by appending PaymentHistory2 to PaymentHistory1
+if(blazeAccount.paymentHistory2 is (known and available)) then{
+	paymentHistory=paymentHistory.concat(blazeAccount.paymentHistory2);
+}
+ 
+//Computing payment history length available
+historyLength=paymentHistory.length();
+//Computing the number of months for which payment history is available
+numberOfMonths =math().truncate(historyLength/3);
+ 
+//Replacing substrings XXX, STD, LSS, SUB, DBT, SMA with corresponding DPD values
+paymentHistory = paymentHistory.replaceAll("X","0");
+paymentHistory = paymentHistory.replaceAll("STD", "000");
+paymentHistory = paymentHistory.replaceAll("LSS", "900");
+paymentHistory = paymentHistory.replaceAll("SUB", "150");
+paymentHistory = paymentHistory.replaceAll("DBT","180");
+paymentHistory = paymentHistory.replaceAll("SMA", "090");
+ 
+//Initialising monthCounter, sub-string start and end counter, dpdValue of a string and maxDPD
+monthCounter is a integer initially 0;
+pos1 is an integer initially 0;
+pos2 is an integer initially 3;
+dpdValue is an integer initially 0;
+tempIntArray is some array of integer initially an array of integer;
+        
+//While loop to compute maximum DPD in the payment history available
+while(monthCounter <= numberOfMonths-1) do {
+	dpdValue=paymentHistory.substring(pos1, pos2) as an integer;
+    //Converting dpd values as per standards
+    if(dpdValue = 901) then{
+    	dpdValue = 0;
+   	} else if(dpdValue = 902) then{
+    	dpdValue = 150;
+  	} else if(dpdValue = 903) then{
+    	dpdValue = 180;
+   	} else if(dpdValue = 904) then{
+    	dpdValue = 900;
+  	} else if(dpdValue = 905) then{
+    	dpdValue = 90;
+   	}
+    tempIntArray.append(dpdValue);   
+  	//Incrementting the counter to update string and also increment the month counter    
+    pos1=pos2;
+    pos2=pos2+3;
+    monthCounter+=1;    
+}
+ blazeAccount.paymentHistories=tempIntArray;]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='6Uxdka'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeAccount</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeAccount</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

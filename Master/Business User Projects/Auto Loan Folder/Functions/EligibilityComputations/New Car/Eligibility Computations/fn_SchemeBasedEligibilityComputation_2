@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_SchemeBasedEligibilityComputation'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_SchemeBasedEligibilityComputation</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anApplication is some Application initially blazeMessage.request.application;
+isSingleApplicantMeetsMinimumNorms is a boolean initially false;
+assetDetails is some AssetDetails initially anApplication.assetDetails;
+minimumIncome is a real initially 0;
+anDeviation is some Deviation initially an Deviation;
+theBlazeMessageBT.maxEligibleAmount=0;
+
+if at least 1 Applicant in anApplication.applicants satisfy (customerSegment="1" and constitution <> "1") then
+  {
+            anDeviation.ruleID="Elig001";
+            anDeviation.ruleName="Eligibility Constraints";
+            anDeviation.ruleDescription="Eligibility norms check";
+            anDeviation.decisionResult = "ERROR";
+            anDeviation.reasonText = "ERROR-Constitution not allowed for Salaried Applicant hence Eligibility not computed";
+            anDeviation.reasonCode = "99999";
+            anDeviation.overrideLevel ="L99";
+            fn_AppendDeviations(anDeviation);           
+  }
+ 
+else if at least 1 Applicant in anApplication.applicants satisfy (customerSegment<>"1" and constitution is equal to ("8" or "14")) then
+  {
+             anDeviation.ruleID="Elig002";
+            anDeviation.ruleName="Eligibility Constraints";
+            anDeviation.ruleDescription="Eligibility norms check";
+            anDeviation.decisionResult = "ERROR";
+            anDeviation.reasonText = "ERROR-Constitution not allowed for non-Salaried Applicant hence Eligibility not computed";
+            anDeviation.reasonCode = "99998";
+            anDeviation.overrideLevel ="L99";
+            fn_AppendDeviations(anDeviation);           
+  }
+else 
+{
+
+theBlazeMessageBT.maxEligibleAmount = 0;
+maxEligibleAmount is a real initially 0; 
+
+higerIncomeApplicant is some Applicant;
+totalIncome is a real initially 0;
+totalObligation is a real initially 0;
+higherIncome is a real initially 0;
+minimumIncomeMeetingApplicant is some Applicant;
+  
+//Luxury Program, Normal Program, Premium Program , On Road, Demo Programs
+if(anApplication.schemeGroup is known and (anApplication.schemeGroup="12" or anApplication.schemeGroup="13" or anApplication.schemeGroup="143"  or  anApplication.schemeGroup="14" or anApplication.schemeGroup="7")) then
+ {   		
+   		if(blazeMessage.request is known and blazeMessage.request.application is known and blazeMessage.request.application.applicants is known and blazeMessage.request.application.applicants.count >0)then{
+  		//Checking whether any applicant income is meeting minimum income norms
+                    for each Applicant in blazeMessage.request.application.applicants do {      
+                        if(isSingleApplicantMeetsMinimumNorms is (known and available) and isSingleApplicantMeetsMinimumNorms = false) then {
+                               minimumIncome = DT_MinimumIncomeLookup(anApplication.schemeGroup,anApplication.scheme,it.customerSegment,assetDetails.detailAssetLoan.assetCategory,assetDetails.newVehicleDetails.assetCost);
+                                if(minimumIncome is (available and known) and minimumIncome > 0 ) then {
+                                   isSingleApplicantMeetsMinimumNorms = (it.annualIncome.totalIncome >= minimumIncome);
+                                   minimumIncomeMeetingApplicant=it;
+                                }   			
+                            }     
+                    }
+           }
+
+   
+   
+   		for each Applicant in blazeMessage.request.application.applicants such that( it.annualIncome is known and  it.annualIncome.incomeBasedEligbileAmount is known) do {
+   		        if(isSingleApplicantMeetsMinimumNorms is (known and available) and isSingleApplicantMeetsMinimumNorms = true) then { // Sum of all applicants income based eligbile amount (i.e income*multiplier)
+           			maxEligibleAmount = maxEligibleAmount + it.annualIncome.incomeBasedEligbileAmount;
+                  	totalIncome=totalIncome+it.annualIncome.totalIncome;
+                  	totalObligation = totalObligation+it.annualIncome.totalObligation;
+    		  }
+          	 else {	               
+               		if(higherIncome<it.annualIncome.totalIncome) then{
+                      	 higherIncome=it.annualIncome.totalIncome;
+                         maxEligibleAmount = it.annualIncome.incomeBasedEligbileAmount; // Maximum of all applicants income based eligible amount.
+            		     higerIncomeApplicant=it;
+                   }               
+             }               
+       }
+   theBlazeMessageBT.maxEligibleAmount = maxEligibleAmount;
+   
+   // IIR Computation
+ if(anApplication.schemeGroup is known and (anApplication.schemeGroup="12" or anApplication.schemeGroup="14" or anApplication.schemeGroup="143"))  then {
+   higherIncome = 0;
+   foir is a real initially 0;
+   applicantResidentPropertyType is a string;
+   isIncomesAreSame is a boolean initially false;
+    if(isSingleApplicantMeetsMinimumNorms is (known and available) and isSingleApplicantMeetsMinimumNorms = true) then { 
+      		  // Finding higer income applicant profile for applying on IIR grid incase of clubbed income used for eligibility amount.
+     		for each Applicant in blazeMessage.request.application.applicants such that( it.annualIncome is known and  it.annualIncome.totalIncome is known and it.annualIncome.totalIncome>0) do {
+               	if (higherIncome<it.annualIncome.totalIncome) then {
+            				  higherIncome=it.annualIncome.totalIncome;
+             				  higerIncomeApplicant=it;
+                  			  isIncomesAreSame=false;
+                }
+              else if (higherIncome=it.annualIncome.totalIncome) then {
+                     isIncomesAreSame=true;
+              }
+         	}  
+      //Using higher income applicant profile for IIR deviation
+      if(higerIncomeApplicant is (known and available) and isIncomesAreSame=false) then{
+       		foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/totalIncome)*100;  
+      		applicantResidentPropertyType = fn_GetApplicantPropertyType(higerIncomeApplicant);
+			anDeviation = DT_IIRNorms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(higerIncomeApplicant as a BlazeApplicant).cibilScore,higerIncomeApplicant.customerSegment,applicantResidentPropertyType,foir);
+			fn_AppendDeviations(anDeviation);
+      }
+      else
+        {// All incomes are same then use applicant profile whose income is meeting minimum income norm.
+          	foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/totalIncome)*100;  
+      		applicantResidentPropertyType = fn_GetApplicantPropertyType(minimumIncomeMeetingApplicant);
+			anDeviation = DT_IIRNorms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(minimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,minimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+			fn_AppendDeviations(anDeviation);
+        }
+   	 }
+   else if(isSingleApplicantMeetsMinimumNorms is (known and available) and isSingleApplicantMeetsMinimumNorms = false and higerIncomeApplicant is (known and available)) then {
+     			// Higher income applicant details used for IIR as eligibility derived on this applicant income.
+     			foir=((higerIncomeApplicant.annualIncome.totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/higerIncomeApplicant.annualIncome.totalIncome)*100;  
+    		    applicantResidentPropertyType = fn_GetApplicantPropertyType(higerIncomeApplicant);
+				anDeviation = DT_IIRNorms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(higerIncomeApplicant as a BlazeApplicant).cibilScore,higerIncomeApplicant.customerSegment,applicantResidentPropertyType,foir);
+				fn_AppendDeviations(anDeviation);          
+     }      
+ }
+ }
+  
+//Banking Program schemes
+else if(anApplication.schemeGroup is known and anApplication.schemeGroup="20") then {
+	apply fn_BankingEligibilityComputation(blazeMessage);         
+  }
+//Internal Liability Program
+else if(anApplication.schemeGroup is known and anApplication.schemeGroup="11") then {
+ 	apply fn_InternalLiabilityComputation(blazeMessage);
+}
+//Pre Approved Program
+//else if(anApplication.schemeGroup is known and anApplication.schemeGroup="15") then {
+ //	apply fn_PreApprovalComputation(blazeMessage);
+//}
+//FD Lien
+else if(anApplication.schemeGroup is known and anApplication.schemeGroup="8") then {
+	apply fn_FDLienComputation(blazeMessage);
+}
+// Yes Bank
+else if (anApplication.schemeGroup is known and anApplication.schemeGroup="18")then {
+  	apply fn_YesBankEmployeeComputation(blazeMessage);
+  }
+ // Salaried Big Corporates
+else if (anApplication.schemeGroup is known and anApplication.schemeGroup="17" )then {
+  	apply fn_SalariedBigCorporateComputation(blazeMessage);
+  }
+// Govt Employee
+else if (anApplication.schemeGroup is known and anApplication.schemeGroup="10")then {
+  	apply fn_GovtEmployeesComputation(blazeMessage);
+  }
+ // Commercial Vehicle 
+else if (anApplication.schemeGroup is known and anApplication.schemeGroup="6")then {
+  	apply fn_CommercialSegmentComputation(blazeMessage);
+  }   
+ //Agri Land  
+else if (anApplication.schemeGroup is known and anApplication.schemeGroup="41")then {
+  	apply fn_AgriBasedComputation(blazeMessage);
+  }       
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='VTQleH'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

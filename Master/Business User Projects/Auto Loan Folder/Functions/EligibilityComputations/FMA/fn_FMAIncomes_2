@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_FMAIncomes'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_FMAIncomes</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anApplicant is some Applicant;
+anIncome is some FarmIncome;
+aDeduction is some Deduction;
+
+if(blazeMessage.request is known and blazeMessage.request.application is known and blazeMessage.request.application.applicants is known and blazeMessage.request.application.applicants.count > 0)then{
+  	for each Applicant in blazeMessage.request.application.applicants do {
+    	anApplicant=it;
+  		anApplicant.annualIncome = a ConsolidatedIncome;
+       if( anApplicant.farmIncomes is known and anApplicant.farmIncomes.count > 0) then {
+   		   for each FarmIncome in anApplicant.farmIncomes such that(it is known and it.frequency is known) do 
+      		{
+        		anIncome=it;        
+        		if(anIncome.frequency="A") then { //Annually
+            	    	anIncome.netIncome=anIncome.amount*1;
+            	  }
+            	 else if(anIncome.frequency="B") then{ //Bi-monthly
+             	      	anIncome.netIncome=anIncome.amount*24;
+            	  }
+            	 else if(anIncome.frequency="M") then { //Monthly
+            	     	anIncome.netIncome=anIncome.amount*12;
+            	  }
+        	  	 else if(anIncome.frequency="Q") then { //Quaterly
+             	     	anIncome.netIncome=anIncome.amount*4;
+              	}
+             	 else if(anIncome.frequency="H") then { //Half Yearly
+              	       	anIncome.netIncome=anIncome.amount*2;
+             	}
+            }
+  		}   
+      
+       if( anApplicant.deductions is known and anApplicant.deductions.count > 0) then {
+   		   for each Deduction in anApplicant.deductions such that(it is known and it.frequency is known) do 
+      		{
+        		aDeduction=it;        
+        		if(aDeduction.frequency="A") then { //Annually
+            	    	aDeduction.netIncome=aDeduction.amount*1;
+            	  }
+            	 else if(aDeduction.frequency="B") then{ //Bi-monthly
+             	      	aDeduction.netIncome=aDeduction.amount*24;
+            	  }
+            	 else if(aDeduction.frequency="M") then { //Monthly
+            	     	aDeduction.netIncome=aDeduction.amount*12;
+            	  }
+        	  	 else if(aDeduction.frequency="Q") then { //Quaterly
+             	     	aDeduction.netIncome=aDeduction.amount*4;
+              	}
+             	 else if(aDeduction.frequency="H") then { //Half Yearly
+              	       	aDeduction.netIncome=aDeduction.amount*2;
+             	}
+            }
+  		}   
+      
+      
+  // Obligation computation of Applicant
+   anApplicant.annualIncome.totalObligation =0;
+  if(anApplicant.liabilities is known and anApplicant.liabilities.count > 0) then {
+      for each Liability in anApplicant.liabilities such that (considerForObligations=true and EMIAmount is known) do {
+      	anApplicant.annualIncome.totalObligation +=  it.EMIAmount*12;
+    }
+  }
+    
+}
+  
+}
+print("incomehed=="anIncome.netIncome);
+apply fn_Farmheads(blazeMessage);
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='aBBRK0'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

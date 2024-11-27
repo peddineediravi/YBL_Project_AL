@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_UsedTractor_Depreciationgrid'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_UsedTractor_Depreciationgrid</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[asset_Age is a real initially 0;
+asset_Cost is a real initially 0;
+counter is an integer initially 1;
+assetvalue is a real initially 0;
+actualLtv is a real initially 0;
+
+//// Used Car Depreciation grid
+asset_Age=math().ceil(theFMABT.FMAAssetAge/365);
+asset_Cost=blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost;
+print("asset_Age::"asset_Age"asset_Cost::"asset_Cost);
+
+while(asset_Age>0 and counter<=asset_Age)do{
+	if(counter=1)then {
+		asset_Cost= math().round(asset_Cost*0.85);
+		}else if(counter>1 and counter<=5)then{
+			asset_Cost= math().round(asset_Cost*0.9);
+		}else if(counter>=6 and counter<=10)then{
+			asset_Cost= math().round(asset_Cost*0.92);
+		}else if(counter>=11)then{
+			asset_Cost= math().round(asset_Cost*0.94);
+		}
+			counter=counter+1;
+}
+
+print("asset_Cost_After Depreciation=="asset_Cost);
+
+if(theBlazeMessageBT.apraisedValue>0 and asset_Cost is (known and available))then{
+  asset_Cost=math().min(theBlazeMessageBT.apraisedValue, asset_Cost)
+}else{
+asset_Cost=asset_Cost;
+}
+theFMABT.DepreciationAssetcost=asset_Cost;
+print("===theFMABT.DepreciationAssetcost==="theFMABT.DepreciationAssetcost);
+
+if(blazeMessage.request.application.scheme=("364" or "365"))then{
+fn_AppendActionMessage("used car Depreciation assetcost is:"theFMABT.DepreciationAssetcost);
+}
+
+if(blazeMessage.request.application.scheme is not equal to ("364" and "365"))then{
+	 if(blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice is (known and available) and blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice>0 and  blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost is (known and available))then{
+    	   assetvalue=math().min(blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice, blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+   				actualLtv =  theBlazeMessageBT.InsuredLoanAmount/assetvalue;
+    			actualLtv = actualLtv*100;
+    			roundingUpto is an integer initially -2;
+  			  	actualLtv = math().round(actualLtv, roundingUpto);
+         			print("FMALTV_NEW=="actualLtv);
+   	 		}  
+}
+if(blazeMessage.request.application.scheme is equal to ("364" or "365"))then{
+	 			actualLtv =  theBlazeMessageBT.InsuredLoanAmount/asset_Cost;
+    			actualLtv = actualLtv*100;
+    			roundingUpto is an integer initially -2;
+  			  	actualLtv = math().round(actualLtv, roundingUpto);
+         			print("FMALTV_NEW=="actualLtv);
+   	 		} 
+
+
+theBlazeMessageBT.actualLtv=actualLtv;
+
+fn_AppendActionMessage("Actual LTV value is:"theBlazeMessageBT.actualLtv); ]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='uUuRVb'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

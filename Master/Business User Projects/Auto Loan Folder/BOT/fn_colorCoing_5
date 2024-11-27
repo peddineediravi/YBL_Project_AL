@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_colorCoding'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_colorCoding</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[iswrittenoff is a boolean initially false;
+anApplicant is some Applicant;
+score is some Score initially a Score;
+isconstitution is a boolean initially false;
+yesCustomer is a boolean initially false;
+noOFDPD is an integer initially 0;
+//blazeMessage = fn_CalculateScoreCardScore(blazeMessage);
+	//score = blazeMessage.response.applicationDecision.scorecardResult[0];
+   
+for each Applicant in blazeMessage.request.application.applicants do
+{
+	anApplicant =it;	
+	if(it.constitution="1" and it.constitution is (known and available))then
+	{
+		isconstitution=true;
+	}
+	if(it.existingCustomer is known and it.existingCustomer is equal to (ignoring case) "Yes")then
+	{
+		yesCustomer=true;
+	}
+	if( anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is known and
+       anApplicant.multiBureauReport.cibilResponse.accounts is known and anApplicant.multiBureauReport.cibilResponse.accounts.count > 0) then
+    {
+		for each Account in anApplicant.multiBureauReport.cibilResponse.accounts do
+        {
+		          if( it.suitFiledOrWilfulDefault is (known and available) and it.suitFiledOrWilfulDefault is not null and it.suitFiledOrWilfulDefault <> "" 
+                     and it.writtenOffAndSettled is (known and available) and it.writtenOffAndSettled >= 0)then
+                    {
+                      iswrittenoff=true;
+                    }
+                  }
+                }
+        }
+	print("WrittenOff==from for loop"iswrittenoff);
+print("isconstitution==from for loop"isconstitution);
+noOFDPD=fn_30PlusDPDInLast24Months(blazeMessage,24);
+print("noOFDPD"noOFDPD);
+if((yesCustomer=true or noOFDPD<1) and scoreCardResult.scorecardScore<=662)then
+{
+	blazeMessage.response.applicationDecision.responseCode="AMBER";
+}
+else
+ if(scoreCardResult.scorecardScore<=662 )then
+  {
+	  print("inside red");
+   blazeMessage.response.applicationDecision.responseCode="RED"; 
+ }else if(scoreCardResult.scorecardScore>=701 and 
+    blazeMessage.request.application.loanDetails.loanAmount is (known and available) and
+	blazeMessage.request.application.loanDetails.loanAmount<2500000 and 
+	isconstitution=true and iswrittenoff=false)then
+ {
+	 print("inside green");
+   print("score=="scoreCardResult.scorecardScore);
+   print("Loanamount=="blazeMessage.request.application.loanDetails.loanAmount);
+    blazeMessage.response.applicationDecision.responseCode="GREEN";
+  }else{
+	  print("inside amber");
+     blazeMessage.response.applicationDecision.responseCode="AMBER";
+  }
+print("score_nikhil=="scoreCardResult.scorecardScore);
+print("color coding==" blazeMessage.response.applicationDecision.responseCode);
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='FF1Qaz'>
+    <instance ref='ParameterNameVH'>
+     <value>scoreCardResult</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>Score</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='gk9Mpv'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

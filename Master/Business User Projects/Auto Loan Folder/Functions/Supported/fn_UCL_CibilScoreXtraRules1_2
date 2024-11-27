@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_UCL_CibilScoreXtraRules'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_UCL_CibilScoreXtraRules</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anDeviation is some Deviation initially an Deviation;
+tempArray is some array of string initially an array of string;
+AppFilterDeviation is some array of Deviation initially an array of Deviation;
+BankingUsed is a boolean initially false;
+EligibilityUsed is a boolean initially false;
+IIRUsed is a boolean initially false;
+IIRUsed1 is a boolean initially false;
+LTVUsed is a boolean initially false;
+LTVUsed1 is a boolean initially false;
+PremiumUsed1 is a boolean initially false;
+IncomeUsed1 is a boolean initially false;
+FDlienUsed1 is a boolean initially false;
+CareUsed1 is a boolean initially false;
+
+if(blazeMessage.request.application.schemeGroup<>"154")then{
+for each Deviation in blazeMessage.response.applicationDecision.deviations such that (it is not null and it is known) do {
+  AppFilterDeviation.append(it);
+}
+	 for each Deviation in AppFilterDeviation do {
+    	  //Banking ABB rule
+		if(it.ruleID is known and (it.ruleID=("USEDBanking007" or "USEDBanking008" ) ) and theBlazeMessageBT.appLevelCibilScore>=730)then{
+			BankingUsed=true;
+      		it.overrideLevel ="L2";
+      		it.decisionResult="Deviation";
+     	if(it.ruleID=("USEDBanking007"))then{it.reasonText="PRIME-Banking - ABB Norms not met"; }
+     	if(it.ruleID="USEDBanking008" )then{ it.reasonText="PRIME-Banking - ABB Norms not met";  }
+        	 AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+		}
+   if(it.ruleID is known and (it.ruleID=("USEDBanking007" or "USEDBanking008" ) ) and
+   (theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)))then{
+			BankingUsed=true;
+      		it.overrideLevel ="L2";
+      		it.decisionResult="Deviation";
+     	if(it.ruleID=("USEDBanking007"))then{it.reasonText="PRIME-Banking - ABB Norms not met"; }
+     	if(it.ruleID="USEDBanking008" )then{ it.reasonText="PRIME-Banking - ABB Norms not met";  }
+        	 AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+		}
+
+       /// Eligibility >30 %
+		if(it.ruleID is known and it.ruleID="Common039" )then{
+	    	if((theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+   				 EligibilityUsed=true;
+      			 it.overrideLevel ="L2";
+      		 	it.decisionResult="Deviation";
+      		 	it.reasonText="PRIME - Eligibility amount 30% higher than the requested loan amt";
+      			AppFilterDeviation.append(it);
+				tempArray.append(it.ruleID);
+  	 }  else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+   				 EligibilityUsed=true;
+      			 it.overrideLevel ="L1";
+      			 it.decisionResult="Deviation";
+      		 	it.reasonText="PRIME - Eligibility amount 30% higher than the requested loan amt";
+      			AppFilterDeviation.append(it);
+				tempArray.append(it.ruleID);
+      } else {
+       			it.overrideLevel ="L99";
+        		AppFilterDeviation.append(it);
+				tempArray.append(it.ruleID);
+     }
+   }
+     //IIR>300
+     		 if(it.reasonText="REJ- IIR deviation More than 200%")then{	IIRUsed=true;  }
+      			  if( it.reasonText is known and IIRUsed=true and blazeMessage.request.application.schemeGroup="119"and it.reasonCode="42002") then{
+    		     	 if((theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+               			it.overrideLevel ="L2";
+        	    		IIRUsed1=true;
+            	 		it.decisionResult="Deviation";
+            			it.reasonText="PRIME-IIR deviation more than 200%";
+         				AppFilterDeviation.append(it);
+						tempArray.append(it.ruleID);
+   			}     else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+         				it.overrideLevel ="L1";
+     					IIRUsed1=true;
+        				it.decisionResult="Deviation";
+        				it.reasonText="PRIME-IIR deviation more than 200%";
+         				AppFilterDeviation.append(it);
+						tempArray.append(it.ruleID);
+     		 }     else {
+       					it.overrideLevel ="L99";
+        				AppFilterDeviation.append(it);
+						tempArray.append(it.ruleID);
+     		 }
+      }
+  //Premium Car
+        if( it.ruleID is known and it.ruleID=("USED_Premium003") ) then{
+           if(  (theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+               	it.overrideLevel ="L2";
+             	PremiumUsed1=true;
+             	it.decisionResult="Deviation";
+                it.reasonText="PRIME-Repayment norms not met";
+               AppFilterDeviation.append(it);
+				tempArray.append(it.ruleID); 
+   	}   else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+      	   it.overrideLevel ="L1";
+  		    it.decisionResult="Deviation";
+ 			PremiumUsed1=true;
+            it.reasonText="PRIME-Repayment norms not met";
+           AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }   else {
+       		it.overrideLevel ="L99";
+          	AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+      }
+  }
+//mimimum Income
+     if( it.reasonCode is known and it.reasonCode=("40003")  ) then{
+           if((theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+               it.overrideLevel ="L2";
+				IncomeUsed1=true;
+             	it.decisionResult="Deviation";
+             	it.reasonText="PRIME-Minimum Income norms not met";
+          		AppFilterDeviation.append(it);
+				tempArray.append(it.ruleID);
+   }    else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+        		 it.overrideLevel ="L1";
+				IncomeUsed1=true;
+     			it.decisionResult="Deviation";
+      			it.reasonText="PRIME-Minimum Income norms not met";
+               AppFilterDeviation.append(it);
+				tempArray.append(it.ruleID);
+      }     else {
+       			it.overrideLevel ="L99";
+          		AppFilterDeviation.append(it);
+				tempArray.append(it.ruleID);
+      }
+   }
+       //Care/Caution
+  if(it.ruleID is known and it.ruleID=(  "USED_Premium009" or  "Normal004" or "USEDBanking009" or "USEDBanking010"  or "USEDBanking011" ) )then{
+    if((theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+        	it.overrideLevel ="L2";
+			CareUsed1=true;
+      		it.decisionResult="Deviation";
+     	if(it.ruleID="USED_Premium009")then{  it.reasonText="PRIME-Caution norms not met"; }
+       if(it.ruleID="Normal004")then{  it.reasonText="PRIME-Caution repayment norms not met"; }
+       if(it.ruleID="USEDBanking009")then{  it.reasonText="PRIME-Care Profile / Caution profile"; }
+       if(it.ruleID="USEDBanking010")then{  it.reasonText="PRIME-Care Profile / Caution profile"; }
+             if(it.ruleID="USEDBanking011")then{  it.reasonText="PRIME-Care Profile / Caution profile"; }
+          AppFilterDeviation.append(it);
+		  tempArray.append(it.ruleID);
+   }     else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+         		it.overrideLevel ="L1";
+				CareUsed1=true;
+   		   		it.decisionResult="Deviation";
+     	if(it.ruleID="USED_Premium009")then{  it.reasonText="PRIME-Caution norms not met"; }
+       	if(it.ruleID="Normal004")then{  it.reasonText="PRIME-Caution repayment norms not met"; }
+       	if(it.ruleID="USEDBanking009")then{  it.reasonText="PRIME-Care Profile / Caution profile"; }
+       	if(it.ruleID="USEDBanking010")then{  it.reasonText="PRIME-Care Profile / Caution profile"; }
+              if(it.ruleID="USEDBanking011")then{  it.reasonText="PRIME-Care Profile / Caution profile"; }
+     		AppFilterDeviation.append(it);
+			  tempArray.append(it.ruleID);
+   }     else {
+       it.overrideLevel ="L99";
+          AppFilterDeviation.append(it);
+			tempArray.append(it.ruleID);
+     }
+   }
+  //FD Lien
+        //FD lien
+if(blazeMessage.request.application.schemeGroup="46")then{
+ if(  theBlazeMessageBT.maxEligibleAmount/2>=(0.75*blazeMessage.request.application.loanDetails.loanAmount) and
+    	it.overrideLevel="L99")then{
+		it.overrideLevel ="L2";
+		FDlienUsed1=true;
+      	it.decisionResult="Deviation";
+ 
+if(it.ruleID="UsedFDLien005")then{  it.reasonText="PRIME-Exit age norms not met"; }
+if(it.ruleID="UsedFDLien004")then{  it.reasonText="PRIME-FD is not available"; }
+if(it.ruleID="UsedFDLien003")then{  it.reasonText="PRIME-Min FD Amount not met"; }
+if(it.ruleID="UsedFDLien001")then{  it.reasonText="PRIME-Asset - No of vehicals more than 1"; }
+if(it.ruleID="UsedFDLien002")then{  it.reasonText="PRIME-Co-applicant is not in defined relation"; }
+if(it.ruleID="Common040")then{  it.reasonText="PRIME-Age less than 21 for all applicants"; }
+if(it.ruleID="Common002")then{  it.reasonText="PRIME-NRI without co-applicant"; }
+if(it.ruleID="Common003")then{  it.reasonText="PRIME-Invalid customer constitutions"; }
+if(it.ruleID="Common004")then{  it.reasonText="PRIME-Please correct Installment type"; }
+if(it.ruleID="Common006")then{  it.reasonText="PRIME-Age less than 18 years"; }
+if(it.ruleID="Common007")then{  it.reasonText="PRIME-Age less than 21 and no co- applicants"; }
+if(it.ruleID="Common010")then{  it.reasonText="PRIME-Primary applicant age less than 21 and co applicant not meeting age norms"; }
+if(it.ruleID="Common012")then{  it.reasonText="PRIME-Max age norms for applicant and co applicant not met"; }
+if(it.ruleID="Common013")then{  it.reasonText="PRIME-Proposed loan less than 1 lakh"; }
+if(it.ruleID="Common014")then{  it.reasonText="PRIME-Proposed loan less than 50000"; }
+if(it.ruleID="Common016")then{  it.reasonText="PRIME-Tenure norms not met"; }
+if(it.ruleID="Common017")then{  it.reasonText="PRIME-Tenure norms not met"; }
+if(it.ruleID="common018")then{  it.reasonText="PRIME-Tenure norms not met"; }
+if(it.ruleID="Common019")then{  it.reasonText="PRIME-Vehicle segment not allowed"; }
+if(it.ruleID="Common020")then{  it.reasonText="PRIME-Ownership norms not met"; }
+if(it.ruleID="Common023")then{  it.reasonText="PRIME-Repayment account bank statements are less than 1 month"; }
+if(it.ruleID="Common028")then{  it.reasonText="PRIME-Business / Employment stability norms not me"; }
+if(it.ruleID="Common032")then{  it.reasonText="PRIME-Asset age norms not met"; }
+if(it.ruleID="Common033")then{  it.reasonText="PRIME-Asset age norms not met"; }
+if(it.ruleID="Common034")then{  it.reasonText="PRIME-Asset age norms not met"; }
+if(it.ruleID="Common035")then{  it.reasonText="PRIME-Asset age norms not met"; }
+} 
+ }
+ }// For loop
+///LTV>10%
+	 for each Deviation in AppFilterDeviation such that (it.reasonText is known and it.reasonCode="99999") do {
+		if(it.reasonText="REJ - LTV more than 10%")then{ LTVUsed=true; }
+      		if( it.reasonText is known and  LTVUsed=true and blazeMessage.request.application.schemeGroup<>"154") then{
+           		if((theBlazeMessageBT.appLevelCibilScore=-1 or (theBlazeMessageBT.appLevelCibilScore>=700 and theBlazeMessageBT.appLevelCibilScore<730)) )then{
+             		it.overrideLevel ="L2";
+             		LTVUsed1=true;
+             		it.reasonText="PRIME- LTV more than 10%";
+             		it.decisionResult="Deviation";
+          			AppFilterDeviation.append(it);
+					tempArray.append(it.ruleID);
+  		 }     else if(theBlazeMessageBT.appLevelCibilScore>=730)then{
+         			it.overrideLevel ="L2";
+     				LTVUsed1=true;
+     				it.decisionResult="Deviation";
+             		it.reasonText="PRIME- LTV more than 10%";
+          			AppFilterDeviation.append(it);
+					tempArray.append(it.ruleID);
+     	 } else {
+       			it.overrideLevel ="L99";
+        		AppFilterDeviation.append(it);
+				tempArray.append(it.ruleID);
+     	 }
+      }
+}
+}
+
+
+	 for each Deviation in AppFilterDeviation such that (it.reasonText is known and it.reasonCode="99999") do {
+     if(blazeMessage.request.application.assetDetails.detailAssetLoan.manufacturer="310")then{
+       it.overrideLevel ="L99";
+       it.reasonText="REJ-LTV more than Norms";
+             		AppFilterDeviation.append(it);
+				tempArray.append(it.ruleID);
+     }
+   }]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='YFvR92'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

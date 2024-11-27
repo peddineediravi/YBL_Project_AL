@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_CareProfileCheck'>
+ <ide-name>DT_CareProfileCheck</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='4uh886b3OIu988vR8caVnavwmih'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>CareProfile</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Vy7ZKRJJckZ2HCTBsg7R2NwOUxB'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>CareProfile</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='4uh886b3OIu988vR8caVnavwmih'>
+   <name>TC_CareProfileCheck1</name>
+   <body>b is some BusinessDetails initially a BusinessDetails;<template:br/>b.industry="200";<template:br/>answer is a boolean initially false;<template:br/><template:br/>answer=DT_CareProfileCheck(b.industry);<template:br/>assert().checkEquals("industry is ", true, answer)</body>
+  </function><function managementPropertiesRef='Vy7ZKRJJckZ2HCTBsg7R2NwOUxB'>
+   <name>TC_CareProfileCheck2</name>
+   <body>b is some BusinessDetails initially a BusinessDetails;<template:br/>b.industry="10064";<template:br/>answer is a boolean initially false;<template:br/><template:br/>answer=DT_CareProfileCheck(b.industry);<template:br/>assert().checkEquals("industry is ", true, answer)</body>
+  </function></template:content>
+</template>

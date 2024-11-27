@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_BP_20081_BankingNorms_Pos'>
+ <ide-name>TC_BP_20081_BankingNorms_Pos</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Q1TxYKNOlBPe1XktLLEd7JRDXSp'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>Banking Program</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='Q1TxYKNOlBPe1XktLLEd7JRDXSp'>
+   <name>TC_BP_20081_BankingNorms_Pos</name>
+   <body>bankDetails is some BankDetails initially an BankDetails;<template:br/>//bankDetails.noOfCredits=1;<template:br/>//bankDetails.noOfDebits=0;<template:br/>StatementDetailsArr is some array of  StatementDetails initially an array of StatementDetails;<template:br/>StatementDetails1 is some  StatementDetails initially a StatementDetails;<template:br/>StatementDetails1.noOfMonthlyCredits=1;<template:br/>StatementDetails1.noOfMonthlyDebits=0;<template:br/>StatementDetails2 is some  StatementDetails initially a StatementDetails;<template:br/>StatementDetails2.noOfMonthlyCredits=1;<template:br/>StatementDetails2.noOfMonthlyDebits=0;<template:br/>StatementDetailsArr.append(StatementDetails1);<template:br/>StatementDetailsArr.append(StatementDetails2);<template:br/>bankDetails.bankStatements=StatementDetailsArr;<template:br/>bankDetails.isRepaymentAccount=true;<template:br/><template:br/>bankDetailsArr is some array of BankDetails initially an array of BankDetails;<template:br/>bankDetailsArr.append(bankDetails);<template:br/><template:br/>multib is some MultiBureauReport initially a MultiBureauReport;<template:br/>cibil is some CibilReport initially a CibilReport;<template:br/>scoreseg is some ScoreSegment initially a ScoreSegment;<template:br/>scoreseg.scoreName="CIBIL";<template:br/>scoreseg.score=774;<template:br/>scores is some array of ScoreSegment  initially an array of ScoreSegment;<template:br/>scores.append(scoreseg);<template:br/>cibil.scores=scores;<template:br/>multib.cibilResponse=cibil;<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/>applicant.bankDetails=bankDetailsArr;<template:br/>applicant.multiBureauReport=multib;<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.applicants = applicantArr;<template:br/>application.scheme="19041153";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>apply RS_BankingProgramRules(blazeMessage);<template:br/><template:br/>//print("##########"theBlazeMessageBT.ABBEMIRatio);<template:br/>assert().checkTrue("TC_BP_20081_BankingNorms_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonCode is equal to "20081"));<template:br/>assert().checkTrue("TC_BP_20081_BankingNorms_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.decisionResult is equal to "DEVIATION"));<template:br/>assert().checkTrue("TC_BP_20081_BankingNorms_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonText is equal to "Banking - Debit/Credit norms not met"));</body>
+  </function></template:content>
+</template>

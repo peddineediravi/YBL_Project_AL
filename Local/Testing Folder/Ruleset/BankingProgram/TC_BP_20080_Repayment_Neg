@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_BP_20080_Repayment_Neg'>
+ <ide-name>TC_BP_20080_Repayment_Neg</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Ru0RWTwBfXV8MFQVtXMXRbwiSP3'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>Banking Program</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='Ru0RWTwBfXV8MFQVtXMXRbwiSP3'>
+   <name>TC_BP_20080_Repayment_Neg</name>
+   <body><template:br/><template:br/>newVehicleDetails is some NewVehicleDetails initially a NewVehicleDetails;<template:br/>newVehicleDetails.assetCost = 400000;<template:br/><template:br/>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>assetDetails.newVehicleDetails = newVehicleDetails;<template:br/><template:br/>address is some Address initially an Address;<template:br/>address.propertyType = "r";<template:br/>address.addressType = "RESIOFF";<template:br/><template:br/>addressArr is some array of Address initially an array of Address;<template:br/>addressArr.append(address);<template:br/><template:br/>bankDetails is some BankDetails initially an BankDetails;<template:br/>bankDetails.averageBalance=1400;<template:br/>bankDetails.isRepaymentAccount=true;<template:br/>bankDetailsArr is some array of BankDetails initially an array of BankDetails;<template:br/>bankDetailsArr.append(bankDetails);<template:br/><template:br/>liability is some Liability;<template:br/>liability = a Liability initially {<template:br/>it.typeOfLoanProduct = "PL";<template:br/>it.noOfEMIsPaid = 6;<template:br/>it.noOfBounces = 0;<template:br/>it.noOfEMIsforObligation = 13;<template:br/>it.loanAmount = 4000000;<template:br/>it.peakDPD=0;<template:br/>//here is the data to check<template:br/>it.principalOutstanding=10;<template:br/>it.loanClosureDate = '01-Jan-2017';<template:br/><template:br/>}<template:br/><template:br/>liabilities is some array of Liability initially an array of Liability;<template:br/>liabilities.append(liability);<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/>applicant.addresses = addressArr;<template:br/>applicant.customerSegment="2";<template:br/>applicant.bankDetails=bankDetailsArr;<template:br/>applicant.liabilities= liabilities;<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/>loanDetails is some LoanDetails initially an LoanDetails;<template:br/>loanDetails.loanAmount=100000;<template:br/>loanDetails.loanPurpose ="3";<template:br/>loanDetails.loanEMI=100000;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.assetDetails = assetDetails;<template:br/>application.applicants = applicantArr;<template:br/>application.loanDetails=loanDetails;<template:br/>application.applicationInfo=a ApplicationInfo;<template:br/>application.applicationInfo.dateOfReceipt ='18-Jun-2019';<template:br/>application.scheme="19041153";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>apply RS_BankingProgramRules(blazeMessage);<template:br/><template:br/>assert().checkFalse("TC_BP_20080_Repayment_Neg",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonCode is equal to "20080"));<template:br/>assert().checkFalse("TC_BP_20080_Repayment_Neg",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonText is equal to "Repayment norms not met"));</body>
+  </function></template:content>
+</template>

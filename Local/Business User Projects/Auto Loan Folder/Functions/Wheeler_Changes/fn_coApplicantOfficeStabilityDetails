@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_coApplicantOfficeStabilityDetails'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_coApplicantOfficeStabilityDetails</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("fn_coapplicantOfficeStabilityDetails Entering...");
+anApplicant is some Applicant;		
+tempDesignation is a string ;
+cotempDesignation is a string ;
+tempPrimaryAppOffAddress is  a string ;
+tempcoAppOffAddress is a string;
+
+//Co Applicant 
+for each Applicant in ablazeMessage1.request.application.applicants  such that (it.applicantType  is (known and available) and it.applicantType <>"P")do{
+			anApplicant=it;
+  			   if((it.constitution  is (known and available) and  it.constitution ="1" ))then{
+				   if( ( it.customerSegment  is (known and available) and it.customerSegment =("1" )))then{
+                 		                if( it.employmentDetails.designation is  (known and available) )then{
+                  if(it.employmentDetails.designation=("ABS"))then{cotempDesignation="ABLE BODY SEAMAN";} 
+                                  else if(it.employmentDetails.designation=("ACCO"))then{cotempDesignation="ACCOUNTANT";}  
+                                  else if(it.employmentDetails.designation=("ADMIN"))then{cotempDesignation="ADMIN MANAGER";}  
+                                  else if(it.employmentDetails.designation=("ADVO"))then{cotempDesignation="ADVOCATE ";} 
+                                  else if(it.employmentDetails.designation=("AGEM"))then{cotempDesignation="AGENCY MANAGER";}  
+                                  else if(it.employmentDetails.designation=("ANALYST"))then{cotempDesignation="ANALYST";}  
+                                  else if(it.employmentDetails.designation=("ARCH"))then{cotempDesignation="ARCHITECT";}  
+                                  else if(it.employmentDetails.designation=("ASSIST"))then{cotempDesignation="ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=("AM"))then{cotempDesignation="ASSISTANT MANAGER";}  
+                                  else if(it.employmentDetails.designation=("AS"))then{cotempDesignation="ASSISTANT SUPERVISOR";}  
+                                  else if(it.employmentDetails.designation=("ACA"))then{cotempDesignation="ASSOC CREDIT ADMIN";} 
+                                  else if(it.employmentDetails.designation=("ASSO"))then{cotempDesignation="ASSOCIATE";}  
+                                  else if(it.employmentDetails.designation=("AO"))then{cotempDesignation="ASSOCIATE OFFICER";}  
+                                  else if(it.employmentDetails.designation=("AP"))then{cotempDesignation="ASSOCIATE PROFESSOR";}  
+                                  else if(it.employmentDetails.designation=("ACOM"))then{cotempDesignation="ASST COMMISSIONER";}  
+                                  else if(it.employmentDetails.designation=("AE"))then{cotempDesignation="ASST ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("ALP"))then{cotempDesignation="ASST LOCO PILOT";}  
+                                  else if(it.employmentDetails.designation=("AVP"))then{cotempDesignation="AVP";}  
+                                  else if(it.employmentDetails.designation=("BAR"))then{cotempDesignation="BARBER";}  
+                                  else if(it.employmentDetails.designation=("BODC"))then{cotempDesignation="BODYSHOP CONTROLLER";}  
+                                  else if(it.employmentDetails.designation=("BRAC"))then{cotempDesignation="BRANCH ACCOUNTANT";}  
+                                  else if(it.employmentDetails.designation=("BUSC"))then{cotempDesignation="BUS CONDUCTOR";}  
+                                  else if(it.employmentDetails.designation=("CM"))then{cotempDesignation="CAMERAMAN";}  
+                                  else if(it.employmentDetails.designation=("CAP"))then{cotempDesignation="CAPTAIN";}  
+                                  else if(it.employmentDetails.designation=("CART"))then{cotempDesignation="CARE TAKER";}  
+                                  else if(it.employmentDetails.designation=("CC"))then{cotempDesignation="CARPENTER CONTRACTOR";}  
+                                  else if(it.employmentDetails.designation=("CASHIER"))then{cotempDesignation="CASHIER";}  
+                                  else if(it.employmentDetails.designation=("CA"))then{cotempDesignation="CHARTERED ACCOUNTANT";}  
+                                  else if(it.employmentDetails.designation=("CHEF"))then{cotempDesignation="CHEF";}  
+                                  else if(it.employmentDetails.designation=("CEO"))then{cotempDesignation="CHIEF EXECUTIVE OFFICER";}  
+                                  else if(it.employmentDetails.designation=("CFO"))then{cotempDesignation="CHIEF FIN OFFICER";}  
+                                  else if(it.employmentDetails.designation=("CLEANER"))then{cotempDesignation="CLEANER";}  
+                                  else if(it.employmentDetails.designation=("CLERK"))then{cotempDesignation="CLERK";}  
+                                  else if(it.employmentDetails.designation=("CDS"))then{cotempDesignation="CLINICAL DATA SP";}  
+                                  else if(it.employmentDetails.designation=("COLL A"))then{cotempDesignation="COLLECTION AGENT";}  
+                                  else if(it.employmentDetails.designation=("COLONEL"))then{cotempDesignation="COLONEL";}  
+                                  else if(it.employmentDetails.designation=("CONST"))then{cotempDesignation="CONSTABLE";}  
+                                  else if(it.employmentDetails.designation=("CONULT"))then{cotempDesignation="CONSULTANT";}  
+                                  else if(it.employmentDetails.designation=("DS"))then{cotempDesignation="DEPART SUPERITENDENT";}  
+                                  else if(it.employmentDetails.designation=("DM"))then{cotempDesignation="DEPUTY MANAGER";}  
+                                  else if(it.employmentDetails.designation=("DE"))then{cotempDesignation="DESIGN ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("DESIGN"))then{cotempDesignation="DESINGER";}  
+                                  else if(it.employmentDetails.designation=("DF"))then{cotempDesignation="DIAMOND FIXING";}  
+                                  else if(it.employmentDetails.designation=("DIERECT"))then{cotempDesignation="DIRECTOR";}  
+                                  else if(it.employmentDetails.designation=("DOC"))then{cotempDesignation="DOCTOR";}  
+                                  else if(it.employmentDetails.designation=("DRESSER"))then{cotempDesignation="DRESSER";}  
+                                  else if(it.employmentDetails.designation=("DRIVER"))then{cotempDesignation="DRIVER";}  
+                                  else if(it.employmentDetails.designation=("ELECTR"))then{cotempDesignation="ELECTRICIAN";}  
+                                  else if(it.employmentDetails.designation=("ENG"))then{cotempDesignation="ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("EXECU"))then{cotempDesignation="EXECUTIVE";}  
+                                  else if(it.employmentDetails.designation=("Ex O"))then{cotempDesignation="EXECUTIVE OFFICER";}  
+                                  else if(it.employmentDetails.designation=("FARM"))then{cotempDesignation="FARMER";}  
+                                  else if(it.employmentDetails.designation=("FITTER"))then{cotempDesignation="FITTER";}  
+                                  else if(it.employmentDetails.designation=("FOREM"))then{cotempDesignation="FOREMAN";}  
+                                  else if(it.employmentDetails.designation=("F G"))then{cotempDesignation="FOREMAN GAZZETTED";}  
+                                  else if(it.employmentDetails.designation=("GANGM"))then{cotempDesignation="GANGMAN";}  
+                                  else if(it.employmentDetails.designation=("GRADN"))then{cotempDesignation="GARDNER";}  
+                                  else if(it.employmentDetails.designation=("GM"))then{cotempDesignation="GENERAL MANAGER";}  
+                                  else if(it.employmentDetails.designation=("GOV E"))then{cotempDesignation="GOVT. EMPLOYEE";}  
+                                  else if(it.employmentDetails.designation=("HOUSEW"))then{cotempDesignation="HOUSEWelse ifE";}  
+                                  else if(it.employmentDetails.designation=("HR"))then{cotempDesignation="HR";}  
+                                  else if(it.employmentDetails.designation=("IT E"))then{cotempDesignation=" IT ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("JD"))then{cotempDesignation="JUNIOR DESIGNER";}  
+                                  else if(it.employmentDetails.designation=("JEX"))then{cotempDesignation="JUNIOR EXECUTIVE";}  
+                                  else if(it.employmentDetails.designation=("LA"))then{cotempDesignation="LAB ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=(" LT"))then{cotempDesignation="LAB TECHNICIAN";}  
+                                  else if(it.employmentDetails.designation=("LA A"))then{cotempDesignation="LAUNDERY ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=("LAW A"))then{cotempDesignation="LAW ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=("LAWYER"))then{cotempDesignation="LAWYER";}  
+                                  else if(it.employmentDetails.designation=("LECTURER"))then{cotempDesignation="LECTURER";}  
+                                  else if(it.employmentDetails.designation=("LIBRA"))then{cotempDesignation=" LIBRIAN";}  
+                                  else if(it.employmentDetails.designation=("LINE A"))then{cotempDesignation="LINE ATTENDER";}  
+                                  else if(it.employmentDetails.designation=("LINEMAN"))then{cotempDesignation="LINEMAN";}  
+                                  else if(it.employmentDetails.designation=("Loader"))then{cotempDesignation="LOADER";}  
+                                  else if(it.employmentDetails.designation=("LOG A"))then{cotempDesignation="LOGISTIC ANALYST";}  
+                                  else if(it.employmentDetails.designation=("LMAN"))then{cotempDesignation="LOWER THAN MANAGER";}  
+                                  else if(it.employmentDetails.designation=("Maid"))then{cotempDesignation="MAID";}  
+                                  else if(it.employmentDetails.designation=("Maintena"))then{cotempDesignation="MAINTENANCE";}  
+                                  else if(it.employmentDetails.designation=("MAJOR"))then{cotempDesignation="MAJOR";}  
+                                  else if(it.employmentDetails.designation=("MAN"))then{cotempDesignation="MANAGER";}  
+                                  else if(it.employmentDetails.designation=("Mech"))then{cotempDesignation="MECHANIST";}  
+                                  else if(it.employmentDetails.designation=("Milk Man"))then{cotempDesignation="MILK MAN";}  
+                                  else if(it.employmentDetails.designation=("Motorman"))then{cotempDesignation="MOTORMAN";}  
+                                  else if(it.employmentDetails.designation=("MUKADAM"))then{cotempDesignation="MUKADAM";}  
+                                  else if(it.employmentDetails.designation=("OFA"))then{cotempDesignation="OFFICE ASSISTANT";}  
+                                  else if(it.employmentDetails.designation=("OfficeB"))then{cotempDesignation="OFFICE BOY";}  
+                                  else if(it.employmentDetails.designation=("Officer"))then{cotempDesignation="OFFICER";}  
+                                  else if(it.employmentDetails.designation=("Operator"))then{cotempDesignation="OPERATOR";}  
+                                  else if(it.employmentDetails.designation=("Partner"))then{cotempDesignation="PARTNER";}  
+                                  else if(it.employmentDetails.designation=("Pension"))then{cotempDesignation="PENSIONER";}  
+                                  else if(it.employmentDetails.designation=("Peon"))then{cotempDesignation="PEON";}  
+                                  else if(it.employmentDetails.designation=("Plumber"))then{cotempDesignation="PLUMBER";}  
+                                  else if(it.employmentDetails.designation=("Postman"))then{cotempDesignation="POSTMAN";}  
+                                  else if(it.employmentDetails.designation=("Pres"))then{cotempDesignation="PRESIDENT";}  
+                                  else if(it.employmentDetails.designation=("Priest"))then{cotempDesignation="PRIEST";}  
+                                  else if(it.employmentDetails.designation=("Princi"))then{cotempDesignation="PRINCIPAL";}  
+                                  else if(it.employmentDetails.designation=("PS"))then{cotempDesignation="PRIVATE SECRETARY";}  
+                                  else if(it.employmentDetails.designation=("PM"))then{cotempDesignation="PRODUCTION MANAGER";}  
+                                  else if(it.employmentDetails.designation=("PROF"))then{cotempDesignation="PROFESSOR";}  
+                                  else if(it.employmentDetails.designation=("PC"))then{cotempDesignation="PROJECT COORDINATOR";}  
+                                  else if(it.employmentDetails.designation=("PL"))then{cotempDesignation="PROJECT LEADER";}  
+                                  else if(it.employmentDetails.designation=("Prop"))then{cotempDesignation="PROPRIETOR";}  
+                                  else if(it.employmentDetails.designation=("Regional"))then{cotempDesignation="REGIONAL HEAD";}  
+                                  else if(it.employmentDetails.designation=("Retired"))then{cotempDesignation="RETIRED";}  
+                                  else if(it.employmentDetails.designation=("Sailer"))then{cotempDesignation="SAILER";}  
+                                  else if(it.employmentDetails.designation=("Sales As"))then{cotempDesignation="SALES ASSOCIATE";}  
+                                  else if(it.employmentDetails.designation=("Sales C"))then{cotempDesignation="SALES COORDINATOR";}  
+                                  else if(it.employmentDetails.designation=("SAEX"))then{cotempDesignation="SALES EXECUTIVE";}  
+                                  else if(it.employmentDetails.designation=("Security"))then{cotempDesignation="SECURITY GUARD";}  
+                                  else if(it.employmentDetails.designation=("Secret"))then{cotempDesignation="SECRETARY";}  
+                                  else if(it.employmentDetails.designation=("S CH"))then{cotempDesignation="SENIOR CHARGEMAN";}  
+                                  else if(it.employmentDetails.designation=("S GA"))then{cotempDesignation="SENIOR GANGMAN";}  
+                                  else if(it.employmentDetails.designation=("SMAN"))then{cotempDesignation="SENIOR MANAGER";}  
+                                  else if(it.employmentDetails.designation=("SPOM"))then{cotempDesignation="SENIOR POINT MAN";}  
+                                  else if(it.employmentDetails.designation=("Share H"))then{cotempDesignation="SHARE HOLDER";}  
+                                  else if(it.employmentDetails.designation=("SVP"))then{cotempDesignation="SR VICE PRESIDENT";}  
+                                  else if(it.employmentDetails.designation=("S AS"))then{cotempDesignation="SR. ASSOCIATE";}  
+                                  else if(it.employmentDetails.designation=("SSE"))then{cotempDesignation="SR. SOFTWARE ENG";}  
+                                  else if(it.employmentDetails.designation=("SN"))then{cotempDesignation="STAFF NURSE";}  
+                                  else if(it.employmentDetails.designation=("Steno"))then{cotempDesignation="STENOGRAPHER";}  
+                                  else if(it.employmentDetails.designation=("Student"))then{cotempDesignation="STUDENT";}  
+                                  else if(it.employmentDetails.designation=("Supervi"))then{cotempDesignation="SUPERVISOR";}  
+                                  else if(it.employmentDetails.designation=("Sweeper"))then{cotempDesignation="SWEEPER";}  
+                                  else if(it.employmentDetails.designation=("SA"))then{cotempDesignation="SYSTEM ADMINSTRATOR";}  
+                                  else if(it.employmentDetails.designation=("TEACH"))then{cotempDesignation="TEACHER";}  
+                                  else if(it.employmentDetails.designation=("TL"))then{cotempDesignation="TEAM LEADER";}  
+                                  else if(it.employmentDetails.designation=("TSN"))then{cotempDesignation="TECHL SERV MANAGER";}  
+                                  else if(it.employmentDetails.designation=("Techni"))then{cotempDesignation="TECHNICIAN";}  
+                                  else if(it.employmentDetails.designation=("TE"))then{cotempDesignation="TELEPHONE ENGINEER";}  
+                                  else if(it.employmentDetails.designation=("T M"))then{cotempDesignation="TELEPHONE MECHANIC";}  
+                                  else if(it.employmentDetails.designation=("TESM"))then{cotempDesignation="TERRITORY SALES M";}  
+                                  else if(it.employmentDetails.designation=("Trainer"))then{cotempDesignation="TRAINER";}  
+                                  else if(it.employmentDetails.designation=("Treas"))then{cotempDesignation="TREASURER";}  
+                                  else if(it.employmentDetails.designation=("Truck Dr"))then{cotempDesignation="TRUCK DRIVER";}  
+                                  else if(it.employmentDetails.designation=("Trustee"))then{cotempDesignation="TRUSTEE";}  
+                                  else if(it.employmentDetails.designation=("V P"))then{cotempDesignation="VICE PRESIDENT";}  
+                                  else if(it.employmentDetails.designation=("Vi Prin"))then{cotempDesignation="VICE PRINCIPAL";}  
+                                  else if(it.employmentDetails.designation=("VPA"))then{cotempDesignation="VP AND ABOVE";}  
+                                  else if(it.employmentDetails.designation=("W I"))then{cotempDesignation="WAREHOUSE INCHARGE";}  
+                                  else if(it.employmentDetails.designation=("Watchman"))then{cotempDesignation="WATCHMAN";}  
+                                  else if(it.employmentDetails.designation=("Worker"))then{cotempDesignation="WORKER";}  
+                                  else if(it.employmentDetails.designation=("DOA"))then{cotempDesignation="DEFENCE OFFR & ABOVE";}  
+                                  else if(it.employmentDetails.designation=("DSSM"))then{cotempDesignation="DEFENCE SUBEDAR & SUBEDAR MAJOR";}  
+                                  else if(it.employmentDetails.designation=("DNSB"))then{cotempDesignation="DEFENCE NAIB SUBEDAR & BELOW";}  
+                                  else if(it.employmentDetails.designation=("ABMGR"))then{cotempDesignation="MANAGER AND ABOVE";}  
+                                  else if(it.employmentDetails.designation=("BLMGR"))then{cotempDesignation="BELOW MANAGER";}  
+                                  else if(it.employmentDetails.designation=("AIR MARS"))then{cotempDesignation="AIR MARSHAL";}  
+                                  else if(it.employmentDetails.designation=("GROUP CA"))then{cotempDesignation="GROUP CAPTAIN";}  
+                                  else if(it.employmentDetails.designation=("AIR CHIE"))then{cotempDesignation="AIR CHIEF MARSHAL";}  
+                                  else if(it.employmentDetails.designation=("WING COM"))then{cotempDesignation="WING COMMANDER";}  
+                                  else if(it.employmentDetails.designation=("MAROTAF"))then{cotempDesignation="MARSHAL OF THE AIR FORCE";}  
+                                  else if(it.employmentDetails.designation=("SUB LIEU"))then{cotempDesignation="SUB LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("SQUADRON"))then{cotempDesignation="SQUADRON LEADER";}  
+                                  else if(it.employmentDetails.designation=("VICE ADM"))then{cotempDesignation="VICE ADMIRAL";}  
+                                  else if(it.employmentDetails.designation=("ADMFLEET"))then{cotempDesignation="ADMIRAL OF THE FLEET";}  
+                                  else if(it.employmentDetails.designation=("ADMIRAL"))then{cotempDesignation="ADMIRAL";}  
+                                  else if(it.employmentDetails.designation=("AIR VICE"))then{cotempDesignation="AIR VICE MARSHAL";}  
+                                  else if(it.employmentDetails.designation=("BRIGADIE"))then{cotempDesignation="BRIGADIER";}  
+                                  else if(it.employmentDetails.designation=("COMMANDE"))then{cotempDesignation="COMMANDER";}  
+                                  else if(it.employmentDetails.designation=("FIELD MA"))then{cotempDesignation="FIELD MARSHAL";}  
+                                  else if(it.employmentDetails.designation=("FIRST LI"))then{cotempDesignation="FIRST LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("FLIGHT L"))then{cotempDesignation="FLIGHT LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("FLIGHTLI"))then{cotempDesignation="FLIGHT LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("FLYING O"))then{cotempDesignation="FLYING OFFICER";}  
+                                  else if(it.employmentDetails.designation=("GENERAL"))then{cotempDesignation="GENERAL";}  
+                                  else if(it.employmentDetails.designation=("LIEUTCOL"))then{cotempDesignation="LIEUTANANT COLONEL";}  
+                                  else if(it.employmentDetails.designation=("LIEUTENA"))then{cotempDesignation="LIEUTANANT GENERAL";}  
+                                  else if(it.employmentDetails.designation=("AIR COMM"))then{cotempDesignation="AIR COMMODORE";}  
+                                  else if(it.employmentDetails.designation=("LIEUTCOM"))then{cotempDesignation="LIEUTANANT COMMANDER";}  
+                                  else if(it.employmentDetails.designation=("REAR ADM"))then{cotempDesignation="REAR ADMIRAL";}  
+                                  else if(it.employmentDetails.designation=("MAJOR GE"))then{cotempDesignation="MAJOR GENERAL";}  
+                                  else if(it.employmentDetails.designation=("SECOND L"))then{cotempDesignation="SECOND LIEUTANANT";}  
+                                  else if(it.employmentDetails.designation=("DNSB"))then{cotempDesignation="DEFENCE NAIB SUBEDAR & BELOW";}  
+                                  else if(it.employmentDetails.designation=("19050903"))then{cotempDesignation="DEFENCE NAIB SUBEDAR & BELOW";}  
+                                  else if(it.employmentDetails.designation=("DSSM"))then{cotempDesignation="DEFENCE SUBEDAR & SUBEDAR MAJOR";}  
+                                  else if(it.employmentDetails.designation=("19050902"))then{cotempDesignation="DEFENCE SUBEDAR & SUBEDAR MAJOR";}  
+                                  else if(it.employmentDetails.designation=("19050901"))then{cotempDesignation="19050901";}  
+                 }
+                 fn_AppendActionMessage("Co - Applicant is working as salaried employee  since "it.employmentDetails.yearsInPresentJob " years " cotempDesignation
+                                        " . Total work experience is "it.employmentDetails.totalWorkExperienceInYears " years " it.employmentDetails.totalWorkExperienceInMonths " months." );
+               }else if(  it.customerSegment  is (known and available) and it.customerSegment =("2" ))then{
+				    for each Address in anApplicant.addresses do{
+							if(it.addressType  is (known and available) and it.addressType=(ignoring case)("BUS" or "OFFICE"))then{
+								if(it.propertyType  is (known and available) and  it.propertyType=(ignoring case)("O" or "OP" or "OWN_COAP" or "OWNERSHI") )then{
+									tempcoAppOffAddress="owned";
+								}else if(it.propertyType  is (known and available) and it.propertyType=(ignoring case)("R"))then{
+									tempcoAppOffAddress ="Rented"
+								}
+							}
+						 }
+						 fn_AppendActionMessage("Co - Applicant is self employed  professional since "it.businessDetails.businessVintageInYears " years "it.businessDetails.businessVintageInMonths " months   Office "tempcoAppOffAddress);
+			   }else if(  it.customerSegment  is (known and available) and it.customerSegment =("3" ))then{
+				   for each Address in anApplicant.addresses do{
+							if(it.addressType  is (known and available) and it.addressType=(ignoring case)("BUS" or "OFFICE"))then{
+								if(it.propertyType  is (known and available) and  it.propertyType=(ignoring case)("O" or "OP" or "OWN_COAP" or "OWNERSHI") )then{
+									tempcoAppOffAddress="owned";
+								}else if(it.propertyType  is (known and available) and it.propertyType=(ignoring case)("R"))then{
+									tempcoAppOffAddress ="Rented"
+								}
+							}
+						 }
+						 fn_AppendActionMessage("Co - Applicant is self employed non professional since "it.businessDetails.businessVintageInYears " years "it.businessDetails.businessVintageInMonths " months   Office "tempcoAppOffAddress);
+			   }
+			   }else    if((it.constitution  is (known and available) and  it.constitution <> "1") )then{
+				   for each Address in anApplicant.addresses do{
+							if(it.addressType  is (known and available) and it.addressType=(ignoring case)("BUS" or "OFFICE"))then{
+								if(it.propertyType  is (known and available) and  it.propertyType=(ignoring case)("O" or "OP" or "OWN_COAP" or "OWNERSHI") )then{
+									tempcoAppOffAddress="owned";
+								}else if(it.propertyType  is (known and available) and it.propertyType=(ignoring case)("R"))then{
+									tempcoAppOffAddress ="Rented"
+								}
+							}
+						 }
+                 fn_AppendActionMessage("Co - Applicant is self employed in"it.businessDetails.businessName " since "it.businessDetails.businessVintageInYears " years "it.businessDetails.businessVintageInMonths "months  as Office "tempcoAppOffAddress);
+               }
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='FRDCHt'>
+    <instance ref='ParameterNameVH'>
+     <value>ablazeMessage1</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

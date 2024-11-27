@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_RatioOf30PdpdLast24MonthsTotalLoans'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_RatioOf30PdpdLast24MonthsTotalLoans</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("Entering fn_RatioOf30PdpdLast24MonthsTotalLoans::::::::");
+anApplicant is some Applicant;
+historyLength is an integer initially 0;
+numberOfMonths is an integer initially 0;
+paymentHistory is a string initially "";
+noOfDPDBounces is an integer initially 0;
+noOfDPDBouncesx  is an integer initially 0;
+//todayDate is a date initially calendar().currentDate();
+//testing freeze defult date is '27-Jan-2022';
+todayDate is a date  initially  '27-Jan-2022';
+todayDate=calendar().date(todayDate);
+count is an integer initially 0;
+//months is an integer initially 0;
+noOfMonths is an integer initially 0;
+noOfDays is an integer initially 0;
+TotalTradeLinesopenedinlast24months is an integer initially 0;
+Ratio30PdpdinLast24months is an real initially 0;
+for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType is (known and available)
+and it.applicantType="P") do {
+anApplicant =it; 
+if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is (known and available) 
+	and anApplicant.multiBureauReport.cibilResponse.accounts is (known and available) and 
+	anApplicant.multiBureauReport.cibilResponse.accounts.count > 0) then {
+	
+	for each Account in anApplicant.multiBureauReport.cibilResponse.accounts such that(it is  (known and available))do {
+			if(todayDate is  (known and available) and months   is  (known and available) and it.dateOpenedOrDisbursed is (known and available) and months  is (known and available)  and todayDate.subtractInMonths(it.dateOpenedOrDisbursed).months > 0 and 
+			todayDate.subtractInMonths(it.dateOpenedOrDisbursed).months <= months and it.dateClosed =unknown)then{
+				TotalTradeLinesopenedinlast24months =TotalTradeLinesopenedinlast24months+1;
+				print("TotalTradeLinesopenedinlast24months"TotalTradeLinesopenedinlast24months);
+			
+		//	if(it.dateReportedAndCertified is (known and available) and    
+		//	todayDate.subtractInMonths(it.dateReportedAndCertified).months > 0 and 
+		//	todayDate.subtractInMonths(it.dateReportedAndCertified).months <= months)then{
+				if(it.paymentHistory1 is (known and available)) then {
+				paymentHistory = it.paymentHistory1;
+			}
+			if(it.paymentHistory2 is (known and available)) then {
+				paymentHistory = paymentHistory.concat(it.paymentHistory2);
+			}
+			
+			historyLength = paymentHistory.length();
+			numberOfMonths = math().truncate(historyLength/3);      	
+			paymentHistory = paymentHistory.replaceAll("X","0");
+			paymentHistory = paymentHistory.replaceAll("DDD", "000");
+			paymentHistory = paymentHistory.replaceAll("LSS", "180");
+			paymentHistory = paymentHistory.replaceAll("SUB", "180");
+			paymentHistory = paymentHistory.replaceAll("DBT", "180");
+			paymentHistory = paymentHistory.replaceAll("SMA", "089");
+			paymentHistory = paymentHistory.replaceAll("STD", "000");
+
+			monthCounter is a integer initially 0;
+			pos1 is an integer initially 0;
+			pos2 is an integer initially 3;
+			dpdValue is an integer initially 0;
+			tempIntArray is some array of integer initially an array of integer;
+			is30PlusAccount is an boolean initially false;
+			//print("paymentHistory"paymentHistory);
+			while(monthCounter <= numberOfMonths-1) do {
+				dpdValue=paymentHistory.substring(pos1, pos2) as an integer;
+				tempIntArray.append(dpdValue);
+				pos1=pos2;
+				pos2=pos2+3;
+				monthCounter+=1;
+			}			
+			dpdArrCount is an integer initially 0;    
+          	
+			if(tempIntArray.count > 0) then {
+            
+				while( dpdArrCount < math().min(tempIntArray.count, months)) do{	
+					
+					if(tempIntArray[dpdArrCount] >30) then {
+						print("tempIntArray["dpdArrCount"]"tempIntArray[dpdArrCount]);
+                       	is30PlusAccount =true;
+							noOfDPDBounces = noOfDPDBounces +1;
+                      		print("TotalTradeLinesopenedinlast24months"TotalTradeLinesopenedinlast24months"noOfDPDBounces="noOfDPDBounces);
+							//if(TotalTradeLinesopenedinlast24months =noOfDPDBounces)then{
+								//	count=count+1;
+						//}
+						
+					
+					
+					}
+					dpdArrCount = dpdArrCount +1;
+					
+					
+				}
+				if (is30PlusAccount =true)then{
+						print("is30PlusAccount=="is30PlusAccount);
+						count=count+1;
+					}
+			}
+			
+			}
+	}
+}
+}
+print("count"count);
+print("noOfDPDBounces ="noOfDPDBounces);
+print("TotalTradeLinesopenedinlast24months="TotalTradeLinesopenedinlast24months);
+if((count is (known and available) and TotalTradeLinesopenedinlast24months is (known and available) ) and (count >0 and TotalTradeLinesopenedinlast24months>0))then{
+Ratio30PdpdinLast24months =count/TotalTradeLinesopenedinlast24months 
+}else if ((count =unknown or count =0) and TotalTradeLinesopenedinlast24months >0)then{
+	Ratio30PdpdinLast24months =0;
+}
+if(TotalTradeLinesopenedinlast24months =0)then{
+	Ratio30PdpdinLast24months=-333333;
+}
+//real1 is a real initially 104.3000090.
+
+integer1 is an integer initially -2;
+//integer2 is a Ratio30PdpdinLast24months;
+if(Ratio30PdpdinLast24months is (known and available))then{
+Ratio30PdpdinLast24months = math().round(Ratio30PdpdinLast24months, integer1).
+}
+print("Ratio30PdpdinLast24months"Ratio30PdpdinLast24months);
+return Ratio30PdpdinLast24months;]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='N6WRLw'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Kb1iGw'>
+    <instance ref='ParameterNameVH'>
+     <value>months</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>integer</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

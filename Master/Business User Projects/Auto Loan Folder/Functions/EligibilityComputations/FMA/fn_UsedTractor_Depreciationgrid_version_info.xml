@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<VersionInfoTable>
+	<ItemName>fn_UsedTractor_Depreciationgrid</ItemName>
+	<IsEntryDeleted>false</IsEntryDeleted>
+	<VersionElement VersionId="25">
+		<User>admin</User>
+		<Comment>Gopikrishna : UP requriment replacing actual LTV to Standard LTV BY : Vijay </Comment>
+		<Timestamp>5 Jul 2024 05:32:16 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="24">
+		<User>admin</User>
+		<Comment>Gopikrishna : Applied fn_UP_LMH function By : vijay</Comment>
+		<Timestamp>26 Jun 2024 11:51:41 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="23">
+		<User>admin</User>
+		<Comment>GopiKrishna:LTV Restriction for High Risk: By Jaydeep.</Comment>
+		<Timestamp>2 May 2024 11:26:04 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="22">
+		<User>admin </User>
+		<Comment>FMA Changes as per mail confirmaton</Comment>
+		<Timestamp>22 Apr 2024 10:35:34 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="21">
+		<User>admin </User>
+		<Comment>As per discussion and confirmation on mail </Comment>
+		<Timestamp>22 Apr 2024 10:10:51 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="20">
+		<User>admin</User>
+		<Comment>shraavya code changes regarding standard ltv and income eligibility</Comment>
+		<Timestamp>8 Feb 2024 15:32:16 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="19">
+		<User>admin</User>
+		<Comment>FMA webex changes </Comment>
+		<Timestamp>19 Dec 2023 14:21:00 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="18">
+		<User>admin</User>
+		<Comment>Actual LTV rounding removed.</Comment>
+		<Timestamp>18 Dec 2023 08:08:45 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="17">
+		<User>admin</User>
+		<Comment></Comment>
+		<Timestamp>10 Oct 2023 13:40:06 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="16">
+		<User>admin</User>
+		<Comment>counter=2 and counter1 &gt;12)then{
+			tempasset_Cost =asset_Cost0;
+asset_Cost1 --now replaced with asset_Cost0.</Comment>
+		<Timestamp>21 Sep 2023 13:28:08 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="15">
+		<User>admin</User>
+		<Comment>formula changed to *12/365 </Comment>
+		<Timestamp>19 Jul 2023 13:51:32 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="14">
+		<User>admin</User>
+		<Comment>Aaishvarya : Depreciation value check </Comment>
+		<Timestamp>19 Jul 2023 08:43:36 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="13">
+		<User>admin</User>
+		<Comment>Aaishvarya : Assest age added in response message </Comment>
+		<Timestamp>18 Jul 2023 10:06:59 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="12">
+		<User>admin</User>
+		<Comment>Changed done in webex</Comment>
+		<Timestamp>11 Jul 2023 06:16:34 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="11">
+		<User>admin</User>
+		<Comment>UAT Patch promoted 9 version</Comment>
+		<Timestamp>15 Jun 2023 06:24:56 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="10">
+		<User>admin</User>
+		<Comment>Promoted 7 version For Production if UAT Version 9 need to Promoted.</Comment>
+		<Timestamp>15 Jun 2023 05:25:52 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="9">
+		<User>admin</User>
+		<Comment>if(asset_Cost2,3,4,5,6,7,8,9,10,11,12,13&gt;0)then{tempasset_Cost =asset_Cost5; other wise asset_Cost1,2,3,4,5,6,7,8,9,10,11,12 assigned} condition is added</Comment>
+		<Timestamp>14 Jun 2023 06:01:11 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="8">
+		<User>admin</User>
+		<Comment>DepreciationAssetcost check for Quater basics</Comment>
+		<Timestamp>8 Jun 2023 13:43:34 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="7">
+		<User>admin</User>
+		<Comment>scheme -364,365 actualLtv =loanAmount-InuranceAmount/asset_Cost; changes</Comment>
+		<Timestamp>24 Jun 2022 08:32:58 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="6">
+		<User>admin</User>
+		<Comment>depreciation grid has changed in years (/365)</Comment>
+		<Timestamp>18 Apr 2022 08:06:39 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="5">
+		<User>admin</User>
+		<Comment>minimum of dep sset cost and valueation is updated and Actual LTV calculation is changed</Comment>
+		<Timestamp>7 Feb 2022 08:05:11 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="4">
+		<User>admin</User>
+		<Comment>FMA scorecard changes done</Comment>
+		<Timestamp>25 Jan 2022 12:18:21 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="3">
+		<User>admin</User>
+		<Comment>asset age 0-1 is 25% to 15 deducted i.e 75 to 85 changed</Comment>
+		<Timestamp>17 Jan 2022 12:06:26 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="2">
+		<User>admin</User>
+		<Comment>rules are updated</Comment>
+		<Timestamp>13 Jan 2022 07:13:35 GMT</Timestamp>
+	</VersionElement>
+	<VersionElement VersionId="1">
+		<User>admin</User>
+		<Comment>new function is created</Comment>
+		<Timestamp>6 Jan 2022 09:23:56 GMT</Timestamp>
+	</VersionElement>
+	<ItemNamePrefix VersionId="16">
+		<NamePrefix>I_</NamePrefix>
+	</ItemNamePrefix>
+</VersionInfoTable>

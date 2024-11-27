@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_Eligibility_Normal_ProprietorIncome_Pos'>
+ <ide-name>TC_Eligibility_Normal_ProprietorIncome</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='QNbwDtGv9CGUorbnHzfFOTDNqk7'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>Eligibility</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='QNbwDtGv9CGUorbnHzfFOTDNqk7'>
+   <name>TC_Eligibility_Normal_ProprietorIncome</name>
+   <body>income is some Income;<template:br/>income = an Income initially{<template:br/>it.amount=3000000;<template:br/>it.head="120";<template:br/>it.frequency="A";<template:br/>}<template:br/><template:br/>income2 is some Income;<template:br/>income2 = an Income initially{<template:br/>it.amount=50000;<template:br/>it.head="37";<template:br/>it.frequency="M";<template:br/>}<template:br/><template:br/>incomeArr is some array of Income initially an array of Income;<template:br/>incomeArr.append(income);<template:br/>incomeArr.append(income2);<template:br/><template:br/>liability is some Liability;<template:br/>liability = a Liability initially{<template:br/>it.considerForObligations =true;<template:br/>it.EMIAmount = 1000;<template:br/>}<template:br/><template:br/>liabilityArr is some array of Liability initially an array of Liability;<template:br/>liabilityArr.append(liability);<template:br/><template:br/>applicant is some Applicant;<template:br/>applicant = an Applicant initially{<template:br/>it.customerSegment = "10019";<template:br/>it.constitution = "10";<template:br/>it.liabilities = liabilityArr;<template:br/>it.incomes = incomeArr;<template:br/>}<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.schemeGroup = "13";<template:br/>application.scheme = "29";<template:br/>application.applicants=applicantArr;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>fn_Apply_NewCar_EligibilityCompuation(blazeMessage);<template:br/><template:br/>assert().checkTrue("TC_Eligibility_Normal_ProprietorIncome_Pos", theBlazeMessageBT.maxEligibleAmount = 14400000);</body>
+  </function></template:content>
+</template>

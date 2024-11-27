@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_UCL_MultiplerBasedRefinanceEligibilityComputataion'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_UCL_MultiplerBasedRefinanceEligibilityComputataion</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[Message is a string initially "";
+anDeviation is some Deviation initially an Deviation;
+theBlazeMessageBT.maxEligibleAmount = 0;
+maxEligibleAmount is a real initially 0;
+multiplier is a real initially 0.0;
+multiplierBasisAmount is a real initially 0.0;
+multiplierValues is a real initially 0.0;
+principalAmount is a real initially 0.0;
+surrogateprincipalAmount is a real initially 0.0;
+cashinHand is a real initially 0.0;
+Rule19 is a real initially 0.0;
+anApplicant is some Applicant;
+loanDate is an integer initially -1;
+print("inside multiplier function");
+
+// ftuturedate calculation
+for each Applicant in blazeMessage.request.application.applicants do{
+  				anApplicant = it;
+for each Liability in anApplicant.liabilities such that( it.typeOfLoanProduct is known and it.typeOfLoanProduct is equal to (ignoring case)( "19070502" or "25" ) )do {
+    if(it.loanClosureDate is known)then{
+      loanDate=portable().toInteger(calendar().currentDate().subtractInDays(it.loanClosureDate).days);
+    }
+  }
+}
+print("loanDate=="loanDate);  
+   
+for each Applicant in blazeMessage.request.application.applicants do{
+  				anApplicant = it;
+
+   for each Liability in anApplicant.liabilities such that ( (it.considerForSurrogate is known and it.considerForSurrogate="Y")
+      		  and  it.typeOfLoanProduct is equal to (ignoring case)( "19070502" or "25" ) 
+			  and (it.principalOutstanding is known and it.principalOutstanding>0))do{				  
+          		if( it.noOfEMIsPaid is known and it.noOfEMIsPaid>=0)then{
+            		if(it.noOfEMIsPaid>=9 and it.noOfEMIsPaid<=17)then multiplier=1.3;
+            		else if(it.noOfEMIsPaid>17 and it.noOfEMIsPaid<=23)then multiplier=1.4;
+            		else if(it.noOfEMIsPaid>23)then multiplier=1.6;
+            		else multiplier=0;
+          		}
+                	multiplierBasisAmount=it.EMIAmount*multiplier*it.noOfEMIsPaid;
+                surrogateprincipalAmount=surrogateprincipalAmount+it.principalOutstanding;
+  }
+  					print("multiplier=="multiplier);
+					print("multiplierBasisAmount=="multiplierBasisAmount);
+					print("surrogateprincipalAmount=="surrogateprincipalAmount);
+   
+        //Checking Prinicipal Amount for active PL/BL accounts
+         for each Liability in anApplicant.liabilities such that(     it.typeOfLoanProduct is equal to (ignoring case)( "24"  or "03" or "BL LOAN")  and 
+           (it.noOfEMIsPaid is known and it.noOfEMIsPaid<=3) and loanDate<0)do{			
+				if(it.principalOutstanding is known and it.principalOutstanding>0) then {
+				principalAmount=it.principalOutstanding+principalAmount;
+				}						
+			print("principalAmount=="principalAmount);
+          }
+	}
+multiplierValues=multiplierBasisAmount-principalAmount;
+print("multiplierValues=="multiplierValues);
+if(loanDate<0)then{
+  	if(blazeMessage.request.application.scheme="175")then{
+		cashinHand=math().min(multiplierValues,1000000);
+    	surrogateprincipalAmount=surrogateprincipalAmount;
+    	maxEligibleAmount=surrogateprincipalAmount+cashinHand;
+  	}
+  	if(blazeMessage.request.application.scheme="176")then{
+		cashinHand=math().min(multiplierValues,1200000);
+    	surrogateprincipalAmount=surrogateprincipalAmount;
+    	maxEligibleAmount=surrogateprincipalAmount+cashinHand;
+  	}
+} 
+	if(loanDate>=0)then{
+   		if(blazeMessage.request.application.scheme="175")then{
+			cashinHand=math().min(multiplierValues,1000000);
+    		surrogateprincipalAmount=0;
+    		maxEligibleAmount=cashinHand;
+  }
+  		if(blazeMessage.request.application.scheme="176")then{
+			cashinHand=math().min(multiplierValues,1200000);
+    		surrogateprincipalAmount=0;
+    		maxEligibleAmount=cashinHand;
+  		}
+}
+theBlazeMessageBT.usedCashinHand=cashinHand;
+theBlazeMessageBT.cashDealer=surrogateprincipalAmount;
+theBlazeMessageBT.maxEligibleAmount=maxEligibleAmount;
+//if(theBlazeMessageBT.apraisedValue>0)then{
+//theBlazeMessageBT.maxEligibleAmount=math().min(maxEligibleAmount,0.6*theBlazeMessageBT.apraisedValue);
+//}else{
+ // th=eBlazeMessageBT.maxEligibleAmount=maxEligibleAmount;
+//}
+
+if(theBlazeMessageBT.usedCashinHand<=0)then{
+  theBlazeMessageBT.usedCashinHand=0;
+  cashinHand=0;
+}
+if(theBlazeMessageBT.cashDealer>=theBlazeMessageBT.maxEligibleAmount)then{
+  theBlazeMessageBT.cashDealer=theBlazeMessageBT.maxEligibleAmount;
+  surrogateprincipalAmount=theBlazeMessageBT.maxEligibleAmount
+}else
+  {
+     theBlazeMessageBT.cashDealer=  theBlazeMessageBT.cashDealer; 
+    surrogateprincipalAmount=surrogateprincipalAmount;
+  }
+
+print("cashinHand=="theBlazeMessageBT.usedCashinHand);
+Rule19=blazeMessage.request.application.assetDetails.totalAssets*cashinHand;
+print("Rule19=="Rule19);
+if(Rule19>3000000)then{
+  anDeviation.ruleID="RefiananceMultiplier019";
+            anDeviation.ruleName="Eligibility_100019";
+            anDeviation.ruleDescription="Eligibility norms check";
+            anDeviation.decisionResult = "Reject";
+            anDeviation.reasonText = "Cash in Hand more than 30 lacs";
+            anDeviation.reasonCode = "100019";
+            anDeviation.overrideLevel ="L99";
+            fn_AppendDeviations(anDeviation);      
+}
+
+Message = "cash in Hand : "cashinHand" Cash to Dealer : "surrogateprincipalAmount"";
+  			fn_AppendActionMessage(Message);]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Xc0Eo0'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

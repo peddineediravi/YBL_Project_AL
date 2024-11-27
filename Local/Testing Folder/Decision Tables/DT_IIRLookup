@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_IIRLookup'>
+ <ide-name>DT_IIRLookup</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='4VyIpvZmPzkWzEDPU2lTzPeXs7B'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>iirLookup</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='8MrpKCwdDmS5u9saCz9nDy0Mq65'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>iirLookup</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='IorTaYJ6GCUnu8QdHesZvsByJeX'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>iirLookup</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='P9NLfMwglI4qQuUwuf8TYOOIcQd'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>iirLookup</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='4VyIpvZmPzkWzEDPU2lTzPeXs7B'>
+   <name>TC_IIRLookup1</name>
+   <body>app is some Application initially an Application;<template:br/>assetDetails is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>cibilScore is an integer initially 0;<template:br/>customerSegment is a string;<template:br/>propertyType is a string;<template:br/>iir is a real;<template:br/>app.schemeGroup = "12";<template:br/>assetDetails.assetCategory = "A5";<template:br/>customerSegment = "1";<template:br/>propertyType="R";<template:br/><template:br/>iir=DT_IIRLookup(app.schemeGroup,app.scheme,assetDetails,cibilScore,customerSegment,propertyType);<template:br/>assert().checkEquals("iir value",60.0, iir, 0);</body>
+  </function><function managementPropertiesRef='8MrpKCwdDmS5u9saCz9nDy0Mq65'>
+   <name>TC_IIRLookup2</name>
+   <body>app is some Application initially an Application;<template:br/>assetDetails is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>cibilScore is an integer;<template:br/>customerSegment is a string;<template:br/>propertyType is a string;<template:br/>iir is a real;<template:br/><template:br/>app.schemeGroup = "14";<template:br/>app.scheme="31";<template:br/>assetDetails.assetCategory = "A5";<template:br/>customerSegment = "1";<template:br/>propertyType="R";<template:br/>//print(app.schemeGroup" "app.scheme" "assetDetails.assetCategory" "cibilScore" "customerSegment" "propertyType" ");<template:br/>iir=DT_IIRLookup(app.schemeGroup,app.scheme,assetDetails,cibilScore,customerSegment,propertyType);<template:br/><template:br/>assert().checkEquals("iir value", 60.0, iir, 0)</body>
+  </function><function managementPropertiesRef='IorTaYJ6GCUnu8QdHesZvsByJeX'>
+   <name>TC_IIRLookup3</name>
+   <body>app is some Application initially an Application;<template:br/>assetDetails is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>cibilScore is an integer;<template:br/>customerSegment is a string;<template:br/>propertyType is a string;<template:br/>iir is a real;<template:br/><template:br/>app.schemeGroup = "14";<template:br/>app.scheme="30";<template:br/>assetDetails.assetCategory = "A5";<template:br/>customerSegment = "1";<template:br/>propertyType="O";<template:br/><template:br/>iir=DT_IIRLookup(app.schemeGroup,app.scheme,assetDetails,cibilScore,customerSegment,propertyType);<template:br/><template:br/>assert().checkEquals("iir value", 65.0, iir, 0)</body>
+  </function><function managementPropertiesRef='P9NLfMwglI4qQuUwuf8TYOOIcQd'>
+   <name>TC_IIRLookup4</name>
+   <body>app is some Application initially an Application;<template:br/>assetDetails is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>cibilScore is an integer;<template:br/>customerSegment is a string;<template:br/>propertyType is a string;<template:br/>iir is a real;<template:br/><template:br/>app.schemeGroup = "15";<template:br/><template:br/><template:br/>customerSegment = "3";<template:br/><template:br/><template:br/>iir=DT_IIRLookup(app.schemeGroup,app.scheme,assetDetails,cibilScore,customerSegment,propertyType);<template:br/><template:br/>assert().checkEquals("iir value", 100, iir, 0)</body>
+  </function></template:content>
+</template>

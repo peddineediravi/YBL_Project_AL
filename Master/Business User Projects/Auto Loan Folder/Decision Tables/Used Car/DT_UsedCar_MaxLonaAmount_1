@@ -1,0 +1,2356 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='OTkxyjwzEjV4hDq1ruDjkxaEzJT' name='DT_UsedCar_MaxLoanAmount'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>DT_UsedCar_MaxLoanAmount</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='TijIqS'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='78frKJ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='7r7BAF'>
+       <instance ref='value'>
+        <value>45-UC-BANKINGBASED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Ywv4mY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='JSwPap'>
+       <instance ref='value'>
+        <value>163-UC-BANK-ONLY BANKING</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='LhYQI0'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='9fCUIa'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template10' id='Rz9rbR'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='EKiOlU'>
+         <value>A1-A1:Mini</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='BS3cZv'>
+         <value>A2-A2:Compact</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='3BBm9N'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='MfDxFF'>
+       <instance ref='value'>
+        <value>250000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='5C5sqE'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='ACTsAd'>
+       <instance ref='value'>
+        <value>OOP</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='862YMK'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='IEGIyx'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Na4V08'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='8wR3zB'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='P5HTYz'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='1TVjs1'>
+       <instance ref='value'>
+        <value>OOP -Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='SMDz2C'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='V1jW1s'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='7r7BAF'>
+       <instance ref='value'>
+        <value>45-UC-BANKINGBASED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='XonTDG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='JSwPap'>
+       <instance ref='value'>
+        <value>163-UC-BANK-ONLY BANKING</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Rujm6z'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='16Rb9L'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template10' id='P4Bbwn'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='8UNzbd'>
+         <value>A3-A3:Mid-size</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='7Nn4Fa'>
+         <value>MUV-MUV</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='FgKZUj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='YUomKz'>
+       <instance ref='value'>
+        <value>600000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='GoJpiX'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='ACTsAd'>
+       <instance ref='value'>
+        <value>OOP</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='MtPgAg'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='B5ymWK'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='TvMusO'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='LgFgIK'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='KoCHmX'>
+       <instance ref='value'>
+        <value>OOP -Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 1:32 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='WAlBmd'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='2wiy9p'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='7r7BAF'>
+       <instance ref='value'>
+        <value>45-UC-BANKINGBASED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Yt8veX'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='55q9Vd'>
+       <instance ref='value'>
+        <value>164-UC-BANK-BANKING AND OWNERSHIP</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='RrrHY0'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Gpzeh7'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template10' id='TuT3Lb'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='PeDgJy'>
+         <value>A1-A1:Mini</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='CuOX5j'>
+         <value>A2-A2:Compact</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='HDhZfn'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='ZFremg'>
+       <instance ref='value'>
+        <value>350000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='ZG6gOu'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='ACTsAd'>
+       <instance ref='value'>
+        <value>OOP</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='KynwIU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='9Glebo'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='KfSM7d'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Yamndv'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='KoCHmX'>
+       <instance ref='value'>
+        <value>OOP -Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 1:34 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='Pxbj9W'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='S9NEhl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='7r7BAF'>
+       <instance ref='value'>
+        <value>45-UC-BANKINGBASED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='7aBg4U'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='55q9Vd'>
+       <instance ref='value'>
+        <value>164-UC-BANK-BANKING AND OWNERSHIP</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='MmOoiX'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='92dxK2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template10' id='P4Bbwn'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='8UNzbd'>
+         <value>A3-A3:Mid-size</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='7Nn4Fa'>
+         <value>MUV-MUV</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='aI6koj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='Yrq6ta'>
+       <instance ref='value'>
+        <value>750000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='AJNNLB'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='ACTsAd'>
+       <instance ref='value'>
+        <value>OOP</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Jjv0Nb'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='66P5jO'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='KfSM7d'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='3O6gWG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='KoCHmX'>
+       <instance ref='value'>
+        <value>OOP -Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 1:38 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='5J134J'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='SlWPyS'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='7r7BAF'>
+       <instance ref='value'>
+        <value>45-UC-BANKINGBASED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='EUGjS8'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='YyQVxW'>
+       <instance ref='value'>
+        <value>165-UC-BANK-BANKING AND REPAYMENT</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='PDBD6K'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='C2GOhD'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='IC2mt9'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='3kH6zq'>
+       <instance ref='value'>
+        <value>1500000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='EffNKA'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='ACTsAd'>
+       <instance ref='value'>
+        <value>OOP</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='HAkMR3'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='SiM2u4'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='KfSM7d'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='KxN2lT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='KoCHmX'>
+       <instance ref='value'>
+        <value>OOP -Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 1:40 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='GB63Jw'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='XORX1Y'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='SvpXXM'>
+       <instance ref='value'>
+        <value>46-UC-FDLIEN</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='7oO8gW'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='VdwR9r'>
+       <instance ref='value'>
+        <value>166-UC-FD LIEN-FD LIEN</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='a6Rl6B'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='EuG7KL'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='ULUyrg'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='RdS673'>
+       <instance ref='value'>
+        <value>5000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='UQVahM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='ACTsAd'>
+       <instance ref='value'>
+        <value>OOP</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='SXAajA'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='AvrAMN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='KfSM7d'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='5t14Cf'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='KoCHmX'>
+       <instance ref='value'>
+        <value>OOP -Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 1:41 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='HjFYAX'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='HQetnK'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='1SsbQi'>
+       <instance ref='value'>
+        <value>47-UC-YBL EMPLOYEES</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='6xgij1'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='76lORO'>
+       <instance ref='value'>
+        <value>167-UC-YBL-YBL EMPLOYEES</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='4i6xUB'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='FnGfGq'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='ZXntIG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='C8ES8n'>
+       <instance ref='value'>
+        <value>10000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='9rPPwY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='ACTsAd'>
+       <instance ref='value'>
+        <value>OOP</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='a4Domt'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='7jLCKe'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='KfSM7d'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='XJkzs5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='KoCHmX'>
+       <instance ref='value'>
+        <value>OOP -Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 1:43 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='5QhroI'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='H0b4yk'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='Y6dr81'>
+       <instance ref='value'>
+        <value>44-UC-INTERNAL LIABILITYCUSTOMERPROGRAM</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='8noKfe'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Is one of' id='MseKPO'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='DmekUB'>
+         <value>160-UC-ILCP-CURRENT ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='8Xa0cv'>
+         <value>161-UC-ILCP-SAVINGS ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='KJVAcb'>
+         <value>162-UC-ILCP-SALARY ACCOUNT</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='PS4CRm'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='SgzQkT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='X1QJjb'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='VnUBWg'>
+       <instance ref='value1'>
+        <value>1000000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>1100000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='EWlVWk'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='Dbza8S'>
+       <instance ref='value'>
+        <value>DEVIATION</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='ZMBViN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='BKK4Gm'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='KfSM7d'>
+       <instance ref='value'>
+        <value>L2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='CJGxwh'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='U5et12'>
+       <instance ref='value'>
+        <value>Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 1:45 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='122X1E'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='EHkJUk'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='Y6dr81'>
+       <instance ref='value'>
+        <value>44-UC-INTERNAL LIABILITYCUSTOMERPROGRAM</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='aUH5y3'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Is one of' id='MseKPO'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='DmekUB'>
+         <value>160-UC-ILCP-CURRENT ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='8Xa0cv'>
+         <value>161-UC-ILCP-SAVINGS ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='KJVAcb'>
+         <value>162-UC-ILCP-SALARY ACCOUNT</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Aj3H3x'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Vdmm46'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='2EqfoO'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='C8ES8n'>
+       <instance ref='value'>
+        <value>1100000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='1GJVW2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='Dbza8S'>
+       <instance ref='value'>
+        <value>DEVIATION</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='H7NzaC'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='IaTVn5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='GzOp2L'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='6jfUOl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='U5et12'>
+       <instance ref='value'>
+        <value>Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 1:58 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='6U3rND'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='EogaNJ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='XMUeFp'>
+       <instance ref='value'>
+        <value>48-UC-PRE-APPROVED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='YiwivE'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='51PeUG'>
+       <instance ref='value'>
+        <value>168-UC-PRE-PRE APPROVED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='EcoRwl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template11' id='JcVLOp'>
+       <instance ref='value'>
+        <value>SAVINGS-SAVINGS ACCOUNT</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='aO2E9x'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Af2prJ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='8j925k'>
+       <instance ref='value'>
+        <value>1500000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='3zUuYs'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='Dbza8S'>
+       <instance ref='value'>
+        <value>DEVIATION</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='HZwCa2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='GYkKQN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='GzOp2L'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='HRZADY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='U5et12'>
+       <instance ref='value'>
+        <value>Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule10</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>10</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 2:02 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='QKC5PI'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='GHY3HD'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='XMUeFp'>
+       <instance ref='value'>
+        <value>48-UC-PRE-APPROVED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='PZ3Wcy'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='51PeUG'>
+       <instance ref='value'>
+        <value>168-UC-PRE-PRE APPROVED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='PcH94O'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template11' id='Xlp5HE'>
+       <instance ref='value'>
+        <value>SALARY-SALARY ACCOUNT</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='WlLKPZ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='S0QNVA'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='VR55YC'>
+       <instance ref='value'>
+        <value>2000000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='CtsZfj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='Dbza8S'>
+       <instance ref='value'>
+        <value>DEVIATION</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='VFTPtP'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='RY0rXU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='GzOp2L'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='M79xUz'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='U5et12'>
+       <instance ref='value'>
+        <value>Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 2:02 PM</value>
+   </instance>
+  </item>
+  <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Decision Table Case Template' id='VucYVD'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='XvAKtU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>schemeGroup</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template3' id='XMUeFp'>
+       <instance ref='value'>
+        <value>48-UC-PRE-APPROVED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='YUm2Nu'>
+     <instance ref='CELL GROUP NAME'>
+      <value>theScheme</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Equal to' id='51PeUG'>
+       <instance ref='value'>
+        <value>168-UC-PRE-PRE APPROVED</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='Pb1IiO'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template11' id='BF0kbe'>
+       <instance ref='value'>
+        <value>CURRENT-CURRENT ACCOUNT</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='9dHz7m'>
+     <instance ref='CELL GROUP NAME'>
+      <value>accountType</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='UB7bS4'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='26Jat0'>
+     <instance ref='CELL GROUP NAME'>
+      <value>requestedLoanAmt</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='8j925k'>
+       <instance ref='value'>
+        <value>1500000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='TCehJL'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action4</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template6' id='Dbza8S'>
+       <instance ref='value'>
+        <value>DEVIATION</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='GWXkgB'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Assignment' id='WexH6W'>
+       <instance ref='value'>
+        <value>41000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='S52E76'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.template5' id='GzOp2L'>
+       <instance ref='value'>
+        <value>L4</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Template' id='TknV6w'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action3</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Assignment' id='U5et12'>
+       <instance ref='value'>
+        <value>Maximum loan norms not met</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule12</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>12</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 24, 2019 2:02 PM</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Group Info Template' id='LPAKLf'>
+    <instance ref='name'>
+     <value>schemeGroup</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Scheme Group</value>
+    </instance>
+    <instance ref='property'>
+     <value>blazeMessage.request.application.schemeGroup</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Group Info Template' id='HE5dUl'>
+    <instance ref='name'>
+     <value>theScheme</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Scheme</value>
+    </instance>
+    <instance ref='property'>
+     <value>blazeMessage.request.application.scheme</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Group Info Template' id='6xqv9E'>
+    <instance ref='name'>
+     <value>accountType</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Bank Account Type</value>
+    </instance>
+    <instance ref='property'>
+     <value>theBlazeMessageBT.repaymentAccountType</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Group Info Template' id='JtTVEW'>
+    <instance ref='name'>
+     <value>Condition2</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>AssetCategory</value>
+    </instance>
+    <instance ref='property'>
+     <value>blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Group Info Template' id='DuJcCI'>
+    <instance ref='name'>
+     <value>requestedLoanAmt</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Requested Loan Amount</value>
+    </instance>
+    <instance ref='property'>
+     <value>blazeMessage.request.application.loanDetails.loanAmount</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Group Info Template' id='7YAKCw'>
+    <instance ref='name'>
+     <value>Action4</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Decision Type</value>
+    </instance>
+    <instance ref='property'>
+     <value>deviation.decisionResult</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Group Info Template' id='3Io6sn'>
+    <instance ref='name'>
+     <value>Action1</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Reason Code</value>
+    </instance>
+    <instance ref='property'>
+     <value>deviation.reasonCode</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Group Info Template' id='TjpmlM'>
+    <instance ref='name'>
+     <value>Action2</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Escalation level</value>
+    </instance>
+    <instance ref='property'>
+     <value>deviation.overrideLevel</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='OTkxyjwzEjV4hDq1ruDjkxaEzJT.Cell Group Info Template' id='VlGY7w'>
+    <instance ref='name'>
+     <value>Action3</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Reason Text</value>
+    </instance>
+    <instance ref='property'>
+     <value>deviation.reasonText</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

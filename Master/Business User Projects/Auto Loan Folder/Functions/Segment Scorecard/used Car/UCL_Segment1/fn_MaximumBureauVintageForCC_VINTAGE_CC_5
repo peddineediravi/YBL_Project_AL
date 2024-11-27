@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_MaximumBureauVintageForCC_VINTAGE_CC'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_MaximumBureauVintageForCC_VINTAGE_CC</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("fn_MaximumBureauVintageForCC_VINTAGE_CC Entering ");
+	anApplicant is some Applicant;
+MaximumBureauVintageForCC_VINTAGE_CC is a real;
+MaximumBureauVintageForCC   is a real initially 0.00;
+mobMonths is a real initially 0;
+MaximumBureauVintageForCC_VINTAGE_CC_List  is some array of real initially an array of real ;
+todayDate is a date initially calendar().currentDate();
+	for each Applicant in blazeMessage.request.application.applicants such that (it.applicantType  is (known and available) and  it.applicantType =("P") )do{
+			anApplicant =it;
+		
+		if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is (known and available) and anApplicant.multiBureauReport.cibilResponse.accounts is (known and available) and anApplicant.multiBureauReport.cibilResponse.accounts.count > 0) then {
+			
+                      for each Account in anApplicant.multiBureauReport.cibilResponse.accounts do { 
+					  print("Entering into 14th line");
+                                if(it.accountType is (known and available) and it.accountType=(ignoring case)("CREDIT CARD" or  "Credit Card" or "10" or "SECURED CREDIT CARD" or "31" or  "Secured Credit Card"))then{
+                                          if(todayDate is (known and available) and it.dateOpenedOrDisbursed is (known and available) )then{
+                                                    MaximumBureauVintageForCC =todayDate.subtractInDays(it.dateOpenedOrDisbursed).days;
+                                            		print("MaximumBureauVintageForCC" MaximumBureauVintageForCC/30);
+                                            		MaximumBureauVintageForCC =MaximumBureauVintageForCC/30;
+                                            			print("MaximumBureauVintageForCC" MaximumBureauVintageForCC);
+                                            	//if(MaximumBureauVintageForCC<0)then{
+                                                   //  MaximumBureauVintageForCC_VINTAGE_CC_List.append(MaximumBureauVintageForCC);
+                                                  //  }else{
+                                                    MaximumBureauVintageForCC_VINTAGE_CC_List.append(MaximumBureauVintageForCC);
+                                                //   }
+                                        }
+                                }else{
+									MaximumBureauVintageForCC_VINTAGE_CC =-999;
+								}
+              }
+        }
+    }
+print("MaximumBureauVintageForCC_VINTAGE_CC_List.max"MaximumBureauVintageForCC_VINTAGE_CC_List.max);
+
+if( MaximumBureauVintageForCC_VINTAGE_CC_List is (known and available) and  MaximumBureauVintageForCC_VINTAGE_CC_List.count>0 )then{
+				MaximumBureauVintageForCC_VINTAGE_CC  =MaximumBureauVintageForCC_VINTAGE_CC_List.max;
+}else{
+  		MaximumBureauVintageForCC_VINTAGE_CC =-999;
+}
+	print("MaximumBureauVintageForCC_VINTAGE_CC="portable().toFloat(MaximumBureauVintageForCC_VINTAGE_CC));
+//portable().toFloat(MaximumBureauVintageForCC_VINTAGE_CC);
+blazeMessage.charNameToCharVal["MaxBureauVintageForCC_VINTAGE_CC"] = MaximumBureauVintageForCC_VINTAGE_CC  as a string;
+	return MaximumBureauVintageForCC_VINTAGE_CC;]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='DSuiZ2'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

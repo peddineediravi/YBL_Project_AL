@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_CVS_BorrowerNorms003_Neg'>
+ <ide-name>TC_CVS_BorrowerNorms003_Neg</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='QPor7reB9BU92R049eozGy9guUj'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>CVS</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='QPor7reB9BU92R049eozGy9guUj'>
+   <comment></comment>
+   <name>TC_CVS_BorrowerNorms003_Neg</name>
+   <body>applicant is some Applicant initially a Applicant;<template:br/>applicant.customerSegment="1";<template:br/>applicant.constitution="6";<template:br/>applicanArr is some array of Applicant initially an array of Applicant;<template:br/>applicanArr.append(applicant);<template:br/><template:br/>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>assetDetails.totalNumOfVehicles=60;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.assetDetails = assetDetails;<template:br/>application.applicants = applicanArr;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>apply RS_CVSRules(blazeMessage);<template:br/><template:br/>assert().checkFalse("TC_CVS_BorrowerNorms003_Neg ", at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonCode is equal to "20115"));<template:br/>//assert().checkFasle("TC_BorrowerNorms002_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.decisionResult is equal to "OOPC"));<template:br/>//assert().checkFalse("TC_CVS_BorrowerNorms003_Neg",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonText is equal to "OOPC - Invalid Borrower Segment"));</body>
+  </function></template:content>
+</template>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_Eligibility_PreApproval'>
+ <ide-name>TC_Eligibility_PreApproval</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Pt0DYH7uQvezHF10lH1mzMhiPuJ'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>Eligibility</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='Pt0DYH7uQvezHF10lH1mzMhiPuJ'>
+   <name>TC_Eligibility_PreApproval</name>
+   <body>//Salaried Applicant<template:br/>salariedIncome is some Income;<template:br/>salariedIncome = an Income initially{<template:br/>it.amount=60000;<template:br/>it.frequency="M";<template:br/>}<template:br/><template:br/>salariedIncomeArr is some array of Income initially an array of Income;<template:br/>salariedIncomeArr.append(salariedIncome);<template:br/><template:br/><template:br/>liability is some Liability initially a Liability;<template:br/>liability.typeOfLoanProduct = "19070502";<template:br/>liability.balanceTenure = 10;<template:br/>liability.loanAmount =100000;<template:br/>liability.principalOutstanding = 100000;<template:br/><template:br/>liabilityArr is some array of Liability initially an array of Liability;<template:br/>liabilityArr.append(liability);<template:br/><template:br/>bankDetails is some BankDetails initially a BankDetails;<template:br/>bankDetails.accountType="SALARY";<template:br/>bankDetails.isRepaymentAccount = true;<template:br/>bankDetails.averageBalance = 300000;<template:br/><template:br/>bankDetailsArr is some array of BankDetails initially an array of BankDetails;<template:br/>bankDetailsArr.append(bankDetails);<template:br/><template:br/>scoreseg is some ScoreSegment initially a ScoreSegment;<template:br/>scoreseg.scoreName="CIBIL";<template:br/>scoreseg.score=720;<template:br/><template:br/>scores is some array of ScoreSegment  initially an array of ScoreSegment;<template:br/>scores.append(scoreseg);<template:br/><template:br/>cibilResponse is some CibilReport initially a CibilReport;<template:br/>cibilResponse.scores=scores;<template:br/><template:br/><template:br/>multiBureauReport is some MultiBureauReport initially a MultiBureauReport;<template:br/>multiBureauReport.cibilResponse=cibilResponse;<template:br/><template:br/>salariedApplicant is some Applicant initially an Applicant;<template:br/>salariedApplicant.liabilities = liabilityArr;<template:br/>salariedApplicant.customerSegment="1";<template:br/>salariedApplicant.constitution="1";<template:br/>salariedApplicant.incomes=salariedIncomeArr;<template:br/>salariedApplicant.multiBureauReport=multiBureauReport;<template:br/>salariedApplicant.bankDetails = bankDetailsArr;<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(salariedApplicant);<template:br/><template:br/>loanDetails is some LoanDetails initially a LoanDetails;<template:br/>loanDetails.tenure=30;<template:br/>loanDetails.loanAmount=1000000;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.schemeGroup = "15";<template:br/>application.loanDetails=loanDetails;<template:br/>application.applicants=applicantArr;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>fn_Apply_NewCar_EligibilityCompuation(blazeMessage);<template:br/><template:br/>assert().checkTrue("TC_Eligibility_PreApproval", theBlazeMessageBT.maxEligibleAmount = 17280000.0);</body>
+  </function></template:content>
+</template>

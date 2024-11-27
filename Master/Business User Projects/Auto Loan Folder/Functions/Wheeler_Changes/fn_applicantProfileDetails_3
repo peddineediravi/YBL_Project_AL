@@ -1,0 +1,586 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_applicantProfileDetails'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_applicantProfileDetails</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[tempAge is a real initially 0.0;
+tempRelationShip is a string initially "";
+tempIndustry is a string initially "";
+cotempIndustry is a string initially "";
+//primary Applicant
+  			for each Applicant in ablazeMessage.request.application.applicants  such that (it.applicantType  is (known and available) and it.applicantType ="P")do{
+              
+              if(it.constitution  is (known and available) and  it.constitution ="1" and  it.customerSegment  is (known and available) and it.customerSegment ="1")then{
+                   	if(it.dateOfBirth is (known and available))then {
+					tempAge=(calendar().currentDate().subtractInMonths(it.dateOfBirth).months/12);
+                  	fn_AppendActionMessage("Applicant is "it.firstName " " it.lastName " aged  "portable().toInteger(tempAge) " years and is salaried");
+                }
+            }else  	if(it.constitution  is (known and available) and  it.constitution ="1"  and it.customerSegment  is (known and available) and it.customerSegment ="3")then{
+                   	if(it.dateOfBirth is (known and available))then {
+					tempAge=(calendar().currentDate().subtractInMonths(it.dateOfBirth).months/12);
+					 fn_AppendActionMessage("Applicant is "it.firstName " " it.lastName " aged  "portable().toInteger(tempAge) "years and is is self employed non professional");
+                }
+            }else  	if((it.constitution  is (known and available) and  it.constitution ="1"  ) and ( it.customerSegment  is (known and available) and it.customerSegment ="2"))then{
+                   	if(it.dateOfBirth is (known and available))then {
+					tempAge=(calendar().currentDate().subtractInMonths(it.dateOfBirth).months/12);
+					fn_AppendActionMessage("Applicant is "it.firstName " " it.lastName " aged  "portable().toInteger(tempAge) "years and is is self employed  professional");
+                }
+            }else if (it.constitution  is (known and available) and  it.constitution <>"1"   )then{
+              		
+
+                                                    if(it.businessDetails.industry  is (known and available))then {
+
+                                                    if (it.businessDetails.industry=("108"))then{tempIndustry="LEGAL SERVICES";}
+                                                    else if (it.businessDetails.industry=("143"))then{tempIndustry="PHOTOGRAPHIC & ALLIED PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("181"))then{tempIndustry="THERMOPLASTICS";} 
+                                                    else if (it.businessDetails.industry=("10006"))then{tempIndustry="AGGREGATES MATERIALS";} 
+                                                    else if (it.businessDetails.industry=("10031"))then{tempIndustry="ELECTRICAL ELECTRONIC EQUIPMENTS";} 
+                                                    else if (it.businessDetails.industry=("10075"))then{tempIndustry="TRANSPORTERS - FMCG";} 
+                                                    else if (it.businessDetails.industry=("1"))then{tempIndustry="BANKING AND FINANCIAL SERVICES";} 
+                                                    else if (it.businessDetails.industry=("10"))then{tempIndustry="TRADING";} 
+                                                    else if (it.businessDetails.industry=("10004"))then{tempIndustry="AGRICULTURE";} 
+                                                    else if (it.businessDetails.industry=("10008"))then{tempIndustry="BRICK KILN";} 
+                                                    else if (it.businessDetails.industry=("10009"))then{tempIndustry="CIVIL CONSTRUCTION";} 
+                                                    else if (it.businessDetails.industry=("10010"))then{tempIndustry="COAL MINING";} 
+                                                    else if (it.businessDetails.industry=("10011"))then{tempIndustry="COMMERCIAL PRINTING";} 
+                                                    else if (it.businessDetails.industry=("10013"))then{tempIndustry="EARTHWORK";} 
+                                                    else if (it.businessDetails.industry=("10014"))then{tempIndustry="FABRICATION";} 
+                                                    else if (it.businessDetails.industry=("10016"))then{tempIndustry="LOGISTICS";} 
+                                                    else if (it.businessDetails.industry=("10017"))then{tempIndustry="METALS ORE";} 
+                                                    else if (it.businessDetails.industry=("10018"))then{tempIndustry="OFC LAYING";} 
+                                                    else if (it.businessDetails.industry=("10019"))then{tempIndustry="OIL POWER AND GAS";} 
+                                                    else if (it.businessDetails.industry=("10020"))then{tempIndustry="PORT STEVEDORING";} 
+                                                    else if (it.businessDetails.industry=("10021"))then{tempIndustry="RAILWAYS";} 
+                                                    else if (it.businessDetails.industry=("10022"))then{tempIndustry="REAL ESTATE";} 
+                                                    else if (it.businessDetails.industry=("10023"))then{tempIndustry="ROAD CONSTRUCTION";} 
+                                                    else if (it.businessDetails.industry=("10024"))then{tempIndustry="STONE MINING";} 
+                                                    else if (it.businessDetails.industry=("10026"))then{tempIndustry="AUTOMOBILE DEALER AUTO SPARE PART DEALER";} 
+                                                    else if (it.businessDetails.industry=("10027"))then{tempIndustry="CEMENT";} 
+                                                    else if (it.businessDetails.industry=("10028"))then{tempIndustry="CHEMICALS";} 
+                                                    else if (it.businessDetails.industry=("10030"))then{tempIndustry="DOCTORS HOSPITAL NURSING HOME";} 
+                                                    else if (it.businessDetails.industry=("10032"))then{tempIndustry="FERTILIZERS";} 
+                                                    else if (it.businessDetails.industry=("10034"))then{tempIndustry="INDUSTRIAL MACHINERY";} 
+                                                    else if (it.businessDetails.industry=("10035"))then{tempIndustry="IRON";} 
+                                                    else if (it.businessDetails.industry=("10036"))then{tempIndustry="LIQUOR WINE SHOP";} 
+                                                    else if (it.businessDetails.industry=("10037"))then{tempIndustry="MEDIA FILM TELEVISION";} 
+                                                    else if (it.businessDetails.industry=("10038"))then{tempIndustry="OTHER METALS";} 
+                                                    else if (it.businessDetails.industry=("10040"))then{tempIndustry="PLASTIC AND PLASTIC RELATED PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("10042"))then{tempIndustry="STEEL";} 
+                                                    else if (it.businessDetails.industry=("10063"))then{tempIndustry="AGRICULTURE - FARM PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("10064"))then{tempIndustry="COURIER AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("10065"))then{tempIndustry="INDUSTRIAL FURNACES - GASES";} 
+                                                    else if (it.businessDetails.industry=("10066"))then{tempIndustry="PETROCHEMICALS - PETROLEUM";} 
+                                                    else if (it.businessDetails.industry=("10068"))then{tempIndustry="PLASTIC AND PLASTIC RELATED PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("10069"))then{tempIndustry="RESTAURANTS AND BARS";} 
+                                                    else if (it.businessDetails.industry=("10070"))then{tempIndustry="TRANSPORTERS - CAR -TW CARRIER";} 
+                                                    else if (it.businessDetails.industry=("10071"))then{tempIndustry="TRANSPORTERS - CEMENT";} 
+                                                    else if (it.businessDetails.industry=("10072"))then{tempIndustry="TRANSPORTERS - CHEMICAL";} 
+                                                    else if (it.businessDetails.industry=("10073"))then{tempIndustry="TRANSPORTERS - COAL";}
+                                                    else if (it.businessDetails.industry=("10074"))then{tempIndustry="TRANSPORTERS - EXIM CONTAINERS";} 
+                                                    else if (it.businessDetails.industry=("10076"))then{tempIndustry="TRANSPORTERS - LPG";} 
+                                                    else if (it.businessDetails.industry=("10077"))then{tempIndustry="TRANSPORTERS - MARKET LOAD OPERATIONS";} 
+                                                    else if (it.businessDetails.industry=("10078"))then{tempIndustry="TRANSPORTERS - METAL";} 
+                                                    else if (it.businessDetails.industry=("10079"))then{tempIndustry="TRANSPORTERS - MILK";} 
+                                                    else if (it.businessDetails.industry=("10080"))then{tempIndustry="TRANSPORTERS - MINING";} 
+                                                    else if (it.businessDetails.industry=("10081"))then{tempIndustry="TRANSPORTERS - NIGHT BUS OPERATIONS";} 
+                                                    else if (it.businessDetails.industry=("10082"))then{tempIndustry="TRANSPORTERS - ODC";} 
+                                                    else if (it.businessDetails.industry=("10083"))then{tempIndustry="TRANSPORTERS - PARCEL";} 
+                                                    else if (it.businessDetails.industry=("10084"))then{tempIndustry="TRANSPORTERS - POL";} 
+                                                    else if (it.businessDetails.industry=("10085"))then{tempIndustry="TRANSPORTERS - REFRIGERATED VANS";} 
+                                                    else if (it.businessDetails.industry=("10086"))then{tempIndustry="TRANSPORTERS - STAFF TRANSPORT";} 
+                                                    else if (it.businessDetails.industry=("10087"))then{tempIndustry="TRANSPORTERS - STEEL";} 
+                                                    else if (it.businessDetails.industry=("10088"))then{tempIndustry="TRANSPORTERS - WHITE GOODS";} 
+                                                    else if (it.businessDetails.industry=("10090"))then{tempIndustry="INDUSTRY";} 
+                                                    else if (it.businessDetails.industry=("101"))then{tempIndustry="INDUSTRIAL MACHINERY-CHEMICAL AND TEXTILES ";}
+                                                    else if (it.businessDetails.industry=("102"))then{tempIndustry="INDUSTRIAL SERVICES ";}
+                                                    else if (it.businessDetails.industry=("105"))then{tempIndustry="ITES/ CALL CENTERS ";}
+                                                    else if (it.businessDetails.industry=("107"))then{tempIndustry="LAND TRANSPORTATION EQUIPMENT";} 
+                                                    else if (it.businessDetails.industry=("11"))then{tempIndustry="FOOD AND BEVERAGES ";}
+                                                    else if (it.businessDetails.industry=("110"))then{tempIndustry="LUBRICANTS, ETC ";}
+                                                    else if (it.businessDetails.industry=("111"))then{tempIndustry="LUGGAGE & LEATHER GOODS";} 
+                                                    else if (it.businessDetails.industry=("115"))then{tempIndustry="MEDICAL EQUIPMENT ";}
+                                                    else if (it.businessDetails.industry=("117"))then{tempIndustry="MEDICAL SUPPLIES ";}
+                                                    else if (it.businessDetails.industry=("119"))then{tempIndustry="MILLING PRODUCTS ";}
+                                                    else if (it.businessDetails.industry=("12"))then{tempIndustry="TRANSPORT ";}
+                                                    else if (it.businessDetails.industry=("121"))then{tempIndustry="MOULDED LUGGAGE ";}
+                                                    else if (it.businessDetails.industry=("122"))then{tempIndustry="NETWORKING ";}
+                                                    else if (it.businessDetails.industry=("124"))then{tempIndustry="NON-ELECTRICAL MACHINERY ";}
+                                                    else if (it.businessDetails.industry=("126"))then{tempIndustry="OFFICE EQUIPMENT ";}
+                                                    else if (it.businessDetails.industry=("127"))then{tempIndustry="OIL CAKES & ANIMAL FEED";} 
+                                                    else if (it.businessDetails.industry=("128"))then{tempIndustry="OIL DRILLING & ALLIED SERVICES";} 
+                                                    else if (it.businessDetails.industry=("129"))then{tempIndustry="OPTICIANS ";}
+                                                    else if (it.businessDetails.industry=("13"))then{tempIndustry="EXPORTS ";}
+                                                    else if (it.businessDetails.industry=("131"))then{tempIndustry="OTHER CHEMICALS-OTHER THAN ORGANIC AND INORGANIC ";}
+                                                    else if (it.businessDetails.industry=("132"))then{tempIndustry="PACKAGING ";}
+                                                    else if (it.businessDetails.industry=("133"))then{tempIndustry="PAINTS & VARNISHES";} 
+                                                    else if (it.businessDetails.industry=("135"))then{tempIndustry="PASSENGER CARS ";}
+                                                    else if (it.businessDetails.industry=("136"))then{tempIndustry="PASSENGER TRANSPORT SERVICES-ROAD ";}
+                                                    else if (it.businessDetails.industry=("137"))then{tempIndustry="PERSONAL CARE ";}
+                                                    else if (it.businessDetails.industry=("138"))then{tempIndustry="PESTICIDES ";}
+                                                    else if (it.businessDetails.industry=("145"))then{tempIndustry="PIECE GOODS ";}
+                                                    else if (it.businessDetails.industry=("15"))then{tempIndustry="JEWELLERY/GEMS ";}
+                                                    else if (it.businessDetails.industry=("150"))then{tempIndustry="POLYMERS ";}
+                                                    else if (it.businessDetails.industry=("151"))then{tempIndustry="POST PRODUCTION & ANIMATION";} 
+                                                    else if (it.businessDetails.industry=("153"))then{tempIndustry="PRIME MOVERS ";}
+                                                    else if (it.businessDetails.industry=("154"))then{tempIndustry="PRINTING MACHINERY";} 
+                                                    else if (it.businessDetails.industry=("156"))then{tempIndustry="PUBLIC RELATIONS ";}
+                                                    else if (it.businessDetails.industry=("157"))then{tempIndustry="PUBLISHING ";}
+                                                    else if (it.businessDetails.industry=("158"))then{tempIndustry="PUMPS ";}
+                                                    else if (it.businessDetails.industry=("16"))then{tempIndustry="TWO AND THREE WHEELERS";} 
+                                                    else if (it.businessDetails.industry=("160"))then{tempIndustry="RECREATION & AMUSEMENT PARKS";} 
+                                                    else if (it.businessDetails.industry=("161"))then{tempIndustry="REFINERIES-EG OIL/COCONUT ";}
+                                                    else if (it.businessDetails.industry=("162"))then{tempIndustry="REFRACTORIES & INTERMEDIATES ";}
+                                                    else if (it.businessDetails.industry=("163"))then{tempIndustry="RUBBER & RUBBER PRODUCTS ";}
+                                                    else if (it.businessDetails.industry=("167"))then{tempIndustry="SPICES-MANUFACTURING ";}
+                                                    else if (it.businessDetails.industry=("168"))then{tempIndustry="SPORTS GOODS ";}
+                                                    else if (it.businessDetails.industry=("169"))then{tempIndustry="STARCHES ";}
+                                                    else if (it.businessDetails.industry=("17"))then{tempIndustry="ABRASIVES & GRINDING";} 
+                                                    else if (it.businessDetails.industry=("174"))then{tempIndustry="STORAGE & WAREHOUSING ";}
+                                                    else if (it.businessDetails.industry=("175"))then{tempIndustry="STORAGE BATTERIES ";}
+                                                    else if (it.businessDetails.industry=("176"))then{tempIndustry="STRUCTURALS ";}
+                                                    else if (it.businessDetails.industry=("178"))then{tempIndustry="SWITCHING APPARATUS ";}
+                                                    else if (it.businessDetails.industry=("182"))then{tempIndustry="TOBACCO PRODUCTS ";}
+                                                    else if (it.businessDetails.industry=("183"))then{tempIndustry="TRACTORS DLR ";}
+                                                    else if (it.businessDetails.industry=("185"))then{tempIndustry="TRANSMISSION LINE TOWERS & EQUIPMENT ";}
+                                                    else if (it.businessDetails.industry=("186"))then{tempIndustry="TRAVEL SERVICES ";}
+                                                    else if (it.businessDetails.industry=("187"))then{tempIndustry="TURNKEY SERVICES ";}
+                                                    else if (it.businessDetails.industry=("188"))then{tempIndustry="TYRES-MANUFACTURING ";}
+                                                    else if (it.businessDetails.industry=("194"))then{tempIndustry="FURNITURE & HOME FURNISHINGS";} 
+                                                    else if (it.businessDetails.industry=("195"))then{tempIndustry="HARDWARE, PLUMBING & HEATING EQUIPMENT";} 
+                                                    else if (it.businessDetails.industry=("196"))then{tempIndustry="PAPER AND PAPER PRODUCTS ";}
+                                                    else if (it.businessDetails.industry=("197"))then{tempIndustry="PROFESSIONAL & COMMERCIAL EQUIPMENT ";}
+                                                    else if (it.businessDetails.industry=("2"))then{tempIndustry="PHARMA ";}
+                                                    else if (it.businessDetails.industry=("200"))then{tempIndustry="BUILDERS ";}
+                                                    else if (it.businessDetails.industry=("201"))then{tempIndustry="CIVIL/LABOUR/GOVERNMENT CONTRACTORS ";}
+                                                    else if (it.businessDetails.industry=("202"))then{tempIndustry="SMALL EXPORTERS(TURNOVER < 25 LAKHS) OF GARMENTS / LEATHER / GRANITE / CHEMICAL / MARINE PRODUCTS ETC ";}
+                                                    else if (it.businessDetails.industry=("207"))then{tempIndustry="INSURANCE AGENTS ";}
+                                                    else if (it.businessDetails.industry=("21"))then{tempIndustry="ALUMINUM & ALUMINIUM PRODUCTS-MANUFACTURER ";}
+                                                    else if (it.businessDetails.industry=("211"))then{tempIndustry="SMALL BROKERS / FINANCIAL SECURITIES FIRM";} 
+                                                    else if (it.businessDetails.industry=("213"))then{tempIndustry="NON PROFESSIONAL CONSULTANTS";} 
+                                                    else if (it.businessDetails.industry=("215"))then{tempIndustry="EMPLOYEES OF BPO’S / KPO’S < 25 YRS";} 
+                                                    else if (it.businessDetails.industry=("219"))then{tempIndustry="COPS AND POLITICIANS";} 
+                                                    else if (it.businessDetails.industry=("22"))then{tempIndustry="APPARELS-MANUFACTURER";} 
+                                                    else if (it.businessDetails.industry=("220"))then{tempIndustry="COLLECTION AGENCIES / REPOSSESSION AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("221"))then{tempIndustry="PRIVATE SECURITY FIRMS";} 
+                                                    else if (it.businessDetails.industry=("222"))then{tempIndustry="MANPOWER CONSULTANTS";} 
+                                                    else if (it.businessDetails.industry=("224"))then{tempIndustry="MOTOR TRAINING SCHOOLS";} 
+                                                    else if (it.businessDetails.industry=("225"))then{tempIndustry="PLANTATION/CHIT FUND/NIDHI COMPANIES, CREDIT SOCIETIES AND SMALL NBFCS";} 
+                                                    else if (it.businessDetails.industry=("226"))then{tempIndustry="CABLE TV OPERATORS";} 
+                                                    else if (it.businessDetails.industry=("227"))then{tempIndustry="JOURNALISTS";} 
+                                                    else if (it.businessDetails.industry=("228"))then{tempIndustry="ADVOCATES";} 
+                                                    else if (it.businessDetails.industry=("229"))then{tempIndustry="LOTTERY AGENTS";} 
+                                                    else if (it.businessDetails.industry=("230"))then{tempIndustry="STAND ALONE STD /XEROX BOOTH OWNERS";} 
+                                                    else if (it.businessDetails.industry=("231"))then{tempIndustry="OWNERS / EMPLOYEES OF CONTACT POINT VERIFICATION (CPV AGENCIES)";} 
+                                                    else if (it.businessDetails.industry=("232"))then{tempIndustry="OWNERS / EMPLOYEES OF DOCUMENT VERIFICATION / DE-DUPING AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("233"))then{tempIndustry="OWNERS / EMPLOYEES OF FRAUD DETECTION AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("234"))then{tempIndustry="OWNERS / EMPLOYEES OF DIRECT SALES AGENCIES (DSA) / SUB-DSAS";} 
+                                                    else if (it.businessDetails.industry=("235"))then{tempIndustry="OWNERS / EMPLOYEES OF DOCUMENT / PDD COLLECTION AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("236"))then{tempIndustry="OWNERS / EMPLOYEES OF CENTRAL PROCESSING AGENCIES (CPA)";} 
+                                                    else if (it.businessDetails.industry=("237"))then{tempIndustry="OWNERS / EMPLOYEES OF AGENCIES PROVIDING PROFESSIONAL (LEGAL/CONSULTANCY) SERVICES TO THE SECTOR";} 
+                                                    else if (it.businessDetails.industry=("238"))then{tempIndustry="OWNERS / EMPLOYEES OF MULTI LEVEL MARKETING AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("239"))then{tempIndustry="OWNERS / EMPLOYEES OF AUTO GARAGE";} 
+                                                    else if (it.businessDetails.industry=("240"))then{tempIndustry="CLASS IV GOVERNMENT EMPLOYEES EXCLUDING TEACHER.";} 
+                                                    else if (it.businessDetails.industry=("25"))then{tempIndustry="AUTO DESIGN";} 
+                                                    else if (it.businessDetails.industry=("26"))then{tempIndustry="AUTOMATIC MERCHANDISING MACHINE OPERATORS";} 
+                                                    else if (it.businessDetails.industry=("28"))then{tempIndustry="BAKERY";} 
+                                                    else if (it.businessDetails.industry=("29"))then{tempIndustry="BEARINGS";} 
+                                                    else if (it.businessDetails.industry=("3"))then{tempIndustry="TEXTILES";} 
+                                                    else if (it.businessDetails.industry=("31"))then{tempIndustry="BOOKS, OFFICE SUPPLIES & STATIONERY";} 
+                                                    else if (it.businessDetails.industry=("32"))then{tempIndustry="BOTTLED WATER";} 
+                                                    else if (it.businessDetails.industry=("33"))then{tempIndustry="BREWERIES & DISTILLERIES-BOTTLING PLANTS";} 
+                                                    else if (it.businessDetails.industry=("35"))then{tempIndustry="BROKERAGE FIRMS";} 
+                                                    else if (it.businessDetails.industry=("37"))then{tempIndustry="CASTINGS & FORGINGS";} 
+                                                    else if (it.businessDetails.industry=("38"))then{tempIndustry="CATALOG & MAIL-ORDER HOUSES";} 
+                                                    else if (it.businessDetails.industry=("42"))then{tempIndustry="CERAMIC TILES & SANITARYWARE";} 
+                                                    else if (it.businessDetails.industry=("44"))then{tempIndustry="CLEARING AND FORWARDING AGENTS";} 
+                                                    else if (it.businessDetails.industry=("45"))then{tempIndustry="CLOCKS & WATCHES";} 
+                                                    else if (it.businessDetails.industry=("46"))then{tempIndustry="COACHING CLASSES";} 
+                                                    else if (it.businessDetails.industry=("49"))then{tempIndustry="COMMISSION AGENTS";} 
+                                                    else if (it.businessDetails.industry=("5"))then{tempIndustry="TELECOM AND COMMUNICATION";} 
+                                                    else if (it.businessDetails.industry=("50"))then{tempIndustry="COMPRESSORS";} 
+                                                    else if (it.businessDetails.industry=("51"))then{tempIndustry="COMPUTER-EDUCATION";} 
+                                                    else if (it.businessDetails.industry=("54"))then{tempIndustry="COMPUTERS & ELECTRONICS";} 
+                                                    else if (it.businessDetails.industry=("56"))then{tempIndustry="CONSTRUCTION EQUIPMENT";} 
+                                                    else if (it.businessDetails.industry=("57"))then{tempIndustry="CONSTRUCTION MATERIALS";} 
+                                                    else if (it.businessDetails.industry=("58"))then{tempIndustry="CONSULTANTS";} 
+                                                    else if (it.businessDetails.industry=("59"))then{tempIndustry="CONSUMER ELECTRONICS";} 
+                                                    else if (it.businessDetails.industry=("6"))then{tempIndustry="INFORMATION TECHNOLOGY";} 
+                                                    else if (it.businessDetails.industry=("60"))then{tempIndustry="CONTRACEPTIVES";} 
+                                                    else if (it.businessDetails.industry=("61"))then{tempIndustry="COPPER & COPPER PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("64"))then{tempIndustry="CYCLE & ACCESSORIES";} 
+                                                    else if (it.businessDetails.industry=("66"))then{tempIndustry="DETERGENTS & INTERMEDIATES";} 
+                                                    else if (it.businessDetails.industry=("67"))then{tempIndustry="DIAGNOSTIC CENTERS";} 
+                                                    else if (it.businessDetails.industry=("68"))then{tempIndustry="DIRECT SELLING ESTABLISHMENTS";} 
+                                                    else if (it.businessDetails.industry=("69"))then{tempIndustry="DOMESTIC APPLIANCES";} 
+                                                    else if (it.businessDetails.industry=("70"))then{tempIndustry="DRY CELLS";} 
+                                                    else if (it.businessDetails.industry=("72"))then{tempIndustry="EDUCATION CONSULTING";} 
+                                                    else if (it.businessDetails.industry=("77"))then{tempIndustry="ENGINEERING";} 
+                                                    else if (it.businessDetails.industry=("78"))then{tempIndustry="ENGINES";} 
+                                                    else if (it.businessDetails.industry=("79"))then{tempIndustry="ERP";}
+                                                    else if (it.businessDetails.industry=("80"))then{tempIndustry="EXECUTIVE SEARCH";} 
+                                                    else if (it.businessDetails.industry=("82"))then{tempIndustry="FASTENERS";} 
+                                                    else if (it.businessDetails.industry=("87"))then{tempIndustry="FMCG";} 
+                                                    else if (it.businessDetails.industry=("89"))then{tempIndustry="FOOD PRODUCTS-OTHER THAN POULTRY AND MEAT";} 
+                                                    else if (it.businessDetails.industry=("90"))then{tempIndustry="FOOTWEAR";} 
+                                                    else if (it.businessDetails.industry=("92"))then{tempIndustry="GLASS & GLASS PRODUCTS";}
+                                                    else if (it.businessDetails.industry=("95"))then{tempIndustry="HEALTH CENTERS-GYM-SPA";} 
+                                                    else if (it.businessDetails.industry=("96"))then{tempIndustry="HOBBY, TOY, GAME, CAMERA & PHOTOGRAPHIC SUPPLY STORES";}
+
+                                                    }
+              
+              		if(it.dateOfInception is (known and available))then {
+                        tempAge=(calendar().currentDate().subtractInMonths(it.dateOfInception).months/12);
+                      
+                      fn_AppendActionMessage("Applicant is M/s  is "it.firstName " " it.lastName " incoprorated on  "it.dateOfInception "Applicant is into the business of "tempIndustry " !");
+                    }
+              
+            }
+}
+//Co-Applicant
+
+for each Applicant in ablazeMessage.request.application.applicants  such that (it.applicantType  is (known and available) and it.applicantType <>"P")do{
+              
+  			   if(it.relation is (known and available))then {
+                  			if(it.relation =(ignoring case)("BROTHER"))then{
+                  			tempRelationShip ="BROTHER";
+            	    }else if(it.relation =(ignoring case)("BIL"))then{
+                  			tempRelationShip ="BROTHER IN LAW";
+            	    }else if(it.relation =(ignoring case)("DAU"))then{
+                  			tempRelationShip ="DAUGHTER";
+            	    }else if(it.relation =(ignoring case)("DIL"))then{
+                  			tempRelationShip =" DAUGHTER IN LAW ";
+            	    }else if(it.relation =(ignoring case)("DIR"))then{
+                  			tempRelationShip ="  DIRECTOR ";
+            	    }else if(it.relation =(ignoring case)("FTH"))then{
+                  			tempRelationShip ="  FATHER ";
+            	    }else if(it.relation =(ignoring case)("FIL"))then{
+                  			tempRelationShip =" FATHER IN LAW ";
+            	    }else if(it.relation =(ignoring case)("MTH"))then{
+                  			tempRelationShip =" MOTHER ";
+            	    }else if(it.relation =(ignoring case)("MTH"))then{
+                  			tempRelationShip =" MOTHER ";
+            	    }else if(it.relation =(ignoring case)("PARTNER"))then{
+                      	tempRelationShip =" PARTNER ";
+            	    }else if(it.relation =(ignoring case)("PRF"))then{
+                      	tempRelationShip ="  PROFESSIONAL RELATIONHIP ";
+            	    }else if(it.relation =(ignoring case)("REL"))then{
+                      	tempRelationShip ="PROPRIETOR ";
+            	    }else if(it.relation =(ignoring case)("SIS"))then{
+                      	tempRelationShip ="SISTER ";
+            	    }else if(it.relation =(ignoring case)("SON"))then{
+                      	tempRelationShip ="SON ";
+            	    }else if(it.relation =(ignoring case)("SPS"))then{
+                      	tempRelationShip ="SPOUSE ";
+            	    }else if(it.relation =(ignoring case)("BPR "))then{
+                      	tempRelationShip ="BUSINESS PARTNER  ";
+            	    }else if(it.relation =(ignoring case)("COL "))then{
+                      	tempRelationShip ="COLLEGUE";
+            	    }else if(it.relation =(ignoring case)("CUS"))then{
+                      	tempRelationShip ="CUSTOMER";
+            	    }else if(it.relation =(ignoring case)("PERSONAL"))then{
+                      	tempRelationShip ="PERSONAL-INDIVIDUAL";
+            	    }else if(it.relation =(ignoring case)("SUP"))then{
+                      	tempRelationShip ="SUPPLIER";
+            	    }else if(it.relation =(ignoring case)("OTH"))then{
+                      	tempRelationShip ="OTHER";
+            	    }else if(it.relation =(ignoring case)("TRU"))then{
+                      	tempRelationShip ="TRUSTEE";
+            	    }else if(it.relation =(ignoring case)("KAR"))then{
+                      	tempRelationShip ="KARTHA";
+            	    }else if(it.relation =(ignoring case)("SOC"))then{
+                      	tempRelationShip ="SOCIETY";
+            	    }else if(it.relation =(ignoring case)("SEC"))then{
+                      	tempRelationShip ="SECRETARY";
+            	    }
+                }
+              if(it.constitution  is (known and available) and  it.constitution ="1" and  it.customerSegment  is (known and available) and it.customerSegment ="1")then{
+                   	if(it.dateOfBirth is (known and available))then {
+					tempAge=(calendar().currentDate().subtractInMonths(it.dateOfBirth).months/12);
+                    }
+             
+                  	fn_AppendActionMessage("Co - Applicant is "it.firstName " " it.lastName " aged  "portable().toInteger(tempAge) " years and is salaried . Co-applicant is " tempRelationShip);
+              //  }
+            }else  	if(it.constitution  is (known and available) and  it.constitution ="1"  and it.customerSegment  is (known and available) and it.customerSegment ="3")then{
+                   	if(it.dateOfBirth is (known and available))then {
+					tempAge=(calendar().currentDate().subtractInMonths(it.dateOfBirth).months/12);
+					 fn_AppendActionMessage("Co - Applicant is "it.firstName " " it.lastName " aged  "portable().toInteger(tempAge) "years and is is self employed non professional .  Co-applicant is " tempRelationShip);
+                }
+            }else  	if((it.constitution  is (known and available) and  it.constitution ="1"  ) and ( it.customerSegment  is (known and available) and it.customerSegment ="2"))then{
+                   	if(it.dateOfBirth is (known and available))then {
+					tempAge=(calendar().currentDate().subtractInMonths(it.dateOfBirth).months/12);
+					fn_AppendActionMessage("Co - Applicant is "it.firstName " " it.lastName " aged  "portable().toInteger(tempAge) "years and is is self employed  professional  Co-applicant is " tempRelationShip);
+                }
+            }else if (it.constitution  is (known and available) and  it.constitution <>"1"   )then{
+                     if(it.businessDetails.industry  is (known and available))then {
+
+                                                    if (it.businessDetails.industry=("108"))then{cotempIndustry="LEGAL SERVICES";}
+                                                    else if (it.businessDetails.industry=("143"))then{cotempIndustry="PHOTOGRAPHIC & ALLIED PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("181"))then{cotempIndustry="THERMOPLASTICS";} 
+                                                    else if (it.businessDetails.industry=("10006"))then{cotempIndustry="AGGREGATES MATERIALS";} 
+                                                    else if (it.businessDetails.industry=("10031"))then{cotempIndustry="ELECTRICAL ELECTRONIC EQUIPMENTS";} 
+                                                    else if (it.businessDetails.industry=("10075"))then{cotempIndustry="TRANSPORTERS - FMCG";} 
+                                                    else if (it.businessDetails.industry=("1"))then{cotempIndustry="BANKING AND FINANCIAL SERVICES";} 
+                                                    else if (it.businessDetails.industry=("10"))then{cotempIndustry="TRADING";} 
+                                                    else if (it.businessDetails.industry=("10004"))then{cotempIndustry="AGRICULTURE";} 
+                                                    else if (it.businessDetails.industry=("10008"))then{cotempIndustry="BRICK KILN";} 
+                                                    else if (it.businessDetails.industry=("10009"))then{cotempIndustry="CIVIL CONSTRUCTION";} 
+                                                    else if (it.businessDetails.industry=("10010"))then{cotempIndustry="COAL MINING";} 
+                                                    else if (it.businessDetails.industry=("10011"))then{cotempIndustry="COMMERCIAL PRINTING";} 
+                                                    else if (it.businessDetails.industry=("10013"))then{cotempIndustry="EARTHWORK";} 
+                                                    else if (it.businessDetails.industry=("10014"))then{cotempIndustry="FABRICATION";} 
+                                                    else if (it.businessDetails.industry=("10016"))then{cotempIndustry="LOGISTICS";} 
+                                                    else if (it.businessDetails.industry=("10017"))then{cotempIndustry="METALS ORE";} 
+                                                    else if (it.businessDetails.industry=("10018"))then{cotempIndustry="OFC LAYING";} 
+                                                    else if (it.businessDetails.industry=("10019"))then{cotempIndustry="OIL POWER AND GAS";} 
+                                                    else if (it.businessDetails.industry=("10020"))then{cotempIndustry="PORT STEVEDORING";} 
+                                                    else if (it.businessDetails.industry=("10021"))then{cotempIndustry="RAILWAYS";} 
+                                                    else if (it.businessDetails.industry=("10022"))then{cotempIndustry="REAL ESTATE";} 
+                                                    else if (it.businessDetails.industry=("10023"))then{cotempIndustry="ROAD CONSTRUCTION";} 
+                                                    else if (it.businessDetails.industry=("10024"))then{cotempIndustry="STONE MINING";} 
+                                                    else if (it.businessDetails.industry=("10026"))then{cotempIndustry="AUTOMOBILE DEALER AUTO SPARE PART DEALER";} 
+                                                    else if (it.businessDetails.industry=("10027"))then{cotempIndustry="CEMENT";} 
+                                                    else if (it.businessDetails.industry=("10028"))then{cotempIndustry="CHEMICALS";} 
+                                                    else if (it.businessDetails.industry=("10030"))then{cotempIndustry="DOCTORS HOSPITAL NURSING HOME";} 
+                                                    else if (it.businessDetails.industry=("10032"))then{cotempIndustry="FERTILIZERS";} 
+                                                    else if (it.businessDetails.industry=("10034"))then{cotempIndustry="INDUSTRIAL MACHINERY";} 
+                                                    else if (it.businessDetails.industry=("10035"))then{cotempIndustry="IRON";} 
+                                                    else if (it.businessDetails.industry=("10036"))then{cotempIndustry="LIQUOR WINE SHOP";} 
+                                                    else if (it.businessDetails.industry=("10037"))then{cotempIndustry="MEDIA FILM TELEVISION";} 
+                                                    else if (it.businessDetails.industry=("10038"))then{cotempIndustry="OTHER METALS";} 
+                                                    else if (it.businessDetails.industry=("10040"))then{cotempIndustry="PLASTIC AND PLASTIC RELATED PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("10042"))then{cotempIndustry="STEEL";} 
+                                                    else if (it.businessDetails.industry=("10063"))then{cotempIndustry="AGRICULTURE - FARM PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("10064"))then{cotempIndustry="COURIER AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("10065"))then{cotempIndustry="INDUSTRIAL FURNACES - GASES";} 
+                                                    else if (it.businessDetails.industry=("10066"))then{cotempIndustry="PETROCHEMICALS - PETROLEUM";} 
+                                                    else if (it.businessDetails.industry=("10068"))then{cotempIndustry="PLASTIC AND PLASTIC RELATED PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("10069"))then{cotempIndustry="RESTAURANTS AND BARS";} 
+                                                    else if (it.businessDetails.industry=("10070"))then{cotempIndustry="TRANSPORTERS - CAR -TW CARRIER";} 
+                                                    else if (it.businessDetails.industry=("10071"))then{cotempIndustry="TRANSPORTERS - CEMENT";} 
+                                                    else if (it.businessDetails.industry=("10072"))then{cotempIndustry="TRANSPORTERS - CHEMICAL";} 
+                                                    else if (it.businessDetails.industry=("10073"))then{cotempIndustry="TRANSPORTERS - COAL";}
+                                                    else if (it.businessDetails.industry=("10074"))then{cotempIndustry="TRANSPORTERS - EXIM CONTAINERS";} 
+                                                    else if (it.businessDetails.industry=("10076"))then{cotempIndustry="TRANSPORTERS - LPG";} 
+                                                    else if (it.businessDetails.industry=("10077"))then{cotempIndustry="TRANSPORTERS - MARKET LOAD OPERATIONS";} 
+                                                    else if (it.businessDetails.industry=("10078"))then{cotempIndustry="TRANSPORTERS - METAL";} 
+                                                    else if (it.businessDetails.industry=("10079"))then{cotempIndustry="TRANSPORTERS - MILK";} 
+                                                    else if (it.businessDetails.industry=("10080"))then{cotempIndustry="TRANSPORTERS - MINING";} 
+                                                    else if (it.businessDetails.industry=("10081"))then{cotempIndustry="TRANSPORTERS - NIGHT BUS OPERATIONS";} 
+                                                    else if (it.businessDetails.industry=("10082"))then{cotempIndustry="TRANSPORTERS - ODC";} 
+                                                    else if (it.businessDetails.industry=("10083"))then{cotempIndustry="TRANSPORTERS - PARCEL";} 
+                                                    else if (it.businessDetails.industry=("10084"))then{cotempIndustry="TRANSPORTERS - POL";} 
+                                                    else if (it.businessDetails.industry=("10085"))then{cotempIndustry="TRANSPORTERS - REFRIGERATED VANS";} 
+                                                    else if (it.businessDetails.industry=("10086"))then{cotempIndustry="TRANSPORTERS - STAFF TRANSPORT";} 
+                                                    else if (it.businessDetails.industry=("10087"))then{cotempIndustry="TRANSPORTERS - STEEL";} 
+                                                    else if (it.businessDetails.industry=("10088"))then{cotempIndustry="TRANSPORTERS - WHITE GOODS";} 
+                                                    else if (it.businessDetails.industry=("10090"))then{cotempIndustry="INDUSTRY";} 
+                                                    else if (it.businessDetails.industry=("101"))then{cotempIndustry="INDUSTRIAL MACHINERY-CHEMICAL AND TEXTILES ";}
+                                                    else if (it.businessDetails.industry=("102"))then{cotempIndustry="INDUSTRIAL SERVICES ";}
+                                                    else if (it.businessDetails.industry=("105"))then{cotempIndustry="ITES/ CALL CENTERS ";}
+                                                    else if (it.businessDetails.industry=("107"))then{cotempIndustry="LAND TRANSPORTATION EQUIPMENT";} 
+                                                    else if (it.businessDetails.industry=("11"))then{cotempIndustry="FOOD AND BEVERAGES ";}
+                                                    else if (it.businessDetails.industry=("110"))then{cotempIndustry="LUBRICANTS, ETC ";}
+                                                    else if (it.businessDetails.industry=("111"))then{cotempIndustry="LUGGAGE & LEATHER GOODS";} 
+                                                    else if (it.businessDetails.industry=("115"))then{cotempIndustry="MEDICAL EQUIPMENT ";}
+                                                    else if (it.businessDetails.industry=("117"))then{cotempIndustry="MEDICAL SUPPLIES ";}
+                                                    else if (it.businessDetails.industry=("119"))then{cotempIndustry="MILLING PRODUCTS ";}
+                                                    else if (it.businessDetails.industry=("12"))then{cotempIndustry="TRANSPORT ";}
+                                                    else if (it.businessDetails.industry=("121"))then{cotempIndustry="MOULDED LUGGAGE ";}
+                                                    else if (it.businessDetails.industry=("122"))then{cotempIndustry="NETWORKING ";}
+                                                    else if (it.businessDetails.industry=("124"))then{cotempIndustry="NON-ELECTRICAL MACHINERY ";}
+                                                    else if (it.businessDetails.industry=("126"))then{cotempIndustry="OFFICE EQUIPMENT ";}
+                                                    else if (it.businessDetails.industry=("127"))then{cotempIndustry="OIL CAKES & ANIMAL FEED";} 
+                                                    else if (it.businessDetails.industry=("128"))then{cotempIndustry="OIL DRILLING & ALLIED SERVICES";} 
+                                                    else if (it.businessDetails.industry=("129"))then{cotempIndustry="OPTICIANS ";}
+                                                    else if (it.businessDetails.industry=("13"))then{cotempIndustry="EXPORTS ";}
+                                                    else if (it.businessDetails.industry=("131"))then{cotempIndustry="OTHER CHEMICALS-OTHER THAN ORGANIC AND INORGANIC ";}
+                                                    else if (it.businessDetails.industry=("132"))then{cotempIndustry="PACKAGING ";}
+                                                    else if (it.businessDetails.industry=("133"))then{cotempIndustry="PAINTS & VARNISHES";} 
+                                                    else if (it.businessDetails.industry=("135"))then{cotempIndustry="PASSENGER CARS ";}
+                                                    else if (it.businessDetails.industry=("136"))then{cotempIndustry="PASSENGER TRANSPORT SERVICES-ROAD ";}
+                                                    else if (it.businessDetails.industry=("137"))then{cotempIndustry="PERSONAL CARE ";}
+                                                    else if (it.businessDetails.industry=("138"))then{cotempIndustry="PESTICIDES ";}
+                                                    else if (it.businessDetails.industry=("145"))then{cotempIndustry="PIECE GOODS ";}
+                                                    else if (it.businessDetails.industry=("15"))then{cotempIndustry="JEWELLERY/GEMS ";}
+                                                    else if (it.businessDetails.industry=("150"))then{cotempIndustry="POLYMERS ";}
+                                                    else if (it.businessDetails.industry=("151"))then{cotempIndustry="POST PRODUCTION & ANIMATION";} 
+                                                    else if (it.businessDetails.industry=("153"))then{cotempIndustry="PRIME MOVERS ";}
+                                                    else if (it.businessDetails.industry=("154"))then{cotempIndustry="PRINTING MACHINERY";} 
+                                                    else if (it.businessDetails.industry=("156"))then{cotempIndustry="PUBLIC RELATIONS ";}
+                                                    else if (it.businessDetails.industry=("157"))then{cotempIndustry="PUBLISHING ";}
+                                                    else if (it.businessDetails.industry=("158"))then{cotempIndustry="PUMPS ";}
+                                                    else if (it.businessDetails.industry=("16"))then{cotempIndustry="TWO AND THREE WHEELERS";} 
+                                                    else if (it.businessDetails.industry=("160"))then{cotempIndustry="RECREATION & AMUSEMENT PARKS";} 
+                                                    else if (it.businessDetails.industry=("161"))then{cotempIndustry="REFINERIES-EG OIL/COCONUT ";}
+                                                    else if (it.businessDetails.industry=("162"))then{cotempIndustry="REFRACTORIES & INTERMEDIATES ";}
+                                                    else if (it.businessDetails.industry=("163"))then{cotempIndustry="RUBBER & RUBBER PRODUCTS ";}
+                                                    else if (it.businessDetails.industry=("167"))then{cotempIndustry="SPICES-MANUFACTURING ";}
+                                                    else if (it.businessDetails.industry=("168"))then{cotempIndustry="SPORTS GOODS ";}
+                                                    else if (it.businessDetails.industry=("169"))then{cotempIndustry="STARCHES ";}
+                                                    else if (it.businessDetails.industry=("17"))then{cotempIndustry="ABRASIVES & GRINDING";} 
+                                                    else if (it.businessDetails.industry=("174"))then{cotempIndustry="STORAGE & WAREHOUSING ";}
+                                                    else if (it.businessDetails.industry=("175"))then{cotempIndustry="STORAGE BATTERIES ";}
+                                                    else if (it.businessDetails.industry=("176"))then{cotempIndustry="STRUCTURALS ";}
+                                                    else if (it.businessDetails.industry=("178"))then{cotempIndustry="SWITCHING APPARATUS ";}
+                                                    else if (it.businessDetails.industry=("182"))then{cotempIndustry="TOBACCO PRODUCTS ";}
+                                                    else if (it.businessDetails.industry=("183"))then{cotempIndustry="TRACTORS DLR ";}
+                                                    else if (it.businessDetails.industry=("185"))then{cotempIndustry="TRANSMISSION LINE TOWERS & EQUIPMENT ";}
+                                                    else if (it.businessDetails.industry=("186"))then{cotempIndustry="TRAVEL SERVICES ";}
+                                                    else if (it.businessDetails.industry=("187"))then{cotempIndustry="TURNKEY SERVICES ";}
+                                                    else if (it.businessDetails.industry=("188"))then{cotempIndustry="TYRES-MANUFACTURING ";}
+                                                    else if (it.businessDetails.industry=("194"))then{cotempIndustry="FURNITURE & HOME FURNISHINGS";} 
+                                                    else if (it.businessDetails.industry=("195"))then{cotempIndustry="HARDWARE, PLUMBING & HEATING EQUIPMENT";} 
+                                                    else if (it.businessDetails.industry=("196"))then{cotempIndustry="PAPER AND PAPER PRODUCTS ";}
+                                                    else if (it.businessDetails.industry=("197"))then{cotempIndustry="PROFESSIONAL & COMMERCIAL EQUIPMENT ";}
+                                                    else if (it.businessDetails.industry=("2"))then{cotempIndustry="PHARMA ";}
+                                                    else if (it.businessDetails.industry=("200"))then{cotempIndustry="BUILDERS ";}
+                                                    else if (it.businessDetails.industry=("201"))then{cotempIndustry="CIVIL/LABOUR/GOVERNMENT CONTRACTORS ";}
+                                                    else if (it.businessDetails.industry=("202"))then{cotempIndustry="SMALL EXPORTERS(TURNOVER < 25 LAKHS) OF GARMENTS / LEATHER / GRANITE / CHEMICAL / MARINE PRODUCTS ETC ";}
+                                                    else if (it.businessDetails.industry=("207"))then{cotempIndustry="INSURANCE AGENTS ";}
+                                                    else if (it.businessDetails.industry=("21"))then{cotempIndustry="ALUMINUM & ALUMINIUM PRODUCTS-MANUFACTURER ";}
+                                                    else if (it.businessDetails.industry=("211"))then{cotempIndustry="SMALL BROKERS / FINANCIAL SECURITIES FIRM";} 
+                                                    else if (it.businessDetails.industry=("213"))then{cotempIndustry="NON PROFESSIONAL CONSULTANTS";} 
+                                                    else if (it.businessDetails.industry=("215"))then{cotempIndustry="EMPLOYEES OF BPO’S / KPO’S < 25 YRS";} 
+                                                    else if (it.businessDetails.industry=("219"))then{cotempIndustry="COPS AND POLITICIANS";} 
+                                                    else if (it.businessDetails.industry=("22"))then{cotempIndustry="APPARELS-MANUFACTURER";} 
+                                                    else if (it.businessDetails.industry=("220"))then{cotempIndustry="COLLECTION AGENCIES / REPOSSESSION AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("221"))then{cotempIndustry="PRIVATE SECURITY FIRMS";} 
+                                                    else if (it.businessDetails.industry=("222"))then{cotempIndustry="MANPOWER CONSULTANTS";} 
+                                                    else if (it.businessDetails.industry=("224"))then{cotempIndustry="MOTOR TRAINING SCHOOLS";} 
+                                                    else if (it.businessDetails.industry=("225"))then{cotempIndustry="PLANTATION/CHIT FUND/NIDHI COMPANIES, CREDIT SOCIETIES AND SMALL NBFCS";} 
+                                                    else if (it.businessDetails.industry=("226"))then{cotempIndustry="CABLE TV OPERATORS";} 
+                                                    else if (it.businessDetails.industry=("227"))then{cotempIndustry="JOURNALISTS";} 
+                                                    else if (it.businessDetails.industry=("228"))then{cotempIndustry="ADVOCATES";} 
+                                                    else if (it.businessDetails.industry=("229"))then{cotempIndustry="LOTTERY AGENTS";} 
+                                                    else if (it.businessDetails.industry=("230"))then{cotempIndustry="STAND ALONE STD /XEROX BOOTH OWNERS";} 
+                                                    else if (it.businessDetails.industry=("231"))then{cotempIndustry="OWNERS / EMPLOYEES OF CONTACT POINT VERIFICATION (CPV AGENCIES)";} 
+                                                    else if (it.businessDetails.industry=("232"))then{cotempIndustry="OWNERS / EMPLOYEES OF DOCUMENT VERIFICATION / DE-DUPING AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("233"))then{cotempIndustry="OWNERS / EMPLOYEES OF FRAUD DETECTION AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("234"))then{cotempIndustry="OWNERS / EMPLOYEES OF DIRECT SALES AGENCIES (DSA) / SUB-DSAS";} 
+                                                    else if (it.businessDetails.industry=("235"))then{cotempIndustry="OWNERS / EMPLOYEES OF DOCUMENT / PDD COLLECTION AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("236"))then{cotempIndustry="OWNERS / EMPLOYEES OF CENTRAL PROCESSING AGENCIES (CPA)";} 
+                                                    else if (it.businessDetails.industry=("237"))then{cotempIndustry="OWNERS / EMPLOYEES OF AGENCIES PROVIDING PROFESSIONAL (LEGAL/CONSULTANCY) SERVICES TO THE SECTOR";} 
+                                                    else if (it.businessDetails.industry=("238"))then{cotempIndustry="OWNERS / EMPLOYEES OF MULTI LEVEL MARKETING AGENCIES";} 
+                                                    else if (it.businessDetails.industry=("239"))then{cotempIndustry="OWNERS / EMPLOYEES OF AUTO GARAGE";} 
+                                                    else if (it.businessDetails.industry=("240"))then{cotempIndustry="CLASS IV GOVERNMENT EMPLOYEES EXCLUDING TEACHER.";} 
+                                                    else if (it.businessDetails.industry=("25"))then{cotempIndustry="AUTO DESIGN";} 
+                                                    else if (it.businessDetails.industry=("26"))then{cotempIndustry="AUTOMATIC MERCHANDISING MACHINE OPERATORS";} 
+                                                    else if (it.businessDetails.industry=("28"))then{cotempIndustry="BAKERY";} 
+                                                    else if (it.businessDetails.industry=("29"))then{cotempIndustry="BEARINGS";} 
+                                                    else if (it.businessDetails.industry=("3"))then{cotempIndustry="TEXTILES";} 
+                                                    else if (it.businessDetails.industry=("31"))then{cotempIndustry="BOOKS, OFFICE SUPPLIES & STATIONERY";} 
+                                                    else if (it.businessDetails.industry=("32"))then{cotempIndustry="BOTTLED WATER";} 
+                                                    else if (it.businessDetails.industry=("33"))then{cotempIndustry="BREWERIES & DISTILLERIES-BOTTLING PLANTS";} 
+                                                    else if (it.businessDetails.industry=("35"))then{cotempIndustry="BROKERAGE FIRMS";} 
+                                                    else if (it.businessDetails.industry=("37"))then{cotempIndustry="CASTINGS & FORGINGS";} 
+                                                    else if (it.businessDetails.industry=("38"))then{cotempIndustry="CATALOG & MAIL-ORDER HOUSES";} 
+                                                    else if (it.businessDetails.industry=("42"))then{cotempIndustry="CERAMIC TILES & SANITARYWARE";} 
+                                                    else if (it.businessDetails.industry=("44"))then{cotempIndustry="CLEARING AND FORWARDING AGENTS";} 
+                                                    else if (it.businessDetails.industry=("45"))then{cotempIndustry="CLOCKS & WATCHES";} 
+                                                    else if (it.businessDetails.industry=("46"))then{cotempIndustry="COACHING CLASSES";} 
+                                                    else if (it.businessDetails.industry=("49"))then{cotempIndustry="COMMISSION AGENTS";} 
+                                                    else if (it.businessDetails.industry=("5"))then{cotempIndustry="TELECOM AND COMMUNICATION";} 
+                                                    else if (it.businessDetails.industry=("50"))then{cotempIndustry="COMPRESSORS";} 
+                                                    else if (it.businessDetails.industry=("51"))then{cotempIndustry="COMPUTER-EDUCATION";} 
+                                                    else if (it.businessDetails.industry=("54"))then{cotempIndustry="COMPUTERS & ELECTRONICS";} 
+                                                    else if (it.businessDetails.industry=("56"))then{cotempIndustry="CONSTRUCTION EQUIPMENT";} 
+                                                    else if (it.businessDetails.industry=("57"))then{cotempIndustry="CONSTRUCTION MATERIALS";} 
+                                                    else if (it.businessDetails.industry=("58"))then{cotempIndustry="CONSULTANTS";} 
+                                                    else if (it.businessDetails.industry=("59"))then{cotempIndustry="CONSUMER ELECTRONICS";} 
+                                                    else if (it.businessDetails.industry=("6"))then{cotempIndustry="INFORMATION TECHNOLOGY";} 
+                                                    else if (it.businessDetails.industry=("60"))then{cotempIndustry="CONTRACEPTIVES";} 
+                                                    else if (it.businessDetails.industry=("61"))then{cotempIndustry="COPPER & COPPER PRODUCTS";} 
+                                                    else if (it.businessDetails.industry=("64"))then{cotempIndustry="CYCLE & ACCESSORIES";} 
+                                                    else if (it.businessDetails.industry=("66"))then{cotempIndustry="DETERGENTS & INTERMEDIATES";} 
+                                                    else if (it.businessDetails.industry=("67"))then{cotempIndustry="DIAGNOSTIC CENTERS";} 
+                                                    else if (it.businessDetails.industry=("68"))then{cotempIndustry="DIRECT SELLING ESTABLISHMENTS";} 
+                                                    else if (it.businessDetails.industry=("69"))then{cotempIndustry="DOMESTIC APPLIANCES";} 
+                                                    else if (it.businessDetails.industry=("70"))then{cotempIndustry="DRY CELLS";} 
+                                                    else if (it.businessDetails.industry=("72"))then{cotempIndustry="EDUCATION CONSULTING";} 
+                                                    else if (it.businessDetails.industry=("77"))then{cotempIndustry="ENGINEERING";} 
+                                                    else if (it.businessDetails.industry=("78"))then{cotempIndustry="ENGINES";} 
+                                                    else if (it.businessDetails.industry=("79"))then{cotempIndustry="ERP";}
+                                                    else if (it.businessDetails.industry=("80"))then{cotempIndustry="EXECUTIVE SEARCH";} 
+                                                    else if (it.businessDetails.industry=("82"))then{cotempIndustry="FASTENERS";} 
+                                                    else if (it.businessDetails.industry=("87"))then{cotempIndustry="FMCG";} 
+                                                    else if (it.businessDetails.industry=("89"))then{cotempIndustry="FOOD PRODUCTS-OTHER THAN POULTRY AND MEAT";} 
+                                                    else if (it.businessDetails.industry=("90"))then{cotempIndustry="FOOTWEAR";} 
+                                                    else if (it.businessDetails.industry=("92"))then{cotempIndustry="GLASS & GLASS PRODUCTS";}
+                                                    else if (it.businessDetails.industry=("95"))then{cotempIndustry="HEALTH CENTERS-GYM-SPA";} 
+                                                    else if (it.businessDetails.industry=("96"))then{cotempIndustry="HOBBY, TOY, GAME, CAMERA & PHOTOGRAPHIC SUPPLY STORES";}
+
+                                                    }
+              		if(it.dateOfInception is (known and available))then {
+                        tempAge=(calendar().currentDate().subtractInMonths(it.dateOfInception).months/12);
+                      fn_AppendActionMessage("Co - Applicant is M/s  is "it.firstName " " it.lastName " incoprorated on  "it.dateOfInception "Applicant is into the business of "cotempIndustry " !");
+                    }
+              
+            }
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='GcLsgx'>
+    <instance ref='ParameterNameVH'>
+     <value>ablazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_applicantIncomeDetails'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_applicantIncomeDetails</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("fn_applicantIncomeDetails Entering ");
+anApplicant is some Applicant;		
+anIncome is some Income;
+totalIncome is a real initially 0;
+anetIncome is a real initially 0.0;
+tempFrequency is a string initially "";
+tempIncomeHead  is a string initially "";
+tempCorpIncomeHead  is a string initially "";
+//primary Applicant 
+for each Applicant in ABlazeMessage.request.application.applicants  such that (it.applicantType  is (known and available) and it.applicantType ="P")do{
+			anApplicant=it;
+if(it.constitution  is (known and available) and  it.constitution ="1" and  it.customerSegment  is (known and available) and it.customerSegment =("1" ))then{
+                 		
+  		for each Income in anApplicant.incomes do{
+          	anIncome=it;
+          		if(anIncome.head  is (known and available) )then{
+                  if(anIncome.head =(ignoring case)("01"))then{
+                    tempIncomeHead ="Income";
+                  }else  if(anIncome.head =(ignoring case)("07"))then{
+                    tempIncomeHead ="Bonus";
+                  }else  if(anIncome.head =(ignoring case)("111"))then{
+                    tempIncomeHead ="Gross income as per salary slip";
+                  }else  if(anIncome.head =(ignoring case)("112"))then{
+                    tempIncomeHead ="Income as per latest Form 16";
+                  }else  if(anIncome.head =(ignoring case)("37"))then{
+                    tempIncomeHead ="Rental income";
+                  }else  if(anIncome.head =(ignoring case)("113"))then{
+                    tempIncomeHead ="Income as per latest ITR";
+                  }else  if(anIncome.head =(ignoring case)("130"))then{
+                    tempIncomeHead ="Pension income";
+                  }else  if(anIncome.head =(ignoring case)("115"))then{
+                    tempIncomeHead ="Salary certificate";
+                  }else  if(anIncome.head =(ignoring case)("114"))then{
+                    tempIncomeHead ="Salary Credit in Bank";
+                  }else  if(anIncome.head =(ignoring case)("106"))then{
+                    tempIncomeHead ="Variable bonus";
+                  }else  if(anIncome.head =(ignoring case)("105"))then{
+                    tempIncomeHead ="Variable incentive";
+                  }
+                }
+                  
+                  		if(anIncome.frequency  is (known and available) and (anIncome.frequency="A"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="annually";
+                        }else if(anIncome.frequency  is (known and available) and (anIncome.frequency="B"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="Bi-monthly";
+                        }else if(anIncome.frequency  is (known and available) and (anIncome.frequency="M"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="monthly";
+                        }else if(anIncome.frequency  is (known and available) and (anIncome.frequency="Q"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="Quaterly";
+                        }else if(anIncome.frequency  is (known and available) and (anIncome.frequency="H"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="Half Yearly";
+                        }
+             //   }
+           }
+  fn_AppendActionMessage("Applicant's "tempIncomeHead " is INR " anetIncome " " tempFrequency);
+  		}else if((it.constitution  is (known and available) and  it.constitution =("13" or  "4" or "9" or "6" or "11" or "7"   )) and  ( it.customerSegment  is (known and available) and it.customerSegment <>("1" )))then{
+                 		
+  		for each Income in anApplicant.incomes do{
+          	anIncome=it;
+          	
+                  if(anIncome.head  is (known and available) )then{
+                  if(anIncome.head =(ignoring case)("120"))then{
+                    tempCorpIncomeHead ="PAT";
+                  }else  if(anIncome.head =(ignoring case)("122"))then{
+                    tempCorpIncomeHead ="Depreciation";
+                  }else  if(anIncome.head =(ignoring case)("125"))then{
+                    tempCorpIncomeHead ="Directors salary";
+                  }
+                }
+                
+                  		if(anIncome.frequency  is (known and available) and (anIncome.frequency="A"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="annually";
+                        }else if(anIncome.frequency  is (known and available) and (anIncome.frequency="B"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="Bi-monthly";
+                        }else if(anIncome.frequency  is (known and available) and (anIncome.frequency="M"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="monthly";
+                        }else if(anIncome.frequency  is (known and available) and (anIncome.frequency="Q"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="Quaterly";
+                        }else if(anIncome.frequency  is (known and available) and (anIncome.frequency="H"))then{
+                          	anetIncome=anIncome.amount;
+                            tempFrequency ="Half Yearly";
+                        }
+
+           }
+          fn_AppendActionMessage("Applicants " tempCorpIncomeHead " as per ITR is " anetIncome " " tempFrequency);
+  		}
+}
+
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Vlbjnk'>
+    <instance ref='ParameterNameVH'>
+     <value>ABlazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_VehicleCategorizatio'>
+ <ide-name>DT_VehicleCategorization</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Iu1gcJM3BphWZdIN7Y2XOHCP0wB'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>vehicleCategorization</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='XgmiaYTeRtKKE7nXbVyfy4VGyXU'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>vehicleCategorization</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='7OygFTAMyuU247XANTR2mDniDyE'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>vehicleCategorization</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='8cuK6qsAWa9CSywTgN0mlMTDrUO'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>vehicleCategorization</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='Iu1gcJM3BphWZdIN7Y2XOHCP0wB'>
+   <name>TC_vehicleCategorization3</name>
+   <body><template:br/>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>assetDetails.detailAssetLoan=detailAssetLoan;<template:br/>assetDetails.detailAssetLoan.assetModel= "24520";<template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.assetDetails=assetDetails;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/><template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>DT_VehicleCategory_RiskMapping(blazeMessage);<template:br/>print(blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory);<template:br/>assert().checkEquals("vehicle type", "A5", blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory);<template:br/>assert().checkEquals("risk segment", "2", blazeMessage.request.application.assetDetails.detailAssetLoan.riskCategory);<template:br/><template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='XgmiaYTeRtKKE7nXbVyfy4VGyXU'>
+   <name>TC_vehicleCategorization4</name>
+   <body><template:br/>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>assetDetails.detailAssetLoan=detailAssetLoan;<template:br/>assetDetails.detailAssetLoan.assetModel= "26544";<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.assetDetails=assetDetails;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/><template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>DT_VehicleCategory_RiskMapping(blazeMessage);<template:br/>print(blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory);<template:br/>assert().checkEquals("vehicle type", "SUV", blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory);<template:br/>assert().checkEquals("risk segment", "1", blazeMessage.request.application.assetDetails.detailAssetLoan.riskCategory);<template:br/><template:br/><template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='7OygFTAMyuU247XANTR2mDniDyE'>
+   <name>TC_vehicleCategorization2</name>
+   <body><template:br/>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>assetDetails.detailAssetLoan=detailAssetLoan;<template:br/>assetDetails.detailAssetLoan.assetModel= "27163";<template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.assetDetails=assetDetails;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/><template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>DT_VehicleCategory_RiskMapping(blazeMessage);<template:br/>print(blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory);<template:br/>assert().checkEquals("vehicle type", "A3", blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory);<template:br/>assert().checkEquals("risk segment", "2", blazeMessage.request.application.assetDetails.detailAssetLoan.riskCategory);<template:br/><template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='8cuK6qsAWa9CSywTgN0mlMTDrUO'>
+   <name>TC_vehicleCategorization1</name>
+   <body>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>assetDetails.detailAssetLoan=detailAssetLoan;<template:br/>assetDetails.detailAssetLoan.assetModel= "24372";<template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.assetDetails=assetDetails;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/><template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>DT_VehicleCategory_RiskMapping(blazeMessage);<template:br/>print(blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory);<template:br/>assert().checkEquals("vehicle type", "A2", blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory);<template:br/>assert().checkEquals("risk segment", "1", blazeMessage.request.application.assetDetails.detailAssetLoan.riskCategory);<template:br/><template:br/></body>
+  </function></template:content>
+</template>

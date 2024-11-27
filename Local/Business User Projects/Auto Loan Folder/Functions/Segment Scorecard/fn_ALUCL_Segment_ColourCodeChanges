@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_ALUCL_Segment_ColourCodeChanges'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_ALUCL_Segment_ColourCodeChanges</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("Entering fn_ALUCL_Segment_ColourCodeChanges");
+//ALN
+
+//Segment1
+if(blazeMessage.request.application.product is (known and available) and blazeMessage.request.application.product=("ALN" or "AL" ))then{
+if (theBlazeMessageBT.Segment1ScoreCardScore is  (known and available) and theBlazeMessageBT.Segment1ScoreCardScore <=644)then{
+		
+			 blazeMessage.response.applicationDecision.responseCode="RED";
+	
+}else if (theBlazeMessageBT.Segment1ScoreCardScore is (known and available) and (theBlazeMessageBT.Segment1ScoreCardScore>= 645 and theBlazeMessageBT.Segment1ScoreCardScore<=679 ) )then{
+	 blazeMessage.response.applicationDecision.responseCode="AMBER";
+	  print("AMBER--16 SEG-1_ALN");
+}else if (theBlazeMessageBT.Segment1ScoreCardScore is (known and available) and (theBlazeMessageBT.Segment1ScoreCardScore>= 680) )then{
+  print("GREEN--18 SEG-1_ALN");
+		 blazeMessage.response.applicationDecision.responseCode="GREEN";
+}
+
+//Segment2 
+if (theBlazeMessageBT.Segment2ScoreCardScore is (known and available) and theBlazeMessageBT.Segment2ScoreCardScore <=608)then{
+		 blazeMessage.response.applicationDecision.responseCode="RED";
+            print("RED--26 SEG-2_ALN");
+		
+}else if (theBlazeMessageBT.Segment2ScoreCardScore is  (known and available) and (theBlazeMessageBT.Segment2ScoreCardScore> 608 and theBlazeMessageBT.Segment2ScoreCardScore<662 ) )then{
+	 blazeMessage.response.applicationDecision.responseCode="AMBER";
+	 print("AMBER--33 SEG-2_ALN");
+}else if (theBlazeMessageBT.Segment2ScoreCardScore is (known and available) and (theBlazeMessageBT.Segment2ScoreCardScore>= 662) )then{
+ print("GREEN--35 SEG-2_ALN");
+		 blazeMessage.response.applicationDecision.responseCode="GREEN";
+}
+}
+//////////////////////////////////////////////////////////////**************************UCL*****************************///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//UCL 
+//Segment1
+if(blazeMessage.request.application.product is (known and available) and blazeMessage.request.application.product=("UCL" ))then{
+  print("Entering in product loop");
+if (theBlazeMessageBT.UCLSegment1ScoreCardScore is  (known and available) and theBlazeMessageBT.UCLSegment1ScoreCardScore <=574)then{
+	print("theBlazeMessageBT.UCLSegment1ScoreCardScore==="theBlazeMessageBT.UCLSegment1ScoreCardScore);	
+  print("theBlazeMessageBT.appLevelCibilScore==="theBlazeMessageBT.appLevelCibilScore);		 
+  if(theBlazeMessageBT.appLevelCibilScore is (known and available) and (theBlazeMessageBT.appLevelCibilScore >=300 and theBlazeMessageBT.appLevelCibilScore <=770))then{
+	print("theBlazeMessageBT.appLevelCibilScore==="theBlazeMessageBT.appLevelCibilScore);		 
+    blazeMessage.response.applicationDecision.responseCode="RED";
+           print("RED--46 SEG-1_UCL");
+		}else if(theBlazeMessageBT.appLevelCibilScore is  (known and available) and (theBlazeMessageBT.appLevelCibilScore >=771))then{
+			blazeMessage.response.applicationDecision.responseCode="AMBER";
+           print("AMBER--49 SEG-1_UCL");
+		}
+}else if (theBlazeMessageBT.UCLSegment1ScoreCardScore is (known and available) and (theBlazeMessageBT.UCLSegment1ScoreCardScore> 574 and theBlazeMessageBT.UCLSegment1ScoreCardScore<=612 ) )then{
+	 blazeMessage.response.applicationDecision.responseCode="AMBER";
+	 print("AMBER--53 SEG-1_UCL");
+}else if (theBlazeMessageBT.UCLSegment1ScoreCardScore is (known and available) and (theBlazeMessageBT.UCLSegment1ScoreCardScore>= 613) )then{
+ print("RED--55 SEG-1_UCL");
+		blazeMessage.response.applicationDecision.responseCode="GREEN";
+}
+//Segment2
+if (theBlazeMessageBT.UCLSegment2ScoreCardScore  is (known and available) and theBlazeMessageBT.UCLSegment2ScoreCardScore <=620)then{
+	print("theBlazeMessageBT.UCLSegment2ScoreCardScore==="theBlazeMessageBT.UCLSegment2ScoreCardScore);
+  blazeMessage.response.applicationDecision.responseCode="AMBER";
+   print("AMBER--61 SEG-2_UCL");
+}else if (theBlazeMessageBT.UCLSegment2ScoreCardScore is (known and available) and theBlazeMessageBT.UCLSegment2ScoreCardScore >=621)then{
+	print("theBlazeMessageBT.UCLSegment2ScoreCardScore==="theBlazeMessageBT.UCLSegment2ScoreCardScore);
+  blazeMessage.response.applicationDecision.responseCode="GREEN";
+  print("GREEN--61 SEG-2_UCL");
+}
+}
+print("Exit fn_ALUCL_Segment_ColourCodeChanges="	blazeMessage.response.applicationDecision.responseCode)]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='MDsadt'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

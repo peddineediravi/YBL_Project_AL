@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_UCL_RefinanceEligibilityComputation'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_UCL_RefinanceEligibilityComputation</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anApplication is some Application initially blazeMessage.request.application;
+isSingleApplicantMeetsMinimumNorms is a boolean initially false;
+assetDetails is some AssetDetails initially anApplication.assetDetails;
+
+if(anApplication.schemeGroup is known and (anApplication.schemeGroup="50" and anApplication.scheme="177" )) then
+ {   
+if(blazeMessage.request is known and blazeMessage.request.application is known and blazeMessage.request.application.applicants is known and blazeMessage.request.application.applicants.count >0)then{
+  		//Checking whether any applicant income is meeting minimum income norms
+	for each Applicant in blazeMessage.request.application.applicants do {
+      
+    		if(isSingleApplicantMeetsMinimumNorms is (known and available) and isSingleApplicantMeetsMinimumNorms = false) then {
+   			 isSingleApplicantMeetsMinimumNorms = (it.annualIncome.totalIncome > DT_UsedCar_MinimumIncomeLookup(anApplication.schemeGroup,anApplication.scheme,it.customerSegment,assetDetails.detailAssetLoan,assetDetails.newVehicleDetails.assetCost));
+         	}     
+	}  
+}
+ }
+
+theBlazeMessageBT.maxEligibleAmount = 0;
+maxEligibleAmount is a real initially 0;   		
+ltvBasedAmount is a real initially 0;
+
+//Refinance Income program
+if(anApplication.schemeGroup is known and (anApplication.schemeGroup="50" and anApplication.scheme="177" )) then // Refinance Income
+ {   		
+   	     ltvBasedAmount=ProcessLTVRules(true)/100;
+   		 dgv is a real;
+         costOfVehicle is a real;
+         dgv= assetDetails.usedVehicleDetails.assetCost*DT_UsedCar_depreciationGridValue(blazeMessage);
+         costOfVehicle = math().max(dgv,assetDetails.usedVehicleDetails.appraisedValue);
+   		ltvBasedAmount= costOfVehicle *ltvBasedAmount;
+   
+   		for each Applicant in blazeMessage.request.application.applicants such that( it.annualIncome is known and  it.annualIncome.incomeBasedEligbileAmount is known) do {
+   		        if(isSingleApplicantMeetsMinimumNorms is (known and available) and isSingleApplicantMeetsMinimumNorms = true) then { // Sum of all applicants income based eligbile amount (i.e income*multiplier)
+           			maxEligibleAmount = maxEligibleAmount + it.annualIncome.incomeBasedEligbileAmount;
+    		  }
+          	 else {
+                 maxEligibleAmount =math().max(maxEligibleAmount,  it.annualIncome.incomeBasedEligbileAmount); // Maximum of all applicants income based eligible amount.
+             }               
+       }
+   theBlazeMessageBT.maxEligibleAmount =math().min(maxEligibleAmount,ltvBasedAmount);
+ }
+else if(anApplication.schemeGroup is known and (anApplication.schemeGroup="50" and (anApplication.scheme="175" or anApplication.scheme="176" ) )) then // Multiplier External
+ {
+   		anApplicant is some Applicant;
+   		currentLiability is some Liability;
+   		multiplier is a real initially 0;
+   		multiplierAmount is a real initially 0;
+   
+   		 for each Applicant in anApplication.applicants such that applicantType="P" do {
+           		anApplicant =it;
+           if(anApplicant.liabilities is known and anApplicant.liabilities.count>0)then
+             {
+               		for each Liability in anApplicant.liabilities such that (typeOfLoanProduct="19070502" and balanceTenure >0 and loanClosureDate is unknown) do { //Auto Loan
+                      currentLiability=it;
+                    }
+             }
+         }
+   if(anApplication.scheme="175" ) then // Multiplier External
+     {
+       	 if(currentLiability is known)then
+           {
+             	  multiplier = DT_UsedCar_MultiplierValue(blazeMessage);
+             	 theBlazeMessageBT.maxEligibleAmount= currentLiability.noOfEMIsPaid*currentLiability.EMIAmount*multiplier;
+           }
+       
+     }
+   else if(anApplication.scheme="176" ) then // Multiplier Internal
+     {
+       	   if(currentLiability is known)then
+           {
+             		multiplier = DT_UsedCar_MultiplierValue(blazeMessage);
+             	   foreClosureCharges is a real;
+             		if(multiplier is available)then
+             			multiplierAmount =  currentLiability.noOfEMIsPaid*currentLiability.EMIAmount*multiplier;
+             		foreClosureCharges = 0.06*currentLiability.principalOutstanding;
+             	 theBlazeMessageBT.maxEligibleAmount= math().min(1000000, (multiplierAmount - (currentLiability.principalOutstanding+foreClosureCharges)));
+           }
+     }
+ }
+
+ ]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='NAx2bO'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

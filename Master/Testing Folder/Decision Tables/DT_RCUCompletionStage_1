@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_RCUCompletionStage'>
+ <ide-name>DT_RCUCompletionStage</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='U6raZKMwKQEKk59Tg51EGz5wgx6'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='PggA2dJlaiuv7wHtCwoAErdHrdn'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='1dyY9qS9v3pMH54CFec39LnGY6T'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='GsehuYA96xPUWdHGA4nrnJdTKBf'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>RCU</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='1F8DfI08GZ3RU1Yv5Ro8AexVVgf'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>RCU</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='U6raZKMwKQEKk59Tg51EGz5wgx6'>
+   <comment></comment>
+   <name>TC_RCUCompletion1</name>
+   <body><template:br/>loanDetails is some LoanDetails initially a LoanDetails;<template:br/>//loanDetails.loanAmount=50000;<template:br/><template:br/><template:br/>rcuRequestDetails is some RCURequestDetails initially a RCURequestDetails;<template:br/>rcuRequestDetails.status="NEG";<template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.rcuRequest=rcuRequestDetails;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>DT_RCUCompletionStage(blazeMessage,rcuRequestDetails);<template:br/><template:br/>// print("%%%"rcuapprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("approval role","M",blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("can approve", true, blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].canApprove);<template:br/>assert().checkEquals("RCUStage", "COMPLETION",blazeMessage.response.applicationDecision.rcuResponse.rcuStage)</body>
+  </function><function managementPropertiesRef='PggA2dJlaiuv7wHtCwoAErdHrdn'>
+   <name>TC_RCUCompletion2</name>
+   <body><template:br/>loanDetails is some LoanDetails initially a LoanDetails;<template:br/>//loanDetails.loanAmount=50000;<template:br/><template:br/><template:br/>rcuRequestDetails is some RCURequestDetails initially a RCURequestDetails;<template:br/>rcuRequestDetails.status="NRCD";<template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.rcuRequest=rcuRequestDetails;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>DT_RCUCompletionStage(blazeMessage,rcuRequestDetails);<template:br/><template:br/>// print("%%%"rcuapprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("approval role","M",blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("can approve", true, blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].canApprove);<template:br/>assert().checkEquals("RCUStage", "COMPLETION",blazeMessage.response.applicationDecision.rcuResponse.rcuStage);</body>
+  </function><function managementPropertiesRef='1dyY9qS9v3pMH54CFec39LnGY6T'>
+   <name>TC_RCUCompletion3</name>
+   <body><template:br/>loanDetails is some LoanDetails initially a LoanDetails;<template:br/>//loanDetails.loanAmount=50000;<template:br/><template:br/><template:br/>rcuRequestDetails is some RCURequestDetails initially a RCURequestDetails;<template:br/>rcuRequestDetails.status="NRCP";<template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.rcuRequest=rcuRequestDetails;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>DT_RCUCompletionStage(blazeMessage,rcuRequestDetails);<template:br/><template:br/>// print("%%%"rcuapprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("approval role","M",blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("can approve", true, blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].canApprove);<template:br/>assert().checkEquals("RCUStage", "COMPLETION",blazeMessage.response.applicationDecision.rcuResponse.rcuStage)</body>
+  </function><function managementPropertiesRef='GsehuYA96xPUWdHGA4nrnJdTKBf'>
+   <name>TC_RCUCompletion4</name>
+   <body><template:br/>loanDetails is some LoanDetails initially a LoanDetails;<template:br/>//loanDetails.loanAmount=50000;<template:br/><template:br/>multib is some MultiBureauReport initially a MultiBureauReport;<template:br/>cibil is some CibilReport initially a CibilReport;<template:br/>scoreseg is some ScoreSegment initially a ScoreSegment;<template:br/>scoreseg.scoreName="Cibil";<template:br/>scoreseg.score=4;<template:br/>scores is some array of ScoreSegment  initially an array of ScoreSegment;<template:br/>scores.append(scoreseg);<template:br/>cibil.scores=scores;<template:br/>multib.cibilResponse=cibil;<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/>applicant.multiBureauReport=multib;<template:br/>applicanArr is some array of Applicant initially an array of Applicant;<template:br/>applicanArr.append(applicant);<template:br/><template:br/><template:br/>rcuRequestDetails is some RCURequestDetails initially a RCURequestDetails;<template:br/>rcuRequestDetails.status="RC";<template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.rcuRequest=rcuRequestDetails;<template:br/>application.applicants = applicanArr;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/>// print("%%%%%%%applicant"blazeMessage.blazeApplicants[0].cibilScore);<template:br/>//print("****"blazeMessage.request.application.applicants[0].multiBureauReport.cibilResponse.scores[0].score);<template:br/>DT_RCUCompletionStage(blazeMessage,rcuRequestDetails);<template:br/><template:br/>// print("%%%"rcuapprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("approval role","M",blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("can approve", true, blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].canApprove);<template:br/>assert().checkEquals("RCUStage", "COMPLETION",blazeMessage.response.applicationDecision.rcuResponse.rcuStage)</body>
+  </function><function managementPropertiesRef='1F8DfI08GZ3RU1Yv5Ro8AexVVgf'>
+   <name>TC_RCUCompletion5</name>
+   <body><template:br/>loanDetails is some LoanDetails initially a LoanDetails;<template:br/>loanDetails.loanAmount=80000;<template:br/><template:br/>multib is some MultiBureauReport initially a MultiBureauReport;<template:br/>cibil is some CibilReport initially a CibilReport;<template:br/>scoreseg is some ScoreSegment initially a ScoreSegment;<template:br/>scoreseg.scoreName="Cibil";<template:br/>scoreseg.score=7;<template:br/>scores is some array of ScoreSegment  initially an array of ScoreSegment;<template:br/>scores.append(scoreseg);<template:br/>cibil.scores=scores;<template:br/>multib.cibilResponse=cibil;<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/>applicant.multiBureauReport=multib;<template:br/>applicanArr is some array of Applicant initially an array of Applicant;<template:br/>applicanArr.append(applicant);<template:br/><template:br/><template:br/>rcuRequestDetails is some RCURequestDetails initially a RCURequestDetails;<template:br/>rcuRequestDetails.status="RC";<template:br/><template:br/><template:br/>application is some Application initially an Application;<template:br/>application.rcuRequest=rcuRequestDetails;<template:br/>application.loanDetails=loanDetails;<template:br/>application.applicants = applicanArr;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/>/// print("%%%%%%%applicant"blazeMessage.blazeApplicants[0].cibilScore);<template:br/>//print("****"blazeMessage.request.application.applicants[0].multiBureauReport.cibilResponse.scores[0].score);<template:br/>DT_RCUCompletionStage(blazeMessage,rcuRequestDetails);<template:br/><template:br/>// print("%%%"rcuapprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("approval role","MS",blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].approvalRole);<template:br/>assert().checkEquals("can approve", false, blazeMessage.response.applicationDecision.rcuResponse.completionApprovalDetails[0].canApprove);</body>
+  </function></template:content>
+</template>

@@ -1,0 +1,618 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_RCUPostCompletionStage'>
+ <ide-name>RCUPostCompletionStage</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1aXVBoGeVoNneBc7JEvYqSwVYVH' name='Decision Table' id='Y3J1xhzUsqtKO2Ro8iEq0TbaPF0'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='8B9g9E0A6Y0S2XQPbXWATT1DyhE'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1e4Fwj577fuGSTbTbZVTMCQNc91' name='SRL Rule' id='G04nflDVI8BUjCuxp6yv8wJXF5d'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <parameters>
+  <parameter name='__ENTITY_PROPERTIES__VH__' type='1aXVBoGeVoNneBc7JEvYqSwVYVH' ideName='Management Properties' displayName='ManagementProperties' name-localized='true'>
+  </parameter>
+  <parameter name='rulesetName' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.MetaphorNameProvider' ideName='rulesetName'>
+  </parameter>
+  <parameter-list name='cases' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.Decision Table Case Template' ideName='cases' min='0'>
+  </parameter-list>
+  <parameter name='editingInfo' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.Editing Info Template' ideName='editingInfo'>
+  </parameter>
+  <parameter name='casesInfo' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.Cases Info Template' ideName='casesInfo'>
+  </parameter>
+ </parameters>
+ <family>Decision Table Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><ruleset managementPropertiesRef='Y3J1xhzUsqtKO2Ro8iEq0TbaPF0'>
+   <name><template:placeholder ref='rulesetName' relative='true'/></name>
+   <type>RCUResponse</type>
+   <parameters>
+    <parameter>
+     <name>blazeMessage</name>
+     <type>BlazeMessage</type>
+    </parameter>
+    <parameter>
+     <name>RCUstatus</name>
+     <type>RCURequestDetails</type>
+    </parameter>
+   </parameters>
+   <ruleset-body>
+    <variable managementPropertiesRef='8B9g9E0A6Y0S2XQPbXWATT1DyhE'>
+     <name>response</name>
+     <type>RCUResponse</type>
+     <initializer>a RCUResponse</initializer>
+    </variable>
+    <rule managementPropertiesRef='G04nflDVI8BUjCuxp6yv8wJXF5d'>
+     <name>finalRule</name>
+     <priority immediate='false'>-9999</priority>
+     <body>if true then{<template:br/>return response;<template:br/>}<template:br/></body>
+    </rule>
+    <template:placeholder ref='cases' relative='true'/>
+   </ruleset-body>
+  </ruleset></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/dectable' section='dectable'><name>RCUPostCompletionStage</name><return-type>RCUResponse</return-type><execution-mode></execution-mode><cell-group name='approvalAuthority' label='approvalAuthority' optional='false' role='action' alignment='vertical'>
+   <entity source='static'>response.approvalAuthority</entity>
+   <binding source='static'><binding-reference ref='SWWAKBc5rkByVkb4X9YfcfXzGcs.Assignment'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Action not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='approvalLevel' label='approvalLevel' optional='false' role='action' alignment='vertical'>
+   <entity source='static'>response.approvalLevel</entity>
+   <binding source='static'><binding-reference ref='SWWAKBc5rkByVkb4X9YfcfXzGcs.template1'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Action not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='status' label='RCU Status post completion' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>RCUstatus.status</entity>
+   <binding source='static'><binding-reference ref='SWWAKBc5rkByVkb4X9YfcfXzGcs.Equal to'></binding-reference><binding-reference ref='SWWAKBc5rkByVkb4X9YfcfXzGcs.Is one of'></binding-reference><binding-reference ref='SWWAKBc5rkByVkb4X9YfcfXzGcs.Condition not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='loanAmount' label='SactionLoanAmt' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>blazeMessage.request.application.loanDetails.loanAmount</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='lineOfBusiness' label='LOB' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>blazeMessage.invocation.lineOfBusiness</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is one of'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><layout>single-axis-cols</layout><rule-id visible='false' editable='false'><prefix>rule</prefix></rule-id></template:content>
+ <template name='Is one of' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>status_Is_one_of</ide-name>
+  <display-name>status_Is_one_of</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-list name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value' min='1'>
+    <arg name='CodeListKeyClassPart'>RCURequestDetails</arg>
+    <arg name='CodeListKeyAttributePart'>status</arg>
+   </parameter-list>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:foreach ref='value' relative='true'>
+    <template:prefix>(</template:prefix>
+    <template:infix> or </template:infix>
+    <template:postfix>)</template:postfix>
+    <template:item>(<template:placeholder ref='property' relative='true'/>="<template:placeholder ref='value' relative='true'/>")</template:item>
+   </template:foreach></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' is-param-list='true' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value>no</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value>bottom</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value>mini</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Equal to' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>status_Equal_to</ide-name>
+  <display-name>status_Equal_to</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>RCURequestDetails</arg>
+    <arg name='CodeListKeyAttributePart'>status</arg>
+   </parameter>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>(<template:placeholder ref='property' relative='true'/> = "<template:placeholder ref='value' relative='true'/>")</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Condition not applicable' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>status_Condition_not_applicable</ide-name>
+  <display-name>status_Condition_not_applicable</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>true</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>N/A</template:content>
+ </template>
+ <template name='Assignment' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>approvalAuthority_Assignment</ide-name>
+  <display-name>approvalAuthority_Assignment</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='ZflwwyXLKEhzcbPIeMdeUOafcgR.propertyvalues-provider' ideName='value'>
+    <dynamic-arg name='type' ref='type' relative='true'/>
+    <dynamic-arg name='property' ref='property' relative='true'/>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='property' relative='true'/> = <template:placeholder ref='value' relative='true'/>;</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='template1' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>approvalLevel_Assignment</ide-name>
+  <display-name>approvalLevel_Assignment</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='ZflwwyXLKEhzcbPIeMdeUOafcgR.propertyvalues-provider' ideName='value'>
+    <dynamic-arg name='type' ref='type' relative='true'/>
+    <dynamic-arg name='property' ref='property' relative='true'/>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='property' relative='true'/> = <template:placeholder ref='value' relative='true'/>;</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Cell Template'>
+  <ide-name>Cell Template</ide-name>
+  <parameters>
+   <parameter name='CELL GROUP NAME' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.Cell Group Names' ideName='CELL GROUP NAME' displayName='Internal Use Only - Not For Display: cell group name'>
+   </parameter>
+   <parameter name='type' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.__ND_CellGroupInfoProvider' ideName='type'>
+   </parameter>
+   <parameter name='property' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.__ND_CellGroupInfoProvider' ideName='property'>
+   </parameter>
+   <parameter-selection name='binding' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.Template List Provider' ideName='binding' min='1' max='1'>
+    <dynamic-arg name='property' ref='property' relative='true'/>
+    <dynamic-arg name='type' ref='type' relative='true'/>
+   </parameter-selection>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='binding' relative='true'/></template:content>
+ </template>
+ <template name='Cases Info Template'>
+  <ide-name>Cases Info Template</ide-name>
+  <parameters>
+   <parameter-list name='condition cells' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.Cell Group Info Template' ideName='condition cells' min='0'>
+   </parameter-list>
+   <parameter-list name='action cells' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.Cell Group Info Template' ideName='action cells' min='0'>
+   </parameter-list>
+  </parameters>
+  <family>Information template</family>
+ </template>
+ <template name='Cell Group Info Template'>
+  <comment>Holds Information about the Cell Groups in the metaphor.</comment>
+  <ide-name>Cell Group Info Template</ide-name>
+  <parameters>
+   <parameter name='name' type='string' ideName='name'>
+   </parameter>
+   <parameter name='displayName' type='string' ideName='displayName'>
+   </parameter>
+   <parameter name='property' type='string' ideName='property'>
+   </parameter>
+   <parameter name='type' type='string' ideName='type'>
+   </parameter>
+  </parameters>
+  <family>Information template</family>
+ </template>
+ <template name='__ND_CellGroupInfoProvider'>
+  <ide-name>__ND_CellGroupInfoProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromMetaphorInstanceCellGroupInfoProvider</provider>
+  </value>
+ </template>
+ <template name='__ND_CaseIdProvider'>
+  <ide-name>__ND_CaseIdProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromMetaphorUniqueCaseIdProvider</provider>
+  </value>
+ </template>
+ <template name='Editing Info Template'>
+  <comment>Holds Information about the number of cases in the decision table</comment>
+  <ide-name>Editing Info Template</ide-name>
+  <parameters>
+   <parameter name='rowCondValueCount' type='integer' ideName='rowCondValueCount'>
+   </parameter>
+   <parameter name='colCondValueCount' type='integer' ideName='colCondValueCount'>
+   </parameter>
+   <parameter name='isNewInstance' type='boolean' ideName='isNewInstance'>
+   </parameter>
+  </parameters>
+  <family>Information template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+ </template>
+ <template name='Cell Group Names'>
+  <comment>This is the complete list of names for all condition and action groups.
+There is no real need for this list provider, as long as the client maintains
+this list.</comment>
+  <ide-name>Cell Group Names</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdListProvider</provider>
+   <arg name='type'>string</arg>
+   <arg name='unique'>true</arg>
+   <arg name='element'>approvalAuthority</arg>
+   <arg name='element'>approvalLevel</arg>
+   <arg name='element'>status</arg>
+   <arg name='element'>loanAmount</arg>
+   <arg name='element'>lineOfBusiness</arg>
+  </value>
+ </template>
+ <template name='Template List Provider'>
+  <ide-name>Template List Provider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.metaphor.NdMetaphorBindingTemplateListProvider</provider>
+  </value>
+ </template>
+ <template name='Enumeration Items Provider'>
+  <ide-name>Enumeration Items Provider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdEnumerationItemsProvider</provider>
+   <arg name='template'></arg>
+   <arg name='enumeration'></arg>
+  </value>
+ </template>
+ <template name='Decision Table Case Template'>
+  <comment>$Date$ $Revision$
+===================
+This Template is intended to be a built-in.
+That is, it should be utterly generic with nothing tying it to a specific
+object model or template set.
+
+At the moment the only non-generic aspect is the list of associations
+defined as static overrides to the "all bindings for group" value holder
+in the Cell Template. It is envisioned that this list of associations will
+be passed into the generic Decision Table Case Template as a
+template argument, when that mechanism is implemented by IRT.
+
+
+How this Template Works:
+=====================
+In this generic template there is one place holder for all of the condition
+groups and another for all of the action groups, with a loop over each.
+
+The problem of ensuring that the correct list of bindings is used for each
+group is solved by using an association provider linking the
+name of the condition group to the template list provider that contains
+the correct bindings for that group.
+
+This setup depends on the client submitting (or choosing) the correct
+CELL GROUP NAME in Cell Template for each instance of 
+the value holder conditions.
+The second value holder in  Cell Template, "all bindings for group"
+uses this name as the key for the association provider that associates
+group names with lists of templates for those group names.
+This value holder is an "all values" value holder,  and thus takes
+as its values all of the names of the templates in the list that matches the
+key.  That is, its values are the names of the templates in the specified
+group.
+
+This value holder, "all bindings for group" is then used as a dynamic
+override for the "binding" value holder which refers to an empty
+(builtin) Template List Provider.
+Thus the allowed values of "binding" are the templates whose names
+were associated with the key.</comment>
+  <ide-name>Decision Table Case Template</ide-name>
+  <parameters>
+   <parameter name='__ENTITY_PROPERTIES__VH__' type='1e4Fwj577fuGSTbTbZVTMCQNc91' ideName='Management Properties'>
+   </parameter>
+   <parameter-list name='condition cells' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.Cell Template' ideName='condition cells' min='0'>
+   </parameter-list>
+   <parameter-list name='action cells' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.Cell Template' ideName='action cells' min='0'>
+   </parameter-list>
+   <parameter name='__ND_MetaphorRuleNameVH' type='SWWAKBc5rkByVkb4X9YfcfXzGcs.__ND_CaseIdProvider'>
+    <arg name='prefix'>rule</arg>
+   </parameter>
+   <parameter name='__ND_DecTableCellRowVH' type='string' ideName='__ND_DecTableCellRowVH'>
+   </parameter>
+   <parameter name='__ND_DecTableCellColumnVH' type='string' ideName='__ND_DecTableCellColumnVH'>
+   </parameter>
+   <parameter name='__ND_DecTableCellCreatedVH' type='string' ideName='__ND_DecTableCellCreatedVH'>
+   </parameter>
+  </parameters>
+  <family>Rule Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><rule>
+    <comment>@decisionTableCellRow <template:placeholder ref='__ND_DecTableCellRowVH' relative='true'/><template:br/>@decisionTableCellColumn <template:placeholder ref='__ND_DecTableCellColumnVH' relative='true'/><template:br/>@decisionTableCellCreated <template:placeholder ref='__ND_DecTableCellCreatedVH' relative='true'/><template:br/></comment>
+    <name><template:placeholder ref='__ND_MetaphorRuleNameVH' relative='true'/></name>
+    <execution-mode>exhaustively</execution-mode>
+    <body>if <template:foreach ref='condition cells' relative='true'>
+      <template:prefix>(</template:prefix>
+      <template:infix> and<template:br/>    </template:infix>
+      <template:postfix>)</template:postfix>
+      <template:item><template:placeholder ref='condition cells' relative='true'/></template:item>
+     </template:foreach><template:br/>then { <template:br/><template:tab/><template:foreach ref='action cells' relative='true'>
+      <template:prefix></template:prefix>
+      <template:infix> <template:br/><template:tab/></template:infix>
+      <template:postfix></template:postfix>
+      <template:item><template:placeholder ref='action cells' relative='true'/></template:item>
+     </template:foreach><template:br/>}</body>
+   </rule></template:content>
+ </template>
+ <template name='MetaphorNameProvider'>
+  <ide-name>MetaphorNameProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdStringProvider</provider>
+   <default-value>RCUPostCompletionStage_Instance</default-value>
+  </value>
+ </template>
+ <template name='MetaphorDagProvider'>
+  <ide-name>MetaphorDagProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdStringProvider</provider>
+  </value>
+ </template>
+</template>

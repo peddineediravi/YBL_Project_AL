@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_LTVNorms'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_LTVNorms</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("entering into fn_LTVNorms===");
+anApplicant is some Applicant;
+LTVNorms is a boolean initially false;
+priappGuapp is a real initially 0.0;
+colourcode is a boolean initially false;
+anDeviation is  some Deviation initially an Deviation;
+
+if(blazeMessage.response.applicationDecision.responseCode is (known and available) and 
+blazeMessage.response.applicationDecision.responseCode="AMBER")then{
+	colourcode=true;
+}
+for each Applicant in blazeMessage.request.application.applicants do{
+	anApplicant=it;
+	if(it.applicantType is (known and available) and it.applicantType="P"
+			and (it.constitution is(known and available) )and 
+				it.constitution<>"1" )then{
+         if(it.dateOfInception is (known and available))then{
+                priappGuapp = calendar().currentDate().subtractInMonths(it.dateOfInception).months/12;
+		 }
+    }
+}
+if(priappGuapp <35 and colourcode=true and theBlazeMessageBT.appLevelCibilScore is (known and available) and 
+theBlazeMessageBT.appLevelCibilScore<730 and theBlazeMessageBT.actualLtv is (known and available) and 
+theBlazeMessageBT.actualLtv=75)then{
+				anDeviation.ruleID="12354";
+                anDeviation.ruleName="Care Case";
+				 anDeviation.overrideLevel ="L3";
+				anDeviation.decisionResult="REFER";
+          		anDeviation.reasonText="LTV Norms not met";
+          		fn_AppendDeviations(anDeviation);
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Fjg70h'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

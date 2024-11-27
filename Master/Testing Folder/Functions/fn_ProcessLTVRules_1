@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='fn_ProcessLTVRules'>
+ <ide-name>fn_ProcessLTVRules</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Ze8IWnIQfvR8itFsZcdAKn9t3JZ'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ProcessLtvRules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='TZYDua8xBtAKLmkIbdzLsAvRUi0'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ProcessLtvRules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='KpsJqpCnBIeDXNyB21sLtf1AIHV'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ProcessLtvRules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='5ZhUKNLs3exBSBHiMAFnQJkrI3N'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ProcessLtvRules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='A3SDkKzyJaZxP7BS0tg8AAf1KVI'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ProcessLtvRules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='Ze8IWnIQfvR8itFsZcdAKn9t3JZ'>
+   <name>TC_ProcessLTVRules</name>
+   <body>application is some Application initially an Application;<template:br/>application.schemeGroup = "13";<template:br/>application.scheme ="26";<template:br/><template:br/>assetDetails is some AssetDetails initially a AssetDetails;<template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "Figo";<template:br/>detailAssetLoan.riskCategory="1";<template:br/>assetDetails.detailAssetLoan=detailAssetLoan;<template:br/>application.assetDetails=assetDetails;<template:br/><template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 23;<template:br/>application.loanDetails=loan;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/><template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/>invocation is some Invocation initially a Invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation=invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation.lineOfBusiness=LineOfBusiness.AL;<template:br/><template:br/>theBlazeMessageBT.appLevelCibilScore=740;<template:br/>theBlazeMessageBT.IsIncomeMorethanLoanAmt=false;<template:br/><template:br/>//lookup needed will be true and standardLtv will be Additional -5 from Add on Ltv Table<template:br/>//ltv lookup will be 90 from Standard grid ltv table<template:br/><template:br/>ProcessLtvRulesResult is a real  initially 0;<template:br/>ProcessLtvRulesResult=ProcessLTVRules(true);<template:br/><template:br/><template:br/>//So result will be the combination of ltv from standard grid and add on ltv table<template:br/>//No devaition will be cretaed at is calledForLookup is true<template:br/>assert().checkEquals("ltv rules result", 85, ProcessLtvRulesResult, 0);<template:br/></body>
+  </function><function managementPropertiesRef='TZYDua8xBtAKLmkIbdzLsAvRUi0'>
+   <name>TC_ProcessLTVRules1</name>
+   <body>application is some Application initially an Application;<template:br/>application.schemeGroup = "16";<template:br/>application.scheme ="36";<template:br/><template:br/>assetDetails is some AssetDetails initially a AssetDetails;<template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "Swift";<template:br/>detailAssetLoan.riskCategory="3";<template:br/>assetDetails.detailAssetLoan=detailAssetLoan;<template:br/>application.assetDetails=assetDetails;<template:br/><template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 30;<template:br/>application.loanDetails=loan;<template:br/><template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/><template:br/>invocation is some Invocation initially a Invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation=invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation.lineOfBusiness=LineOfBusiness.AL;<template:br/><template:br/>theBlazeMessageBT.appLevelCibilScore=740;<template:br/>theBlazeMessageBT.IsIncomeMorethanLoanAmt=false;<template:br/><template:br/>theBlazeMessageBT.actualLtv=83;<template:br/><template:br/><template:br/>deviations is some array of  Deviation initially an array of  Deviation;<template:br/>applicationDecision is some Decision initially a Decision;<template:br/>applicationDecision.deviations=deviations;<template:br/><template:br/>response is some Response initially a Response;<template:br/>response.applicationDecision=applicationDecision;<template:br/>theBlazeMessageBT.termSetInput.response=response;<template:br/><template:br/>//lookup needed will be true and standardLtv will be -999(Follows Ltv grid)  from Add on Ltv Table<template:br/>//ltv lookup will be 80 from Standard grid ltv table<template:br/><template:br/>ProcessLtvRulesResult is a real  initially 0;<template:br/>ProcessLtvRulesResult=ProcessLTVRules(false);<template:br/><template:br/>print(theBlazeMessageBT.standardLtv"   "theBlazeMessageBT.ltvLookup);<template:br/><template:br/>//IsCalledforLookup is false so deviations will be created and value returned from process ltv rules will be 0<template:br/>assert().checkEquals("ltv rules result", 0, ProcessLtvRulesResult, 0);<template:br/>//IslookUpNeeded is true so only one deviation is created and actual Ltv is 3% greater than standard Ltv<template:br/>assert().checkTrue("Deviation reason text",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.reasonText="LTV breach upto 5%"));<template:br/>assert().checkTrue("Deviation decision result",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.decisionResult = "DEVIATION"));<template:br/>assert().checkTrue("devaition override level",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.overrideLevel ="L2"));<template:br/></body>
+  </function><function managementPropertiesRef='KpsJqpCnBIeDXNyB21sLtf1AIHV'>
+   <name>TC_ProcessLTVRules2</name>
+   <body>application is some Application initially an Application;<template:br/>application.schemeGroup = "14";<template:br/>application.scheme ="31";<template:br/><template:br/>//population data for ltv_standardGrid<template:br/>assetDetails is some AssetDetails initially a AssetDetails;<template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "Swift";<template:br/>assetDetails.detailAssetLoan=detailAssetLoan;<template:br/>application.assetDetails=assetDetails;<template:br/><template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 59;<template:br/>application.loanDetails=loan;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/><template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/>invocation is some Invocation initially a Invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation=invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation.lineOfBusiness=LineOfBusiness.AL;<template:br/><template:br/>deviations is some array of  Deviation initially an array of  Deviation;<template:br/>applicationDecision is some Decision initially a Decision;<template:br/>applicationDecision.deviations=deviations;<template:br/><template:br/>response is some Response initially a Response;<template:br/>response.applicationDecision=applicationDecision;<template:br/>theBlazeMessageBT.termSetInput.response=response;<template:br/><template:br/>theBlazeMessageBT.actualLtv=98;<template:br/><template:br/><template:br/>//lookup needed will be false and standardLtv will be Fixed 90 from SchemeSpecificaAddOnLtvTable<template:br/><template:br/><template:br/>ProcessLtvRulesResult is a real  initially 0;<template:br/>ProcessLtvRulesResult=ProcessLTVRules(false);<template:br/><template:br/>//IsCalledforLookup is false so deviations will be created and value returned from process ltv rules will be 0<template:br/>assert().checkEquals("Ltv rules result", 0, ProcessLtvRulesResult, 0);<template:br/>//Two Devaitons will be created as IsLookupNeededIsFalse<template:br/><![CDATA[//One deviation for actaual Ltv >standard Ltv]]><template:br/>assert().checkTrue("Deviation reason text",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.reasonText="Actual LTV is Greater than standard ltv"));<template:br/>assert().checkTrue("Deviation decision result",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.decisionResult = "OOP"));<template:br/>assert().checkTrue("devaition override level",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.overrideLevel ="L4"));<template:br/>//Difference between actual Ltv and standard Ltv is 8% so OOPC-LTV breach beyond 5% will be cretaed<template:br/>assert().checkTrue("Deviation reason text",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.reasonText="OOPC-LTV breach beyond 5%"));<template:br/>assert().checkTrue("Deviation decision results",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.decisionResult = "OOPC"));<template:br/>assert().checkTrue("devaition override level",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.overrideLevel ="L4"));<template:br/></body>
+  </function><function managementPropertiesRef='5ZhUKNLs3exBSBHiMAFnQJkrI3N'>
+   <name>TC_ProcessLTVRules3</name>
+   <body>application is some Application initially an Application;<template:br/>application.schemeGroup = "14";<template:br/>application.scheme ="33";<template:br/><template:br/>//population data for ltv_standardGrid<template:br/>assetDetails is some AssetDetails initially a AssetDetails;<template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "Jetta";<template:br/>assetDetails.detailAssetLoan=detailAssetLoan;<template:br/>application.assetDetails=assetDetails;<template:br/><template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 63;<template:br/>application.loanDetails=loan;<template:br/><template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/>invocation is some Invocation initially a Invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation=invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation.lineOfBusiness=LineOfBusiness.AL;<template:br/><template:br/>theBlazeMessageBT.actualLtv=101;<template:br/><template:br/><template:br/>deviations is some array of  Deviation initially an array of  Deviation;<template:br/>applicationDecision is some Decision initially a Decision;<template:br/>applicationDecision.deviations=deviations;<template:br/><template:br/>response is some Response initially a Response;<template:br/>response.applicationDecision=applicationDecision;<template:br/>theBlazeMessageBT.termSetInput.response=response;<template:br/><template:br/>//lookup needed will be true and standardLtv will be 95(Fixed)  from Add on Ltv Table<template:br/>//ltv lookup will be 85 from Standard grid ltv table<template:br/><template:br/>ProcessLtvRulesResult is a real  initially 0;<template:br/>ProcessLtvRulesResult=ProcessLTVRules(false);<template:br/><template:br/><template:br/>//IsCalledforLookup is false so deviations will be created and value returned from process ltv rules will be 0<template:br/>assert().checkEquals("Ltv rules result", 0, ProcessLtvRulesResult, 0);<template:br/>//Two Devaitons will be created as IsLookupNeededIsFalse<template:br/><![CDATA[//One deviation for actaual Ltv >standard Ltv]]><template:br/>assert().checkTrue("Deviation reason text",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.reasonText="Actual LTV is Greater than standard ltv"));<template:br/>assert().checkTrue("Deviation decision result",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.decisionResult = "OOP"));<template:br/>assert().checkTrue("devaition override level",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.overrideLevel ="L4"));<template:br/>//Difference between actual Ltv and standard Ltv is 6% so LTV breach upto 10% will be cretaed<template:br/>assert().checkTrue("Deviation reason text",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.reasonText="LTV breach upto 10%"));<template:br/>assert().checkTrue("Deviation decision result",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.decisionResult = "DEVIATION"));<template:br/>assert().checkTrue("devaition override level",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.overrideLevel ="L3"));<template:br/></body>
+  </function><function managementPropertiesRef='A3SDkKzyJaZxP7BS0tg8AAf1KVI'>
+   <name>TC_ProcessLTVRules4</name>
+   <body>application is some Application initially an Application;<template:br/>application.schemeGroup = "20";<template:br/>application.scheme ="50";<template:br/><template:br/>//population data for ltv_standardGrid<template:br/>assetDetails is some AssetDetails initially a AssetDetails;<template:br/>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "Audi";<template:br/>assetDetails.detailAssetLoan=detailAssetLoan;<template:br/>application.assetDetails=assetDetails;<template:br/><template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 40;<template:br/>application.loanDetails=loan;<template:br/><template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage.request = request;<template:br/><template:br/>theBlazeMessageBT.termSetInput=blazeMessage;<template:br/>theBlazeMessageBT.termSetInput.request = request;<template:br/><template:br/>invocation is some Invocation initially a Invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation=invocation;<template:br/>theBlazeMessageBT.termSetInput.invocation.lineOfBusiness=LineOfBusiness.AL;<template:br/><template:br/><template:br/>theBlazeMessageBT.actualLtv=63;<template:br/><template:br/><template:br/>deviations is some array of  Deviation initially an array of  Deviation;<template:br/>applicationDecision is some Decision initially a Decision;<template:br/>applicationDecision.deviations=deviations;<template:br/><template:br/>response is some Response initially a Response;<template:br/>response.applicationDecision=applicationDecision;<template:br/>theBlazeMessageBT.termSetInput.response=response;<template:br/><template:br/>//lookup needed will be true and standardLtv will be 60(Fixed)  from Add on Ltv Table<template:br/>//ltv lookup will be 85 from Standard grid ltv table<template:br/><template:br/>ProcessLtvRulesResult is a real  initially 0;<template:br/>ProcessLtvRulesResult=ProcessLTVRules(false);<template:br/><template:br/><template:br/>//IsCalledforLookup is false so deviations will be created and value returned from process ltv rules will be 0<template:br/>assert().checkEquals("Ltv rules result", 0, ProcessLtvRulesResult, 0);<template:br/>//Two Devaitons will be created as IsLookupNeededIsFalse<template:br/><![CDATA[//One deviation for actaual Ltv >standard Ltv]]><template:br/>assert().checkTrue("Deviation reason text",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.reasonText="Actual LTV is Greater than standard ltv"));<template:br/>assert().checkTrue("Deviation decision result",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.decisionResult = "OOP"));<template:br/>assert().checkTrue("devaition override level",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.overrideLevel ="L4"));<template:br/>//Difference between actual Ltv and standard Ltv is 6% so LTV breach upto 5% will be cretaed<template:br/>assert().checkTrue("Deviation reason text",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.reasonText="LTV breach upto 5%"));<template:br/>assert().checkTrue("Deviation decision result",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.decisionResult = "DEVIATION"));<template:br/>assert().checkTrue("devaition override level",at least 1 Deviation in theBlazeMessageBT.termSetInput.response.applicationDecision.deviations satisfy(it.overrideLevel ="L1"));<template:br/></body>
+  </function></template:content>
+</template>

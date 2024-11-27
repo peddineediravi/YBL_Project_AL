@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='main'>
+ <ide-name>main</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='KiezL7Nq2ISS25VAjJu7TVXmkQg'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='KiezL7Nq2ISS25VAjJu7TVXmkQg'>
+   <comment>responseBlazeMessage is some BlazeMessage;<template:br/>message is some Message initially a Message;<template:br/>message=Message.readMessage("C:/Projects/YESBANK/YesBank/5.Development/blaze-artifacts/Testing/Yes Bank/XML/YesBankXml_request_with_Error.xml");<template:br/><template:br/>resMessage is some Message;<template:br/><template:br/>resMessage= makeDecision(message);<template:br/>print("theBlazeMessageBT.maxEligibleAmount "theBlazeMessageBT.maxEligibleAmount);<template:br/>message=resMessage;<template:br/>message.write("C:/Projects/YESBANK/YesBank/5.Development/blaze-artifacts/Testing/Yes Bank/XML/YesBankXml_response_with_Error.xml");</comment>
+   <name>main</name>
+   <body>print("Test "portable().subString("BPYPM6433H",4,4));<template:br/><template:br/>string1 is a string initially "BPYPM6433H".<template:br/><template:br/>integer1 is an integer initially 4.<template:br/><template:br/>integer2 is an integer initially 4.<template:br/><template:br/>string2 is a string.<template:br/><template:br/>string2 = portable().subString(string1, integer1, integer2).<template:br/><template:br/>print("Test1 "string2);<template:br/><template:br/>responseBlazeMessage is some BlazeMessage;<template:br/>message is some Message initially a Message;<template:br/>message=Message.readMessage("C:\\Projects\\AL\\AL_UAT\\AL_UAT_25Oct\\Testing\\Request.xml");<template:br/><template:br/>resMessage is some Message;<template:br/><template:br/>message= makeDecision(message);<template:br/>print("theBlazeMessageBT.maxEligibleAmount "theBlazeMessageBT.maxEligibleAmount);<template:br/>//message=resMessage;<template:br/>print("Final " message.response.applicationDecision.messages.count);<template:br/>message.write("C:\\Projects\\AL\\AL_UAT\\AL_UAT_25Oct\\Testing\\Response.xml");</body>
+  </function></template:content>
+</template>

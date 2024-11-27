@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_FMA_Eligibility'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_FMA_Eligibility</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("Entering fn_FMA_Eligibility");
+//LTVEligibleValue is a real initially 0; 
+LTVEligibleValue is a real initially 0; 
+maxEligibleAmount is a real initially 0; 
+assetvalue is a real initially 0;
+Required_LoanAmount is a real initially 0;
+anApplicant is some Applicant;
+totalFixedDeposit is a real initially 0;
+MaturityTenure is an integer initially 0;
+maxTenureList is some array of integer initially an array of integer ;
+FDTenures is an integer initially 0;
+Dateofmaturity is an integer initially 0;
+FDMaturity is a boolean initially false;
+LTV is an real initially 0;
+
+Required_LoanAmount=(blazeMessage.request.application.loanDetails.loanAmount-theFMABT.InuranceAmount);
+print("Required_LoanAmount===="Required_LoanAmount);
+apply fn_FMA_income_DT_calculations(blazeMessage);
+apply fn_FMA_PolicyLTV(blazeMessage);
+apply fn_UsedTractor_Depreciationgrid(blazeMessage);
+
+if(blazeMessage.request.application.scheme=("125" or "126" or "127" or "128" or "130" or  "567" or "568" or "593" or "594" or "364" or "365") and blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice is (known and available))then{
+  assetvalue=math().min(blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice, blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost)
+  }else{
+ assetvalue=blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost;
+  }
+blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost=assetvalue;
+
+print("assetcost=="blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+
+for each Applicant in blazeMessage.request.application.applicants do {
+  anApplicant=it;
+  if(anApplicant.FDDetails is (known and available) and anApplicant.FDDetails.count>0)then{
+    for each FDDetails in anApplicant.FDDetails do {
+      if(it.amount is (known and available))then{
+        totalFixedDeposit=totalFixedDeposit+it.amount;
+      }
+      if(it.maturityDate is (known and available))then{
+ //       Dateofmaturity=it.maturityDate;
+        MaturityTenure= portable().toInteger(calendar().currentDate().subtractInMonths(it.maturityDate).months);     
+        maxTenureList.append(MaturityTenure);
+        print("MaturityTenure==="MaturityTenure);
+      }
+    }
+  }
+  }
+FDTenures=maxTenureList.max;
+
+print("FDTenures===="FDTenures);
+print("totalFixedDeposit=="totalFixedDeposit);
+
+if(blazeMessage.request.application.loanDetails.marginMoney is (known and available))then{
+  blazeMessage.request.application.loanDetails.marginMoney=blazeMessage.request.application.loanDetails.marginMoney;
+}else{
+  blazeMessage.request.application.loanDetails.marginMoney=0;
+  }
+if(blazeMessage.request.application.loanDetails.tenure is (known and available))then{
+  blazeMessage.request.application.loanDetails.tenure=blazeMessage.request.application.loanDetails.tenure;
+}else{
+  blazeMessage.request.application.loanDetails.tenure=0;
+  }
+if(totalFixedDeposit > 0 and (totalFixedDeposit>=blazeMessage.request.application.loanDetails.marginMoney))then{
+FDMaturity=true;  
+} 
+print("FDMaturity==="FDMaturity);
+
+
+
+if(blazeMessage.request.application.scheme=("568" or "594") and blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost is known)then{
+   if(theBlazeMessageBT.standardLtv>=0.5 and FDMaturity=true and
+      blazeMessage.request.application.assetDetails.detailAssetLoan.assetType is (known and available) and
+      blazeMessage.request.application.assetDetails.detailAssetLoan.assetType="TILL" )then{theBlazeMessageBT.standardLtv=1.0}
+    if(theBlazeMessageBT.standardLtv>=0.5  and FDMaturity=false)then{theBlazeMessageBT.standardLtv=0.5}
+    else {theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;}
+    LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+}
+if(blazeMessage.request.application.scheme=("567" or "593") and blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost is known)then{
+  if(theBlazeMessageBT.standardLtv>=0.7 and theBlazeMessageBT.appLevelCibilScore>=680 and FDMaturity=true  and
+      blazeMessage.request.application.assetDetails.detailAssetLoan.assetType is (known and available) and
+      blazeMessage.request.application.assetDetails.detailAssetLoan.assetType="TILL"
+    )then{theBlazeMessageBT.standardLtv=1.0}
+   if(theBlazeMessageBT.standardLtv>=0.7 and theBlazeMessageBT.appLevelCibilScore>=680 and FDMaturity=false)then{theBlazeMessageBT.standardLtv=0.7}
+      else {theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;}
+  
+    if(theBlazeMessageBT.standardLtv>=0.5 and theBlazeMessageBT.appLevelCibilScore<680 and FDMaturity=true and
+      blazeMessage.request.application.assetDetails.detailAssetLoan.assetType is (known and available) and
+      blazeMessage.request.application.assetDetails.detailAssetLoan.assetType="TILL" )then{theBlazeMessageBT.standardLtv=1.0}
+  if(theBlazeMessageBT.standardLtv>=0.5 and theBlazeMessageBT.appLevelCibilScore<680 and FDMaturity=false )then{theBlazeMessageBT.standardLtv=0.5}
+  else {theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;}
+  
+  LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+}
+print("theBlazeMessageBT.standardLtv_567==="theBlazeMessageBT.standardLtv);
+
+if(blazeMessage.request.application.scheme="127" and blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost is known)then{
+  if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory="RT")then{
+     if(theBlazeMessageBT.standardLtv>=0.5 and FDMaturity=true )then{theBlazeMessageBT.standardLtv=1.0}
+   else if(theBlazeMessageBT.standardLtv>=0.5)then{theBlazeMessageBT.standardLtv=0.5}
+    else {theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;}
+    LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, 60000)
+  } else  if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory="RO")then{
+     if(theBlazeMessageBT.standardLtv>=0.5 and FDMaturity=true )then{theBlazeMessageBT.standardLtv=1.0}   
+    else if(theBlazeMessageBT.standardLtv>=0.5)then{theBlazeMessageBT.standardLtv=0.5}
+    else {theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;}
+    LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, 50000)
+  } else  if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory="BL")then{
+     if(theBlazeMessageBT.standardLtv>=0.5 and FDMaturity=true )then{theBlazeMessageBT.standardLtv=1.0}
+    else if(theBlazeMessageBT.standardLtv>=0.5)then{theBlazeMessageBT.standardLtv=0.5}
+    else {theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;}
+    LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, 50000)
+   } 
+   LTVEligibleValue = math().min(blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, theFMABT.DepreciationAssetcost);
+   LTVEligibleValue = theBlazeMessageBT.standardLtv * LTVEligibleValue;
+  }
+//HARVESTER 
+if(blazeMessage.request.application.scheme="126" and blazeMessage.request.application.loanDetails.assesmentMethod is known)then{
+  if(blazeMessage.request.application.loanDetails.assesmentMethod="REPEAT H")then{
+     if(theBlazeMessageBT.standardLtv>=0.85 and FDMaturity=true )then{theBlazeMessageBT.standardLtv=1.0}
+     else if(theBlazeMessageBT.standardLtv>=0.85)then{theBlazeMessageBT.standardLtv=0.85}
+    else {theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;}
+    //LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost)
+	LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, (theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice))
+  } else  if(blazeMessage.request.application.loanDetails.assesmentMethod=("FIRST TI" or "RNA"))then{
+     if(theBlazeMessageBT.standardLtv>=0.65 and FDMaturity=true )then{theBlazeMessageBT.standardLtv=1.0}
+    else if(theBlazeMessageBT.standardLtv>=0.65)then{theBlazeMessageBT.standardLtv=0.65}
+    else {theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;}
+    //LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost)
+	LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, (theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice))
+  }
+  //LTVEligibleValue = math().min(blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, theFMABT.DepreciationAssetcost);
+  //LTVEligibleValue = theBlazeMessageBT.standardLtv * LTVEligibleValue;  
+  LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, (theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice))
+}
+//758 Value: Used Harvester 
+
+if(blazeMessage.request.application.scheme="758" and blazeMessage.request.application.loanDetails.assesmentMethod is known)then{
+  if(blazeMessage.request.application.loanDetails.assesmentMethod="REPEAT H")then{
+     if(theBlazeMessageBT.standardLtv>=0.7 and FDMaturity=true )then{
+		 theBlazeMessageBT.standardLtv=1.0
+     }else if(theBlazeMessageBT.standardLtv>=0.7)then{
+		 theBlazeMessageBT.standardLtv=0.7
+	 }else {
+		 theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+	}
+    //LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+	
+    LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, 1200000);
+	
+	
+  } else  if(blazeMessage.request.application.loanDetails.assesmentMethod="FIRST TI")then{
+     if(theBlazeMessageBT.standardLtv>=0.5 and FDMaturity=true )then{
+		 theBlazeMessageBT.standardLtv=1.0
+	 }else if(theBlazeMessageBT.standardLtv>=0.5)then{
+		theBlazeMessageBT.standardLtv=0.5
+	}else {
+		theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+	 }
+    //LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost)
+	LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, 800000);
+  } else  if(blazeMessage.request.application.loanDetails.assesmentMethod="RNA")then{
+     if(theBlazeMessageBT.standardLtv>=0.65 and FDMaturity=true )then{
+		 theBlazeMessageBT.standardLtv=1.0
+	 }else if(theBlazeMessageBT.standardLtv>=0.65)then{
+		theBlazeMessageBT.standardLtv=0.65
+	}else {
+		theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+	 }
+    //LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost)
+	LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, 1200000);
+  }
+  LTVEligibleValue = math().min(blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, theFMABT.DepreciationAssetcost);
+  LTVEligibleValue = theBlazeMessageBT.standardLtv * LTVEligibleValue;
+}
+//757
+print("theFMABT.DepreciationAssetcost::" theFMABT.DepreciationAssetcost "blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost::" blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+if(blazeMessage.request.application.scheme="757" and blazeMessage.request.application.loanDetails.assesmentMethod is known)then{
+  if(blazeMessage.request.application.loanDetails.assesmentMethod="REPEAT H")then{
+  if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType = ("TMH CATA" or "TMH CATB"))then{
+     if(theBlazeMessageBT.standardLtv>=0.8 and FDMaturity=true )then{
+		 theBlazeMessageBT.standardLtv=1.0
+     }else if(theBlazeMessageBT.standardLtv>=0.8)then{
+		 theBlazeMessageBT.standardLtv=0.8
+	 }else {
+		 theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+	}
+  }if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType = ("TMH CATC"))then{
+	  //theBlazeMessageBT.standardLtv=0.75;
+  }
+    //LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+	//LTVEligibleValue=theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost;
+	 LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, (theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice))
+	
+  } else  if(blazeMessage.request.application.loanDetails.assesmentMethod="FIRST TI")then{
+	  if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType = ("TMH CATA" or "TMH CATB" or "TMH CATC"))then{
+     if(theBlazeMessageBT.standardLtv>=0.7 and FDMaturity=true )then{
+		 theBlazeMessageBT.standardLtv=1.0
+	 }else if(theBlazeMessageBT.standardLtv>=0.7)then{
+		theBlazeMessageBT.standardLtv=0.7
+	}else {
+		theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+	 }
+	  }
+    //LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost)
+	//LTVEligibleValue=theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost;
+	LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, (theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice))
+  } else  if(blazeMessage.request.application.loanDetails.assesmentMethod="RNA")then{
+	  if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType = ("TMH CATA" or "TMH CATB"))then{
+     if(theBlazeMessageBT.standardLtv>=0.75 and FDMaturity=true )then{
+		 theBlazeMessageBT.standardLtv=1.0
+	 }else if(theBlazeMessageBT.standardLtv>=0.75)then{
+		theBlazeMessageBT.standardLtv=0.75;
+	}
+	  }if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType = ("TMH CATC"))then{
+		  //theBlazeMessageBT.standardLtv=0.70;
+	  }else {
+		theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+	 }
+    //LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost)
+	//LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, 1200000);
+	LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, (theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice))
+  }
+  //LTVEligibleValue = math().min(blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, theFMABT.DepreciationAssetcost);
+  //LTVEligibleValue = theBlazeMessageBT.standardLtv * LTVEligibleValue;
+  
+}
+print("theBlazeMessageBT.standardLtv=="theBlazeMessageBT.standardLtv"LTVEligibleValue="LTVEligibleValue);
+
+//SUPER NON MORTGAGE
+print("theBlazeMessageBT.standardLtv_130---"theBlazeMessageBT.standardLtv);
+if(blazeMessage.request.application.scheme="130")then{
+   if(theBlazeMessageBT.standardLtv>=0.90 and FDMaturity=true )then{theBlazeMessageBT.standardLtv=1.0;}
+    else if(theBlazeMessageBT.standardLtv>=0.90) then{
+  	  theBlazeMessageBT.standardLtv=0.90;
+  		} else {
+      			theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+       			 }
+  	if(theFMABT.Supplier1=true or theFMABT.Supplier2=true)then{  
+     		 LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, (0.85*blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice))
+   		}else{
+   			   LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+   				}
+  }
+
+//fast track
+if(blazeMessage.request.application.scheme="125")then{
+   if(theBlazeMessageBT.standardLtv>=0.8 and FDMaturity=true )then{theBlazeMessageBT.standardLtv=1.0}
+    else if(theBlazeMessageBT.standardLtv>=0.8 and theFMABT.Supplier1=false and theFMABT.Supplier2=false and
+      blazeMessage.request.application.specialTieup is (known and available) and  blazeMessage.request.application.specialTieup<>("090123"  and "260901" and "23032101" ))then{
+  			  theBlazeMessageBT.standardLtv=0.8;
+  		} else {
+      			theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+       			 }
+		if(theFMABT.Supplier1=true or theFMABT.Supplier2=true)then{  
+     		 LTVEligibleValue=math().min(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost, (0.8*blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice))
+   		}else{
+   			   LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+   				}
+		if(blazeMessage.request.application.specialTieup is (known and available) and blazeMessage.request.application.specialTieup=("090123"  or "260901" or "23032101") )then{
+  				LTVEligibleValue=0.8*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost;
+				}else{
+  				LTVEligibleValue=LTVEligibleValue;
+				}
+}
+
+//MINI ORCHARD
+if(blazeMessage.request.application.scheme="128")then{
+   if(theBlazeMessageBT.standardLtv>=0.95 and FDMaturity=true )then{theBlazeMessageBT.standardLtv=1.0}
+    else if(theBlazeMessageBT.standardLtv>=0.95) then{
+  	  theBlazeMessageBT.standardLtv=0.95;
+  		} else {
+      			theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+       			 }
+     		 LTVEligibleValue=(theBlazeMessageBT.standardLtv*blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost)
+   }
+//USED-SUPER NON MORTGAGE
+if(blazeMessage.request.application.scheme="364")then{
+   if(theBlazeMessageBT.standardLtv>=0.95 and FDMaturity=true )then{theBlazeMessageBT.standardLtv=1.0}
+    else if(theBlazeMessageBT.standardLtv>=0.95) then{
+  	  theBlazeMessageBT.standardLtv=0.95;
+  		} else {
+      			theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+       			 }
+  	//	 LTVEligibleValue=math().min((theBlazeMessageBT.standardLtv*theFMABT.DepreciationAssetcost),500000);
+   LTVEligibleValue=theBlazeMessageBT.standardLtv*theFMABT.DepreciationAssetcost
+   }
+//used fast track
+if(blazeMessage.request.application.scheme="365")then{
+	print("before theBlazeMessageBT.standardLtv"theBlazeMessageBT.standardLtv"FDMaturity="FDMaturity);
+   if(theBlazeMessageBT.standardLtv>=0.80 and FDMaturity=true )then{
+	   theBlazeMessageBT.standardLtv=1.0
+   }else if(theBlazeMessageBT.standardLtv>=0.80) then{
+  	  theBlazeMessageBT.standardLtv=0.80;
+    } else {
+      			theBlazeMessageBT.standardLtv=theBlazeMessageBT.standardLtv;
+     }
+     		  LTVEligibleValue=math().min((theBlazeMessageBT.standardLtv*theFMABT.DepreciationAssetcost),500000);
+}
+//LTV = theBlazeMessageBT.standardLtv;
+LTV = math().round(theBlazeMessageBT.standardLtv*100,-2);
+print("theBlazeMessageBT.standardLtv=="LTV);
+fn_AppendActionMessage("Maximum LTV as per policy capping is "LTV); 
+
+theFMABT.FMALTVEligibility=math().round(LTVEligibleValue);
+theFMABT.FMAIncomeEligibility=math().round(theFMABT.FMAIncomeEligibility);
+print("theFMABT.FMALTVEligibility=="theFMABT.FMALTVEligibility);
+print("theFMABT.FMAIncomeEligibility=="theFMABT.FMAIncomeEligibility);
+
+maxEligibleAmount=math().min(theFMABT.FMALTVEligibility,theFMABT.FMAIncomeEligibility);
+
+theBlazeMessageBT.maxEligibleAmount=math().min(Required_LoanAmount,maxEligibleAmount);
+LTVEligibleValue = math().round(LTVEligibleValue);
+fn_AppendActionMessage("LTV Eligible Value: "LTVEligibleValue);
+fn_AppendActionMessage("Income Eligibility Value: "theFMABT.FMAIncomeEligibility);
+fn_AppendActionMessage("Net Loan Amount(Without Insurance): "Required_LoanAmount);
+
+
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='TMNHm8'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

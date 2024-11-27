@@ -1,0 +1,914 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='UDF Group Template'>
+ <ide-name>UDF Group Template</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='JzQcxmOrlxe92QXRY2m2eqFJ0og'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='CPErkVmwwVWbgkvVq5tQckMNqnw'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='2i0v59lYS4Z6CnxBcuoFYtQdyJp'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <parameters>
+  <parameter-list name='vhLevelMappings' type='L93OTa3DnEAQnlyymHgNpWAP6mG.template1' ideName='vhLevelMappings' displayName='UDF Mappings' min='0'>
+  </parameter-list>
+ </parameters>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='adv'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='jcp'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='dbcp'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ccp'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='xcp'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='cpc'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='vhLevelMappings' relative='false'/><variable managementPropertiesRef='JzQcxmOrlxe92QXRY2m2eqFJ0og'>
+   <name>anUDFmappings</name>
+   <association>
+    <assoc-from>
+     <type>string</type>
+    </assoc-from>
+    <assoc-to>
+     <association>
+      <assoc-from>
+       <type>string</type>
+      </assoc-from>
+      <assoc-to>
+       <array>
+        <type>string</type>
+       </array>
+      </assoc-to>
+     </association>
+    </assoc-to>
+   </association>
+   <initializer>an association from string to association from string to array of string</initializer>
+  </variable><variable managementPropertiesRef='CPErkVmwwVWbgkvVq5tQckMNqnw'>
+   <name>udfValidations</name>
+   <array>
+    <type>string</type>
+   </array>
+   <initializer>an array of string</initializer>
+  </variable><function managementPropertiesRef='2i0v59lYS4Z6CnxBcuoFYtQdyJp'>
+   <name>fn_Process_UserDefineFields</name>
+   <parameters>
+    <parameter>
+     <name>userFields</name>
+     <array>
+      <type>UserDefinedFields</type>
+     </array>
+    </parameter>
+   </parameters>
+   <body>//debug();<template:br/>typeLevel is a string;<template:br/>field is a string;<template:br/>associationArray is some association from string to array of string;<template:br/>stringArray is some array of string;<template:br/>for each UserDefinedFields in userFields do <template:br/>{<template:br/>      typeLevel= it.level;<template:br/>       if(anUDFmappings[typeLevel] = null) then  {<template:br/><template:tab/>anUDFmappings[typeLevel] = an association from string to array of string;<template:br/>       }<template:br/>       <template:tab/>associationArray = anUDFmappings[typeLevel];<template:br/><template:tab/>field=it.fieldName;<template:tab/><template:br/><template:tab/>if(associationArray[field]= null) then {<template:br/><template:tab/><template:tab/>associationArray[field]= an array of string;<template:br/><template:tab/>}<template:tab/><template:br/><template:tab/>stringArray =associationArray[field];<template:br/><template:tab/>stringArray.clear();<template:br/><template:tab/>stringArray.append(it.fieldType);<template:br/><template:tab/>stringArray.append(it.fieldValue);<template:tab/><template:br/>}<template:br/><template:br/>//print(""anUDFmappings["Applicant"]["Age"][1]);<template:br/>//print(""anUDFmappings["Applicant"]["city"][1]);<template:br/>//print(""anUDFmappings["Account"]["Type"][1]);</body>
+  </function></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/flow' section='flow'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/aai' section='aai'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ncp'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='bcp'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='' section='xml'><template:placeholder ref='vhLevelMappings' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[<style>.h1div {font-family: 'Lato','Arial Unicode MS', Arial, sans-serif; font-size: 20px; font-weight:bold; color: #FFFFFF;line-height: 40px; background-color: #336699}</style>]]><template:br/><![CDATA[<div style="background-color:#336699; font-family:'Lato','Arial Unicode MS', Arial, sans-serif; text-align:center; font-size:23px; line-height:50px; font-weight:bold; color:white;">User Defined Field Mappings</div>]]><template:br/><placeholder ref='vhLevelMappings' relative='false'>
+   <attribute>
+    <attribute-name>none</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rangeRole</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>style</attribute-name>
+    <attribute-value>standardTextEdit</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>readWriteProperty</attribute-name>
+    <attribute-value>readNWrite</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>selectionMethod</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>size</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>samePage</attribute-name>
+    <attribute-value>false</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>password</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>ref-type</attribute-name>
+    <attribute-value>0</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>paginate</attribute-name>
+    <attribute-value>no</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rowsPerPage</attribute-name>
+    <attribute-value>5</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarLocation</attribute-name>
+    <attribute-value>bottom</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>linkSupport</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarMode</attribute-name>
+    <attribute-value>mini</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>uiLayout</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+  </placeholder></template:content>
+ <template name='template1'>
+  <ide-name>UDF Level Function Template</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='ZFGPYmokko838VjNIVuZ0yNZy5o'>
+   <instance ref='Test Role'>
+    <instance ref='value'>
+     <value>None</value>
+    </instance>
+   </instance>
+   <instance ref='Test Case'>
+    <instance ref='value'>
+     <value></value>
+    </instance>
+   </instance>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter name='__ENTITY_PROPERTIES__VH__' type='1rl2Kmfiy8OJi5vUhYbsYmASJIF' ideName='Management Properties' displayName='ManagementProperties' name-localized='true'>
+   </parameter>
+   <parameter name='vhtype' type='L93OTa3DnEAQnlyymHgNpWAP6mG.template2' ideName='vhtype'>
+    <arg name='include-business-termset'>true</arg>
+    <arg name='include-java-class'>false</arg>
+    <arg name='include-srl-class'>true</arg>
+    <arg name='include-xml-class'>false</arg>
+   </parameter>
+   <parameter-list name='Value Holder1' type='L93OTa3DnEAQnlyymHgNpWAP6mG.template4' ideName='vhfieldmappings' displayName='Mapping Fields' min='1'>
+    <dynamic-arg name='vhtype' ref='vhtype' relative='true'/>
+   </parameter-list>
+   <parameter name='vhudflevel' type='L93OTa3DnEAQnlyymHgNpWAP6mG.template2' ideName='vhudflevel'>
+    <arg name='include-business-termset'>false</arg>
+    <arg name='include-java-class'>true</arg>
+    <arg name='include-srl-class'>false</arg>
+    <arg name='include-xml-class'>true</arg>
+   </parameter>
+  </parameters>
+  <family>Function Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='ZFGPYmokko838VjNIVuZ0yNZy5o'>
+    <name>fn_mapping_<template:placeholder ref='vhudflevel' relative='true'/>UDFTo<template:placeholder ref='vhtype' relative='true'/></name>
+    <parameters>
+     <parameter>
+      <name>theMessage</name>
+      <type>Message</type>
+     </parameter>
+     <parameter>
+      <name>local<template:placeholder ref='vhtype' relative='true'/></name>
+      <type><template:placeholder ref='vhtype' relative='true'/></type>
+     </parameter>
+     <parameter>
+      <name>level<template:placeholder ref='vhudflevel' relative='true'/></name>
+      <type><template:placeholder ref='vhudflevel' relative='true'/></type>
+     </parameter>
+    </parameters>
+    <body>if(theMessage.request.additionalFields is unknown) then <template:br/>{<template:br/><template:tab/>udfValidations.append("No UDF details provided in the request");<template:br/><template:tab/>return;<template:br/>}<template:br/>if(anUDFmappings.count = 0) then<template:br/>  fn_Process_UserDefineFields(theMessage.request.additionalFields);<template:br/><template:br/>levelName is a string initially "<template:placeholder ref='vhudflevel' relative='true'/>";<template:br/>levelToFields is some association from string to array of string;<template:br/>levelToFields = anUDFmappings[levelName];<template:br/>if(levelToFields is null) then<template:br/>{<template:br/>   udfValidations.append(levelName  " level UDF is not available in input list");<template:br/>}<template:br/>else<template:br/>{<template:br/>fieldDetails is some array of string;<template:br/><template:placeholder ref='Value Holder1' relative='true'/><template:br/>}</body>
+   </function></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>Assigning <placeholder ref='vhudflevel' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useDhtmlChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder> level (RHS) fields in UDF to <placeholder ref='vhtype' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useDhtmlChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder>  fields (LHS) below.<template:br/><template:br/><placeholder ref='Value Holder1' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>true</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value>no</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value>bottom</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value>mini</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder><template:br/><![CDATA[<br/><br/>]]><template:br/>Signature: fn_mapping_<placeholder ref='vhudflevel' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useDhtmlChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder>UDFTo<placeholder ref='vhtype' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useDhtmlChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder> (Message,<placeholder ref='vhtype' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useDhtmlChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder>,<placeholder ref='vhudflevel' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useDhtmlChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder>):void</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='' section='entity-name'>Maps <template:placeholder ref='vhudflevel' relative='true'/>  level UDF fields to <template:placeholder ref='vhtype' relative='true'/></template:content>
+ </template>
+ <template name='template2'>
+  <ide-name>Classes provider</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+  </instantiation>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromSrlClassesProvider</provider>
+   <arg name='case-sensitive sorting'>false</arg>
+   <arg name='include-java-class'>false</arg>
+   <arg name='include-srl-class'>true</arg>
+   <arg name='include-xml-class'>false</arg>
+  </value>
+ </template>
+ <template name='template3'>
+  <ide-name>SRL Entities provider</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+  </instantiation>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromSrlEntitiesProvider</provider>
+   <arg name='type'></arg>
+   <arg name='include-objects'>false</arg>
+   <arg name='include-patterns'>false</arg>
+   <arg name='include-variables'>false</arg>
+   <arg name='include-reasoncode-list'>false</arg>
+   <arg name='include-parameters'>true</arg>
+   <arg name='include-local-entities'>false</arg>
+  </value>
+ </template>
+ <template name='template4'>
+  <ide-name>UDF Code Template</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='vhtype' type='string' mechanism='argument' repeatable='false' ideName='vhtype'>
+   </parameter-noninstantiable>
+   <parameter name='vhentities' type='L93OTa3DnEAQnlyymHgNpWAP6mG.template3' ideName='vhentities'>
+    <dynamic-arg name='type' ref='vhtype' relative='true'/>
+   </parameter>
+   <parameter name='vhfields' type='L93OTa3DnEAQnlyymHgNpWAP6mG.template5' ideName='vhfields'>
+    <dynamic-arg name='class' ref='vhtype' relative='true'/>
+   </parameter>
+   <parameter name='vhfieldName' type='string' ideName='vhfieldName'>
+   </parameter>
+   <parameter name='vhpropertyType' type='L93OTa3DnEAQnlyymHgNpWAP6mG.template6' ideName='vhpropertyType'>
+    <dynamic-arg name='class' ref='vhtype' relative='true'/>
+    <dynamic-arg name='property' ref='vhfields' relative='true'/>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:if>
+    <template:test>"<template:placeholder ref='vhpropertyType' relative='true'/>" does not start with "array of" or  "<template:placeholder ref='vhpropertyType' relative='true'/>" = "integer" or  "<template:placeholder ref='vhpropertyType' relative='true'/>" =  "real" or  "<template:placeholder ref='vhpropertyType' relative='true'/>" = "string" or  "<template:placeholder ref='vhpropertyType' relative='true'/>" = "boolean" or  "<template:placeholder ref='vhpropertyType' relative='true'/>" = "duration" or  "<template:placeholder ref='vhpropertyType' relative='true'/>" = "date" or  "<template:placeholder ref='vhpropertyType' relative='true'/>" = "time" or  "<template:placeholder ref='vhpropertyType' relative='true'/>" = "timestamp" or  "<template:placeholder ref='vhpropertyType' relative='true'/>" = "money"</template:test>
+    <template:then><template:br/>fieldDetails = levelToFields["<template:placeholder ref='vhfieldName' relative='true'/>"];<template:br/>if(fieldDetails is null) then {<template:br/>udfValidations.append("<template:placeholder ref='vhfieldName' relative='true'/> is missing for <template:placeholder ref='vhLevelMappings.vhudflevel' relative='false'/> level UDF in given input");<template:br/>}<template:br/>else <template:br/>{<template:br/>if(fieldDetails[0] =(ignoring case) "<template:placeholder ref='vhpropertyType' relative='true'/>") then<template:br/>local<template:placeholder ref='vhtype' relative='true'/>.<template:placeholder ref='vhfields' relative='true'/> = fieldDetails[1] as a <template:placeholder ref='vhpropertyType' relative='true'/>;<template:br/>else<template:br/>udfValidations.append("<template:placeholder ref='vhfieldName' relative='true'/>  is not <template:placeholder ref='vhpropertyType' relative='true'/> type in UDF input but assigned to <template:placeholder ref='vhpropertyType' relative='true'/> field in UDF <template:placeholder ref='vhLevelMappings.vhudflevel' relative='false'/> mapping.");<template:br/>}<template:br/></template:then>
+   </template:if></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='vhfields' relative='true' is-param-list='false'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useDhtmlChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder> (<placeholder ref='vhpropertyType' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readOnly</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder>) = <placeholder ref='vhfieldName' relative='true' is-param-list='false'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder> <template:if>
+    <template:test>("<template:placeholder ref='vhpropertyType' relative='true'/>" starts with "array of" or  ( "<template:placeholder ref='vhpropertyType' relative='true'/><![CDATA[" <> "integer" and  "]]><template:placeholder ref='vhpropertyType' relative='true'/><![CDATA[" <>  "real" and  "]]><template:placeholder ref='vhpropertyType' relative='true'/><![CDATA[" <> "string" and  "]]><template:placeholder ref='vhpropertyType' relative='true'/><![CDATA[" <> "boolean" and  "]]><template:placeholder ref='vhpropertyType' relative='true'/><![CDATA[" <> "duration" and  "]]><template:placeholder ref='vhpropertyType' relative='true'/><![CDATA[" <> "date" and  "]]><template:placeholder ref='vhpropertyType' relative='true'/><![CDATA[" <> "time" and  "]]><template:placeholder ref='vhpropertyType' relative='true'/><![CDATA[" <> "timestamp" and  "]]><template:placeholder ref='vhpropertyType' relative='true'/><![CDATA[" <> "money"))]]></template:test>
+    <template:then><![CDATA[&nbsp;&nbsp; <b>Note:</b> UDF's doesn't support complex types and arrays. Please choose non-array  and simple type field.]]></template:then>
+   </template:if></template:content>
+ </template>
+ <template name='template5'>
+  <ide-name>Class Properties provider</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+  </instantiation>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromSrlClassPropertiesProvider</provider>
+   <arg name='class'></arg>
+   <arg name='type'></arg>
+   <arg name='include-statics'>false</arg>
+   <arg name='include-nonstatics'>true</arg>
+   <arg name='case-sensitive sorting'>false</arg>
+  </value>
+ </template>
+ <template name='template6'>
+  <ide-name>Property Type provider</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+  </instantiation>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromSrlClassPropertyTypeProvider</provider>
+   <arg name='class'></arg>
+   <arg name='property'></arg>
+  </value>
+ </template>
+</template>

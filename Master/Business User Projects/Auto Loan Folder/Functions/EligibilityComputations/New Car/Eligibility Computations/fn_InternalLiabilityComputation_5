@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_InternalLiabilityComputation'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_InternalLiabilityComputation</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anApplication is some Application initially blazeMessage.request.application;
+isRepaymentAccountHolderFound is a boolean initially false;
+hasRepaymentAccountMoreThan6Stmts is a boolean initially false;
+assetDetails is some AssetDetails initially anApplication.assetDetails;
+anApplicant is some Applicant;
+theBlazeMessageBT.maxEligibleAmount = 0;
+maxEligibleAmount is a real initially 0;   		
+anDeviation is some Deviation initially an Deviation;
+isSingleApplicantMeetsMinimumNorms is a boolean initially false;
+minimumIncome is a real initially 0;
+higherIncome is a real initially 0;
+totalIncome is a real initially 0;
+totalObligation is a real initially 0;
+
+//Internal Liability Program
+if(anApplication.schemeGroup is known and anApplication.schemeGroup ="11") then {
+
+  if(anApplication.scheme is known and (anApplication.scheme = ("22" or "24" or "384" or "385") ))then{ //Current account or Savings Account
+    
+    //Finding repayment account holder.
+	// if(blazeMessage.request is known and blazeMessage.request.application is known and blazeMessage.request.application.applicants is known and blazeMessage.request.application.applicants.count > 0)
+    // then{
+      	// for each Applicant in blazeMessage.request.application.applicants such that(isRepaymentAccountHolderFound is available and isRepaymentAccountHolderFound=false and it.bankDetails is known and it.bankDetails.count>0) do {
+          		// anApplicant =it;
+      	    // if(anApplicant.bankDetails is known and at least 1 BankDetails in anApplicant.bankDetails satisfy (it.isRepaymentAccount is known and isRepaymentAccount=true))then {
+			      	// isRepaymentAccountHolderFound=true;
+              		
+		     // }  
+         // }        
+    // }
+    sixMonthsABB is a real initially 0;
+    counter is a integer initially 0;
+    bankDetails is some BankDetails;
+    
+	for each Applicant in blazeMessage.request.application.applicants such that(it.bankDetails is known and it.bankDetails.count>0) do {
+          	anApplicant =it;
+      	    if(at least 1 BankDetails in anApplicant.bankDetails satisfy (isRepaymentAccount is known and isRepaymentAccount=true and bankStatements.count>=3))then {
+			      	hasRepaymentAccountMoreThan6Stmts=true;
+              		for each BankDetails in anApplicant.bankDetails such that(it.isRepaymentAccount is known and it.isRepaymentAccount=true) do{
+                        bankDetails=it;
+                        while(counter<3 and bankDetails.bankStatements.count>=3) do
+                          {
+                                sixMonthsABB+=(bankDetails.bankStatements[counter]).avgMonthlyBalance;
+                            	counter+=1;
+                          }
+                    }
+              		sixMonthsABB=sixMonthsABB/3;
+              }  
+      }        
+	
+	if(hasRepaymentAccountMoreThan6Stmts= false) then{
+			
+			anDeviation.ruleID="ILBElig001";
+            anDeviation.ruleName="Repayment account constraints";
+            anDeviation.ruleDescription="Repayment account bankStatements are less than 3";
+            anDeviation.decisionResult = "ERROR";
+            anDeviation.reasonText = "ERROR-Repayment account bankStatements are less than 3 hence Eligibility not computed";
+            anDeviation.reasonCode = "99997";
+            anDeviation.overrideLevel ="L99";
+            fn_AppendDeviations(anDeviation);       
+	
+	}	
+	else {
+	
+	   	if(anApplication.scheme is known and anApplication.scheme = ("22" or "385") and theBlazeMessageBT.ABB is available) then  //Current account 
+    		maxEligibleAmount =  sixMonthsABB*24;    
+		else if(anApplication.scheme is known and anApplication.scheme = ("24" or "384") and theBlazeMessageBT.ABB is available)then //Savings Account
+			maxEligibleAmount = sixMonthsABB*20; 		
+	 }
+  } 
+   else  if(anApplication.scheme is known and anApplication.scheme =( "23" or "386"))then { //Salary Account     
+			//Determining single applicant minimum norm check of salaried applicant and ignored all other non-salaried applicants income.
+    		if(blazeMessage.request is known and blazeMessage.request.application is known and blazeMessage.request.application.applicants.count>0)then{
+              			  for each Applicant in blazeMessage.request.application.applicants such that (it.customerSegment is known and customerSegment="1" and it.annualIncome is known and it.annualIncome.totalIncome is known) do
+						  {
+								if(isSingleApplicantMeetsMinimumNorms is (known and available) and isSingleApplicantMeetsMinimumNorms = false) then {
+									minimumIncome = DT_MinimumIncomeLookup(anApplication.schemeGroup,anApplication.scheme,it.customerSegment,assetDetails.detailAssetLoan,assetDetails.newVehicleDetails.assetCost);
+									if(minimumIncome is (available and known) and minimumIncome > 0 ) then {
+										isSingleApplicantMeetsMinimumNorms = (it.annualIncome.totalIncome >= minimumIncome);
+									}   			
+								}     
+						 }
+            }
+			//Deriving eligibility amount based on minimum check satisfy or not.
+			for each Applicant in blazeMessage.request.application.applicants such that( it.annualIncome is known and it.customerSegment is known and customerSegment="1" ) do {
+			     anApplicant=it;
+			     if(at least 1 BankDetails in anApplicant.bankDetails satisfy (bankName is equal to ("532" or "YBL" or "YES" or "YESB")))then {
+					 
+					 totalDeductions is a real initially 0;
+					
+					if(anApplicant.deductions is known and anApplicant.deductions.count>0) then {
+						 
+						 for each Deduction in anApplicant.deductions do {
+							totalDeductions=totalDeductions+it.netIncome; 							
+						 }
+					 }
+					 
+					 
+						if(isSingleApplicantMeetsMinimumNorms is (known and available) and 
+						isSingleApplicantMeetsMinimumNorms = true) then { // Sum of all applicants income
+							totalIncome=totalIncome+anApplicant.annualIncome.totalIncome;
+							totalObligation = totalObligation+totalDeductions;
+							maxEligibleAmount=(totalIncome-totalObligation)*2;
+						}
+						else {	               
+							if(higherIncome<anApplicant.annualIncome.totalIncome) then{
+								higherIncome=anApplicant.annualIncome.totalIncome;
+								maxEligibleAmount = (anApplicant.annualIncome.totalIncome)*2; // Maximum of all applicants income based eligible amount.								
+							}               
+						}
+				 }
+			}
+	
+    }
+}
+theBlazeMessageBT.maxEligibleAmount = maxEligibleAmount;
+    
+    
+    ]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='VTQleH'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

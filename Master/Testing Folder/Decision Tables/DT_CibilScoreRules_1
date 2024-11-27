@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_CibilScoreRules'>
+ <ide-name>DT_CibilScoreRules</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='AYryl9I720eQYueYnfkkC2j1NlP'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>cibilDT</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='4tIqqDXknP3mxntD1R3oie3KSeN'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>cibilDT</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Klox5P2O5Ga2hyCsv5UeXIZP2nf'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>cibilDT</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='NNyEjUXkFSs143XNx6DvzSZN1IG'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>cibilDT</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='J53sWWC0xTamvwBahWoR8neSuMD'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>cibilDT</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='AYryl9I720eQYueYnfkkC2j1NlP'>
+   <name>TC_CibilScorerules1</name>
+   <body>app is some Applicant initially an Applicant;<template:br/>app.businessDetails = a BusinessDetails;<template:br/>// Industry code 200 is for BUILDERS.<template:br/>app.businessDetails.industry="200";<template:br/><template:br/>app.multiBureauReport = a MultiBureauReport;<template:br/>app.multiBureauReport.cibilResponse=a CibilReport;<template:br/><template:br/>scoreSegment is some ScoreSegment initially an ScoreSegment;<template:br/>scoreSegment.scoreName="CIBIL";<template:br/><template:br/>scoreSegmentArr is some array of ScoreSegment initially an array of ScoreSegment;<template:br/><template:br/>scoreSegmentArr[0]=a ScoreSegment initially{<template:br/>  score=2;<template:br/>  scoreName="CIBIL";<template:br/>}<template:br/>app.multiBureauReport.cibilResponse.scores=scoreSegmentArr;<template:br/><template:br/>application is some Application initially an Application;<template:br/>//Onroad Funding luxury SCHEME CODE  is 19041137<template:br/>application.scheme = "33";<template:br/>//Onroad Funding SCHEME GROUP CODE is 19041110<template:br/>application.schemeGroup = "14";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/>blazeMessage.request.application = application;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_CibilScoreRule(app,blazeMessage);<template:br/><template:br/>assert().checkEquals("Escalation Level", "L4", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("Reason Code", "43002", deviation.reasonCode);<template:br/><template:br/>assert().checkEquals("Message", "CIBIL Score 2", deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Decision Result", "DEVIATION", deviation.decisionResult);</body>
+  </function><function managementPropertiesRef='4tIqqDXknP3mxntD1R3oie3KSeN'>
+   <name>TC_CibilScorerules2</name>
+   <body>app is some Applicant initially an Applicant;<template:br/>app.businessDetails = a BusinessDetails;<template:br/>// Industry code 200 is for BUILDERS.<template:br/>app.businessDetails.industry="200";<template:br/><template:br/>app.multiBureauReport = a MultiBureauReport;<template:br/>app.multiBureauReport.cibilResponse=a CibilReport;<template:br/><template:br/>scoreSegment is some ScoreSegment initially an ScoreSegment;<template:br/>scoreSegment.scoreName="CIBIL";<template:br/><template:br/>scoreSegmentArr is some array of ScoreSegment initially an array of ScoreSegment;<template:br/><template:br/>scoreSegmentArr[0]=a ScoreSegment initially{<template:br/>  score=1;<template:br/>  scoreName="CIBIL";<template:br/>}<template:br/>app.multiBureauReport.cibilResponse.scores=scoreSegmentArr;<template:br/><template:br/>application is some Application initially an Application;<template:br/>//Onroad Funding luxury SCHEME CODE  is 19041134<template:br/>application.scheme = "30";<template:br/>//Onroad Funding SCHEME GROUP CODE is 19041110<template:br/>application.schemeGroup = "14";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/>blazeMessage.request.application = application;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_CibilScoreRule(app,blazeMessage);<template:br/><template:br/><template:br/>assert().checkEquals("Escalation Level", "L4", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("Reason Code", "43002", deviation.reasonCode);<template:br/><template:br/>assert().checkEquals("Message", "CIBIL Score 1", deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Decision Result", "DEVIATION", deviation.decisionResult);</body>
+  </function><function managementPropertiesRef='Klox5P2O5Ga2hyCsv5UeXIZP2nf'>
+   <name>TC_CibilScorerules3</name>
+   <body>app is some Applicant initially an Applicant;<template:br/>app.businessDetails = a BusinessDetails;<template:br/>// Industry code 200 is for BUILDERS.<template:br/>app.businessDetails.industry="200";<template:br/><template:br/>app.multiBureauReport = a MultiBureauReport;<template:br/>app.multiBureauReport.cibilResponse=a CibilReport;<template:br/><template:br/>scoreSegment is some ScoreSegment initially an ScoreSegment;<template:br/>scoreSegment.scoreName="CIBIL";<template:br/><template:br/>scoreSegmentArr is some array of ScoreSegment initially an array of ScoreSegment;<template:br/><template:br/>scoreSegmentArr[0]=a ScoreSegment initially{<template:br/>  score=575;<template:br/>  scoreName="CIBIL";<template:br/>}<template:br/>app.multiBureauReport.cibilResponse.scores=scoreSegmentArr;<template:br/><template:br/>application is some Application initially an Application;<template:br/>//Normal SCHEME CODE  is 19041133<template:br/>application.scheme = "29";<template:br/>//Normal SCHEME GROUP CODE is 19041109<template:br/>application.schemeGroup = "13";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/>blazeMessage.request.application = application;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_CibilScoreRule(app,blazeMessage);<template:br/><template:br/>assert().checkEquals("Escalation Level", "L2", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("Reason Code", "43001", deviation.reasonCode);<template:br/><template:br/>assert().checkEquals("Message", "CIBIL Score from 575 to 624", deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Decision Result", "DEVIATION", deviation.decisionResult);</body>
+  </function><function managementPropertiesRef='NNyEjUXkFSs143XNx6DvzSZN1IG'>
+   <name>TC_CibilScorerules4</name>
+   <body>app is some Applicant initially an Applicant;<template:br/>app.businessDetails = a BusinessDetails;<template:br/>// Industry code 200 is for BUILDERS.<template:br/>app.businessDetails.industry="200";<template:br/><template:br/>app.multiBureauReport = a MultiBureauReport;<template:br/>app.multiBureauReport.cibilResponse=a CibilReport;<template:br/><template:br/>scoreSegment is some ScoreSegment initially an ScoreSegment;<template:br/>scoreSegment.scoreName="CIBIL";<template:br/><template:br/>scoreSegmentArr is some array of ScoreSegment initially an array of ScoreSegment;<template:br/><template:br/>scoreSegmentArr[0]=a ScoreSegment initially{<template:br/>  score=710;<template:br/>  scoreName="CIBIL";<template:br/>}<template:br/>app.multiBureauReport.cibilResponse.scores=scoreSegmentArr;<template:br/><template:br/>application is some Application initially an Application;<template:br/>//Banking based SCHEME CODE  is 19041133<template:br/>application.scheme = "46";<template:br/>//Banking based SCHEME GROUP CODE is 19041150<template:br/>application.schemeGroup = "20";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/>blazeMessage.request.application = application;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_CibilScoreRule(app,blazeMessage);<template:br/><template:br/>assert().checkEquals("Escalation Level", "L1", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("Reason Code", "43003", deviation.reasonCode);<template:br/><template:br/>assert().checkEquals("Message", "CIBIL Score from 700 to 725", deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Decision Result", "DEVIATION", deviation.decisionResult);</body>
+  </function><function managementPropertiesRef='J53sWWC0xTamvwBahWoR8neSuMD'>
+   <name>TC_CibilScorerules_MisisngData</name>
+   <body>app is some Applicant initially an Applicant;<template:br/>//app.businessDetails = a BusinessDetails;.<template:br/>//app.businessDetails.industry="200";<template:br/><template:br/>//app.multiBureauReport = a MultiBureauReport;<template:br/>//app.multiBureauReport.cibilResponse=a CibilReport;<template:br/><template:br/>scoreSegment is some ScoreSegment initially an ScoreSegment;<template:br/>scoreSegment.scoreName="CIBIL";<template:br/><template:br/>scoreSegmentArr is some array of ScoreSegment initially an array of ScoreSegment;<template:br/><template:br/>scoreSegmentArr[0]=a ScoreSegment initially{<template:br/>  score=2;<template:br/>  scoreName="CIBIL";<template:br/>}<template:br/>//app.multiBureauReport.cibilResponse.scores=scoreSegmentArr;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.scheme = "33";<template:br/>application.schemeGroup = "14";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/>blazeMessage.request.application = application;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/><template:br/>deviation = DT_CibilScoreRule(app,blazeMessage);<template:br/><template:br/>assert().checkEquals("Escalation Level", unknown, deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("Reason Code", unknown, deviation.reasonCode);<template:br/><template:br/>assert().checkEquals("Message",unknown, deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Decision Result",unknown, deviation.decisionResult);<template:br/><template:br/></body>
+  </function></template:content>
+</template>

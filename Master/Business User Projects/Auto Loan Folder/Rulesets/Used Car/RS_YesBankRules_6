@@ -1,0 +1,1244 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='ALkLIcd8E3xoGTFW2dY0CMXkiJL' name='RS_UsedCar_YesBankRules'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='styleSheet'>
+ </instance>
+ <instance ref='rulesetMetadata'>
+  <instance ref='instanceName'>
+   <value></value>
+  </instance>
+  <instance ref='name'>
+   <value>RS_UsedCar_YesBankRules</value>
+  </instance>
+  <instance ref='comment'>
+   <value></value>
+  </instance>
+ </instance>
+ <instance ref='rulesetInitialization'>
+  <instance-list ref='newEntity'>
+   <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New local entity template' id='FCbPRV'>
+    <instance ref='styleSheet'>
+    </instance>
+    <instance ref='comment'>
+     <value></value>
+    </instance>
+    <instance ref='entity'>
+     <value>Variable</value>
+    </instance>
+    <instance ref='name'>
+     <value>theAssetdetails</value>
+    </instance>
+    <instance ref='entitySrlType'>
+     <value>AssetDetails</value>
+    </instance>
+    <instance ref='entityTemplateList'>
+     <value>ALkLIcd8E3xoGTFW2dY0CMXkiJL.New variable</value>
+    </instance>
+    <instance-selection ref='entityTemplate'>
+     <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New variable' id='Jo7Iur'>
+      <instance ref='__ENTITY_PROPERTIES__VH__'>
+      </instance>
+      <instance ref='initialValue'>
+       <value>blazeMessage.request.application.assetDetails;</value>
+      </instance>
+     </item>
+    </instance-selection>
+   </item>
+   <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New local entity template' id='XR0eRr'>
+    <instance ref='styleSheet'>
+    </instance>
+    <instance ref='comment'>
+     <value></value>
+    </instance>
+    <instance ref='entity'>
+     <value>Variable</value>
+    </instance>
+    <instance ref='name'>
+     <value>theApplication</value>
+    </instance>
+    <instance ref='entitySrlType'>
+     <value>Application</value>
+    </instance>
+    <instance ref='entityTemplateList'>
+     <value>ALkLIcd8E3xoGTFW2dY0CMXkiJL.New variable</value>
+    </instance>
+    <instance-selection ref='entityTemplate'>
+     <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New variable' id='WQZZni'>
+      <instance ref='__ENTITY_PROPERTIES__VH__'>
+      </instance>
+      <instance ref='initialValue'>
+       <value></value>
+      </instance>
+     </item>
+    </instance-selection>
+   </item>
+   <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New local entity template' id='9AbyIc'>
+    <instance ref='styleSheet'>
+    </instance>
+    <instance ref='comment'>
+     <value></value>
+    </instance>
+    <instance ref='entity'>
+     <value>Pattern</value>
+    </instance>
+    <instance ref='name'>
+     <value>anyApplicant</value>
+    </instance>
+    <instance ref='entitySrlType'>
+     <value>Applicant</value>
+    </instance>
+    <instance ref='entityTemplateList'>
+     <value>ALkLIcd8E3xoGTFW2dY0CMXkiJL.Generic Pattern Template</value>
+    </instance>
+    <instance-selection ref='entityTemplate'>
+     <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.Generic Pattern Template' id='MZfGb5'>
+      <instance ref='__ENTITY_PROPERTIES__VH__'>
+      </instance>
+      <instance ref='inCollection'>
+       <value>blazeMessage.request.application.applicants</value>
+      </instance>
+      <instance ref='such that'>
+       <value></value>
+      </instance>
+     </item>
+    </instance-selection>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='initializationRule'>
+  <instance ref='__ENTITY_PROPERTIES__VH__'>
+  </instance>
+  <instance ref='initializationAction'>
+   <value>print("inside rulest");</value>
+  </instance>
+ </instance>
+ <instance-list ref='newRules'>
+  <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New Rule Template' id='4xZVtU'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='nameVH'>
+    <value>Salary_credit60001</value>
+   </instance>
+   <instance ref='ruleIDVH'>
+    <value>UsedYesBank001</value>
+   </instance>
+   <instance ref='descriptionVH'>
+    <value>Salary Credit</value>
+   </instance>
+   <instance ref='conditionVH'>
+    <instance ref='andOrVH'>
+     <value>and</value>
+    </instance>
+    <instance-list ref='conditionsVH'>
+    </instance-list>
+   </instance>
+   <instance-selection ref='action'>
+    <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.ActionTemplate - Deviation Rules' id='NKfXxl'>
+     <instance ref='vhActionAttribute'>
+      <value>MESSAGE</value>
+     </instance>
+     <instance ref='vhReasonText'>
+      <value>Check for Salary credit in account</value>
+     </instance>
+     <instance ref='vhReasonCode'>
+      <value>60002</value>
+     </instance>
+     <instance ref='Value Holder1'>
+      <value>L99</value>
+     </instance>
+     <instance-list ref='vhPatternProvider'>
+      <item template='1wosADLb5Dh9tBZRuRytsNdbKMQ' id='FhPvkN'>
+       <value>anyApplicant</value>
+      </item>
+     </instance-list>
+     <instance ref='vhYesNoList'>
+      <value>No</value>
+     </instance>
+    </item>
+   </instance-selection>
+   <instance ref='VH1'>
+    <value>true</value>
+   </instance>
+   <instance ref='Value Holder1'>
+    <value>0</value>
+   </instance>
+  </item>
+  <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New Rule Template' id='O4XquV'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='nameVH'>
+    <value>Employer60002</value>
+   </instance>
+   <instance ref='ruleIDVH'>
+    <value>UsedYesBank002</value>
+   </instance>
+   <instance ref='descriptionVH'>
+    <value>No YES bank employee applicant</value>
+   </instance>
+   <instance ref='conditionVH'>
+    <instance ref='andOrVH'>
+     <value>and</value>
+    </instance>
+    <instance-list ref='conditionsVH'>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template8' id='Vf8c2T'>
+      <instance ref='vhExpression'>
+       <value>at most</value>
+      </instance>
+      <instance ref='vhQuantity'>
+       <value>0</value>
+      </instance>
+      <instance ref='vhInCollection'>
+       <value>blazeMessage.request.application.applicants</value>
+      </instance>
+      <instance ref='vhClasses'>
+       <value>Applicant</value>
+      </instance>
+      <instance ref='vhConditionRHS'>
+       <instance ref='andOrVH'>
+        <value>and</value>
+       </instance>
+       <instance-list ref='conditionsVH'>
+        <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.GenericConditionCodeTemplate' id='WxUB2B'>
+         <instance ref='genericConditionVH'>
+          <value>{"rootGroup":{"exprs":[{"valueType":"boolean","elements":[{"valueType":"string","elements":[{"valueType":"string","name":"employerName","fqName":"it.employmentDetails.employerName","externalType":"string","fqDispName":"employmentDetails.employerName","__meta_klass":"PropertyOperand"}],"exprType":0,"externalType":"string","__meta_klass":"Expr"},{"opValue":"is equal to","__meta_klass":"Operator"},{"valueType":"string","elements":[{"valueType":"string","instValue":"84299","__meta_klass":"LiteralOperand"}],"exprType":0,"__meta_klass":"Expr"}],"exprType":0,"__meta_klass":"CompExpr"}],"subGroups":[],"operator":"and","__meta_klass":"ConditionGroup"},"ctr":0,"isVisible":true,"__meta_klass":"ConditionBuilderViewModel","__meta_version":"3.0"}</value>
+         </instance>
+        </item>
+       </instance-list>
+      </instance>
+     </item>
+    </instance-list>
+   </instance>
+   <instance-selection ref='action'>
+    <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.ActionTemplate - Deviation Rules' id='NKfXxl'>
+     <instance ref='vhActionAttribute'>
+      <value>ERROR</value>
+     </instance>
+     <instance ref='vhReasonText'>
+      <value>None of the Applicant is Yes Bank Employee</value>
+     </instance>
+     <instance ref='vhReasonCode'>
+      <value>60002</value>
+     </instance>
+     <instance ref='Value Holder1'>
+      <value>L99</value>
+     </instance>
+     <instance-list ref='vhPatternProvider'>
+      <item template='1wosADLb5Dh9tBZRuRytsNdbKMQ' id='FhPvkN'>
+       <value>anyApplicant</value>
+      </item>
+     </instance-list>
+     <instance ref='vhYesNoList'>
+      <value>No</value>
+     </instance>
+    </item>
+   </instance-selection>
+   <instance ref='VH1'>
+    <value>true</value>
+   </instance>
+   <instance ref='Value Holder1'>
+    <value>0</value>
+   </instance>
+  </item>
+  <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New Rule Template' id='1Vp8p6'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='nameVH'>
+    <value>Banking60003</value>
+   </instance>
+   <instance ref='ruleIDVH'>
+    <value>UsedYesBank003</value>
+   </instance>
+   <instance ref='descriptionVH'>
+    <value>Repayment account is not from Yes Bank employee</value>
+   </instance>
+   <instance ref='conditionVH'>
+    <instance ref='andOrVH'>
+     <value>and</value>
+    </instance>
+    <instance-list ref='conditionsVH'>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template8' id='WnnkDQ'>
+      <instance ref='vhExpression'>
+       <value>at least</value>
+      </instance>
+      <instance ref='vhQuantity'>
+       <value>1</value>
+      </instance>
+      <instance ref='vhInCollection'>
+       <value>anyApplicant.bankDetails</value>
+      </instance>
+      <instance ref='vhClasses'>
+       <value>BankDetails</value>
+      </instance>
+      <instance ref='vhConditionRHS'>
+       <instance ref='andOrVH'>
+        <value>and</value>
+       </instance>
+       <instance-list ref='conditionsVH'>
+        <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template9' id='BbueuC'>
+         <instance ref='vhEntityProperties'>
+          <value>isRepaymentAccount</value>
+         </instance>
+         <instance ref='vhEntityPropertiesType'>
+          <value></value>
+         </instance>
+         <instance ref='vhOperator'>
+          <value>equal-to</value>
+         </instance>
+         <instance-selection ref='vhData'>
+          <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='RBoDf6'>
+           <instance ref='valueVH'>
+            <value>true</value>
+           </instance>
+          </item>
+         </instance-selection>
+        </item>
+        <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template9' id='Li3Vds'>
+         <instance ref='vhEntityProperties'>
+          <value>bankName</value>
+         </instance>
+         <instance ref='vhEntityPropertiesType'>
+          <value></value>
+         </instance>
+         <instance ref='vhOperator'>
+          <value>different-from</value>
+         </instance>
+         <instance-selection ref='vhData'>
+          <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.MultipleCodeListLookupTemplate' id='1SfOI5'>
+           <instance ref='andOrVH'>
+            <value>and</value>
+           </instance>
+           <instance-list ref='codeListLookupVH'>
+            <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='PIcKaA'>
+             <instance ref='vhCodeList'>
+              <value>YESB-YES BANK LTD</value>
+             </instance>
+            </item>
+            <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='P3jos5'>
+             <instance ref='vhCodeList'>
+              <value>YES-YES BANK LTD</value>
+             </instance>
+            </item>
+            <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='As3psA'>
+             <instance ref='vhCodeList'>
+              <value>532-YES BANK LTD</value>
+             </instance>
+            </item>
+            <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='TuTMEs'>
+             <instance ref='vhCodeList'>
+              <value>YBL-YES BANK LTD</value>
+             </instance>
+            </item>
+           </instance-list>
+          </item>
+         </instance-selection>
+        </item>
+       </instance-list>
+      </instance>
+     </item>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='YlHarB'>
+      <instance ref='vhEntities'>
+       <value>anyApplicant</value>
+      </instance>
+      <instance ref='vhEntityType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntityProperties'>
+       <value>employmentDetails</value>
+      </instance>
+      <instance ref='vhEntityPropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntity2Properties'>
+       <value>employerName</value>
+      </instance>
+      <instance ref='vhEntity2PropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhOperator'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='vhOperator1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH2'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH3'>
+       <value>equal-to</value>
+      </instance>
+      <instance-selection ref='vhRHS'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='SjEKGi'>
+        <instance ref='valueVH'>
+         <value>null</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance-selection ref='vhRHS1'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='LdXAmH'>
+        <instance ref='vhCodeList'>
+         <value>84299-YES Bank</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance ref='Value Holder1'>
+       <value>contains</value>
+      </instance>
+     </item>
+    </instance-list>
+   </instance>
+   <instance-selection ref='action'>
+    <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.ActionTemplate - Deviation Rules' id='ZcYJKS'>
+     <instance ref='vhActionAttribute'>
+      <value>ERROR</value>
+     </instance>
+     <instance ref='vhReasonText'>
+      <value>Repayment account is not from Yes Bank employee</value>
+     </instance>
+     <instance ref='vhReasonCode'>
+      <value>60003</value>
+     </instance>
+     <instance ref='Value Holder1'>
+      <value>L99</value>
+     </instance>
+     <instance-list ref='vhPatternProvider'>
+      <item template='1wosADLb5Dh9tBZRuRytsNdbKMQ' id='GWdA32'>
+       <value>anyApplicant</value>
+      </item>
+     </instance-list>
+     <instance ref='vhYesNoList'>
+      <value>Yes</value>
+     </instance>
+    </item>
+   </instance-selection>
+   <instance ref='VH1'>
+    <value>true</value>
+   </instance>
+   <instance ref='Value Holder1'>
+    <value>0</value>
+   </instance>
+  </item>
+  <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New Rule Template' id='6OFmcv'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='nameVH'>
+    <value>Relation60004</value>
+   </instance>
+   <instance ref='ruleIDVH'>
+    <value>UsedYesBank004</value>
+   </instance>
+   <instance ref='descriptionVH'>
+    <value>If co-applicant is a YBL employee but not a family member</value>
+   </instance>
+   <instance ref='conditionVH'>
+    <instance ref='andOrVH'>
+     <value>and</value>
+    </instance>
+    <instance-list ref='conditionsVH'>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='LZTJ05'>
+      <instance ref='vhEntities'>
+       <value>anyApplicant</value>
+      </instance>
+      <instance ref='vhEntityType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntityProperties'>
+       <value>applicantType</value>
+      </instance>
+      <instance ref='vhEntityPropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntity2Properties'>
+       <value>class</value>
+      </instance>
+      <instance ref='vhEntity2PropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhOperator'>
+       <value>different-from</value>
+      </instance>
+      <instance ref='vhOperator1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH2'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH3'>
+       <value>equal-to</value>
+      </instance>
+      <instance-selection ref='vhRHS'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='M73DCy'>
+        <instance ref='vhCodeList'>
+         <value>P-APPLICANT</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance-selection ref='vhRHS1'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='T1h4k3'>
+        <instance ref='valueVH'>
+         <value>null</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance ref='Value Holder1'>
+       <value>contains</value>
+      </instance>
+     </item>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='XLAD7U'>
+      <instance ref='vhEntities'>
+       <value>anyApplicant</value>
+      </instance>
+      <instance ref='vhEntityType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntityProperties'>
+       <value>relation</value>
+      </instance>
+      <instance ref='vhEntityPropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntity2Properties'>
+       <value>class</value>
+      </instance>
+      <instance ref='vhEntity2PropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhOperator'>
+       <value>different-from</value>
+      </instance>
+      <instance ref='vhOperator1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH2'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH3'>
+       <value>equal-to</value>
+      </instance>
+      <instance-selection ref='vhRHS'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.MultipleCodeListLookupTemplate' id='Cpk8Uu'>
+        <instance ref='andOrVH'>
+         <value>and</value>
+        </instance>
+        <instance-list ref='codeListLookupVH'>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='MhFOpG'>
+          <instance ref='vhCodeList'>
+           <value>SPS-SPOUSE</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='UIdAGH'>
+          <instance ref='vhCodeList'>
+           <value>SON-SON</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='Ae6M3u'>
+          <instance ref='vhCodeList'>
+           <value>DAU-DAUGHTER</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='6y48dI'>
+          <instance ref='vhCodeList'>
+           <value>MTH-MOTHER</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='8o8MP7'>
+          <instance ref='vhCodeList'>
+           <value>FIL-FATHER IN LAW</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='79VRFO'>
+          <instance ref='vhCodeList'>
+           <value>MIL-MOTHER IN LAW</value>
+          </instance>
+         </item>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='5v1OsW'>
+          <instance ref='vhCodeList'>
+           <value>FTH-FATHER</value>
+          </instance>
+         </item>
+        </instance-list>
+       </item>
+      </instance-selection>
+      <instance-selection ref='vhRHS1'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='LspJBV'>
+        <instance ref='valueVH'>
+         <value>null</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance ref='Value Holder1'>
+       <value>contains</value>
+      </instance>
+     </item>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='8jplXV'>
+      <instance ref='vhEntities'>
+       <value>anyApplicant</value>
+      </instance>
+      <instance ref='vhEntityType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntityProperties'>
+       <value>employmentDetails</value>
+      </instance>
+      <instance ref='vhEntityPropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntity2Properties'>
+       <value>employerName</value>
+      </instance>
+      <instance ref='vhEntity2PropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhOperator'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='vhOperator1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH2'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH3'>
+       <value>equal-to</value>
+      </instance>
+      <instance-selection ref='vhRHS'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='ALY6eQ'>
+        <instance ref='valueVH'>
+         <value>null</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance-selection ref='vhRHS1'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='Xl0C7f'>
+        <instance ref='vhCodeList'>
+         <value>84299-YES Bank</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance ref='Value Holder1'>
+       <value>contains</value>
+      </instance>
+     </item>
+    </instance-list>
+   </instance>
+   <instance-selection ref='action'>
+    <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.ActionTemplate - Deviation Rules' id='F5bXfC'>
+     <instance ref='vhActionAttribute'>
+      <value>DEVIATION</value>
+     </instance>
+     <instance ref='vhReasonText'>
+      <value>YBL employee is not primary applicant and not family member of main applicant</value>
+     </instance>
+     <instance ref='vhReasonCode'>
+      <value>60004</value>
+     </instance>
+     <instance ref='Value Holder1'>
+      <value>L99</value>
+     </instance>
+     <instance-list ref='vhPatternProvider'>
+      <item template='1wosADLb5Dh9tBZRuRytsNdbKMQ' id='VgWxph'>
+       <value>anyApplicant</value>
+      </item>
+     </instance-list>
+     <instance ref='vhYesNoList'>
+      <value>Yes</value>
+     </instance>
+    </item>
+   </instance-selection>
+   <instance ref='VH1'>
+    <value>true</value>
+   </instance>
+   <instance ref='Value Holder1'>
+    <value>0</value>
+   </instance>
+  </item>
+  <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New Rule Template' id='XkV8W0'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='nameVH'>
+    <value>AssetAge_60006</value>
+   </instance>
+   <instance ref='ruleIDVH'>
+    <value>UsedYesBank006</value>
+   </instance>
+   <instance ref='descriptionVH'>
+    <value>Asset age</value>
+   </instance>
+   <instance ref='conditionVH'>
+    <instance ref='andOrVH'>
+     <value>and</value>
+    </instance>
+    <instance-list ref='conditionsVH'>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='Vob7X9'>
+      <instance ref='vhEntities'>
+       <value>theAssetdetails</value>
+      </instance>
+      <instance ref='vhEntityType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntityProperties'>
+       <value>detailAssetLoan</value>
+      </instance>
+      <instance ref='vhEntityPropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntity2Properties'>
+       <value>assetAge</value>
+      </instance>
+      <instance ref='vhEntity2PropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhOperator'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='vhOperator1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH1'>
+       <value>larger-than-or-equal-to</value>
+      </instance>
+      <instance ref='VH2'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH3'>
+       <value>equal-to</value>
+      </instance>
+      <instance-selection ref='vhRHS'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='GBdD8T'>
+        <instance ref='valueVH'>
+         <value>null</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance-selection ref='vhRHS1'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='BaIDKk'>
+        <instance ref='valueVH'>
+         <value>120</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance ref='Value Holder1'>
+       <value>contains</value>
+      </instance>
+     </item>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='TjoJ43'>
+      <instance ref='vhEntities'>
+       <value>theAssetdetails</value>
+      </instance>
+      <instance ref='vhEntityType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntityProperties'>
+       <value>detailAssetLoan</value>
+      </instance>
+      <instance ref='vhEntityPropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntity2Properties'>
+       <value>assetAge</value>
+      </instance>
+      <instance ref='vhEntity2PropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhOperator'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='vhOperator1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH1'>
+       <value>smaller-than-or-equal-to</value>
+      </instance>
+      <instance ref='VH2'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH3'>
+       <value>equal-to</value>
+      </instance>
+      <instance-selection ref='vhRHS'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='GBdD8T'>
+        <instance ref='valueVH'>
+         <value>null</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance-selection ref='vhRHS1'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='BaIDKk'>
+        <instance ref='valueVH'>
+         <value>144</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance ref='Value Holder1'>
+       <value>contains</value>
+      </instance>
+     </item>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Group Condition Code Template' id='6Dg7gP'>
+      <instance ref='andOrVH'>
+       <value>or</value>
+      </instance>
+      <instance-list ref='conditionsVH'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='QqeRxu'>
+        <instance ref='vhEntities'>
+         <value>theApplication</value>
+        </instance>
+        <instance ref='vhEntityType'>
+         <value></value>
+        </instance>
+        <instance ref='vhEntityProperties'>
+         <value>loanDetails</value>
+        </instance>
+        <instance ref='vhEntityPropertyType'>
+         <value></value>
+        </instance>
+        <instance ref='vhEntity2Properties'>
+         <value>loanAmount</value>
+        </instance>
+        <instance ref='vhEntity2PropertyType'>
+         <value></value>
+        </instance>
+        <instance ref='vhOperator'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='vhOperator1'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='VH1'>
+         <value>larger-than</value>
+        </instance>
+        <instance ref='VH2'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='VH3'>
+         <value>equal-to</value>
+        </instance>
+        <instance-selection ref='vhRHS'>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='5yLwLp'>
+          <instance ref='valueVH'>
+           <value>null</value>
+          </instance>
+         </item>
+        </instance-selection>
+        <instance-selection ref='vhRHS1'>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='PgSLEz'>
+          <instance ref='valueVH'>
+           <value>1500000</value>
+          </instance>
+         </item>
+        </instance-selection>
+        <instance ref='Value Holder1'>
+         <value>contains</value>
+        </instance>
+       </item>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='QnCAdq'>
+        <instance ref='vhEntities'>
+         <value>theAssetdetails</value>
+        </instance>
+        <instance ref='vhEntityType'>
+         <value></value>
+        </instance>
+        <instance ref='vhEntityProperties'>
+         <value>usedVehicleDetails</value>
+        </instance>
+        <instance ref='vhEntityPropertyType'>
+         <value></value>
+        </instance>
+        <instance ref='vhEntity2Properties'>
+         <value>appraiser</value>
+        </instance>
+        <instance ref='vhEntity2PropertyType'>
+         <value></value>
+        </instance>
+        <instance ref='vhOperator'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='vhOperator1'>
+         <value>different-from</value>
+        </instance>
+        <instance ref='VH1'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='VH2'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='VH3'>
+         <value>equal-to</value>
+        </instance>
+        <instance-selection ref='vhRHS'>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='TToCQv'>
+          <instance ref='valueVH'>
+           <value>null</value>
+          </instance>
+         </item>
+        </instance-selection>
+        <instance-selection ref='vhRHS1'>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='JlcZsZ'>
+          <instance ref='valueVH'>
+           <value>Organised</value>
+          </instance>
+         </item>
+        </instance-selection>
+        <instance ref='Value Holder1'>
+         <value>contains</value>
+        </instance>
+       </item>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='1OkNmp'>
+        <instance ref='vhEntities'>
+         <value>theAssetdetails</value>
+        </instance>
+        <instance ref='vhEntityType'>
+         <value></value>
+        </instance>
+        <instance ref='vhEntityProperties'>
+         <value>detailAssetLoan</value>
+        </instance>
+        <instance ref='vhEntityPropertyType'>
+         <value></value>
+        </instance>
+        <instance ref='vhEntity2Properties'>
+         <value>manufacturer</value>
+        </instance>
+        <instance ref='vhEntity2PropertyType'>
+         <value></value>
+        </instance>
+        <instance ref='vhOperator'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='vhOperator1'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='VH1'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='VH2'>
+         <value>equal-to</value>
+        </instance>
+        <instance ref='VH3'>
+         <value>equal-to</value>
+        </instance>
+        <instance-selection ref='vhRHS'>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='Ajln9c'>
+          <instance ref='valueVH'>
+           <value>null</value>
+          </instance>
+         </item>
+        </instance-selection>
+        <instance-selection ref='vhRHS1'>
+         <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.MultipleCodeListLookupTemplate' id='JeH4Yo'>
+          <instance ref='andOrVH'>
+           <value>or</value>
+          </instance>
+          <instance-list ref='codeListLookupVH'>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='N5dtXl'>
+            <instance ref='vhCodeList'>
+             <value>6-VOLKSWAGEN </value>
+            </instance>
+           </item>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='UokQvN'>
+            <instance ref='vhCodeList'>
+             <value>10711-VOLKSWAGEN GROUP SALES INDIA PVTLTD </value>
+            </instance>
+           </item>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='Z5iZo3'>
+            <instance ref='vhCodeList'>
+             <value>11159-VOLKSWAGEN </value>
+            </instance>
+           </item>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='6qzK3u'>
+            <instance ref='vhCodeList'>
+             <value>10797-VOLKSWAGEN </value>
+            </instance>
+           </item>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='SIvFnr'>
+            <instance ref='vhCodeList'>
+             <value>330-VOLKSWAGEN </value>
+            </instance>
+           </item>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='Dq4weI'>
+            <instance ref='vhCodeList'>
+             <value>327-SKODA</value>
+            </instance>
+           </item>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='TWnO35'>
+            <instance ref='vhCodeList'>
+             <value>10836-SKODA AUTO INDIA PVT LTD </value>
+            </instance>
+           </item>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='RzSgZ8'>
+            <instance ref='vhCodeList'>
+             <value>3-SKODA</value>
+            </instance>
+           </item>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='EeHKMT'>
+            <instance ref='vhCodeList'>
+             <value>12-MAHINDRA AND MAHINDRA </value>
+            </instance>
+           </item>
+           <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='9xgXRH'>
+            <instance ref='vhCodeList'>
+             <value>12-MAHINDRA AND MAHINDRA </value>
+            </instance>
+           </item>
+          </instance-list>
+         </item>
+        </instance-selection>
+        <instance ref='Value Holder1'>
+         <value>contains</value>
+        </instance>
+       </item>
+      </instance-list>
+     </item>
+    </instance-list>
+   </instance>
+   <instance-selection ref='action'>
+    <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.ActionTemplate - Deviation Rules' id='FUeyBG'>
+     <instance ref='vhActionAttribute'>
+      <value>REJECT</value>
+     </instance>
+     <instance ref='vhReasonText'>
+      <value>Rej-Asset Age norms not met</value>
+     </instance>
+     <instance ref='vhReasonCode'>
+      <value>60006</value>
+     </instance>
+     <instance ref='Value Holder1'>
+      <value>L99</value>
+     </instance>
+     <instance-list ref='vhPatternProvider'>
+     </instance-list>
+     <instance ref='vhYesNoList'>
+      <value>No</value>
+     </instance>
+    </item>
+   </instance-selection>
+   <instance ref='VH1'>
+    <value>true</value>
+   </instance>
+   <instance ref='Value Holder1'>
+    <value>0</value>
+   </instance>
+  </item>
+  <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.New Rule Template' id='F7XL2u'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance ref='nameVH'>
+    <value>Employment Stability60005</value>
+   </instance>
+   <instance ref='ruleIDVH'>
+    <value>UsedYesBank005</value>
+   </instance>
+   <instance ref='descriptionVH'>
+    <value>YBL Employee current job is less than 6 months</value>
+   </instance>
+   <instance ref='conditionVH'>
+    <instance ref='andOrVH'>
+     <value>and</value>
+    </instance>
+    <instance-list ref='conditionsVH'>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='AxjKzF'>
+      <instance ref='vhEntities'>
+       <value>anyApplicant</value>
+      </instance>
+      <instance ref='vhEntityType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntityProperties'>
+       <value>employmentDetails</value>
+      </instance>
+      <instance ref='vhEntityPropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntity2Properties'>
+       <value>monthsInPresentJob</value>
+      </instance>
+      <instance ref='vhEntity2PropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhOperator'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='vhOperator1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH1'>
+       <value>smaller-than</value>
+      </instance>
+      <instance ref='VH2'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH3'>
+       <value>equal-to</value>
+      </instance>
+      <instance-selection ref='vhRHS'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='a3H6uI'>
+        <instance ref='valueVH'>
+         <value>null</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance-selection ref='vhRHS1'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='PKzAAK'>
+        <instance ref='valueVH'>
+         <value>6</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance ref='Value Holder1'>
+       <value>contains</value>
+      </instance>
+     </item>
+     <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Custom Condition Code Template' id='1B9RGU'>
+      <instance ref='vhEntities'>
+       <value>anyApplicant</value>
+      </instance>
+      <instance ref='vhEntityType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntityProperties'>
+       <value>employmentDetails</value>
+      </instance>
+      <instance ref='vhEntityPropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhEntity2Properties'>
+       <value>employerName</value>
+      </instance>
+      <instance ref='vhEntity2PropertyType'>
+       <value></value>
+      </instance>
+      <instance ref='vhOperator'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='vhOperator1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH1'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH2'>
+       <value>equal-to</value>
+      </instance>
+      <instance ref='VH3'>
+       <value>equal-to</value>
+      </instance>
+      <instance-selection ref='vhRHS'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.template4' id='72LxUO'>
+        <instance ref='valueVH'>
+         <value>null</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance-selection ref='vhRHS1'>
+       <item template='CeIW542DuVcmsktOH6Tx0tr06Qy.Code List Lookup Template' id='3F09J2'>
+        <instance ref='vhCodeList'>
+         <value>84299-YES Bank</value>
+        </instance>
+       </item>
+      </instance-selection>
+      <instance ref='Value Holder1'>
+       <value>contains</value>
+      </instance>
+     </item>
+    </instance-list>
+   </instance>
+   <instance-selection ref='action'>
+    <item template='ALkLIcd8E3xoGTFW2dY0CMXkiJL.ActionTemplate - Deviation Rules' id='NXHmay'>
+     <instance ref='vhActionAttribute'>
+      <value>DEVIATION</value>
+     </instance>
+     <instance ref='vhReasonText'>
+      <value>Stability - Employment stability norms not met</value>
+     </instance>
+     <instance ref='vhReasonCode'>
+      <value>60005</value>
+     </instance>
+     <instance ref='Value Holder1'>
+      <value>L2</value>
+     </instance>
+     <instance-list ref='vhPatternProvider'>
+      <item template='1wosADLb5Dh9tBZRuRytsNdbKMQ' id='Va1b7J'>
+       <value>anyApplicant</value>
+      </item>
+     </instance-list>
+     <instance ref='vhYesNoList'>
+      <value>Yes</value>
+     </instance>
+    </item>
+   </instance-selection>
+   <instance ref='VH1'>
+    <value>true</value>
+   </instance>
+   <instance ref='Value Holder1'>
+    <value>0</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='rulesetParameters'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='NAKkjz'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='rulesetReturnType'>
+  <value>void</value>
+ </instance>
+</instantiation>

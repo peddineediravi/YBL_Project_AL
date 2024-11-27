@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_rulesetXtraNFAs_usedcar'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_rulesetXtraNFAs_usedcar</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value>anDeviation is some Deviation initially an Deviation;
+tempArray is some array of string initially an array of string;
+AppFilterDeviation is some array of Deviation initially an array of Deviation;
+SpecialCare is a boolean initially false;
+SpecialCaution is a boolean initially false;
+for each Deviation in blazeMessage.response.applicationDecision.deviations such that (it is not null and it is known) do {
+  AppFilterDeviation.append(it);
+}
+ for each Deviation in AppFilterDeviation do {
+        if( it.reasonCode is known and it.reasonCode="99999" ) then{
+          it.ruleID="99999";
+        }
+	
+		if(it.ruleID is known and (it.ruleID="99999" or it.ruleID="UsedKeralaNIP007")  )then{
+			print("LTV RuleID=="it.ruleID);
+			tempArray.append(it.ruleID);
+		}
+   if(it.ruleID is known and  it.ruleID is equal to (ignoring case)("Cibil001" or  "Cibil010" or "Cibil003" or "Cibil004" or "Cibil005" or "Cibil006"
+   or "Cibil007" or "Cibil008" or "Cibil009"))then{
+     tempArray.append(it.ruleID);
+   }
+ }
+
+if(tempArray.contains("99999") and tempArray.contains("UsedKeralaNIP007"))then{
+      print("inside loop");
+     anDeviation.ruleID="UsedKeralaNIP009";
+            anDeviation.ruleName="Banking and LTV_110009";
+            anDeviation.ruleDescription="Banking and LTV rule checking";
+            anDeviation.decisionResult = "Reject";
+            anDeviation.reasonText = "Banking and LTV Norms not met";
+            anDeviation.reasonCode = "LTV_110009";
+            anDeviation.overrideLevel ="L99";
+            fn_AppendDeviations(anDeviation);      
+  
+  }   
+ if(blazeMessage.request.application.specialTieup is known and blazeMessage.request.application.specialTieup="1405202105" and SpecialCare=false)then
+{
+SpecialCare=true;
+print("SpecialCare:::::::"SpecialCare);
+}
+
+////Caution Profile
+if(blazeMessage.request.application.specialTieup is known and blazeMessage.request.application.specialTieup="1405202102" and SpecialCaution=false)then
+{
+SpecialCaution=true;
+print("SpecialCaution:::::::"SpecialCaution);
+}
+
+print("manufacturer==="blazeMessage.request.application.assetDetails.detailAssetLoan.manufacturer);
+
+
+if(blazeMessage.request.application.assetDetails.detailAssetLoan.manufacturer is known and 
+  blazeMessage.request.application.assetDetails.detailAssetLoan.manufacturer is equal to ("12" or "316") and
+  (blazeMessage.request.application.schemeGroup="50" and(blazeMessage.request.application.scheme=("175" or "176"))))then{
+ print("Insidel99");
+  
+  if((SpecialCare=true or SpecialCaution=true) or
+    tempArray.contains("Cibil001") or tempArray.contains("Cibil003") or
+  tempArray.contains("Cibil005") or tempArray.contains("Cibil004") or
+  tempArray.contains("Cibil006") or tempArray.contains("Cibil007") or
+  tempArray.contains("Cibil008") or tempArray.contains("Cibil009") or
+     tempArray.contains("Cibil010") or
+  tempArray.contains("USEDRefinanceMultiplier003") or tempArray.contains("USEDRefinanceMultiplier004")  )then{
+   print("insdie rule016");
+    anDeviation.ruleID="USEDRefinanceMultiplier016";
+            anDeviation.ruleName="Banking and cibil_100016";
+            anDeviation.ruleDescription="Banking and Cibil rules are checking";
+            anDeviation.decisionResult = "Reject";
+            anDeviation.reasonText = "Cibil / Bankinf norms not met";
+            anDeviation.reasonCode = "Manufacturer_100016";
+            anDeviation.overrideLevel ="L99";
+            fn_AppendDeviations(anDeviation);      
+ }  
+ }</value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='7bZgjV'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

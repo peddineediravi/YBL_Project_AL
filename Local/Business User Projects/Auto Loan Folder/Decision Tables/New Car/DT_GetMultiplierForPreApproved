@@ -1,0 +1,659 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='P0criSsMt0lbHEPeNFCEOp4KZS0' name='DT_GetMultiplierForPreApproved'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>DT_GetMultiplierForPreApproved</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Decision Table Case Template' id='ZZSjSu'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='PjtQ89'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Cibil_Score1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='Yggf0c'>
+       <instance ref='value1'>
+        <value>-1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='NEJtD5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Repayment_Account_Type1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Is one of' id='3mJF1S'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='7TP8Qz'>
+         <value>SALARY-SALARY ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='66X1qa'>
+         <value>SALYBFST-SALARY ACCOUNT - YES FIRST</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='DSmpB2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Multiplier</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Return' id='ICcTGl'>
+       <instance ref='value'>
+        <value>24</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 15, 2019 5:08 PM</value>
+   </instance>
+  </item>
+  <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Decision Table Case Template' id='NFnAhi'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='FCDOZl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Cibil_Score1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='Yggf0c'>
+       <instance ref='value1'>
+        <value>6</value>
+       </instance>
+       <instance ref='value2'>
+        <value>754</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='RYQuiQ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Repayment_Account_Type1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Is one of' id='3mJF1S'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='7TP8Qz'>
+         <value>SALARY-SALARY ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='66X1qa'>
+         <value>SALYBFST-SALARY ACCOUNT - YES FIRST</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='TnCSYG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Multiplier</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Return' id='DDKKuK'>
+       <instance ref='value'>
+        <value>24</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Decision Table Case Template' id='BBSi8j'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='GjKDWU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Cibil_Score1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='Yggf0c'>
+       <instance ref='value1'>
+        <value>755</value>
+       </instance>
+       <instance ref='value2'>
+        <value>780</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='WI7pXl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Repayment_Account_Type1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Is one of' id='3mJF1S'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='7TP8Qz'>
+         <value>SALARY-SALARY ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='66X1qa'>
+         <value>SALYBFST-SALARY ACCOUNT - YES FIRST</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='MDt2yg'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Multiplier</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Return' id='DDKKuK'>
+       <instance ref='value'>
+        <value>26</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 15, 2019 5:09 PM</value>
+   </instance>
+  </item>
+  <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Decision Table Case Template' id='L8oD1F'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='3OB4ep'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Cibil_Score1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='Yggf0c'>
+       <instance ref='value1'>
+        <value>781</value>
+       </instance>
+       <instance ref='value2'>
+        <value>800</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='6G0FfG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Repayment_Account_Type1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Is one of' id='3mJF1S'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='7TP8Qz'>
+         <value>SALARY-SALARY ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='66X1qa'>
+         <value>SALYBFST-SALARY ACCOUNT - YES FIRST</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='POmGVT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Multiplier</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Return' id='DDKKuK'>
+       <instance ref='value'>
+        <value>28</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Decision Table Case Template' id='UJfNZk'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='ZwRbZG'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Cibil_Score1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='Ul88Lm'>
+       <instance ref='value'>
+        <value>801</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='KtRTA5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Repayment_Account_Type1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Is one of' id='3mJF1S'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='7TP8Qz'>
+         <value>SALARY-SALARY ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='66X1qa'>
+         <value>SALYBFST-SALARY ACCOUNT - YES FIRST</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='8w7WZS'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Multiplier</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Return' id='DDKKuK'>
+       <instance ref='value'>
+        <value>30</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 15, 2019 5:11 PM</value>
+   </instance>
+  </item>
+  <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Decision Table Case Template' id='SO5XOh'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='VFCSj4'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Cibil_Score1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='ZH7yZ2'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='Rjaqhm'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Repayment_Account_Type1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Is one of' id='3mJF1S'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='6FF1UP'>
+         <value>SAVINGS-SAVINGS ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='4ySauH'>
+         <value>SAVYBFST-SAVINGS ACCOUNT-YES FIRST</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='1NG383'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Multiplier</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Return' id='DDKKuK'>
+       <instance ref='value'>
+        <value>20</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Decision Table Case Template' id='LAumnI'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='WHGoNr'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Cibil_Score1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable' id='ZH7yZ2'>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='4d3bvD'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Repayment_Account_Type1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Is one of' id='3mJF1S'>
+       <instance-selection ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='SFzRGS'>
+         <value>CURRENT-CURRENT ACCOUNT</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='FT4GaT'>
+         <value>CURYBFST-CURRENT ACCOUNT-YES FIRST</value>
+        </item>
+       </instance-selection>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Template' id='WaodAq'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Multiplier</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Return' id='DDKKuK'>
+       <instance ref='value'>
+        <value>15</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>rule6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jul 15, 2019 5:11 PM</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Group Info Template' id='aMgWDy'>
+    <instance ref='name'>
+     <value>Cibil_Score1</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Cibil Score</value>
+    </instance>
+    <instance ref='property'>
+     <value>cibilScore</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+   <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Group Info Template' id='9CGEVB'>
+    <instance ref='name'>
+     <value>Repayment_Account_Type1</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Repayment Account Type</value>
+    </instance>
+    <instance ref='property'>
+     <value>accountType</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='P0criSsMt0lbHEPeNFCEOp4KZS0.Cell Group Info Template' id='Fmubth'>
+    <instance ref='name'>
+     <value>Multiplier</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Multiplier</value>
+    </instance>
+    <instance ref='property'>
+     <value></value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

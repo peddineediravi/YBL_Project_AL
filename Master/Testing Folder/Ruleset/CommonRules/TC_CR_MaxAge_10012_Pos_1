@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_CR_MaxAge_10012_Pos'>
+ <ide-name>TC_CR_10012_MaxAge_Pos</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Ww8KEGZABd74T3K0DxEmgb21lhh'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>Common Rules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='Ww8KEGZABd74T3K0DxEmgb21lhh'>
+   <name>TC_CR_10012_MaxAge_Pos</name>
+   <body>applicant is some Applicant initially an Applicant;<template:br/>applicant.applicantType="P";<template:br/>applicant.constitution="1";<template:br/>//Salaried<template:br/>applicant.customerSegment="1";<template:br/>applicant.age=80;<template:br/><template:br/>applicant2 is some Applicant initially an Applicant;<template:br/>applicant2.applicantType="N";<template:br/>//Individual<template:br/>applicant2.constitution="1";<template:br/>//SEP/SENP<template:br/>applicant2.customerSegment="2";<template:br/>applicant2.age = 20;<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/>applicantArr.append(applicant2);<template:br/><template:br/>loanDetails is some LoanDetails initially a LoanDetails;<template:br/>loanDetails.tenure=50;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.applicants = applicantArr;<template:br/>application.loanDetails=loanDetails;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>apply RS_CommonRules(blazeMessage);<template:br/><template:br/><template:br/>assert().checkTrue("TC_CR_10012_MaxAge_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonCode is equal to "10012"));<template:br/>assert().checkTrue("TC_CR_10012_MaxAge_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.decisionResult is equal to "DEVIATION"));<template:br/>assert().checkTrue("TC_CR_10012_MaxAge_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonText is equal to "Primary Applicant Maximum Age nomrs not met and No Co-Applicants"));</body>
+  </function></template:content>
+</template>

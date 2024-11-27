@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='makeDecision'>
+ <ide-name>makeDecision</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='5tWck4qZzYRgiz9H6y2HDmK8oeh'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='5tWck4qZzYRgiz9H6y2HDmK8oeh'>
+   <name>makeDecision</name>
+   <type>Message</type>
+   <parameters>
+    <parameter>
+     <name>theMessage</name>
+     <type>Message</type>
+    </parameter>
+   </parameters>
+   <body>EnableLogging_Sys();<template:br/>aBlazeMessage is some BlazeMessage;<template:br/>//responseMessage is some Message initially a Message;<template:br/>aBlazeMessage = theMessage as a BlazeMessage;<template:br/><template:br/>try{<template:br/><template:br/>//aBlazeMessage= DF_GlobalFlow(aBlazeMessage);<template:br/>aBlazeMessage=fn_PreProcessing(aBlazeMessage);<template:br/>fn_CalculateScoreCardScore(aBlazeMessage);<template:br/>fn_PostProcessing(aBlazeMessage);<template:br/>print("aBlazeMessage"aBlazeMessage);<template:br/>aBlazeMessage.response.responseCode=ErrorCodes.Success;<template:br/>aBlazeMessage.response.applicationDecision.systemDecision = "APPROVED";<template:br/>aBlazeMessage.response.applicationDecision.systemDecisionDate =calendar().currentTimestamp(true);<template:br/><template:br/>}<template:br/>catch an NdEvaluationException with<template:br/>{<template:br/>anError is some Error initially an Error;<template:br/>anError.source ="Inside Blaze.";<template:br/>anError.code="BLZERR";<template:br/>anError.description="Failure during Blaze Execution";<template:br/>anError.trace=evaluationException().message;<template:br/>anError.dateTime = calendar().currentTimestamp(true);<template:br/><template:br/>aBlazeMessage.response.error=anError;<template:br/>aBlazeMessage.response.responseCode=ErrorCodes.Error;<template:br/><template:br/>}<template:br/>return aBlazeMessage;</body>
+  </function></template:content>
+</template>

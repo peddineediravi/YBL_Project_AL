@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_Apply_TW_DecisionTables'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_Apply_TW_DecisionTables</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value>aDeviation is some Deviation;
+aDeviation1 is some Deviation;
+aDeviation2 is some Deviation;
+aDeviation3 is some Deviation;
+aSchemeGroup is a string initially theMessage.request.application.schemeGroup;
+aScheme is a string initially theMessage.request.application.scheme;
+aAssetCategory is a string initially theMessage.request.application.assetDetails.detailAssetLoan.assetCategory;
+aAssetCost is a real initially theMessage.request.application.assetDetails.usedVehicleDetails.assetCost;
+loanAmount is a real initially theMessage.request.application.loanDetails.loanAmount;
+tempArray is some array of string initially an array of string;
+
+//IIR Deviations
+LogMessage("Calling IIR based rules...");
+if(  theMessage.request.application.schemeGroup =("86" or "98" ))then{
+   fn_TW_IIRCalculation(theMessage);
+}
+
+//Minimum income table
+LogMessage("Calling Minimum income norm rules....");
+for each Applicant in theMessage.request.application.applicants do {
+  
+aDeviation = DT_TwoWheeler_minimum_income_Norms(aSchemeGroup,aScheme,it.customerSegment,it.annualIncome.totalIncome,theMessage.request.application.assetDetails.detailAssetLoan,aAssetCost,loanAmount);
+//aDeviation = DT_UsedCar_Minimum_Income_Norm(aSchemeGroup,aScheme,it.customerSegment,it.annualIncome.totalIncome,theMessage.request.application.assetDetails.detailAssetLoan,loanAmount);
+
+print("reasonCode:jj::"aDeviation.reasonCode);
+if(aDeviation.reasonCode=unknown)then{tempArray.append("unknown");}
+else if(aDeviation.reasonCode="40001")then{tempArray.append("40001");aDeviation1=aDeviation;}
+else if(aDeviation.reasonCode="40002")then{tempArray.append("40002");aDeviation2=aDeviation;}
+else if(aDeviation.reasonCode="40003")then{tempArray.append("40003");aDeviation3=aDeviation;}
+}
+
+if(tempArray.contains("unknown"))then{}
+else if(tempArray.contains("40001"))then{fn_AppendDeviations(aDeviation1);}
+else if(tempArray.contains("40002"))then{fn_AppendDeviations(aDeviation2);}
+else if(tempArray.contains("40003"))then{fn_AppendDeviations(aDeviation3);}
+
+//LTV Deviations
+LogMessage("Calling LTV based rules...");
+defaultLTV is a real;
+defaultLTV=fn_TWL_LtvProcess(false);</value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='CTr6SG'>
+    <instance ref='ParameterNameVH'>
+     <value>theMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

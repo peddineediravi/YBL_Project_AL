@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_CIBIL_30016_CC_625_L1_Neg1'>
+ <ide-name>TC_CIBIL_30017_CC_575_L3_Neg</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='Hc2gqWlHfeTOxHSBcCW0bW9lJhJ'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>CIBIL Rules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='Hc2gqWlHfeTOxHSBcCW0bW9lJhJ'>
+   <name>TC_CIBIL_30017_CC_575_L3_Neg</name>
+   <body>account is some Account initially an Account.<template:br/>account.paymentHistory1="001009030029025";<template:br/>account.paymentHistory2="XXX090020020150";<template:br/>account.writtenOffAmountTotal =20000;<template:br/>account.dateOpenedOrDisbursed='11-Mar-2019';<template:br/>account.accountType="10";<template:br/>accountArr is some array of Account initially an array of Account;<template:br/>accountArr.append(account);<template:br/><template:br/>scoreseg is some ScoreSegment initially a ScoreSegment;<template:br/>scoreseg.scoreName="CIBIL";<template:br/>scoreseg.score=600;<template:br/><template:br/>scores is some array of ScoreSegment  initially an array of ScoreSegment;<template:br/>scores.append(scoreseg);<template:br/><template:br/><template:br/>cibilResponse is some CibilReport initially a CibilReport;<template:br/>cibilResponse.accounts=accountArr;<template:br/>cibilResponse.scores=scores;<template:br/><template:br/>multiBureauReport is some MultiBureauReport initially a MultiBureauReport;<template:br/>multiBureauReport.cibilResponse=cibilResponse;<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/>applicant.multiBureauReport=multiBureauReport;<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.applicants = applicantArr;<template:br/>application.applicationInfo=a ApplicationInfo;<template:br/>application.applicationInfo.dateOfReceipt='11-July-2019';<template:br/><template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>RS_CIBILRules(blazeMessage);<template:br/><template:br/>assert().checkFalse("TC_CIBIL_30017_CC_575_L3_Neg",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonCode is equal to "30017"));</body>
+  </function></template:content>
+</template>

@@ -1,0 +1,2380 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Ax09StkYX8g14wJ2pzUz1JoFdj7' name='FMA_Export_ScoreCard'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>FMA_Export_ScoreCard</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='7Lsb4J'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='FfoszD'>
+     <instance ref='CELL GROUP NAME'>
+      <value>percentageOfDownPayment</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='OfJHoY'>
+       <instance ref='value1'>
+        <value>0.0</value>
+       </instance>
+       <instance ref='value2'>
+        <value>15</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Low - 15</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>92</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Low - 15</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>percentageOfDownPayment</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Down payment rate (in %)</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Down_payment_rate__in____0_Low___15</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='JmZbcn'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='K8BrJ1'>
+     <instance ref='CELL GROUP NAME'>
+      <value>percentageOfDownPayment</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='QZIWIE'>
+       <instance ref='value1'>
+        <value>15</value>
+       </instance>
+       <instance ref='value2'>
+        <value>25</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>15 - 25</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>147</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>15-25</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>percentageOfDownPayment</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Down payment rate (in %)</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Down_payment_rate__in____1_15_25</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='Bj99bG'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='Bml6wy'>
+     <instance ref='CELL GROUP NAME'>
+      <value>percentageOfDownPayment</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='78N5Me'>
+       <instance ref='value1'>
+        <value>25</value>
+       </instance>
+       <instance ref='value2'>
+        <value>40</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>25-40</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>210</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>25-40</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>percentageOfDownPayment</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Down payment rate (in %)</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Down_payment_rate__in____2_25_40</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='KgzHnp'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='EhDSms'>
+     <instance ref='CELL GROUP NAME'>
+      <value>percentageOfDownPayment</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='Ln84dA'>
+       <instance ref='value'>
+        <value>40</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>40+</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>260</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>40+</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>percentageOfDownPayment</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Down payment rate (in %)</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Down_payment_rate__in____3_40_</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='90LOEa'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='2tZEVw'>
+     <instance ref='CELL GROUP NAME'>
+      <value>assetMake</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Z3ZeR3'>
+       <instance ref='value'>
+        <value>Others</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Others</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>54</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Others</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>assetMake</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Asset Make</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Asset_Make_0_Others</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='7R3Lk2'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='JadxS3'>
+     <instance ref='CELL GROUP NAME'>
+      <value>assetMake</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='Aph3Y9'>
+       <instance ref='value'>
+        <value>Sonalika or Eicher</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Sonalika or Eicher</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>79</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Sonalika or Eicher</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>assetMake</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Asset Make</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Asset_Make_1_Sonalika_or_Eicher</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='WLJjBa'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='8lONce'>
+     <instance ref='CELL GROUP NAME'>
+      <value>assetMake</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='15SlxW'>
+       <instance ref='value'>
+        <value>Escorts or JD</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Escorts or JD</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>113</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Escorts or JD</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>assetMake</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Asset Make</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Asset_Make_2_Escorts_or_JD</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='VeQ4F2'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='VwOExN'>
+     <instance ref='CELL GROUP NAME'>
+      <value>assetMake</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='UCKtpt'>
+       <instance ref='value'>
+        <value>Mahindra and Mahindra or TAFE or Swaraj</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Mahindra and Mahindra or TAFE or Swaraj</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>146</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Mahindra and Mahindra or TAFE or Swaraj</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>assetMake</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Asset Make</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Asset_Make_3_Mahindra_and_Mahindra_or_TAFE_or_Swaraj</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='HAIuIm'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='SfI2A7'>
+     <instance ref='CELL GROUP NAME'>
+      <value>irrigatedLandHolding</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='XZIYWQ'>
+       <instance ref='value'>
+        <value>1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value><![CDATA[Irrigate Land<1 acre]]></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>33</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value><![CDATA[Irrigate Land<1 acre]]></value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>irrigatedLandHolding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Irrigated Land Holding</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Irrigated_Land_Holding_0_Irrigate_Land_1_acre</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='ByHq53'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='5vtvAP'>
+     <instance ref='CELL GROUP NAME'>
+      <value>irrigatedLandHolding</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='1GvTHc'>
+       <instance ref='value1'>
+        <value>1</value>
+       </instance>
+       <instance ref='value2'>
+        <value>2</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Irrigate Land 1 to 2 acre</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>50</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Irrigate Land 1 to 2 acre</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>irrigatedLandHolding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Irrigated Land Holding</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Irrigated_Land_Holding_1_Irrigate_Land_1_to_2_acre</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='KJZKSC'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='6pQbr2'>
+     <instance ref='CELL GROUP NAME'>
+      <value>irrigatedLandHolding</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='S07qly'>
+       <instance ref='value1'>
+        <value>2</value>
+       </instance>
+       <instance ref='value2'>
+        <value>3</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Irrigate Land 2 to 3 acre</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>66</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Irrigate Land 2 to 3 acre</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>irrigatedLandHolding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Irrigated Land Holding</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Irrigated_Land_Holding_2_Irrigate_Land_2_to_3_acre</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='ZsGswB'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='6gGyzA'>
+     <instance ref='CELL GROUP NAME'>
+      <value>irrigatedLandHolding</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='AburPp'>
+       <instance ref='value1'>
+        <value>3</value>
+       </instance>
+       <instance ref='value2'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Irrigate Land 3 to 5acre</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>83</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Irrigate Land 3 to 5acre</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>irrigatedLandHolding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Irrigated Land Holding</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Irrigated_Land_Holding_3_Irrigate_Land_3_to_5acre</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='9qiOzQ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='JBEA2I'>
+     <instance ref='CELL GROUP NAME'>
+      <value>irrigatedLandHolding</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='LgziZK'>
+       <instance ref='value'>
+        <value>5</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Irrigate Land 5+ acre</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>99</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Irrigate Land 5+ acre</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>irrigatedLandHolding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Irrigated Land Holding</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Irrigated_Land_Holding_4_Irrigate_Land_5__acre</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='6IboRw'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='Uka9wE'>
+     <instance ref='CELL GROUP NAME'>
+      <value>age</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='R3eZ20'>
+       <instance ref='value1'>
+        <value>0.0</value>
+       </instance>
+       <instance ref='value2'>
+        <value>30</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Low-30</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>30</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Low-30</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>age</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Age</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Age_0_Low_30</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='M8q9G9'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='NdcwOd'>
+     <instance ref='CELL GROUP NAME'>
+      <value>age</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='Aj7s90'>
+       <instance ref='value1'>
+        <value>30</value>
+       </instance>
+       <instance ref='value2'>
+        <value>40</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Age Between 30-40</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>60</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Age Between 30-40</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>age</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Age</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Age_1_Age_Between_30_40</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='VsU5rp'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='Zr3Msv'>
+     <instance ref='CELL GROUP NAME'>
+      <value>age</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range' id='QB92mm'>
+       <instance ref='value1'>
+        <value>40</value>
+       </instance>
+       <instance ref='value2'>
+        <value>60</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Age Between 40-60</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>90</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Age Between 40-60</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>age</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Age</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Age_2_Age_Between_40_60</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='5fOLpf'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='Jm48Rq'>
+     <instance ref='CELL GROUP NAME'>
+      <value>age</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='DbtKKq'>
+       <instance ref='value'>
+        <value>60</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Age more than 60</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>60</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Age more than 60</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>age</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Age</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Age_3_Age_more_than_60</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='PffYlA'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='SO31rT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>assetCategory</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='KH7t3N'>
+       <instance ref='value'>
+        <value>C</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Category C</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>30</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Category C</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>assetCategory</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Asset Category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Asset_Category_0_Category_C</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='1TqlMY'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='XcTxvq'>
+     <instance ref='CELL GROUP NAME'>
+      <value>assetCategory</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='WSP9ML'>
+       <instance ref='value'>
+        <value>B</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Category B</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>60</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Category B</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>assetCategory</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Asset Category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Asset_Category_1_Category_B</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='HeYuqT'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='YiFCx1'>
+     <instance ref='CELL GROUP NAME'>
+      <value>assetCategory</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='ZhNe7h'>
+       <instance ref='value'>
+        <value>A</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Category A</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>90</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Category A</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>assetCategory</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Asset Category</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Asset_Category_2_Category_A</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='6MbipV'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='AWevU5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>isCoApplicant</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='SHWmp3'>
+       <instance ref='value'>
+        <value>false</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>NoCoApplicant</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>27</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>NoApplicant</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>isCoApplicant</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>CoApplicant</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>CoApplicant_0_NoApplicant</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='QIUQkL'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='5gjVuj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>isCoApplicant</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='FgPAtM'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>CoApplicant</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>81</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>CoApplicant</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>isCoApplicant</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>CoApplicant</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>CoApplicant_1_CoApplicant</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='RCfVjY'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='5RuVcg'>
+     <instance ref='CELL GROUP NAME'>
+      <value>yearsatResidence</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='1Fn6o0'>
+       <instance ref='value'>
+        <value>-1</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Rented</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>21</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Rented</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>yearsatResidence</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Residence type and years at residence</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Residence_type_and_years_at_residence_0_Rented</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='SHiNNQ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='U5c5fQ'>
+     <instance ref='CELL GROUP NAME'>
+      <value>yearsatResidence</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='IIAsF1'>
+       <instance ref='value1'>
+        <value>0</value>
+       </instance>
+       <instance ref='value2'>
+        <value>24</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Self Owned/Parental - residing for less than 2 years</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>37</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Self Owned/Parental - residing for less than 2 years</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>yearsatResidence</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Residence type and years at residence</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Residence_type_and_years_at_residence_1_Self_Owned_Parental___residing_for_less_than_2_years</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='VPWLdr'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='WRwRRf'>
+     <instance ref='CELL GROUP NAME'>
+      <value>yearsatResidence</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range' id='6B0Jsu'>
+       <instance ref='value1'>
+        <value>24</value>
+       </instance>
+       <instance ref='value2'>
+        <value>60</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Self Owned/Parental - residing for less than 2-5 years</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>53</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Self Owned/Parental - residing for less than 2-5 years</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>yearsatResidence</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Residence type and years at residence</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Residence_type_and_years_at_residence_2_Self_Owned_Parental___residing_for_less_than_2_5_years</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='YjX7PR'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='L9AmXl'>
+     <instance ref='CELL GROUP NAME'>
+      <value>yearsatResidence</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than' id='T9tKsK'>
+       <instance ref='value'>
+        <value>60</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Self Owned/Parental - residing for more  than 5 +years</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>65</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Self Owned/Parental - residing for more  than 5 +years</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>yearsatResidence</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Residence type and years at residence</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Residence_type_and_years_at_residence_3_Self_Owned_Parental___residing_for_more__than_5__years</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='6YJnGO'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='4ASy79'>
+     <instance ref='CELL GROUP NAME'>
+      <value>preOwnCmmercialVehicle</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='1aRgVG'>
+       <instance ref='value'>
+        <value>Non-Others</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Non-Others</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>15</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Non-Others</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>preOwnCmmercialVehicle</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pre-Own Cmmercial Vehicle</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pre_Own_Cmmercial_Vehicle_0_Non_Others</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='4Hbd9p'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='Ba55HE'>
+     <instance ref='CELL GROUP NAME'>
+      <value>preOwnCmmercialVehicle</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='9vTYVW'>
+       <instance ref='value'>
+        <value>Commercial Vehicle</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Commercial Vehicle</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>30</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Commercial Vehicle</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>preOwnCmmercialVehicle</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pre-Own Cmmercial Vehicle</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pre_Own_Cmmercial_Vehicle_1_Commercial_Vehicle</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='6Mfew8'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='IyylcU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>preOwnCmmercialVehicle</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to' id='HfiUgh'>
+       <instance ref='value'>
+        <value>Tractor</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>Tractor</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>45</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>Tractor</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>preOwnCmmercialVehicle</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pre-Own Cmmercial Vehicle</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Pre_Own_Cmmercial_Vehicle_2_Tractor</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='Z9Er3i'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='glNrpY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>anyotherNonAgriIncome</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than' id='DLwq4t'>
+       <instance ref='value'>
+        <value>50000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>less than 50K</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>15</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>less than 50K</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>anyotherNonAgriIncome</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Non agri income - cattle/ asset/ shop/ any other non agri incomeanyotherNonAgriIncome</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Non_agri_income___cattle__asset__shop__any_other_non_agri_incomeanyotherNonAgriIncome_0_less_than_50K</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='ZGF3Yx'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='ZXPP6j'>
+     <instance ref='CELL GROUP NAME'>
+      <value>anyotherNonAgriIncome</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range' id='O5pikf'>
+       <instance ref='value1'>
+        <value>50000</value>
+       </instance>
+       <instance ref='value2'>
+        <value>100000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>50k-100k</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>30</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>50k-100k</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>anyotherNonAgriIncome</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Non agri income - cattle/ asset/ shop/ any other non agri incomeanyotherNonAgriIncome</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Non_agri_income___cattle__asset__shop__any_other_non_agri_incomeanyotherNonAgriIncome_1_50k_100k</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_MetaphorRuleTemplate' id='YHKS6P'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Template' id='AFGybU'>
+     <instance ref='CELL GROUP NAME'>
+      <value>anyotherNonAgriIncome</value>
+     </instance>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to' id='KKawwA'>
+       <instance ref='value'>
+        <value>100000</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='__ND_BindingDescriptionVH'>
+      <value>100k+</value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>45</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>100K+</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>false</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>anyotherNonAgriIncome</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Non agri income - cattle/ asset/ shop/ any other non agri incomeanyotherNonAgriIncome</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>Non_agri_income___cattle__asset__shop__any_other_non_agri_incomeanyotherNonAgriIncome_2_100K_</value>
+   </instance>
+   <instance ref='__ND_MetaphorRuleCreatedVH'>
+    <value></value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance-list ref='__ND_ScoredCharacteristicInitializersVH'>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_ScoredCharacteristicInitializerTemplate' id='ZXfuDT'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>92</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>260.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>92.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>percentageOfDownPayment</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Down payment rate (in %)</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_ScoredCharacteristicInitializerTemplate' id='HGtyT7'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>54</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>146.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>54.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>assetMake</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Asset Make</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_ScoredCharacteristicInitializerTemplate' id='ERu7lr'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>33</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>99.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>33.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>irrigatedLandHolding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Irrigated Land Holding</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_ScoredCharacteristicInitializerTemplate' id='JJ5JHs'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>30</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>90.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>30.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>age</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Age</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_ScoredCharacteristicInitializerTemplate' id='DPkF3A'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>30</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>90.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>30.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>assetCategory</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Asset Category</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_ScoredCharacteristicInitializerTemplate' id='cZPffs'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>27</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>81.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>27.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>isCoApplicant</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>CoApplicant</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_ScoredCharacteristicInitializerTemplate' id='CJ5MCb'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>21</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>65.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>21.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>yearsatResidence</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Residence type and years at residence</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_ScoredCharacteristicInitializerTemplate' id='JNnD0J'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>15</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>45.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>15.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>preOwnCmmercialVehicle</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Pre-Own Cmmercial Vehicle</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+  <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.__ND_ScoredCharacteristicInitializerTemplate' id='IaYZB1'>
+   <instance ref='__ND_PartialScoreVH'>
+    <value>15</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNumberVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_BaselineScoreVH'>
+    <value>0</value>
+   </instance>
+   <instance ref='__ND_MaxBinScoreVH'>
+    <value>45.0</value>
+   </instance>
+   <instance ref='__ND_MinBinScoreVH'>
+    <value>15.0</value>
+   </instance>
+   <instance ref='__ND_ReasonCodeVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_ReasonCodeMessageVH'>
+    <value></value>
+   </instance>
+   <instance ref='__ND_BinLabelVH'>
+    <value>All Other</value>
+   </instance>
+   <instance ref='__ND_UnexpectedVH'>
+    <value>true</value>
+   </instance>
+   <instance ref='__ND_CharacteristicNameVH'>
+    <value>anyotherNonAgriIncome</value>
+   </instance>
+   <instance ref='__ND_CharacteristicLabelVH'>
+    <value>Non agri income - cattle/ asset/ shop/ any other non agri incomeanyotherNonAgriIncome</value>
+   </instance>
+   <instance ref='__ND_CharacteristicDescriptionVH'>
+    <value></value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='__ND_ScoredCharacteristicCountVH'>
+  <value>9</value>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Group Info Template' id='DiIxoZ'>
+    <instance ref='name'>
+     <value>percentageOfDownPayment</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Down payment rate (in %)</value>
+    </instance>
+    <instance ref='property'>
+     <value>percentageOfDownPayment</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+   <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Group Info Template' id='CI3IOO'>
+    <instance ref='name'>
+     <value>assetMake</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Asset Make</value>
+    </instance>
+    <instance ref='property'>
+     <value>assetMake</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Group Info Template' id='A8lnIO'>
+    <instance ref='name'>
+     <value>irrigatedLandHolding</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Irrigated Land Holding</value>
+    </instance>
+    <instance ref='property'>
+     <value>irrigatedLandHolding</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+   <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Group Info Template' id='2tfsoA'>
+    <instance ref='name'>
+     <value>age</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Age</value>
+    </instance>
+    <instance ref='property'>
+     <value>age</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+   <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Group Info Template' id='Y252Ri'>
+    <instance ref='name'>
+     <value>assetCategory</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Asset Category</value>
+    </instance>
+    <instance ref='property'>
+     <value>assetCategory</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Group Info Template' id='AbT1IJ'>
+    <instance ref='name'>
+     <value>isCoApplicant</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>CoApplicant</value>
+    </instance>
+    <instance ref='property'>
+     <value>isCoApplicant</value>
+    </instance>
+    <instance ref='type'>
+     <value>boolean</value>
+    </instance>
+   </item>
+   <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Group Info Template' id='RFRdrk'>
+    <instance ref='name'>
+     <value>yearsatResidence</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Residence type and years at residence</value>
+    </instance>
+    <instance ref='property'>
+     <value>yearsatResidence</value>
+    </instance>
+    <instance ref='type'>
+     <value>integer</value>
+    </instance>
+   </item>
+   <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Group Info Template' id='oAwrQi'>
+    <instance ref='name'>
+     <value>preOwnCmmercialVehicle</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Pre-Own Cmmercial Vehicle</value>
+    </instance>
+    <instance ref='property'>
+     <value>preOwnCmmercialVehicle</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='Ax09StkYX8g14wJ2pzUz1JoFdj7.Cell Group Info Template' id='Z4CYj5'>
+    <instance ref='name'>
+     <value>anyotherNonAgriIncome</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Non agri income - cattle/ asset/ shop/ any other non agri incomeanyotherNonAgriIncome</value>
+    </instance>
+    <instance ref='property'>
+     <value>anyotherNonAgriIncome</value>
+    </instance>
+    <instance ref='type'>
+     <value>real</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='editingInfo'>
+ </instance>
+</instantiation>

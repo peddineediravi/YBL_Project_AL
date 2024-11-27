@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_CIBIL_30023_Loan_725_1to30_DPD_L3_Pos1'>
+ <ide-name>TC_CIBIL_30024_Loan_675_1to30_DPD_L2_Pos</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='3Lv0jB2GNaB3UWPk4qLPfPa7vIc'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>CIBIL Rules</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='3Lv0jB2GNaB3UWPk4qLPfPa7vIc'>
+   <name>TC_CIBIL_30024_Loan_675_1to30_DPD_L2_Pos</name>
+   <body>account is some Account initially an Account.<template:br/>account.paymentHistory1="000020";<template:br/>account.paymentHistory2="000000";<template:br/>account.amountOverdue =9000;<template:br/>account.accountType="02";<template:br/>accountArr is some array of Account initially an array of Account;<template:br/>accountArr.append(account);<template:br/><template:br/>scoreseg is some ScoreSegment initially a ScoreSegment;<template:br/>scoreseg.scoreName="CIBIL";<template:br/>scoreseg.score=700;<template:br/><template:br/>scores is some array of ScoreSegment  initially an array of ScoreSegment;<template:br/>scores.append(scoreseg);<template:br/><template:br/><template:br/>cibilResponse is some CibilReport initially a CibilReport;<template:br/>cibilResponse.accounts=accountArr;<template:br/>cibilResponse.scores=scores;<template:br/><template:br/>multiBureauReport is some MultiBureauReport initially a MultiBureauReport;<template:br/>multiBureauReport.cibilResponse=cibilResponse;<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/>applicant.multiBureauReport=multiBureauReport;<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.applicants = applicantArr;<template:br/>application.applicationInfo=a ApplicationInfo;<template:br/><template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>RS_CIBILRules(blazeMessage);<template:br/><template:br/>assert().checkTrue("TC_CIBIL_30024_Loan_675_1to30_DPD_L2_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonCode is equal to "30024" and it.overrideLevel = "L2"));<template:br/>assert().checkTrue("TC_CIBIL_30024_Loan_675_1to30_DPD_L2_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.decisionResult is equal to "DEVIATION"));<template:br/>assert().checkTrue("TC_CIBIL_30024_Loan_675_1to30_DPD_L2_Pos",at least 1 Deviation in blazeMessage.response.applicationDecision.deviations satisfy(it.reasonText is equal to "Loan Account matches for score above 675 or below 725 and 1 to 30 DPD with approval level 2"));</body>
+  </function></template:content>
+</template>

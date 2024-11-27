@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_FMA_income_DT_calculations'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_FMA_income_DT_calculations</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[emiobligation is an integer initially 0;
+PMT is a real initially 0;
+value1 is a real initially 0;
+value2 is a real initially 0;
+value3 is a real initially 0;
+value4 is a real initially 0;
+numberofinstalments is a real initially 0;
+rateofintrest is a real initially 0;
+incomebasedeligibilityAmount is a real initially 0;
+anApplicant is some Applicant;
+anIncome is some farmIncome;
+anIncome1 is some Income;
+emiAmount is a real initially 0;
+Newhaulage is a real initially 0;
+Usedhaulage is a real initially 0;
+Harvestorhaulage is a real initially 0;
+Haluageincome is a real initially 0;
+Farmerincome is a real initially 0;
+temptotalincome is a real initially 0;
+temptotalincome1 is a real initially 0;
+No_acresC is an real initially 0;
+rainfedC is a real initially 0;
+No_acres is an real initially 0;
+rainfed is a real initially 0;
+landvalue_amount is a real initially 0;
+Frequencies is an integer initially 0;
+irrigatedland is a real initially 0;
+Rainfedland is a real initially 0;
+FreqlandAmount is a real initially 0;
+
+for each Applicant in blazeMessage.request.application.applicants do{
+  anApplicant = it;
+if( it.applicantType="P" )then{
+              if(it.noOfAcres is (known and available) )then{
+                print("acres=="it.noOfAcres);
+					No_acres=No_acres+it.noOfAcres;
+              }
+  				if( it.rainFedLandHolding is (known and available))then{
+ 					rainfed=rainfed+it.rainFedLandHolding;      
+  					}
+    		}
+  			if( it.applicantType<>"P")then{
+         			if(it.noOfAcres is (known and available) )then{
+					No_acresC=No_acresC+it.noOfAcres;
+                    }
+                      if( it.rainFedLandHolding is (known and available))then{
+ 				 				rainfedC=rainfedC+it.rainFedLandHolding;
+                      }
+ 			 }
+}
+print("rainfedC=="rainfedC   "rainfed=="rainfed "No_acresC=="No_acresC "No_acres=="No_acres);
+
+if(blazeMessage.request.application.applicants.count>1)then{
+ // landvalue_amount=(No_acres*40000+No_acresC*40000+rainfed*20000+rainfedC*20000);
+    landvalue_amount=(No_acres*40000+No_acresC*50000+rainfed*25000+rainfedC*25000);
+  
+  irrigatedland=No_acres+No_acresC;
+   Rainfedland=rainfed+rainfedC;
+}else{
+ // landvalue_amount=(No_acres*40000+rainfed*20000);
+    landvalue_amount=(No_acres*50000+rainfed*25000);
+  irrigatedland=No_acres;
+Rainfedland=rainfed;
+}
+print("  landvalue_amount=="  landvalue_amount);
+print("irrigatedland==="irrigatedland);
+print("Rainfedland==="Rainfedland);
+
+if(blazeMessage.request is known and blazeMessage.request.application is known and blazeMessage.request.application.applicants is known and blazeMessage.request.application.applicants.count >0)then{
+  		for each Applicant in blazeMessage.request.application.applicants  do  {
+       	 anApplicant=it;  
+      		 if( anApplicant.farmincomes is known and anApplicant.farmincomes.count > 0) then {
+   	 			  for each farmIncome in anApplicant.farmincomes such that(it.head is known and it.netIncome is known ) do {
+        				anIncome=it;
+			if(anIncome.head = "INFRGRCR" and anIncome.frequency is known ) then //Dairy 
+            	  Frequencies=Frequencies+ portable().toInteger(anIncome.frequency);
+            if(anIncome.head = "D") then //Dairy 
+                  temptotalincome+=anIncome.netIncome;
+			else if(anIncome.head = "TRA4") then //Tractor - Upto 4 Years old
+                  temptotalincome+=anIncome.netIncome;
+           else if(anIncome.head = "TRA8") then //Tractor - 4 Years to 8 Years Old
+                  temptotalincome+=anIncome.netIncome;       
+           else if(anIncome.head = "TRA20") then //Tractor - 8 Years to 20 Years
+                  temptotalincome+=anIncome.netIncome;
+             else if(anIncome.head = "CH") then //Combine Harvester
+                  temptotalincome+=anIncome.netIncome;       
+           else if(anIncome.head = "TMH") then //Tractor mounted harvester â€“ Track Type
+                  temptotalincome+=anIncome.netIncome;
+           else if(anIncome.head = "TMHW") then //Tractor mounted harvester â€“ Wheel Type
+                  temptotalincome+=anIncome.netIncome;
+            else if(anIncome.head = "SH") then //Sugarcane Harvester
+                  temptotalincome+=anIncome.netIncome;
+             else if(anIncome.head = "P") then //Poultry - Broiler (000 Chicks)
+                  temptotalincome+=anIncome.netIncome;
+              else if(anIncome.head = "LS") then //TLarge shop- like Kirana shops/ restaurant etc 
+                  temptotalincome+=anIncome.netIncome;      
+           else if(anIncome.head = "SS") then //Small Shops- Small Tea / Pan / Eatables / Service / Repair shops / Flour mill
+                  temptotalincome+=anIncome.netIncome;
+            else if(anIncome.head = "SCV3") then //Small commercial vehicle (Three wheeler)
+                  temptotalincome+=anIncome.netIncome;       
+           else if(anIncome.head = "SCV4") then //Small commercial vehicle (Four wheeler)
+                  temptotalincome+=anIncome.netIncome;
+           else if(anIncome.head = "JCB") then //JCB
+                  temptotalincome+=anIncome.netIncome;
+      }
+                Farmerincome=temptotalincome;
+    }
+}
+}
+
+print("Frequencies==="Frequencies);
+print("Farmerincome_farmer=="Farmerincome);
+if(blazeMessage.request is known and blazeMessage.request.application is known and blazeMessage.request.application.applicants is known and blazeMessage.request.application.applicants.count >0)then{
+  		for each Applicant in blazeMessage.request.application.applicants  do  {
+            anApplicant=it;  
+        if( anApplicant.incomes is known and anApplicant.incomes.count > 0) then  {
+   	   for each Income in anApplicant.incomes such that(it.netIncome is known) do  {
+        	anIncome1=it;   
+         if(anIncome1.head = "01") then //salaried 
+                  temptotalincome1+=anIncome1.netIncome;
+        	else if(anIncome1.head = "03") then //salaried
+                  temptotalincome1+=anIncome1.netIncome;
+           else if(anIncome1.head = "111") then //salaried
+                  temptotalincome1+=anIncome1.netIncome;       
+           else if(anIncome1.head = "112") then //salaried
+                  temptotalincome1+=anIncome1.netIncome;
+            else if(anIncome1.head = "37") then //rental income
+                  temptotalincome1+=anIncome1.netIncome;
+            else if(anIncome1.head = "130") then //pension income
+                  temptotalincome1+=anIncome1.netIncome;
+              else if(anIncome1.head = "113") then //Income as per Latest ITR
+                  temptotalincome1+=anIncome1.netIncome;
+           else if(anIncome1.head = "119") then //agriculture
+                  temptotalincome1+=anIncome1.netIncome;
+           else if(anIncome1.head = "IRRIGATE") then //IRRIGATE
+                  temptotalincome1+=anIncome1.netIncome;
+           else if(anIncome1.head = "UNIRRIGA") then //agriculture
+                  temptotalincome1+=anIncome1.netIncome;
+		  else if(anIncome1.head = "GROSS") then //GROSS
+                  temptotalincome1+=anIncome1.netIncome;
+		  else if(anIncome1.head = "NET_SAL") then //NET
+                  temptotalincome1+=anIncome1.netIncome;
+		   else if(anIncome1.head = "NET_PRFT") then //NET_PRFT
+                  temptotalincome1+=anIncome1.netIncome;
+		  else if(anIncome1.head = "IN_BS_PR") then //IN_BS_PR
+                  temptotalincome1+=anIncome1.netIncome;
+		  else if(anIncome1.head = "INC_OTHRSRC") then //INC_OTHRSRC
+                  temptotalincome1+=anIncome1.netIncome;
+       }
+        }  
+   }
+}
+
+  print("temptotalincome1=="temptotalincome1);
+    
+//FreqlandAmount=(irrigatedland-Frequencies)*40000+Rainfedland*20000+Frequencies*100000;
+FreqlandAmount=(irrigatedland-Frequencies)*50000+Rainfedland*25000+Frequencies*100000;
+print("FreqlandAmount==="FreqlandAmount);
+if(Frequencies=0)then{
+ Farmerincome=temptotalincome+temptotalincome1+landvalue_amount;
+} else {
+Farmerincome=temptotalincome+temptotalincome1+FreqlandAmount;
+}
+	
+
+print("Farmerincome_farmer_incomes_all=="Farmerincome);
+///Haluage income calulation
+if(blazeMessage.request.application.scheme=("125" or "128" or "130"))then{
+  Newhaulage=DT_HaulageIncomeGridForNewTractor(blazeMessage);
+  	if(Newhaulage is(known and available))then{
+   		 Newhaulage=Newhaulage;
+ 	 }else{Newhaulage=0;}
+	  Haluageincome=Newhaulage;
+}
+if(blazeMessage.request.application.scheme=("364" or "365"))then{
+  Usedhaulage=DT_HaulageIncomeGridForUsedTractor(blazeMessage);
+  if(Usedhaulage is (known and available))then{Usedhaulage=Usedhaulage}
+  else{Usedhaulage=0;}
+  Haluageincome=Usedhaulage;
+}
+if(blazeMessage.request.application.scheme=("126"))then{
+  Harvestorhaulage=DT_halugeIncomeforHarvestor(blazeMessage);
+  if(Harvestorhaulage is (known and available))then{
+    Harvestorhaulage=Harvestorhaulage;
+  }else {    Harvestorhaulage=0;        }
+  Haluageincome=Harvestorhaulage;
+}
+if(blazeMessage.request.application.scheme=("567" or "568" or "593" or "594"))then{
+ if(blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost is (known and available) )then{
+   blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost=blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost;
+ }else {
+   blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost=0;
+ }
+  if(blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice is (known and available) )then{
+   blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice=blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice;
+ }else {
+   blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice=0;
+ }
+  Haluageincome=math().min(blazeMessage.request.application.assetDetails.newVehicleDetails.netDealerPrice, blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost);
+Haluageincome=0.2*Haluageincome;
+}
+
+
+//Emi amount obligations
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants do{
+anApplicant = it;
+  if(anApplicant.liabilities  is known ) then {  
+        for each Liability in anApplicant.liabilities do {
+       if(   it.considerForObligations is known and it.considerForObligations=true)then{
+         if(it.noOfEMIsforObligation is (known and available))then{
+            if(it.noOfEMIsforObligation>=12)then{ emiobligation=12;}
+           else { emiobligation=it.noOfEMIsforObligation;}
+           print("===emiobligation==="emiobligation);
+               emiAmount=emiAmount+it.EMIAmount*emiobligation;
+       }
+       }
+        }
+  }
+}
+ print("LiabilityemiAmount=="emiAmount);
+
+if( blazeMessage.request.application.scheme<>("567" and "568" and "593" and "594") and blazeMessage.request.application.loanDetails.assesmentMethod is equal to ("FOUR WDT" or "REPEAT"))then{
+Haluageincome=Haluageincome+0.15*Haluageincome;
+}
+if( blazeMessage.request.application.scheme<>("567" and "568" and "593" and "594") and blazeMessage.request.application.loanDetails.assesmentMethod is equal to ("19071133"))then{
+Haluageincome=Haluageincome+0.3*Haluageincome;
+}
+else {
+  Haluageincome=Haluageincome;
+}
+print("Haluageincome==="Haluageincome);
+  theFMABT.FarmerNetIncome=Farmerincome+Haluageincome-(emiAmount);
+print("theFMABT.FarmerNetIncome=="theFMABT.FarmerNetIncome);
+
+
+if(blazeMessage.request.application.loanDetails.requestedFrequency="M")then{
+numberofinstalments=12;
+}else if(blazeMessage.request.application.loanDetails.requestedFrequency="Q")then{
+numberofinstalments=4;
+  }else if(blazeMessage.request.application.loanDetails.requestedFrequency="H")then{
+numberofinstalments=2;
+}else if(blazeMessage.request.application.loanDetails.requestedFrequency="A")then{
+numberofinstalments=1;
+}else if(blazeMessage.request.application.loanDetails.requestedFrequency="B")then{
+numberofinstalments=24;
+}
+print("numberofinstalmentsin a year=="numberofinstalments);
+
+rateofintrest=(blazeMessage.request.application.loanDetails.effectiveRate/numberofinstalments);
+print("rateofintrest in a year is =="rateofintrest);
+
+PMT=(theFMABT.FarmerNetIncome/(theFMABT.allowedNFCF*numberofinstalments));
+print("PMT=="PMT);
+print("numbofinstallment=="blazeMessage.request.application.loanDetails.numberOfInstallments);
+rateofintrest=rateofintrest/100;
+
+value1=math().power((1+rateofintrest),blazeMessage.request.application.loanDetails.numberOfInstallments);
+value2=1/value1;
+value3=1-value2;
+value4=value3/rateofintrest;
+
+print("value1==="value1);
+print("value2==="value2);
+print("value3==="value3);
+print("value4==="value4);
+print("incomebasedeligibilityAmount=="incomebasedeligibilityAmount);
+incomebasedeligibilityAmount=PMT*value4;
+if(incomebasedeligibilityAmount is (known and available))then{
+theFMABT.FMAIncomeEligibility=incomebasedeligibilityAmount;
+}else{
+  theFMABT.FMAIncomeEligibility=0;
+}
+print("incomebasedeligibilityAmount=="incomebasedeligibilityAmount);
+
+theFMABT.ActualNFCF=theFMABT.FarmerNetIncome/(blazeMessage.request.application.loanDetails.loanEMI*numberofinstalments);
+
+print("theFMABT.ActualNFCF=="theFMABT.ActualNFCF);
+fn_AppendActionMessage("Actual NFCF value is:"theFMABT.ActualNFCF);]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='RtFxLA'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

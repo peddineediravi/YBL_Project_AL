@@ -1,0 +1,939 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='8HqehDhBEkQUVjepmUe9XuXfjlc' name='DT_CareProfileCheck'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+ </instance>
+ <instance ref='rulesetName'>
+  <value>DT_CareProfileCheck</value>
+ </instance>
+ <instance-list ref='cases'>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='BJ95FU'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='Szp5Rt'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='S7iGTY'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='VzdwG0'>
+         <value>200- BUILDERS</value>
+        </item>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='32UMNh'>
+         <value>201- CIVIL/LABOUR/GOVERNMENT CONTRACTORS</value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='Hx320G'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='DEMBII'>
+       <instance ref='value'>
+        <value>Builders/Construction Companies, Civil / Labour / Government Contractors.</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='JJBbsv'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='EJgTKT'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>1</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:20 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='TEi5or'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='8557pL'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='X0l5Pm'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='Bx4YFY'>
+         <value><![CDATA[202-SMALL EXPORTERS(TURNOVER < 25 LAKHS) OF GARMENTS / LEATHER / GRANITE / CHEMICAL / MARINE PRODUCTS ETC]]></value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='WV96Yj'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='oWH47c'>
+       <instance ref='value'>
+        <value><![CDATA[Small exporters (Turnover < 25 lacs) of garments / leather / granite / chemical / marine products, )]]></value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='68wTo5'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='WK0m3R'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule12</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:20 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='OYvB6I'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='4CWJVe'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='CAqnzW'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='I2oI8b'>
+         <value>10037- MEDIA FILM TELEVISION</value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='SOuFmd'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='WOeLpq'>
+       <instance ref='value'>
+        <value>Media Companies / Entertainment Agencies / Event Management Firms</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='TLUHzn'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='JXcTgY'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule13</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>3</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:21 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='SKEE39'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='VnL2OI'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='PbBhVe'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='5pmatN'>
+         <value>207- INSURANCE AGENTS</value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='3XgNWE'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='TjGdgw'>
+       <instance ref='value'>
+        <value>Insurance Agents</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='O6XdNF'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='RvtROD'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule14</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>4</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:26 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='QAhpnT'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='QWpKi9'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='GO1QFo'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='4W5luG'>
+         <value>10026- AUTOMOBILE DEALER AUTO SPARE PART DEALER</value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='7wNu7u'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='AnmARJ'>
+       <instance ref='value'>
+        <value>Auto Spare Part Dealers</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='FW3yZY'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='9oBRfh'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule15</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>5</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:26 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='OcoIHZ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='2iYOAT'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='ZwgVck'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='VtPNgn'>
+         <value>10064- COURIER AGENCIES</value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='UbYchV'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='Ts1Z1L'>
+       <instance ref='value'>
+        <value>Small Proprietary Courier Companies</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='LHdCGe'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='L3wghl'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule17</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>6</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:28 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='GntVQ4'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='Toyrnx'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='391VpT'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='IBD60z'>
+         <value>10036- LIQUOR WINE SHOP</value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='OQpENp'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='DM1O9z'>
+       <instance ref='value'>
+        <value>Wine shop owners</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='a5FrE8'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='UnvfqC'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule19</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>7</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:29 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='HEsJYE'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='CdaBLf'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='JOm9Gf'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='4UDn9V'>
+         <value>213- NON PROFESSIONAL CONSULTANTS</value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='WHltMb'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='1XBhiq'>
+       <instance ref='value'>
+        <value>Non Professional Consultants</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='9Xvvxs'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='9nc2wd'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule110</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>8</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:30 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='QRNgtZ'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='hH7x74'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='4vICeJ'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='Lku60s'>
+         <value><![CDATA[215- EMPLOYEES OF BPO’S / KPO’S < 25 YRS]]></value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='BGSsMM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='Z16LqG'>
+       <instance ref='value'>
+        <value><![CDATA[Employees of BPO’s / KPO’s < 25 yrs]]></value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='LG0A4Z'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='8cDa6G'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule112</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>9</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:31 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='7fbb8G'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='C38KGV'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='aI91zk'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='MPaPDX'>
+         <value>49- COMMISSION AGENTS</value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='Uivx8C'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='5ojRUe'>
+       <instance ref='value'>
+        <value>Transporters and Commission Agents</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='ZVcTaR'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='Sqprak'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule113</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>10</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>May 21, 2019 2:31 PM</value>
+   </instance>
+  </item>
+  <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Decision Table Case Template' id='ZufsEq'>
+   <instance ref='__ENTITY_PROPERTIES__VH__'>
+   </instance>
+   <instance-list ref='condition cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='Ucl9nr'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Is one of' id='E9PxEy'>
+       <instance-list ref='value'>
+        <item template='84y4CYUGo7fJ177vEBCqYvUwDJo' id='Fd6wNx'>
+         <value>10022- REAL ESTATE</value>
+        </item>
+       </instance-list>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='XGSvoM'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Condition2</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template1' id='3D46lG'>
+       <instance ref='value'>
+        <value>Real Estate Agents</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance-list ref='action cells'>
+    <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Template' id='PWv0Gt'>
+     <instance ref='CELL GROUP NAME'>
+      <value>Action1</value>
+     </instance>
+     <instance-selection ref='binding'>
+      <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.template4' id='QcmikK'>
+       <instance ref='value'>
+        <value>true</value>
+       </instance>
+      </item>
+     </instance-selection>
+     <instance ref='type'>
+      <value></value>
+     </instance>
+     <instance ref='property'>
+      <value></value>
+     </instance>
+    </item>
+   </instance-list>
+   <instance ref='__ND_MetaphorRuleNameVH'>
+    <value>careprofileRule115</value>
+   </instance>
+   <instance ref='__ND_DecTableCellRowVH'>
+    <value>11</value>
+   </instance>
+   <instance ref='__ND_DecTableCellColumnVH'>
+    <value>2</value>
+   </instance>
+   <instance ref='__ND_DecTableCellCreatedVH'>
+    <value>Jun 20, 2019 10:05 AM</value>
+   </instance>
+  </item>
+ </instance-list>
+ <instance ref='editingInfo'>
+  <instance ref='rowCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='colCondValueCount'>
+   <value>0</value>
+  </instance>
+  <instance ref='isNewInstance'>
+   <value>false</value>
+  </instance>
+ </instance>
+ <instance ref='casesInfo'>
+  <instance-list ref='condition cells'>
+   <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Group Info Template' id='GKGX4H'>
+    <instance ref='name'>
+     <value>Condition1</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Industry</value>
+    </instance>
+    <instance ref='property'>
+     <value>industry</value>
+    </instance>
+    <instance ref='type'>
+     <value>string</value>
+    </instance>
+   </item>
+   <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Group Info Template' id='DkXCWz'>
+    <instance ref='name'>
+     <value>Condition2</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Category</value>
+    </instance>
+    <instance ref='property'>
+     <value></value>
+    </instance>
+    <instance ref='type'>
+     <value></value>
+    </instance>
+   </item>
+  </instance-list>
+  <instance-list ref='action cells'>
+   <item template='8HqehDhBEkQUVjepmUe9XuXfjlc.Cell Group Info Template' id='JSdO6D'>
+    <instance ref='name'>
+     <value>Action1</value>
+    </instance>
+    <instance ref='displayName'>
+     <value>Is Care</value>
+    </instance>
+    <instance ref='property'>
+     <value></value>
+    </instance>
+    <instance ref='type'>
+     <value>boolean</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

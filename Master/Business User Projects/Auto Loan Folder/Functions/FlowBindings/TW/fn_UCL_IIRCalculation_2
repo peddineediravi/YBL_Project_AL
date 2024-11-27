@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_TW_IIRCalculation'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_TW_IIRCalculation</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[firstMinimumIncomeMeetingApplicant is some Applicant;
+secondMinimumIncomeMeetingApplicant is some Applicant;
+anApplicant is some Applicant;
+primarytotalIncome is a real initially 0;
+primarytotalObligation is a real initially 0;
+CototalIncome is a real initially 0;
+CototalObligation is a real initially 0;
+maxtotalIncome is a real initially 0;
+totalObligation  is a real initially 0;
+foir is a real initially 0;
+anDeviation is some Deviation initially an Deviation;
+applicantResidentPropertyType is a string;
+anApplication is some Application initially blazeMessage.request.application;
+assetDetails is some AssetDetails initially anApplication.assetDetails;
+aAssetCost is a real initially blazeMessage.request.application.assetDetails.usedVehicleDetails.assetCost;
+
+isTWPrimaryApplicantMeetsMinimumNorms is a boolean initially false;
+isTWCoApplicantMeetsMinimumNorms is a boolean initially false;
+     
+    for each Applicant in blazeMessage.request.application.applicants  do {    
+    anApplicant=it;
+      if(it.applicantType="P")then{
+ 		if(isTWPrimaryApplicantMeetsMinimumNorms is available and isTWPrimaryApplicantMeetsMinimumNorms = false) then {  
+			print("in side for loop" isTWPrimaryApplicantMeetsMinimumNorms);
+  			anDeviation =   DT_TwoWheeler_minimum_income_Norms(anApplication.schemeGroup,anApplication.scheme,it.customerSegment,it.annualIncome.totalIncome,blazeMessage.request.application.assetDetails.detailAssetLoan,aAssetCost,blazeMessage.request.application.loanDetails.loanAmount);
+			if(anDeviation.reasonCode is known )then{
+				print("inside anDeviation"anDeviation.reasonCode);
+				firstMinimumIncomeMeetingApplicant=it; 
+				
+				isTWPrimaryApplicantMeetsMinimumNorms = true;
+				 }
+				  print("secondMinimumIncomeMeetingApplicant  ===="firstMinimumIncomeMeetingApplicant.applicantType);
+				 if(it.annualIncome is known and  it.annualIncome.incomeBasedEligbileAmount is known)then{
+					primarytotalIncome=primarytotalIncome+it.annualIncome.totalIncome;					
+                  	primarytotalObligation = primarytotalObligation+it.annualIncome.totalObligation;
+					print("primarytotalIncome"primarytotalIncome"primarytotalObligation"primarytotalObligation);
+				 }
+            }
+				 }if(it.applicantType<>"P")then {
+					 if(isTWCoApplicantMeetsMinimumNorms is available and isTWCoApplicantMeetsMinimumNorms = false) then {  
+				print("in side else for co app " isTWCoApplicantMeetsMinimumNorms);
+  				  	anDeviation =   DT_TwoWheeler_minimum_income_Norms(anApplication.schemeGroup,anApplication.scheme,it.customerSegment,it.annualIncome.totalIncome,blazeMessage.request.application.assetDetails.detailAssetLoan,aAssetCost,blazeMessage.request.application.loanDetails.loanAmount);
+				 if(anDeviation.reasonCode is known)then{
+					 print("inside anDeviation"anDeviation.reasonCode);
+				 secondMinimumIncomeMeetingApplicant=it; 
+				 isTWCoApplicantMeetsMinimumNorms = true;
+				 }
+				 print("secondMinimumIncomeMeetingApplicant  ===="secondMinimumIncomeMeetingApplicant.applicantType);
+				  if(it.annualIncome is known and  it.annualIncome.incomeBasedEligbileAmount is known)then{
+					CototalIncome=CototalIncome+it.annualIncome.totalIncome;					
+                  	CototalObligation = CototalObligation+it.annualIncome.totalObligation;
+					print("CototalIncome else"CototalIncome"CototalObligation"CototalObligation);
+				 }
+					 
+					 
+				 }//isTWCoApplicantMeetsMinimumNorms flase
+		}//else for applicant type checks
+	
+	}	
+print("isTWPrimaryApplicantMeetsMinimumNorms"isTWPrimaryApplicantMeetsMinimumNorms);
+print("isTWCoApplicantMeetsMinimumNorms"isTWCoApplicantMeetsMinimumNorms);
+
+if(isTWPrimaryApplicantMeetsMinimumNorms =unknown )then{
+	isTWPrimaryApplicantMeetsMinimumNorms =false;
+}
+if(isTWCoApplicantMeetsMinimumNorms =unknown )then{
+	isTWPrimaryApplicantMeetsMinimumNorms =false;
+}
+print("isTWPrimaryApplicantMeetsMinimumNorms"isTWPrimaryApplicantMeetsMinimumNorms);
+print("isTWCoApplicantMeetsMinimumNorms"isTWCoApplicantMeetsMinimumNorms);
+
+if(isTWPrimaryApplicantMeetsMinimumNorms = true and isTWCoApplicantMeetsMinimumNorms = true and blazeMessage.request.application.applicants.count>1)then{
+	if(primarytotalIncome > CototalIncome) then{
+		maxtotalIncome = primarytotalIncome;
+		totalObligation=primarytotalObligation;
+		foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/maxtotalIncome)*100;
+		applicantResidentPropertyType = fn_GetApplicantPropertyType(firstMinimumIncomeMeetingApplicant);
+		print("true-true if maxtotalIncome primarytotalIncome max ="maxtotalIncome"totalObligation"totalObligation"foir"foir"applicantResidentPropertyType"applicantResidentPropertyType);
+		anDeviation = DT_TwoWheeler_IIR_Norms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(firstMinimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,firstMinimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+		fn_AppendDeviations(anDeviation);
+	}else{
+		maxtotalIncome = CototalIncome;
+		totalObligation=CototalObligation;
+		foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/maxtotalIncome)*100;
+		applicantResidentPropertyType = fn_GetApplicantPropertyType(secondMinimumIncomeMeetingApplicant);
+		print("true-true else maxtotalIncome CototalIncome max ="maxtotalIncome"totalObligation"totalObligation"foir"foir"applicantResidentPropertyType"applicantResidentPropertyType);
+		anDeviation = DT_TwoWheeler_IIR_Norms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(secondMinimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,secondMinimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+		fn_AppendDeviations(anDeviation);
+	}
+	
+}else if ((isTWPrimaryApplicantMeetsMinimumNorms = true and  (isTWCoApplicantMeetsMinimumNorms = false )) 
+ and blazeMessage.request.application.applicants.count>1)then{
+		maxtotalIncome =primarytotalIncome+CototalIncome;
+		totalObligation =primarytotalObligation+CototalObligation;
+		foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/maxtotalIncome)*100;
+		if(primarytotalIncome > CototalIncome) then{
+			for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType="P")do{
+			firstMinimumIncomeMeetingApplicant=it;
+		applicantResidentPropertyType = fn_GetApplicantPropertyType(firstMinimumIncomeMeetingApplicant);
+		print("true-false if maxtotalIncome CototalIncome max ="maxtotalIncome"totalObligation"totalObligation"foir"foir"applicantResidentPropertyType"applicantResidentPropertyType);
+		anDeviation = DT_TwoWheeler_IIR_Norms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(firstMinimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,firstMinimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+			}
+		}else{
+			for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType<>"P")do{
+			secondMinimumIncomeMeetingApplicant=it;
+			applicantResidentPropertyType = fn_GetApplicantPropertyType(secondMinimumIncomeMeetingApplicant);
+			print("true-false elseif maxtotalIncome CototalIncome max ="maxtotalIncome"totalObligation"totalObligation"foir"foir"applicantResidentPropertyType"applicantResidentPropertyType);
+			anDeviation = DT_TwoWheeler_IIR_Norms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(secondMinimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,secondMinimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+			}
+		}
+
+
+		fn_AppendDeviations(anDeviation);
+
+}else if ((isTWPrimaryApplicantMeetsMinimumNorms = false and  isTWCoApplicantMeetsMinimumNorms = true) 
+			and blazeMessage.request.application.applicants.count>1)then{
+		maxtotalIncome =primarytotalIncome+CototalIncome;
+		totalObligation =primarytotalObligation+CototalObligation;
+		foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/maxtotalIncome)*100;
+		if(primarytotalIncome > CototalIncome) then{
+			for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType="P")do{
+			firstMinimumIncomeMeetingApplicant=it;
+			print("addesss Type"firstMinimumIncomeMeetingApplicant.addresses[0].addressType);
+			print("applicant Type"firstMinimumIncomeMeetingApplicant.applicantType);
+		applicantResidentPropertyType = fn_GetApplicantPropertyType(firstMinimumIncomeMeetingApplicant);
+		print("flase-true if maxtotalIncome CototalIncome max ="maxtotalIncome"totalObligation"totalObligation"foir"foir"applicantResidentPropertyType"applicantResidentPropertyType);
+			
+		anDeviation = DT_TwoWheeler_IIR_Norms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(firstMinimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,firstMinimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+			}
+		}else{
+			for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType<>"P")do{
+			secondMinimumIncomeMeetingApplicant=it;
+			print("secondMinimumIncomeMeetingApplicant.applicantType"secondMinimumIncomeMeetingApplicant.applicantType);
+			applicantResidentPropertyType = fn_GetApplicantPropertyType(secondMinimumIncomeMeetingApplicant);
+          	print("flase-true elseif maxtotalIncome CototalIncome max ="maxtotalIncome"totalObligation"totalObligation"foir"foir"applicantResidentPropertyType"applicantResidentPropertyType);
+			anDeviation = DT_TwoWheeler_IIR_Norms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(secondMinimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,secondMinimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+			}
+		}
+	
+		fn_AppendDeviations(anDeviation);
+
+}else if ((isTWPrimaryApplicantMeetsMinimumNorms = false and  isTWCoApplicantMeetsMinimumNorms = false)
+	and blazeMessage.request.application.applicants.count>1)then{
+		maxtotalIncome =primarytotalIncome+CototalIncome;
+		totalObligation =primarytotalObligation+CototalObligation;
+		foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/maxtotalIncome)*100;
+		if(primarytotalIncome > CototalIncome) then{
+			for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType="P")do{
+			firstMinimumIncomeMeetingApplicant=it;
+		applicantResidentPropertyType = fn_GetApplicantPropertyType(firstMinimumIncomeMeetingApplicant);
+		print("flase-false elseif maxtotalIncome CototalIncome max ="maxtotalIncome"totalObligation"totalObligation"foir"foir"applicantResidentPropertyType"applicantResidentPropertyType);
+		anDeviation = DT_TwoWheeler_IIR_Norms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(firstMinimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,firstMinimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+			}
+		}else{
+			for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType<>"P")do{
+			secondMinimumIncomeMeetingApplicant=it;
+			applicantResidentPropertyType = fn_GetApplicantPropertyType(secondMinimumIncomeMeetingApplicant);
+			print("flase-false elseif maxtotalIncome CototalIncome max ="maxtotalIncome"totalObligation"totalObligation"foir"foir"applicantResidentPropertyType"applicantResidentPropertyType);
+			anDeviation = DT_TwoWheeler_IIR_Norms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(secondMinimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,secondMinimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+			}
+		}
+		
+		fn_AppendDeviations(anDeviation);
+
+}else {
+	for each Applicant in blazeMessage.request.application.applicants such that(it.applicantType="P")do{
+	firstMinimumIncomeMeetingApplicant=it;
+	maxtotalIncome = primarytotalIncome;
+      
+	totalObligation=primarytotalObligation;
+      if(maxtotalIncome>0)then{
+	foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/maxtotalIncome)*100;
+      }else {
+       foir=0; 
+      }
+	applicantResidentPropertyType = fn_GetApplicantPropertyType(firstMinimumIncomeMeetingApplicant);
+	print("finalllll elseif maxtotalIncome CototalIncome max ="maxtotalIncome"totalObligation"totalObligation"foir"foir"applicantResidentPropertyType"applicantResidentPropertyType);
+		
+	anDeviation = DT_TwoWheeler_IIR_Norms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(firstMinimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,firstMinimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+	fn_AppendDeviations(anDeviation);
+	}
+}
+
+//IIR Calculation
+
+	
+	
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='6KFzP5'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

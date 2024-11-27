@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_MaxLoanAmt'>
+ <ide-name>DT_MaxLoanAmt</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='AqwCOm4XvY27JolhjlRwehEYhVI'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>maxLoan</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='HE467pqUqMfMZnWEiLJgFNt4IcX'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>maxLoan</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='AsmYfitPgPIjFciD455IuOuX4Tk'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>maxLoan</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='5KRJ0sVk5m1dP3uQWSdexceCaQs'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>maxLoan</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='AqwCOm4XvY27JolhjlRwehEYhVI'>
+   <name>TC_MaxLoanAmt2</name>
+   <body>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>detailsAssetLoan is some DetailAssetLoan initially an DetailAssetLoan;<template:br/>detailsAssetLoan.assetModel="Zen";<template:br/><template:br/>loanDetails is some LoanDetails initially an  LoanDetails;<template:br/>loanamount is a real initially 1600000;<template:br/>loanDetails.loanAmount=loanamount;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.loanDetails=loanDetails;<template:br/>application.assetDetails=assetDetails;<template:br/>//CURRENT ACCOUNT   SAVINGS ACCOUNT  SALARY ACCOUNT SCHEME CODE  is 19041128<template:br/>application.scheme = "24"; <template:br/>//INTERNAL LIABILITY CUSTOMER PROGRAM SCHEME GROUP CODE is 19041107<template:br/>application.schemeGroup = "11";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/><template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage.request.application = application;<template:br/><template:br/>theBlazeMessageBT.repaymentAccountType="Savings";<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation =DT_MaxLoanAmount(blazeMessage);<template:br/><template:br/>assert().checkEquals("reason code", "L2", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("decisionResult ", "DEVIATION", deviation.decisionResult );<template:br/><template:br/>assert().checkEquals("reasonText", "Maximum loan norms not met", deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Reason Code", "41000", deviation.reasonCode);</body>
+  </function><function managementPropertiesRef='HE467pqUqMfMZnWEiLJgFNt4IcX'>
+   <name>TC_MaxLoanAmt3</name>
+   <body>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>detailsAssetLoan is some DetailAssetLoan initially an DetailAssetLoan;<template:br/>detailsAssetLoan.assetModel="Zen";<template:br/><template:br/>loanDetails is some LoanDetails initially an  LoanDetails;<template:br/>loanamount is a real initially 6000000;<template:br/>loanDetails.loanAmount=loanamount;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.loanDetails=loanDetails;<template:br/>application.assetDetails=assetDetails;<template:br/>//FD LIEN SCHEME CODE  is 19041123<template:br/>application.scheme = "19"; <template:br/>//FD LIEN SCHEME GROUP CODE is 19041104<template:br/>application.schemeGroup = "8";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/><template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage.request.application = application;<template:br/><template:br/>theBlazeMessageBT.repaymentAccountType="Savings";<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation =DT_MaxLoanAmount(blazeMessage);;<template:br/><template:br/>assert().checkEquals("reason code", "L4", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("decisionResult ", "DEVIATION", deviation.decisionResult );<template:br/><template:br/>assert().checkEquals("reasonText", "Maximum loan norms not met", deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Reason Code", "41000", deviation.reasonCode);</body>
+  </function><function managementPropertiesRef='AsmYfitPgPIjFciD455IuOuX4Tk'>
+   <name>TC_MaxLoanAmt4</name>
+   <body>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>detailsAssetLoan is some DetailAssetLoan initially an DetailAssetLoan;<template:br/>detailsAssetLoan.assetModel="Zen";<template:br/><template:br/>loanDetails is some LoanDetails initially an  LoanDetails;<template:br/>loanamount is a real initially 2200000;<template:br/>loanDetails.loanAmount=loanamount;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.loanDetails=loanDetails;<template:br/>application.assetDetails=assetDetails;<template:br/>// PRE-APPROVED SCHEME CODE  is 19041139<template:br/>application.scheme = "35"; <template:br/>//PRE-APPROVED SCHEME GROUP CODE is 19041111<template:br/>application.schemeGroup = "15";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/><template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage.request.application = application;<template:br/><template:br/>theBlazeMessageBT.repaymentAccountType="SAVINGS";<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation =DT_MaxLoanAmount(blazeMessage);<template:br/><template:br/>assert().checkEquals("reason code", "L4", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("decisionResult ", "DEVIATION", deviation.decisionResult );<template:br/><template:br/>assert().checkEquals("reasonText", "Maximum loan norms not met", deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Reason Code", "41000", deviation.reasonCode);</body>
+  </function><function managementPropertiesRef='5KRJ0sVk5m1dP3uQWSdexceCaQs'>
+   <name>TC_MaxLoanAmt1</name>
+   <body>assetDetails is some AssetDetails initially an AssetDetails;<template:br/>detailsAssetLoan is some DetailAssetLoan initially an DetailAssetLoan;<template:br/>detailsAssetLoan.assetModel="Zen";<template:br/><template:br/>loanDetails is some LoanDetails initially an  LoanDetails;<template:br/>loanamount is a real initially 500000;<template:br/>loanDetails.loanAmount=loanamount;<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.loanDetails=loanDetails;<template:br/>application.assetDetails=assetDetails;<template:br/>//Only Banking SCHEME CODE  is 19041155<template:br/>application.scheme = "50"; <template:br/>//Banking Based SCHEME GROUP CODE is 19041150<template:br/>application.schemeGroup = "20";<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/><template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage.request.application = application;<template:br/><template:br/>theBlazeMessageBT.repaymentAccountType="Savings";<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation =DT_MaxLoanAmount(blazeMessage);<template:br/><template:br/>assert().checkEquals("reason code", "L4", deviation.overrideLevel);<template:br/><template:br/>assert().checkEquals("decisionResult ", "DEVIATION", deviation.decisionResult );<template:br/><template:br/>assert().checkEquals("reasonText", "Maximum loan norms not met", deviation.reasonText);<template:br/><template:br/>assert().checkEquals("Reason Code", "41000", deviation.reasonCode);</body>
+  </function></template:content>
+</template>

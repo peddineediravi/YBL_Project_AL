@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='FMA_Bureau_Template'>
+ <ide-name>FMA_Bureau_Template</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1pFh8JpMe3aFUD4luIxLfQWAEXl' name='Score Model' id='MaPMbIqd8HwmMunkKkuFezK839c'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='UJ3MDfLcSDVzLnvV3gANC4FlwXQ'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='bcNFpUMCFd4GnRzN4sgRS20tc0'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='P95D2r2Cz29cFDpLmZb2dDKjJFf'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1e4Fwj577fuGSTbTbZVTMCQNc91' name='SRL Rule' id='7L0mgRCIdnqA49TdChwHBsZC2lI'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1e4Fwj577fuGSTbTbZVTMCQNc91' name='SRL Rule' id='DMFwBLKv8of6aXatLVtVxoHEpeq'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1e4Fwj577fuGSTbTbZVTMCQNc91' name='SRL Rule' id='R833tGFr7agD7OsqwlHYhs5QC4J'>
+ </instantiation>
+ <parameters>
+  <parameter name='__ENTITY_PROPERTIES__VH__' type='1pFh8JpMe3aFUD4luIxLfQWAEXl' ideName='Management Properties' displayName='ManagementProperties' name-localized='true'>
+  </parameter>
+  <parameter name='rulesetName' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.MetaphorNameProvider' ideName='rulesetName'>
+  </parameter>
+  <parameter-list name='cases' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_MetaphorRuleTemplate' ideName='cases' min='0'>
+  </parameter-list>
+  <parameter-list name='__ND_ScoredCharacteristicInitializersVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoredCharacteristicInitializerTemplate' ideName='__ND_ScoredCharacteristicInitializersVH' min='0'>
+  </parameter-list>
+  <parameter name='__ND_ScoredCharacteristicCountVH' type='integer' ideName='__ND_ScoredCharacteristicCountVH'>
+  </parameter>
+  <parameter name='casesInfo' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cases Info Template' ideName='casesInfo'>
+  </parameter>
+  <parameter name='editingInfo' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.Editing Info Template' ideName='editingInfo'>
+  </parameter>
+ </parameters>
+ <family>Score Model Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><ruleset managementPropertiesRef='MaPMbIqd8HwmMunkKkuFezK839c'>
+   <name><template:placeholder ref='rulesetName' relative='true'/></name>
+   <type>NdScoreModelReturnInfo</type>
+   <parameters>
+    <parameter>
+     <name>DIFF_DLQ_C12M_P12M</name>
+     <type>string</type>
+    </parameter>
+    <parameter>
+     <name>MOB_TPL</name>
+     <type>string</type>
+    </parameter>
+    <parameter>
+     <name>MonSinceL30P_SEC</name>
+     <type>real</type>
+    </parameter>
+    <parameter>
+     <name>MonSinceL90P_TL</name>
+     <type>string</type>
+    </parameter>
+    <parameter>
+     <name>PINCODE_1</name>
+     <type>string</type>
+    </parameter>
+    <parameter>
+     <name>RATIO_30P_DEL_L24_LOANS</name>
+     <type>real</type>
+    </parameter>
+    <parameter>
+     <name>pct_tot_ovd_hicr</name>
+     <type>real</type>
+    </parameter>
+    <parameter>
+     <name>ratio_rec_6m_tot_loans</name>
+     <type>real</type>
+    </parameter>
+   </parameters>
+   <ruleset-body>
+    <variable managementPropertiesRef='UJ3MDfLcSDVzLnvV3gANC4FlwXQ'>
+     <name>characteristics</name>
+     <array fixed='true'>
+      <type>NdScoredCharacteristic</type>
+     </array>
+     <initializer>a fixed array of <template:placeholder ref='__ND_ScoredCharacteristicCountVH' relative='true'/> NdScoredCharacteristic initially {<template:br/><template:foreach ref='__ND_ScoredCharacteristicInitializersVH' relative='true'>
+       <template:prefix></template:prefix>
+       <template:infix></template:infix>
+       <template:postfix></template:postfix>
+       <template:item><template:placeholder ref='__ND_ScoredCharacteristicInitializersVH' relative='true'/></template:item>
+      </template:foreach><template:br/>}</initializer>
+    </variable>
+    <variable managementPropertiesRef='bcNFpUMCFd4GnRzN4sgRS20tc0'>
+     <name>__ND_options</name>
+     <type>NdScoreModelReasonCalculationOptions</type>
+     <initializer>a NdScoreModelReasonCalculationOptions initially {<template:br/>allowExpressions = false,<template:br/>dedupeMethod = NdScoreModelReasonCalculationOptions.DEDUPE_BY_NONE,<template:br/>distanceComputationMethod = NdScoreModelReasonCalculationOptions.DISTANCE_USE_RANK,<template:br/>includeOnlyPositiveDistances = true,<template:br/>numberOfReasons = 4,<template:br/>sortOrder = NdScoreModelReasonCalculationOptions.SORT_ORDER_NONE,<template:br/>precalculateScore = false,<template:br/>swapValues = false,<template:br/>initialScore =0.0<template:br/>}</initializer>
+    </variable>
+    <variable managementPropertiesRef='P95D2r2Cz29cFDpLmZb2dDKjJFf'>
+     <name>__ND_returnInfo</name>
+     <type>NdScoreModelReturnInfo</type>
+     <initializer>a NdScoreModelReturnInfo</initializer>
+    </variable>
+    <rule managementPropertiesRef='7L0mgRCIdnqA49TdChwHBsZC2lI'>
+     <name>__ND_initialRule</name>
+     <priority immediate='false'>900000</priority>
+     <body><![CDATA[if (__ND_returnInfo.scoredCharacteristics <> null and __ND_returnInfo.scoredCharacteristics.count >= ]]><template:placeholder ref='__ND_ScoredCharacteristicCountVH' relative='true'/>) then {<template:br/><template:tab/>characteristics = __ND_returnInfo.scoredCharacteristics;<template:br/>}</body>
+    </rule>
+    <rule managementPropertiesRef='DMFwBLKv8of6aXatLVtVxoHEpeq'>
+     <name>__ND_initialRule2</name>
+     <priority immediate='false'>899999</priority>
+     <body>if (true) then {<template:br/><template:tab/>__ND_returnInfo.scoreModelName = "<template:placeholder ref='rulesetName' relative='true'/>";<template:br/><template:tab/>__ND_returnInfo.characteristicCount = <template:placeholder ref='__ND_ScoredCharacteristicCountVH' relative='true'/>;<template:br/><template:tab/><template:foreach ref='__ND_ScoredCharacteristicInitializersVH' relative='true'>
+       <template:prefix></template:prefix>
+       <template:infix></template:infix>
+       <template:postfix></template:postfix>
+       <template:item>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].characteristicName = "<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicLabelVH' relative='true'/>";<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].baselineScore = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_BaselineScoreVH' relative='true'/>;<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].maxBinScore = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_MaxBinScoreVH' relative='true'/>;<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].wminBinScore = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_MinBinScoreVH' relative='true'/>;<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].partialScore = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_PartialScoreVH' relative='true'/>;<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].binLabel = "<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_BinLabelVH' relative='true'/>";<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].unexpected = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_UnexpectedVH' relative='true'/>;<template:br/><template:tab/></template:item>
+      </template:foreach>}<template:br/></body>
+    </rule>
+    <template:placeholder ref='cases' relative='true'/>
+    <rule managementPropertiesRef='R833tGFr7agD7OsqwlHYhs5QC4J'>
+     <name>__ND_finalRule</name>
+     <priority immediate='false'>-900000</priority>
+     <body>if (__ND_options.precalculateScore)<template:br/>then {<template:br/><template:tab/>__ND_returnInfo.calculateReasons(characteristics, __ND_options).<template:br/><template:tab/>return __ND_returnInfo.<template:br/>}<template:br/>else {<template:br/><template:tab/>__ND_returnInfo.scoredCharacteristics = characteristics.<template:br/><template:tab/>__ND_returnInfo.options = __ND_options.<template:br/><template:tab/>return __ND_returnInfo.<template:br/>}<template:br/></body>
+    </rule>
+   </ruleset-body>
+  </ruleset></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/scoremodel' section='scoremodel'><name>FMA_Bureau_Template</name><return-type>NdScoreModelReturnInfo</return-type><execution-mode></execution-mode><cell-group name='DIFF_DLQ_C12M_P12M' label='Change in delinquency status between last 12 months and 13-24 months' optional='false'>
+   <entity source='static'>DIFF_DLQ_C12M_P12M</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is not unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is in'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Srl'></binding-reference></binding>
+  </cell-group><cell-group name='MOB_TPL' label='Interaction of Customer&apos;s bureau vintage and total number of tradelines opened' optional='false'>
+   <entity source='static'>MOB_TPL</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is not unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is in'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Srl'></binding-reference></binding>
+  </cell-group><cell-group name='pct_tot_ovd_hicr1' label='Number of months since recent 30+ dpd on any secured loans' optional='false'>
+   <entity source='static'>MonSinceL30P_SEC</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is not unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is in'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Srl'></binding-reference></binding>
+  </cell-group><cell-group name='MonSinceL90P_TL' label='Number of months since recent 90+ dpd on Tractor loans' optional='false'>
+   <entity source='static'>MonSinceL90P_TL</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is not unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is in'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Srl'></binding-reference></binding>
+  </cell-group><cell-group name='PINCODE_1' label='Pincode risk category' optional='false'>
+   <entity source='static'>PINCODE_1</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is not unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is in'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Srl'></binding-reference></binding>
+  </cell-group><cell-group name='RATIO_30P_DEL_L24_LOANS' label='Ratio of 30+ dpd accounts in last 24 months to total number of tradelines opened in last 24 month' optional='false'>
+   <entity source='static'>RATIO_30P_DEL_L24_LOANS</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is not unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is in'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Srl'></binding-reference></binding>
+  </cell-group><cell-group name='pct_tot_ovd_hicr' label='Total overdue amount as a % of sanction amount' optional='false'>
+   <entity source='static'>pct_tot_ovd_hicr</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is not unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is in'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Srl'></binding-reference></binding>
+  </cell-group><cell-group name='ratio_rec_6m_tot_loans' label='Ratio of number of accounts opened in last 6 months to total number of tradelines opened' optional='false'>
+   <entity source='static'>ratio_rec_6m_tot_loans</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is not unknown'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is in'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Srl'></binding-reference></binding>
+  </cell-group><options allow-expressions='false' use-reasons='false' reason-list-name='' reason-list-template-name='' max-reasons='4' compute-distances='true' initial_score='0.0' computation-method='rank' dedupe-method='none' positives-only='true' sort-order='descending' precalculate-score='false' swap-values='false'></options></template:content>
+ <template name='Cell Template'>
+  <ide-name>Cell Template</ide-name>
+  <parameters>
+   <parameter name='CELL GROUP NAME' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Names' ideName='CELL GROUP NAME' displayName='Internal Use Only - Not For Display: cell group name'>
+   </parameter>
+   <parameter name='type' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_CellGroupInfoProvider' ideName='type'>
+   </parameter>
+   <parameter name='property' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_CellGroupInfoProvider' ideName='property'>
+   </parameter>
+   <parameter-selection name='binding' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.Template List Provider' ideName='binding' min='1' max='1'>
+    <dynamic-arg name='property' ref='property' relative='true'/>
+    <dynamic-arg name='type' ref='type' relative='true'/>
+   </parameter-selection>
+   <parameter name='__ND_BindingDescriptionVH' type='string' ideName='__ND_BindingDescriptionVH'>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='binding' relative='true'/></template:content>
+ </template>
+ <template name='Editing Info Template'>
+  <ide-name>Editing Info Template</ide-name>
+  <family>Information template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+ </template>
+ <template name='Cell Group Names'>
+  <comment>This is the complete list of names for all condition and action groups.
+There is no real need for this list provider, as long as the client maintains
+this list.</comment>
+  <ide-name>Cell Group Names</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdListProvider</provider>
+   <arg name='type'>string</arg>
+   <arg name='unique'>true</arg>
+   <arg name='element'>DIFF_DLQ_C12M_P12M</arg>
+   <arg name='element'>MOB_TPL</arg>
+   <arg name='element'>pct_tot_ovd_hicr1</arg>
+   <arg name='element'>MonSinceL90P_TL</arg>
+   <arg name='element'>PINCODE_1</arg>
+   <arg name='element'>RATIO_30P_DEL_L24_LOANS</arg>
+   <arg name='element'>pct_tot_ovd_hicr</arg>
+   <arg name='element'>ratio_rec_6m_tot_loans</arg>
+  </value>
+ </template>
+ <template name='Template List Provider'>
+  <ide-name>Template List Provider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.metaphor.NdMetaphorBindingTemplateListProvider</provider>
+  </value>
+ </template>
+ <template name='Enumeration Items Provider'>
+  <ide-name>Enumeration Items Provider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdEnumerationItemsProvider</provider>
+   <arg name='template'></arg>
+   <arg name='enumeration'></arg>
+  </value>
+ </template>
+ <template name='Cases Info Template'>
+  <ide-name>Cases Info Template</ide-name>
+  <parameters>
+   <parameter-list name='condition cells' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Group Info Template' ideName='condition cells' min='0'>
+   </parameter-list>
+  </parameters>
+  <family>Information template</family>
+ </template>
+ <template name='Cell Group Info Template'>
+  <comment>Holds Information about the Cell Groups in the metaphor.</comment>
+  <ide-name>Cell Group Info Template</ide-name>
+  <parameters>
+   <parameter name='name' type='string' ideName='name'>
+   </parameter>
+   <parameter name='displayName' type='string' ideName='displayName'>
+   </parameter>
+   <parameter name='property' type='string' ideName='property'>
+   </parameter>
+   <parameter name='type' type='string' ideName='type'>
+   </parameter>
+  </parameters>
+  <family>Information template</family>
+ </template>
+ <template name='__ND_CellGroupInfoProvider'>
+  <ide-name>__ND_CellGroupInfoProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromMetaphorInstanceCellGroupInfoProvider</provider>
+  </value>
+ </template>
+ <template name='__ND_CaseIdProvider'>
+  <ide-name>__ND_CaseIdProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromMetaphorUniqueCaseIdProvider</provider>
+  </value>
+ </template>
+ <template name='__ND_MetaphorRuleTemplate'>
+  <comment>$Date$ $Revision$</comment>
+  <ide-name>__ND_MetaphorRuleTemplate</ide-name>
+  <parameters>
+   <parameter name='__ENTITY_PROPERTIES__VH__' type='1e4Fwj577fuGSTbTbZVTMCQNc91' ideName='Management Properties'>
+   </parameter>
+   <parameter-list name='condition cells' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.Cell Template' ideName='condition cells' min='0'>
+   </parameter-list>
+   <parameter name='__ND_CharacteristicNumberVH' type='integer' ideName='__ND_CharacteristicNumberVH' displayName='characterisitic index'>
+   </parameter>
+   <parameter name='__ND_PartialScoreVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoreProvider' ideName='__ND_PartialScoreVH' displayName='partial score'>
+   </parameter>
+   <parameter name='__ND_ReasonCodeVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ReasonCodeProvider' ideName='__ND_ReasonCodeVH'>
+    <arg name='object'></arg>
+   </parameter>
+   <parameter name='__ND_ReasonCodeMessageVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ReasonCodeMessageProvider' ideName='__ND_ReasonCodeMessageVH'>
+    <arg name='namedObject'></arg>
+    <dynamic-arg name='member' ref='__ND_ReasonCodeVH' relative='true'/>
+   </parameter>
+   <parameter name='__ND_BinLabelVH' type='string' ideName='__ND_BinLabelVH'>
+   </parameter>
+   <parameter name='__ND_UnexpectedVH' type='boolean' ideName='__ND_UnexpectedVH'>
+   </parameter>
+   <parameter name='__ND_CharacteristicNameVH' type='string' ideName='__ND_CharacteristicNameVH'>
+   </parameter>
+   <parameter name='__ND_CharacteristicLabelVH' type='string' ideName='__ND_CharacteristicLabelVH'>
+   </parameter>
+   <parameter name='__ND_MetaphorRuleNameVH' type='string' ideName='__ND_MetaphorRuleNameVH'>
+   </parameter>
+   <parameter name='__ND_MetaphorRuleCreatedVH' type='string' ideName='__ND_MetaphorRuleCreatedVH'>
+   </parameter>
+  </parameters>
+  <family>Rule Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><rule>
+    <comment>@scoreModelCharacteristicName <template:placeholder ref='__ND_CharacteristicLabelVH' relative='true'/><template:br/>@scoreModelBinLabel <template:placeholder ref='__ND_BinLabelVH' relative='true'/><template:br/>@scoreModelBinCreated <template:placeholder ref='__ND_MetaphorRuleCreatedVH' relative='true'/><template:br/></comment>
+    <name><template:placeholder ref='__ND_MetaphorRuleNameVH' relative='true'/></name>
+    <execution-mode>exhaustively</execution-mode>
+    <body>// Bin <template:placeholder ref='__ND_BinLabelVH' relative='true'/>  from characteristic <template:placeholder ref='__ND_CharacteristicLabelVH' relative='true'/><template:br/>if <template:foreach ref='condition cells' relative='true'>
+      <template:prefix>(</template:prefix>
+      <template:infix> or </template:infix>
+      <template:postfix>)</template:postfix>
+      <template:item><template:placeholder ref='condition cells' relative='true'/></template:item>
+     </template:foreach><template:br/>then {<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_CharacteristicNumberVH' relative='true'/>].partialScore = <template:placeholder ref='__ND_PartialScoreVH' relative='true'/>.<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_CharacteristicNumberVH' relative='true'/>].binLabel = "<template:placeholder ref='__ND_BinLabelVH' relative='true'/>".<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_CharacteristicNumberVH' relative='true'/>].unexpected = <template:placeholder ref='__ND_UnexpectedVH' relative='true'/>.<template:br/>} </body>
+   </rule></template:content>
+ </template>
+ <template name='__ND_ScoredCharacteristicInitializerTemplate'>
+  <comment>$Date$ $Revision$</comment>
+  <ide-name>__ND_ScoredCharacteristicInitializerTemplate</ide-name>
+  <parameters>
+   <parameter name='__ND_PartialScoreVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoreProvider' ideName='__ND_PartialScoreVH' displayName='partial score'>
+   </parameter>
+   <parameter name='__ND_CharacteristicNumberVH' type='integer' ideName='__ND_CharacteristicNumberVH' displayName='characterisitic index'>
+   </parameter>
+   <parameter name='__ND_BaselineScoreVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoreProvider' ideName='__ND_BaselineScoreVH' displayName='partial score'>
+   </parameter>
+   <parameter name='__ND_MaxBinScoreVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoreProvider' ideName='__ND_MaxBinScoreVH' displayName='partial score'>
+   </parameter>
+   <parameter name='__ND_MinBinScoreVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ScoreProvider' ideName='__ND_MinBinScoreVH' displayName='partial score'>
+   </parameter>
+   <parameter name='__ND_ReasonCodeVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ReasonCodeProvider' ideName='__ND_ReasonCodeVH'>
+    <arg name='object'></arg>
+   </parameter>
+   <parameter name='__ND_ReasonCodeMessageVH' type='WYT4VDR2rFfBMJGquNzLDEzqQb0.__ND_ReasonCodeMessageProvider' ideName='__ND_ReasonCodeMessageVH'>
+    <arg name='namedObject'></arg>
+    <dynamic-arg name='member' ref='__ND_ReasonCodeVH' relative='true'/>
+   </parameter>
+   <parameter name='__ND_BinLabelVH' type='string' ideName='__ND_BinLabelVH'>
+   </parameter>
+   <parameter name='__ND_UnexpectedVH' type='boolean' ideName='__ND_UnexpectedVH'>
+   </parameter>
+   <parameter name='__ND_CharacteristicNameVH' type='string' ideName='__ND_CharacteristicNameVH'>
+   </parameter>
+   <parameter name='__ND_CharacteristicLabelVH' type='string' ideName='__ND_CharacteristicLabelVH'>
+   </parameter>
+   <parameter name='__ND_CharacteristicDescriptionVH' type='string' ideName='__ND_CharacteristicDescriptionVH'>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>it[<template:placeholder ref='__ND_CharacteristicNumberVH' relative='true'/>] = an NdScoredCharacteristic,</template:content>
+ </template>
+ <template name='__ND_ScoreProvider'>
+  <comment>Simple provider for the score value. This is a string provider when expressions are allowed,
+and a real provider when expressions are not allowed.</comment>
+  <ide-name>__ND_ScoreProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdRealProvider</provider>
+  </value>
+ </template>
+ <template name='__ND_ReasonCodeProvider'>
+  <ide-name>__ND_ReasonCodeProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdScoreModelPropertiesProvider</provider>
+   <arg name='object'></arg>
+  </value>
+ </template>
+ <template name='__ND_ReasonCodeMessageProvider'>
+  <ide-name>__ND_ReasonCodeMessageProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromSrlNamedObjectPropertyValueProvider</provider>
+   <arg name='namedObject'></arg>
+   <arg name='member'></arg>
+   <arg name='property'>message</arg>
+  </value>
+ </template>
+ <template name='__ND_EmptyBindingTemplate'>
+  <comment>This template is used in a condition group when the condition binding has not yet
+			 been selected. It may resolve to true or false depending on the implementation.</comment>
+  <ide-name>__ND_EmptyBindingTemplate</ide-name>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>true</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[< ]]><template:static_placeholder type='localizedstring'>
+    <template:arg name='resource-bundle'>com.blazesoft.template.metaphor.dectree.strings</template:arg>
+    <template:arg name='string-name'>EmptyFormatLabel</template:arg>
+   </template:static_placeholder><![CDATA[ > ]]></template:content>
+ </template>
+ <template name='MetaphorNameProvider'>
+  <ide-name>MetaphorNameProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdStringProvider</provider>
+   <default-value>FMA_Bureau_Template_Instance</default-value>
+  </value>
+ </template>
+ <template name='MetaphorDagProvider'>
+  <ide-name>MetaphorDagProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdStringProvider</provider>
+  </value>
+ </template>
+</template>

@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_applicantCibilDetails'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_applicantCibilDetails</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("fn_applicantCibilDetails Entering");
+tempCibilScore is a integer initially  0;
+tempCoCibilScore  is a integer;
+maxCibilList is some array of integer initially an array of integer ;
+ComaxCibilList is some array of integer initially an array of integer ;
+anApplicant is some Applicant;
+for each Applicant in aBlazeMessage.request.application.applicants do {
+  	anApplicant=it;
+  if(it.applicantType is (known and available) and  it.applicantType ="P")then{
+				 if(it.constitution is (known and available) and it.constitution ="1") then{
+   								if(it.multiBureauReport is known is (known and available) and it.multiBureauReport.cibilResponse  is (known and available) and it.multiBureauReport.cibilResponse.scores is known) then {
+										for each ScoreSegment in it.multiBureauReport.cibilResponse.scores do{
+                                        if(it.scoreName contains match (ignoring case)("CIBIL" )and it.score is (known and available))then{
+												if(it.score >= 0)then{
+                                                  	maxCibilList.append(it.score);
+                                                } 
+                                        }
+                  }
+ 		 } 
+    }
+  tempCibilScore =maxCibilList.max;
+    if(tempCibilScore  is (known and available))then{
+fn_AppendActionMessage("Applicant CIBIL score is "tempCibilScore);
+    }
+}
+  
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Dw3x7w'>
+    <instance ref='ParameterNameVH'>
+     <value>aBlazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+ <instance ref='UniqueInstanceNameVH'>
+  <value>fn_applicantCibilDetails1</value>
+ </instance>
+</instantiation>

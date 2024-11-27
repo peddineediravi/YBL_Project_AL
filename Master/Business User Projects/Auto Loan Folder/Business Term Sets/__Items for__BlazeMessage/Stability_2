@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='DSG71szD5AH5G0pcZCfjmcoPvq0' name='Stability'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='nameVH'>
+  <value>Stability</value>
+ </instance>
+ <instance ref='typeVH'>
+  <value>boolean</value>
+ </instance>
+ <instance ref='descriptionVH'>
+  <value></value>
+ </instance>
+ <instance ref='termPropertyVH'>
+ </instance>
+ <instance ref='isNeededEventRuleVH'>
+  <instance ref='__ENTITY_PROPERTIES__VH__'>
+  </instance>
+  <instance ref='calculationVH'>
+   <value><![CDATA[  	salcountp is a integer initially 0;
+    salcountC is a integer initially 0;
+    selfcountp is a integer initially 0;
+    selfcountc is a integer initially 0;
+    selfcountpc is a integer initially 0;
+    salcountpc is a integer initially 0;
+	noOfbusinessVintage is an integer initially 0;
+	noOfPresentJobExp is an integer initially 0;
+	noOFtotalWorkExperience is an integer initially 0;
+isruletigger is an boolean initially false;
+theBlazeMessageBT.Stability=false;
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants do {
+       if (it.customerSegment<>"1" and it.businessDetails =unknown and it.businessDetails.natureOfBusiness is (known and available))then{
+                           it.businessDetails.natureOfBusiness="";
+                           it.businessDetails.industry="";
+                            it.businessDetails.organizationType="";
+                            it.businessDetails.businessName="";
+                           it.businessDetails.lengthOfBusinessInMonths=0;
+                            it.businessDetails.businessVintageInYears=0;
+                            it.businessDetails.businessVintageInMonths=0;
+       }else if (it.customerSegment="1" and it.employmentDetails =unknown)then{
+                           it.employmentDetails.natureOfEmployment="";
+                            it.employmentDetails.employmentStatus="";
+                            it.employmentDetails.yearsInPresentJob=0;
+                            it.employmentDetails.monthsInPresentJob=0;
+                            it.employmentDetails.yearsInPreviousJob=0;
+                            it.employmentDetails.monthsInPreviousJob=0;
+                            it.employmentDetails.totalWorkExperienceInYears=0;
+                            it.employmentDetails.totalWorkExperienceInMonths=0;
+                            it.employmentDetails.employerName="";
+                            it.employmentDetails.employerCategory="";
+                            it.employmentDetails.employmentType="";
+                            it.employmentDetails.designation="";
+                            it.employmentDetails.industry="";
+        }
+        if(( it.customerSegment<>"1" and it.businessDetails is (known and available)) or 
+        (it.customerSegment ="1" and it.employmentDetails is (known and available)) )then{
+        if((it.customerSegment<>"1" and it.businessDetails is (known and available) ) )then{
+        if(it.businessDetails.businessVintageInYears =unknown and it.businessDetails.businessVintageInMonths = unknown)then{
+            it.businessDetails.businessVintageInYears=0;
+            it.businessDetails.businessVintageInMonths=0;
+        }else if(it.businessDetails.businessVintageInYears =known and it.businessDetails.businessVintageInMonths = unknown)then{
+            it.businessDetails.businessVintageInMonths=0;
+        }else if(it.businessDetails.businessVintageInYears =unknown and it.businessDetails.businessVintageInMonths = known)then{
+            it.businessDetails.businessVintageInYears=0;
+        }
+        }//if customer segment <>1 closed
+          else if (it.customerSegment="1" and it.employmentDetails is (known and available))then{
+        if(it.employmentDetails.yearsInPresentJob = unknown and it.employmentDetails.monthsInPresentJob =unknown)then {
+            it.employmentDetails.yearsInPresentJob=0;
+            it.employmentDetails.monthsInPresentJob=0;
+        }else if(it.employmentDetails.yearsInPresentJob = known and it.employmentDetails.monthsInPresentJob =unknown)then{
+            it.employmentDetails.monthsInPresentJob=0;
+        }else if(it.employmentDetails.yearsInPresentJob = unknown and it.employmentDetails.monthsInPresentJob =known)then{
+            it.employmentDetails.yearsInPresentJob=0;
+        }
+        if(it.employmentDetails.totalWorkExperienceInYears  =unknown and it.employmentDetails.totalWorkExperienceInMonths =unknown)then{
+            it.employmentDetails.totalWorkExperienceInYears =0;
+            it.employmentDetails.totalWorkExperienceInMonths=0;
+        }else if(it.employmentDetails.totalWorkExperienceInYears  =known and it.employmentDetails.totalWorkExperienceInMonths =unknown)then{
+            it.employmentDetails.totalWorkExperienceInMonths=0;
+        }else if(it.employmentDetails.totalWorkExperienceInYears  =unknown and it.employmentDetails.totalWorkExperienceInMonths =known)then{
+            it.employmentDetails.totalWorkExperienceInYears =0;
+        }
+        }//customer sgement<>1 has closed
+          
+    if(it.customerSegment<>"1" and it.businessDetails is known and it.businessDetails.businessVintageInYears is known and it.businessDetails.businessVintageInMonths is known)then{
+    noOfbusinessVintage= it.businessDetails.businessVintageInYears*12+it.businessDetails.businessVintageInMonths;
+    } //Noof Business vintage
+          
+     if (it.customerSegment="1" and it.employmentDetails is known and it.employmentDetails.yearsInPresentJob is known and 
+         it.employmentDetails.totalWorkExperienceInYears is known and it.employmentDetails.totalWorkExperienceInMonths is known and      it.employmentDetails.monthsInPresentJob is known )then {
+          noOfPresentJobExp= it.employmentDetails.yearsInPresentJob*12+it.employmentDetails.monthsInPresentJob;
+         noOFtotalWorkExperience=it.employmentDetails.totalWorkExperienceInYears*12+it.employmentDetails.totalWorkExperienceInMonths;
+         }//Noof total experiance
+    
+    if(it.applicantType="P" and it.customerSegment="1" and noOfPresentJobExp<3 and noOFtotalWorkExperience<12)then{
+    salcountp=salcountp+1;
+       }
+   if(it.applicantType<>"P" and it.customerSegment="1" and noOfPresentJobExp<3 and noOFtotalWorkExperience<12)then {
+    salcountC=salcountC+1;
+     }
+    if(it.applicantType="P" and it.customerSegment<>"1" and noOfbusinessVintage<12)then{
+    selfcountp=selfcountp+1;
+    }
+    if(it.applicantType<>"P" and it.customerSegment<>"1" and noOfbusinessVintage<12)then    {
+    selfcountc=selfcountc+1;
+    }
+       if(it.customerSegment="1" and noOfPresentJobExp<3 and noOFtotalWorkExperience<12)then{
+      salcountpc=salcountpc+1;
+    }
+      if(it.customerSegment<>"1" and noOfbusinessVintage<12)then {
+      selfcountpc=selfcountpc+1;
+    }
+
+ if(theBlazeMessageBT.termSetInput.request.application.applicants.count >1)then        {
+  		if(salcountp>=1 and salcountC>=1)then{
+			isruletigger=true;
+		}else if(selfcountp>=1 and selfcountc>=1)then{
+			isruletigger=true;
+		}else if(salcountp>=1 and selfcountc>=1)then{
+			isruletigger=true;
+		}else if( selfcountp>=1 and salcountC>=1 )then{
+			isruletigger=true;
+		}
+		 print("isruletigger=="isruletigger);
+        }
+      else {
+        if( (selfcountpc>=1) or (salcountpc>=1) )then{
+           isruletigger=true; 
+          }
+    }
+   }
+ //business vintage conditions are handled     
+    }
+theBlazeMessageBT.Stability=isruletigger;
+print("Stability=="theBlazeMessageBT.Stability);]]></value>
+  </instance>
+ </instance>
+ <instance ref='constraintContainerVH'>
+  <instance-selection ref='constraintVH'>
+   <item template='Atv03JffIeVVgsPZppyIx4mkGHC.template5' id='NvA3KQ'>
+    <instance ref='fromVH'>
+     <value></value>
+    </instance>
+    <instance ref='toVH'>
+     <value></value>
+    </instance>
+    <instance ref='constraintNameVH'>
+     <value>Range</value>
+    </instance>
+    <instance ref='constraintEntriesVH'>
+    </instance>
+   </item>
+  </instance-selection>
+  <instance ref='termTypeConstraintTemplateAssocVH'>
+   <value>Atv03JffIeVVgsPZppyIx4mkGHC.template5</value>
+  </instance>
+ </instance>
+</instantiation>

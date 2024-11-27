@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_FMA_PolicyLTV'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_FMA_PolicyLTV</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("Entering fn_FMA_PolicyLTV");
+implementLTV is a real initially 0.0;
+HarvestorLTV is a real initially 0.0;
+NewUsedLTV is a real initially 0.0;
+StandardLTV is a real initially 0.0;
+policyLTV is a real initially 0;
+FMASupplier1 is a boolean initially false;
+FMASupplier2 is a boolean initially false;
+noDPDmanufacturer is a integer initially 0 ;
+noDPDNonmanufacturer is a integer initially 0;
+NFCFCount is a integer initially 0;
+isPremiumDealerCount  is a integer initially 0;
+isRTBCount  is a integer initially 0;
+PolicyCount is a integer initially 0;
+
+if(blazeMessage.request.application.scheme=("567" or "568" or "593" or "594"))then{
+  StandardLTV=DT_StandardImplement_LTV(blazeMessage);
+  if(StandardLTV is (known and available))then{
+    StandardLTV=StandardLTV;
+    policyLTV=StandardLTV;
+  }else {StandardLTV=0;
+        }
+  }
+
+
+if(blazeMessage.request.application.scheme="127")then{
+  implementLTV=DT_ImplementLTVGrid(blazeMessage);
+  if(implementLTV is (known and available))then{
+    implementLTV=implementLTV;
+    policyLTV=implementLTV;
+  }else {implementLTV=0;
+        }
+  }
+//126-Harvester 758 Value: Used Harvester 
+if(blazeMessage.request.application.scheme=("126"))then{
+  	if(blazeMessage.request.application.loanDetails.assesmentMethod  is (known and available) )then{
+      			if(blazeMessage.request.application.loanDetails.assesmentMethod="REPEAT H")then{
+                  		if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType is (known and available) )then{
+                          	if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType =("TMH CATA" or "TMH CATB" or "COMBINE"))then{
+                              	 policyLTV =80;
+                            }else  	if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType =("TMH CATC"))then{
+                                policyLTV =75;
+                            }
+                }
+         }else if(blazeMessage.request.application.loanDetails.assesmentMethod="RNA")then{
+                  		if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType is (known and available) )then{
+                          
+                          	if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType =("TMH CATA" or "TMH CATB" or "COMBINE"))then{
+                              print("blazeMessage.request.application.assetDetails.detailAssetLoan.assetType"blazeMessage.request.application.assetDetails.detailAssetLoan.assetType);
+                              	 policyLTV =75;
+                            }else  	if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType =("TMH CATC"))then{
+                                policyLTV =70;
+                            }
+                }
+         }else if(blazeMessage.request.application.loanDetails.assesmentMethod="FIRST TI")then{
+                  		
+                              	 policyLTV =50;
+                         
+         }
+}
+}
+//757
+if(blazeMessage.request.application.scheme=("757"))then{
+  	if(blazeMessage.request.application.loanDetails.assesmentMethod  is (known and available) )then{
+      			if(blazeMessage.request.application.loanDetails.assesmentMethod="REPEAT H")then{
+                  		if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType is (known and available) )then{
+                          	if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType =("TMH CATA" or "TMH CATB" or "COMBINE"))then{
+                              	 policyLTV =80;
+                            }else  	if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType =("TMH CATC"))then{
+                                policyLTV =75;
+                            }
+                }
+         }else if(blazeMessage.request.application.loanDetails.assesmentMethod="RNA")then{
+                  		if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType is (known and available) )then{
+                          
+                          	if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType =("TMH CATA" or "TMH CATB" or "COMBINE"))then{
+                              print("blazeMessage.request.application.assetDetails.detailAssetLoan.assetType"blazeMessage.request.application.assetDetails.detailAssetLoan.assetType);
+                              	 policyLTV =75;
+                            }else  	if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetType =("TMH CATC"))then{
+                                policyLTV =70;
+                            }
+                }
+         }else if(blazeMessage.request.application.loanDetails.assesmentMethod="FIRST TI")then{
+                  		
+                              	 policyLTV =70;
+                         
+         }
+}
+}
+//Used harvester -768
+if(blazeMessage.request.application.scheme=("758"))then{
+  
+HarvestorLTV=DT_Harvestor(blazeMessage);
+  if(  HarvestorLTV is (known and available))then{
+ HarvestorLTV=HarvestorLTV;
+    policyLTV=HarvestorLTV;
+  }else{HarvestorLTV=0.0;
+               }
+ }
+if(blazeMessage.request.application.assetDetails.detailAssetLoan.assetCategory is (known and available))then{
+NewUsedLTV=DT_TractorVariantAndAssetGradeLTV(blazeMessage);
+  if(NewUsedLTV is (known and available))then{
+   NewUsedLTV=NewUsedLTV; 
+    policyLTV=NewUsedLTV;
+  }else{NewUsedLTV=0.0;
+               }
+}
+print("New harvester"policyLTV);
+print("HarvestorLTV=="HarvestorLTV);
+print("implementLTV=="implementLTV);
+print("NewUsedLTV=="NewUsedLTV);
+print("StandardLTV=="StandardLTV);
+
+if(policyLTV>0 and policyLTV is (known and available) )then{
+  policyLTV=policyLTV;
+}else{
+  policyLTV=0;
+}
+
+
+if(blazeMessage.request.application.assetDetails.detailAssetLoan.supplier is (known and available)  and blazeMessage.request.application.assetDetails.detailAssetLoan.assetModel is (known and available))then{
+   if(blazeMessage.request.application.assetDetails.detailAssetLoan.supplier=("23733" or "23732" or "24105" or "29606" or "23744"))then{
+     FMASupplier1=true;
+   }
+  if(blazeMessage.request.application.assetDetails.detailAssetLoan.supplier=("17060") and blazeMessage.request.application.assetDetails.detailAssetLoan.assetModel=("50447" or "50448" or "50449") )then{
+   FMASupplier2=true;
+	}else if(blazeMessage.request.application.assetDetails.detailAssetLoan.supplier=("31148" or "26138" or "30608" or "17060") and blazeMessage.request.application.assetDetails.detailAssetLoan.assetModel=("50450" or "50451" or "50452") )then{
+   FMASupplier2=true;
+	}
+}
+if((FMASupplier2=true or FMASupplier1=true)  and blazeMessage.request.application.scheme="130")then{policyLTV=policyLTV+5;}
+if((FMASupplier2=true or FMASupplier1=true) and blazeMessage.request.application.scheme="125")then{policyLTV=policyLTV+5;}
+
+theFMABT.Supplier1=FMASupplier1;
+theFMABT.Supplier2=FMASupplier2;
+print("theFMABT.ActualNFCF"theFMABT.ActualNFCF);
+print("theFMABT.allowedNFCF"theFMABT.allowedNFCF);
+print("theNoDPDFMABT."theFMABT.NoDPD);
+print("theFMABT.headIncome"theFMABT.headIncome "theFMABT.AgriCibi"theFMABT.AgriCibil);
+print("theFMABT.Supplier1=="theFMABT.Supplier1);
+print("theFMABT.Supplier2=="theFMABT.Supplier2);
+
+		if(blazeMessage.request.application.scheme<>("125" and "365" and "567" and "568" and "593" and "594" and "758"))then{
+  			if(blazeMessage.request.application.assetDetails.detailAssetLoan.manufacturer is (known and available) and  blazeMessage.request.application.assetDetails.detailAssetLoan.manufacturer=("12821" or "12810" or "11944" or "11899" or "86" )   )then{
+  			if(theFMABT.NoDPD=true)then{
+				//policyLTV=policyLTV+5;
+				noDPDmanufacturer =noDPDmanufacturer+1;
+				PolicyCount = PolicyCount+1;
+			}
+  			}else{
+	     if(theFMABT.NoDPD=true)then{
+           //policyLTV=policyLTV+5;
+		   noDPDNonmanufacturer=noDPDNonmanufacturer+1;
+		   PolicyCount = PolicyCount+1;
+         }
+  		if(theFMABT.headIncome=true)then{
+          policyLTV=policyLTV+5;
+        }
+		if(theFMABT.AgriCibil=true)then{
+          policyLTV=policyLTV+10;
+        }
+		if( (theFMABT.ActualNFCF>=(theFMABT.allowedNFCF+0.4)))then{
+		 NFCFCount=NFCFCount+1;
+         // policyLTV=policyLTV+5;
+		 PolicyCount = PolicyCount+1;
+        }
+		if(theFMABT.isPremiumDealer =true and blazeMessage.request.application.scheme is not equal to ("364" and "365" and "758"))then{
+			isPremiumDealerCount=isPremiumDealerCount+1;
+			//policyLTV=policyLTV+5;
+			PolicyCount = PolicyCount+1;
+		}
+		if(theFMABT.isRTB=true and blazeMessage.request.application.scheme is not equal to ("758" and "364" and "365"))then{
+			isRTBCount=isRTBCount+1;
+			//policyLTV=policyLTV+5;
+			PolicyCount = PolicyCount+1;
+		}
+        }
+		}else{
+			if(theFMABT.isRTB=true and blazeMessage.request.application.scheme is not equal to ("758" and "364" and "365"))then{
+			isRTBCount=isRTBCount+1;
+			//policyLTV=policyLTV+5;
+			PolicyCount = PolicyCount+1;
+		}
+		if(theFMABT.isPremiumDealer =true and blazeMessage.request.application.scheme is not equal to ("364" and "365" and "758"))then{
+			isPremiumDealerCount=isPremiumDealerCount+1;
+			//policyLTV=policyLTV+5;
+			PolicyCount = PolicyCount+1;
+		
+		if( (theFMABT.ActualNFCF>=(theFMABT.allowedNFCF+0.4)))then{
+		 NFCFCount=NFCFCount+1;
+         // policyLTV=policyLTV+5;
+		 PolicyCount = PolicyCount+1;
+        }
+		if(theFMABT.NoDPD=true)then{
+           //policyLTV=policyLTV+5;
+		   noDPDNonmanufacturer=noDPDNonmanufacturer+1;
+		   PolicyCount = PolicyCount+1;
+         }
+        }
+  			policyLTV=policyLTV;
+		}
+	print("isPremiumDealer="theFMABT.isPremiumDealer);
+   print("isRTB="theFMABT.isRTB);
+print("PolicyCount="PolicyCount);
+print("noDPDmanufacturer="noDPDmanufacturer";noDPDNonmanufacturer="noDPDNonmanufacturer"NFCFCount="NFCFCount"isPremiumDealerCount="isPremiumDealerCount"isRTBCount="isRTBCount);		
+	if(PolicyCount is (known and available)  and PolicyCount=1)then{
+		policyLTV =policyLTV+5;
+		print("Entering 1 policys"policyLTV);
+	} else 	if(PolicyCount is (known and available)  and PolicyCount >1)then{
+		policyLTV =policyLTV+10;
+		print("Entering 2 policys"policyLTV);
+	}
+
+///125-fast 130-supernon
+print("FMASupplier1===="FMASupplier1);
+print("FMASupplier2===="FMASupplier2);
+	
+if(blazeMessage.request.application.scheme="125" and blazeMessage.request.application.specialTieup is (known and available) and blazeMessage.request.application.specialTieup=("090123"  or "260901" or "23032101"))then{
+ 			policyLTV=policyLTV+5;   
+  			}
+if(blazeMessage.request.application.scheme="125" and policyLTV> 80) then{
+policyLTV=80;
+}
+acreCode5 is a boolean initially false;
+acreCode2 is a boolean initially false ;
+totalNumOfacre is a real initially 0.0; ;
+for each Applicant in blazeMessage.request.application.applicants such that(it.noOfAcres is (known and available))do{
+   totalNumOfacre = totalNumOfacre + it.noOfAcres ;
+  //if(it.noOfAcres < 5)then{
+  //acreCode = true;
+  //}
+}
+if (totalNumOfacre >=2 and totalNumOfacre < 5 )then {
+    acreCode5 = true ;
+}
+if(totalNumOfacre < 2 )then {
+	acreCode2 = true ;
+	
+}
+if(blazeMessage.request.application.scheme=("758" or "757" or "126") and blazeMessage.request.application.loanDetails.assesmentMethod<>("REPEAT H" and "RNA") and acreCode2 = true )then{
+	aDeviation is some Deviation initially a Deviation;
+	aDeviation.ruleID="10001";
+    aDeviation.ruleName="2 acre";
+    aDeviation.ruleDescription="Less than 2 acre";
+    aDeviation.decisionResult = "Deviation";
+    aDeviation.reasonText = "Less than 2 acre";
+    aDeviation.reasonCode = "10001";
+    aDeviation.overrideLevel ="L99";
+    fn_AppendDeviations(aDeviation);  
+	
+}
+
+
+
+print("acreCode5=="acreCode5);
+print("acreCode2=="acreCode2);
+print("policyLTV_afteradding=="policyLTV);
+print("theFMABT.Agriland"theFMABT.Agriland);
+print(theFMABT.Tractorage"theFMABT.Tractorage");
+if(blazeMessage.request.application.scheme=("758") and acreCode5 = true)then{
+  policyLTV=policyLTV-5;
+}
+if(blazeMessage.request.application.scheme=("758") and acreCode2 = true)then{
+  if(blazeMessage.request.application.loanDetails.assesmentMethod=("REPEAT H" or "RNA"))then{	
+     policyLTV=policyLTV-10;
+  }
+}
+if(blazeMessage.request.application.scheme="364" and theFMABT.Agriland is (known and available) and theFMABT.Agriland<3)then{
+  print("insert 1st neagative");
+  policyLTV=policyLTV-5;
+}
+if(blazeMessage.request.application.scheme="130" and theFMABT.Agriland is (known and available) and theFMABT.Agriland<3)then{
+	print("in side below 3 agriland");
+  policyLTV=policyLTV-5;
+}
+if(blazeMessage.request.application.scheme="126" and theFMABT.Agriland is (known and available)  and theFMABT.Agriland>=2 and theFMABT.Agriland<=5 )then{
+ print("insert 2nd neagative");
+  policyLTV=policyLTV-5;
+}
+if(blazeMessage.request.application.scheme="126" and theFMABT.Agriland is (known and available) and theFMABT.Agriland<2  and blazeMessage.request.application.loanDetails.assesmentMethod="REPEAT H")then{
+ print("insert 3rd neagative");
+  policyLTV=policyLTV-10;
+}
+if(blazeMessage.request.application.scheme=("125" or "128" or "130") and theFMABT.Tractorage is (known and available) and theFMABT.Tractorage>=61 and theFMABT.Tractorage<=90 )then{
+  print("insert 4th neagative");
+  policyLTV=policyLTV-5;
+  print("Tractorage"theFMABT.Tractorage);
+}
+if(blazeMessage.request.application.scheme=( "125" or "128" or "130")  and blazeMessage.request.application.assetDetails.detailAssetLoan.hmr is (known and available) )then{
+   if(blazeMessage.request.application.assetDetails.detailAssetLoan.hmr>200 and blazeMessage.request.application.assetDetails.detailAssetLoan.hmr<=300)then{
+	policyLTV=policyLTV-5;
+    print("hmr" blazeMessage.request.application.assetDetails.detailAssetLoan.hmr);
+  
+}else if(blazeMessage.request.application.assetDetails.detailAssetLoan.hmr>300 and blazeMessage.request.application.assetDetails.detailAssetLoan.hmr<=400)then{
+  policyLTV=policyLTV-10;
+  print("hmr 300 to 400");
+}else{ 
+ policyLTV=policyLTV;
+ }
+}
+print("policyLTV_afterdeduction=="policyLTV);
+if(policyLTV<=0)then{ 
+  policyLTV=0;
+}
+if(blazeMessage.request.application.scheme="125" and policyLTV> 80) then{
+policyLTV=80;
+  print("policyLTV==="policyLTV);
+}else if(blazeMessage.request.application.scheme="130" and policyLTV> 90) then{
+policyLTV=90;
+  print("policyLTV==="policyLTV);
+}else if(blazeMessage.request.application.scheme="364" and policyLTV> 95) then{
+policyLTV=95;
+  print("policyLTV==="policyLTV);
+}else if(blazeMessage.request.application.scheme="365" and policyLTV> 80) then{
+policyLTV=80;
+  print("policyLTV==="policyLTV);
+}else if(blazeMessage.request.application.scheme="128" and policyLTV> 95) then{
+policyLTV=95;
+  print("policyLTV==="policyLTV);
+}
+print("policyLTV==="policyLTV);
+theBlazeMessageBT.standardLtv=policyLTV/100;
+print("policayStabardLTV=="theBlazeMessageBT.standardLtv);
+//fn_AppendActionMessage("Adjusted Policy LTV is :"theBlazeMessageBT.standardLtv*100); ]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='2WpPXg'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_IIRNorms'>
+ <ide-name>DT_IIRNorms</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='V959TCEKcuQj7ZuEfGnnosAvlyT'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>iirNorms</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='T6FpgrC0Yhu1N4LzaW2qHswWdON'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>iirNorms</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='COKE8Ea5GIKkagR43UwxcC60rQJ'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>iirNorms</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='NFwDszcW1EwrD2xRKJ94ADJKqMK'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>iirNorms</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='V959TCEKcuQj7ZuEfGnnosAvlyT'>
+   <name>TC_IIRNorms1</name>
+   <body>app is some Application initially an Application;<template:br/>assetDetails is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>cibilScore is an integer;<template:br/>customerSegment is a string;<template:br/>propertyType is a string;<template:br/>iir is a real;<template:br/><template:br/>app.schemeGroup = "12";<template:br/>assetDetails.assetCategory  = "A5";<template:br/>customerSegment = "1";<template:br/>propertyType="R";<template:br/>iir=62;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_IIRNorms(app.schemeGroup,app.scheme,assetDetails,cibilScore,customerSegment,propertyType,iir);<template:br/><template:br/><template:br/>assert().checkEquals("reason Code", "42000", deviation.reasonCode);<template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='T6FpgrC0Yhu1N4LzaW2qHswWdON'>
+   <name>TC_IIRNorms2</name>
+   <body>app is some Application initially an Application;<template:br/>assetDetails is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>cibilScore is an integer;<template:br/>customerSegment is a string;<template:br/>propertyType is a string;<template:br/>iir is a real;<template:br/><template:br/>app.schemeGroup = "14";<template:br/>app.scheme="31";<template:br/>assetDetails.assetCategory = "A6";<template:br/>customerSegment = "1";<template:br/>propertyType="O";<template:br/>iir=72;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_IIRNorms(app.schemeGroup,app.scheme,assetDetails,cibilScore,customerSegment,propertyType,iir);<template:br/><template:br/><template:br/>assert().checkEquals("reason Code", "42001", deviation.reasonCode);<template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='COKE8Ea5GIKkagR43UwxcC60rQJ'>
+   <name>TC_IIRNorms3</name>
+   <body>app is some Application initially an Application;<template:br/>assetDetails is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>cibilScore is an integer;<template:br/>customerSegment is a string;<template:br/>propertyType is a string;<template:br/>iir is a real;<template:br/><template:br/>app.schemeGroup = "14";<template:br/>app.scheme="31";<template:br/>assetDetails.assetCategory = "A5";<template:br/>cibilScore =63;<template:br/>customerSegment = "2";<template:br/>//propertyType="O";<template:br/>iir=111;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_IIRNorms(app.schemeGroup,app.scheme,assetDetails,cibilScore,customerSegment,propertyType,iir);<template:br/><template:br/><template:br/>assert().checkEquals("reason Code", "42100", deviation.reasonCode);<template:br/><template:br/><template:br/><template:br/></body>
+  </function><function managementPropertiesRef='NFwDszcW1EwrD2xRKJ94ADJKqMK'>
+   <name>TC_IIRNorms4</name>
+   <body>app is some Application initially an Application;<template:br/>assetDetails is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>cibilScore is an integer;<template:br/>customerSegment is a string;<template:br/>propertyType is a string;<template:br/>iir is a real;<template:br/><template:br/>app.schemeGroup = "14";<template:br/>app.scheme="33";<template:br/>assetDetails.assetCategory  = "A6";<template:br/>cibilScore =720;<template:br/>customerSegment = "2";<template:br/>//propertyType="O";<template:br/>iir=111;<template:br/><template:br/>deviation is some Deviation initially a Deviation;<template:br/>deviation = DT_IIRNorms(app.schemeGroup,app.scheme,assetDetails,cibilScore,customerSegment,propertyType,iir);<template:br/><template:br/><template:br/>assert().checkEquals("reason Code", "42002", deviation.reasonCode);<template:br/><template:br/><template:br/></body>
+  </function></template:content>
+</template>

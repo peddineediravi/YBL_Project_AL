@@ -1,0 +1,1961 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='Addon LTV Decision Table Template_1'>
+ <ide-name>Addon LTV Decision Table Template new</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1aXVBoGeVoNneBc7JEvYqSwVYVH' name='Decision Table' id='LevuFzTJN7BSkqfbQkNIylk4AHo'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IdaPGu8LFrg86EJgN23uLQxup4' name='SRL Pattern' id='R8rrkiDtHpJVIgvfW3RH6bxWLRt'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='1xwepP6ulRkPHGoNFph0U8FT3ZD'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1e4Fwj577fuGSTbTbZVTMCQNc91' name='SRL Rule' id='DvYnAn5z309fOH2FAtRZVh7Mkv8'>
+ </instantiation>
+ <parameters>
+  <parameter name='__ENTITY_PROPERTIES__VH__' type='1aXVBoGeVoNneBc7JEvYqSwVYVH' ideName='Management Properties' displayName='ManagementProperties' name-localized='true'>
+  </parameter>
+  <parameter name='rulesetName' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.MetaphorNameProvider' ideName='rulesetName'>
+  </parameter>
+  <parameter-list name='cases' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Decision Table Case Template' ideName='cases' min='0'>
+  </parameter-list>
+  <parameter name='editingInfo' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Editing Info Template' ideName='editingInfo'>
+  </parameter>
+  <parameter name='casesInfo' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Cases Info Template' ideName='casesInfo'>
+  </parameter>
+ </parameters>
+ <family>Decision Table Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><ruleset managementPropertiesRef='LevuFzTJN7BSkqfbQkNIylk4AHo'>
+   <name><template:placeholder ref='rulesetName' relative='true'/></name>
+   <ruleset-body>
+    <pattern managementPropertiesRef='R8rrkiDtHpJVIgvfW3RH6bxWLRt'>
+     <name>anyApplicant</name>
+     <type>Applicant</type>
+     <collection>theBlazeMessageBT.termSetInput.request.application.applicants</collection>
+    </pattern>
+    <variable managementPropertiesRef='1xwepP6ulRkPHGoNFph0U8FT3ZD'>
+     <name>isRuleFired</name>
+     <type>boolean</type>
+     <initializer>false</initializer>
+    </variable>
+    <template:placeholder ref='cases' relative='true'/>
+    <rule managementPropertiesRef='DvYnAn5z309fOH2FAtRZVh7Mkv8'>
+     <name>finalRule</name>
+     <priority immediate='false'>-1</priority>
+     <body>if(isRuleFired=false)<template:br/>then<template:br/><template:tab/>{<template:br/><template:tab/><template:tab/>theBlazeMessageBT.isLookUpNeeded=false;<template:br/><template:tab/><template:tab/>theBlazeMessageBT.standardLtv=0;<template:br/><template:tab/>}</body>
+    </rule>
+   </ruleset-body>
+  </ruleset></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/dectable' section='dectable'><name>Addon LTV Decision Table Template new</name><return-type>void</return-type><execution-mode></execution-mode><cell-group name='Scheme_Specific_LTV1' label='Scheme Specific LTV' optional='false' role='action' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.standardLtv</entity>
+   <binding source='static'><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Assignment'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Scheme_Specific_LTV1_Assignment1'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Action not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='Scheme_Group1' label='Scheme Group' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.termSetInput.request.application.schemeGroup</entity>
+   <binding source='static'><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Equal to'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Is one of'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='Scheme' label='Scheme' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.termSetInput.request.application.scheme</entity>
+   <binding source='static'><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.template1'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.template2'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='Risk_Category1' label='Risk Category' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.riskCategory</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is one of'></binding-reference></binding>
+  </cell-group><cell-group name='Condition1' label='Model' optional='true' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.assetModel</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Is one of'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.template8'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.template9'></binding-reference></binding>
+  </cell-group><cell-group name='Tenure' label='Tenure' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.termSetInput.request.application.loanDetails.tenure</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='Cibil_Score1' label='Cibil Score' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.appLevelCibilScore</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='Condition2' label='IsIncomeMorethanLoanAmt' optional='true' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.IsIncomeMorethanLoanAmt</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='Customer_Category1' label='Customer Segment' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.ltvCustomerSegment</entity>
+   <binding source='static'><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Condition not applicable'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.PreApproved_Customer_segment_Equal_to'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.PreApproved_Customer_segment_Is_one_of'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.template7'></binding-reference></binding>
+  </cell-group><cell-group name='Company_Category1' label='Company Category' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.ltvCompanyProfile</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.PreApproved_Company_Category1_Equal_to'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.PreApproved_Company_Category1_Is_one_of'></binding-reference></binding>
+  </cell-group><cell-group name='Condition3' label='Asset Age' optional='true' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.termSetInput.request.application.assetDetails.detailAssetLoan.assetAge</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Greater than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Less than or equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Include range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Exclude range'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='Condition4' label='is Sanctioned Amount Limited' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.santionedAmountinLimit</entity>
+   <binding source='static'><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Equal to'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><cell-group name='Condition5' label='AssesmentMethod' optional='false' role='condition' alignment='vertical'>
+   <entity source='static'>theBlazeMessageBT.assesmentMethod</entity>
+   <binding source='static'><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Scheme_Equal_to1'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.PreApproved_customerSegment_Not_Equal_To1'></binding-reference><binding-reference ref='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Scheme_Is_one_of1'></binding-reference><binding-reference ref='HpCA3aezfvW7qaUftqvMmEgUmPL.Condition not applicable'></binding-reference></binding>
+  </cell-group><layout>single-axis-cols</layout><rule-id visible='false' editable='false'><prefix>rule</prefix></rule-id></template:content>
+ <template name='Assignment' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Scheme_Specific_LTV1_Assignment</ide-name>
+  <display-name>Additional LTV</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='ZflwwyXLKEhzcbPIeMdeUOafcgR.propertyvalues-provider' ideName='value'>
+    <dynamic-arg name='type' ref='type' relative='true'/>
+    <dynamic-arg name='property' ref='property' relative='true'/>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='property' relative='true'/> = <template:placeholder ref='value' relative='true'/>.<template:br/>theBlazeMessageBT.isLookUpNeeded=true;<template:br/>isRuleFired=true;</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>additional <placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='PreApproved_Customer_segment_Equal_to' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>PreApproved_Customer_segment_Equal_to</ide-name>
+  <display-name>PreApproved_Customer_segment_Equal_to</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>Applicant</arg>
+    <arg name='CodeListKeyAttributePart'>customerSegment</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>(<template:placeholder ref='property' relative='true'/> = "<template:placeholder ref='value' relative='true'/>")</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='PreApproved_Customer_segment_Is_one_of' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>PreApproved_Customer_segment_Is_one_of</ide-name>
+  <display-name>PreApproved_Customer_segment_Is_one_of</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter-selection name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value' min='1'>
+    <arg name='CodeListKeyClassPart'>Applicant</arg>
+    <arg name='CodeListKeyAttributePart'>customerSegment</arg>
+   </parameter-selection>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:foreach ref='value' relative='true'>
+    <template:prefix>(</template:prefix>
+    <template:infix> or </template:infix>
+    <template:postfix>)</template:postfix>
+    <template:item>(<template:placeholder ref='property' relative='true'/>="<template:placeholder ref='value' relative='true'/>")</template:item>
+   </template:foreach></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' is-param-list='true' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value>no</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value>bottom</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value>mini</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='PreApproved_Company_Category1_Equal_to' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>PreApproved_Company_Category1_Equal_to</ide-name>
+  <display-name>PreApproved_Company_Category1_Equal_to</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>EmploymentDetails</arg>
+    <arg name='CodeListKeyAttributePart'>companyProfileCategory</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>(<template:placeholder ref='property' relative='true'/> = "<template:placeholder ref='value' relative='true'/>")</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='PreApproved_Company_Category1_Is_one_of' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>PreApproved_Company_Category1_Is_one_of</ide-name>
+  <display-name>PreApproved_Company_Category1_Is_one_of</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter-selection name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value' min='1'>
+    <arg name='CodeListKeyClassPart'>EmploymentDetails</arg>
+    <arg name='CodeListKeyAttributePart'>companyProfileCategory</arg>
+   </parameter-selection>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:foreach ref='value' relative='true'>
+    <template:prefix>(</template:prefix>
+    <template:infix> or </template:infix>
+    <template:postfix>)</template:postfix>
+    <template:item>(<template:placeholder ref='property' relative='true'/>="<template:placeholder ref='value' relative='true'/>")</template:item>
+   </template:foreach></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' is-param-list='true' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value>no</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value>bottom</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value>mini</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Scheme_Specific_LTV1_Assignment1' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Scheme_Specific_LTV1_Assignment1</ide-name>
+  <display-name>Fixed LTV</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter name='value' type='real' ideName='value'>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>theBlazeMessageBT.standardLtv = <template:placeholder ref='value' relative='true'/>.<template:br/>theBlazeMessageBT.isLookUpNeeded=false;<template:br/>isRuleFired=true;</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>Fixed <placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Action not applicable' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Scheme_Specific_LTV1_Action_not_applicable</ide-name>
+  <display-name>LTV Grid</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>theBlazeMessageBT.isLookUpNeeded=true;<template:br/>theBlazeMessageBT.standardLtv=-999;<template:br/>isRuleFired=true;</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>Follows LTV Grid</template:content>
+ </template>
+ <template name='Equal to' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Scheme_Group1_Equal_to</ide-name>
+  <display-name>Scheme_Group1_Equal_to</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>Application</arg>
+    <arg name='CodeListKeyAttributePart'>schemeGroup</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>(<template:placeholder ref='property' relative='true'/> = "<template:placeholder ref='value' relative='true'/>")</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Is one of' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Scheme_Group1_Is_one_of</ide-name>
+  <display-name>Scheme_Group1_Is_one_of</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter-selection name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value' min='1'>
+    <arg name='CodeListKeyClassPart'>Application</arg>
+    <arg name='CodeListKeyAttributePart'>schemeGroup</arg>
+   </parameter-selection>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:foreach ref='value' relative='true'>
+    <template:prefix>(</template:prefix>
+    <template:infix> or </template:infix>
+    <template:postfix>)</template:postfix>
+    <template:item>(<template:placeholder ref='property' relative='true'/>="<template:placeholder ref='value' relative='true'/>")</template:item>
+   </template:foreach></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' is-param-list='true' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value>no</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value>bottom</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value>mini</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='template1' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Scheme_Equal_to</ide-name>
+  <display-name>Scheme_Equal_to</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>Application</arg>
+    <arg name='CodeListKeyAttributePart'>scheme</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>(<template:placeholder ref='property' relative='true'/> = "<template:placeholder ref='value' relative='true'/>")</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Scheme_Equal_to1' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>AssesmentMenthod_Equal_to</ide-name>
+  <display-name>AssesmentMenthod_Equal_to</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>LoanDetails</arg>
+    <arg name='CodeListKeyAttributePart'>assesmentMethod</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>(<template:placeholder ref='property' relative='true'/> = "<template:placeholder ref='value' relative='true'/>")</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='template2' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Scheme_Is_one_of</ide-name>
+  <display-name>Scheme_Is_one_of</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter-selection name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value' min='1'>
+    <arg name='CodeListKeyClassPart'>Application</arg>
+    <arg name='CodeListKeyAttributePart'>scheme</arg>
+   </parameter-selection>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:foreach ref='value' relative='true'>
+    <template:prefix>(</template:prefix>
+    <template:infix> or </template:infix>
+    <template:postfix>)</template:postfix>
+    <template:item>(<template:placeholder ref='property' relative='true'/>="<template:placeholder ref='value' relative='true'/>")</template:item>
+   </template:foreach></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' is-param-list='true' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value>no</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value>bottom</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value>mini</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Scheme_Is_one_of1' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>AssesmentMethod_Is_one_of</ide-name>
+  <display-name>AssesmentMethod_Is_one_of</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter-selection name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value' min='1'>
+    <arg name='CodeListKeyClassPart'>LoanDetails</arg>
+    <arg name='CodeListKeyAttributePart'>assesmentMethod</arg>
+   </parameter-selection>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:foreach ref='value' relative='true'>
+    <template:prefix>(</template:prefix>
+    <template:infix> or </template:infix>
+    <template:postfix>)</template:postfix>
+    <template:item>(<template:placeholder ref='property' relative='true'/>="<template:placeholder ref='value' relative='true'/>")</template:item>
+   </template:foreach></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' is-param-list='true' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value>no</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value>bottom</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value>mini</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='template3' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Customer_Category1_Equal_to</ide-name>
+  <display-name>Customer_Category1_Equal_to</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='InstanceFilePath'>/Business User Projects/Auto Loan Folder/CodeList/Code List _Masters</arg>
+    <arg name='CodeListKeyClassPart'>Applicant</arg>
+    <arg name='CodeListKeyAttributePart'>customerCategory</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>(<template:placeholder ref='property' relative='true'/> = "<template:placeholder ref='value' relative='true'/>")</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='template4' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Customer_Category1_Is_one_of</ide-name>
+  <display-name>Customer_Category1_Is_one_of</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter-selection name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value' min='1'>
+    <arg name='InstanceFilePath'>/Business User Projects/Auto Loan Folder/CodeList/Code List _Masters</arg>
+    <arg name='CodeListKeyClassPart'>Applicant</arg>
+    <arg name='CodeListKeyAttributePart'>customerCategory</arg>
+   </parameter-selection>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:foreach ref='value' relative='true'>
+    <template:prefix>(</template:prefix>
+    <template:infix> or </template:infix>
+    <template:postfix>)</template:postfix>
+    <template:item>(<template:placeholder ref='property' relative='true'/>="<template:placeholder ref='value' relative='true'/>")</template:item>
+   </template:foreach></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' is-param-list='true' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value>no</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value>bottom</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value>mini</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='template5' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Company_Category1_Equal_to</ide-name>
+  <display-name>Company_Category1_Equal_to</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='InstanceFilePath'>/Business User Projects/Auto Loan Folder/CodeList/Code List _Masters</arg>
+    <arg name='CodeListKeyClassPart'>EmploymentDetails</arg>
+    <arg name='CodeListKeyAttributePart'>employerCategory</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>(<template:placeholder ref='property' relative='true'/> = "<template:placeholder ref='value' relative='true'/>")</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>uniqueDiscreteValue</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='template6' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Company_Category1_Is_one_of</ide-name>
+  <display-name>Company_Category1_Is_one_of</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter-selection name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value' min='1'>
+    <arg name='InstanceFilePath'>/Business User Projects/Auto Loan Folder/CodeList/Code List _Masters</arg>
+    <arg name='CodeListKeyClassPart'>EmploymentDetails</arg>
+    <arg name='CodeListKeyAttributePart'>employerCategory</arg>
+   </parameter-selection>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:foreach ref='value' relative='true'>
+    <template:prefix>(</template:prefix>
+    <template:infix> or </template:infix>
+    <template:postfix>)</template:postfix>
+    <template:item>(<template:placeholder ref='property' relative='true'/>="<template:placeholder ref='value' relative='true'/>")</template:item>
+   </template:foreach></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' is-param-list='true' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value>no</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value>bottom</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value>mini</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Condition not applicable' resource-bundle='com.blazesoft.template.metaphor.binding.strings'>
+  <ide-name>Customer_Category1_Condition_not_applicable</ide-name>
+  <display-name>Customer_Category1_Condition_not_applicable</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>true</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>N/A</template:content>
+ </template>
+ <template name='template7'>
+  <ide-name>PreApproved_customerSegment_Not_Equal_To</ide-name>
+  <display-name>PreApproved_customerSegment_Not_Equal_To</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>Applicant</arg>
+    <arg name='CodeListKeyAttributePart'>customerSegment</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='property' relative='true'/><![CDATA[<>"]]><template:placeholder ref='value' relative='true'/>"</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[<>]]><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='PreApproved_customerSegment_Not_Equal_To1'>
+  <ide-name>AssesmentMethod_Not_Equal_To</ide-name>
+  <display-name>AssesmentMethod_Not_Equal_To</display-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>LoanDetails</arg>
+    <arg name='CodeListKeyAttributePart'>assesmentMethod</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='property' relative='true'/><![CDATA[<>"]]><template:placeholder ref='value' relative='true'/>"</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[<>]]><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='template8'>
+  <ide-name>model_equal_to</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>DetailAssetLoan</arg>
+    <arg name='CodeListKeyAttributePart'>assetModel</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='property' relative='true'/>="<template:placeholder ref='value' relative='true'/>"</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='template9'>
+  <ide-name>model_not_equal_to</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='type' type='string' mechanism='argument' repeatable='false' ideName='type'>
+   </parameter-noninstantiable>
+   <parameter-noninstantiable name='property' type='string' mechanism='argument' repeatable='false' ideName='property'>
+   </parameter-noninstantiable>
+   <parameter name='value' type='84y4CYUGo7fJ177vEBCqYvUwDJo' ideName='value'>
+    <arg name='CodeListKeyClassPart'>DetailAssetLoan</arg>
+    <arg name='CodeListKeyAttributePart'>assetModel</arg>
+   </parameter>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='property' relative='true'/><![CDATA[<>"]]><template:placeholder ref='value' relative='true'/>"</template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[<>]]><placeholder ref='value' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+ </template>
+ <template name='Cell Template'>
+  <ide-name>Cell Template</ide-name>
+  <parameters>
+   <parameter name='CELL GROUP NAME' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Cell Group Names' ideName='CELL GROUP NAME' displayName='Internal Use Only - Not For Display: cell group name'>
+   </parameter>
+   <parameter name='type' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.__ND_CellGroupInfoProvider' ideName='type'>
+   </parameter>
+   <parameter name='property' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.__ND_CellGroupInfoProvider' ideName='property'>
+   </parameter>
+   <parameter-selection name='binding' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Template List Provider' ideName='binding' min='1' max='1'>
+    <dynamic-arg name='property' ref='property' relative='true'/>
+    <dynamic-arg name='type' ref='type' relative='true'/>
+   </parameter-selection>
+  </parameters>
+  <family>Code Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='binding' relative='true'/></template:content>
+ </template>
+ <template name='Cases Info Template'>
+  <ide-name>Cases Info Template</ide-name>
+  <parameters>
+   <parameter-list name='condition cells' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Cell Group Info Template' ideName='condition cells' min='0'>
+   </parameter-list>
+   <parameter-list name='action cells' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Cell Group Info Template' ideName='action cells' min='0'>
+   </parameter-list>
+  </parameters>
+  <family>Information template</family>
+ </template>
+ <template name='Cell Group Info Template'>
+  <comment>Holds Information about the Cell Groups in the metaphor.</comment>
+  <ide-name>Cell Group Info Template</ide-name>
+  <parameters>
+   <parameter name='name' type='string' ideName='name'>
+   </parameter>
+   <parameter name='displayName' type='string' ideName='displayName'>
+   </parameter>
+   <parameter name='property' type='string' ideName='property'>
+   </parameter>
+   <parameter name='type' type='string' ideName='type'>
+   </parameter>
+  </parameters>
+  <family>Information template</family>
+ </template>
+ <template name='__ND_CellGroupInfoProvider'>
+  <ide-name>__ND_CellGroupInfoProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromMetaphorInstanceCellGroupInfoProvider</provider>
+  </value>
+ </template>
+ <template name='__ND_CaseIdProvider'>
+  <ide-name>__ND_CaseIdProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.repository.provider.NdPromMetaphorUniqueCaseIdProvider</provider>
+  </value>
+ </template>
+ <template name='Editing Info Template'>
+  <comment>Holds Information about the number of cases in the decision table</comment>
+  <ide-name>Editing Info Template</ide-name>
+  <parameters>
+   <parameter name='rowCondValueCount' type='integer' ideName='rowCondValueCount'>
+   </parameter>
+   <parameter name='colCondValueCount' type='integer' ideName='colCondValueCount'>
+   </parameter>
+   <parameter name='isNewInstance' type='boolean' ideName='isNewInstance'>
+   </parameter>
+  </parameters>
+  <family>Information template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+ </template>
+ <template name='Cell Group Names'>
+  <comment>This is the complete list of names for all condition and action groups.
+There is no real need for this list provider, as long as the client maintains
+this list.</comment>
+  <ide-name>Cell Group Names</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdListProvider</provider>
+   <arg name='type'>string</arg>
+   <arg name='unique'>true</arg>
+   <arg name='element'>Scheme_Specific_LTV1</arg>
+   <arg name='element'>Scheme_Group1</arg>
+   <arg name='element'>Scheme</arg>
+   <arg name='element'>Risk_Category1</arg>
+   <arg name='element'>Condition1</arg>
+   <arg name='element'>Tenure</arg>
+   <arg name='element'>Cibil_Score1</arg>
+   <arg name='element'>Condition2</arg>
+   <arg name='element'>Customer_Category1</arg>
+   <arg name='element'>Company_Category1</arg>
+   <arg name='element'>Condition3</arg>
+   <arg name='element'>Condition4</arg>
+   <arg name='element'>Condition5</arg>
+  </value>
+ </template>
+ <template name='Template List Provider'>
+  <ide-name>Template List Provider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.metaphor.NdMetaphorBindingTemplateListProvider</provider>
+  </value>
+ </template>
+ <template name='Enumeration Items Provider'>
+  <ide-name>Enumeration Items Provider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdEnumerationItemsProvider</provider>
+   <arg name='template'></arg>
+   <arg name='enumeration'></arg>
+  </value>
+ </template>
+ <template name='Decision Table Case Template'>
+  <comment>$Date$ $Revision$
+===================
+This Template is intended to be a built-in.
+That is, it should be utterly generic with nothing tying it to a specific
+object model or template set.
+
+At the moment the only non-generic aspect is the list of associations
+defined as static overrides to the "all bindings for group" value holder
+in the Cell Template. It is envisioned that this list of associations will
+be passed into the generic Decision Table Case Template as a
+template argument, when that mechanism is implemented by IRT.
+
+
+How this Template Works:
+=====================
+In this generic template there is one place holder for all of the condition
+groups and another for all of the action groups, with a loop over each.
+
+The problem of ensuring that the correct list of bindings is used for each
+group is solved by using an association provider linking the
+name of the condition group to the template list provider that contains
+the correct bindings for that group.
+
+This setup depends on the client submitting (or choosing) the correct
+CELL GROUP NAME in Cell Template for each instance of 
+the value holder conditions.
+The second value holder in  Cell Template, "all bindings for group"
+uses this name as the key for the association provider that associates
+group names with lists of templates for those group names.
+This value holder is an "all values" value holder,  and thus takes
+as its values all of the names of the templates in the list that matches the
+key.  That is, its values are the names of the templates in the specified
+group.
+
+This value holder, "all bindings for group" is then used as a dynamic
+override for the "binding" value holder which refers to an empty
+(builtin) Template List Provider.
+Thus the allowed values of "binding" are the templates whose names
+were associated with the key.</comment>
+  <ide-name>Decision Table Case Template</ide-name>
+  <parameters>
+   <parameter name='__ENTITY_PROPERTIES__VH__' type='1e4Fwj577fuGSTbTbZVTMCQNc91' ideName='Management Properties'>
+   </parameter>
+   <parameter-list name='condition cells' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Cell Template' ideName='condition cells' min='0'>
+   </parameter-list>
+   <parameter-list name='action cells' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.Cell Template' ideName='action cells' min='0'>
+   </parameter-list>
+   <parameter name='__ND_MetaphorRuleNameVH' type='NLTaL7lsITJvNAEMSe3BUAbgJ5q.__ND_CaseIdProvider'>
+    <arg name='prefix'>rule</arg>
+   </parameter>
+   <parameter name='__ND_DecTableCellRowVH' type='string' ideName='__ND_DecTableCellRowVH'>
+   </parameter>
+   <parameter name='__ND_DecTableCellColumnVH' type='string' ideName='__ND_DecTableCellColumnVH'>
+   </parameter>
+   <parameter name='__ND_DecTableCellCreatedVH' type='string' ideName='__ND_DecTableCellCreatedVH'>
+   </parameter>
+  </parameters>
+  <family>Rule Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><rule>
+    <comment>@decisionTableCellRow <template:placeholder ref='__ND_DecTableCellRowVH' relative='true'/><template:br/>@decisionTableCellColumn <template:placeholder ref='__ND_DecTableCellColumnVH' relative='true'/><template:br/>@decisionTableCellCreated <template:placeholder ref='__ND_DecTableCellCreatedVH' relative='true'/><template:br/></comment>
+    <name><template:placeholder ref='__ND_MetaphorRuleNameVH' relative='true'/></name>
+    <execution-mode>exhaustively</execution-mode>
+    <body>if <template:foreach ref='condition cells' relative='true'>
+      <template:prefix>(</template:prefix>
+      <template:infix> and<template:br/>    </template:infix>
+      <template:postfix>)</template:postfix>
+      <template:item><template:placeholder ref='condition cells' relative='true'/></template:item>
+     </template:foreach><template:br/>then { <template:br/><template:tab/><template:foreach ref='action cells' relative='true'>
+      <template:prefix></template:prefix>
+      <template:infix> <template:br/><template:tab/></template:infix>
+      <template:postfix></template:postfix>
+      <template:item><template:placeholder ref='action cells' relative='true'/></template:item>
+     </template:foreach><template:br/>}</body>
+   </rule></template:content>
+ </template>
+ <template name='MetaphorNameProvider'>
+  <ide-name>MetaphorNameProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdStringProvider</provider>
+   <default-value>Addon_LTV_Decision_Table_Template_new_Instance</default-value>
+  </value>
+ </template>
+ <template name='MetaphorDagProvider'>
+  <ide-name>MetaphorDagProvider</ide-name>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdStringProvider</provider>
+  </value>
+ </template>
+</template>

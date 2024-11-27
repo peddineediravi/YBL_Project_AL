@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='DSG71szD5AH5G0pcZCfjmcoPvq0' name='NoDPD'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='nameVH'>
+  <value>NoDPD</value>
+ </instance>
+ <instance ref='typeVH'>
+  <value>boolean</value>
+ </instance>
+ <instance ref='descriptionVH'>
+  <value></value>
+ </instance>
+ <instance ref='termPropertyVH'>
+ </instance>
+ <instance ref='isNeededEventRuleVH'>
+  <instance ref='__ENTITY_PROPERTIES__VH__'>
+  </instance>
+  <instance ref='calculationVH'>
+   <value><![CDATA[anApplicant is some Applicant;
+YesBankAccountTypeAndObligations is a boolean initially false;
+historyLength is an integer initially 0;
+numberOfMonths is an integer initially 0;
+paymentHistory is a string initially "";
+noOfDPDBounces is an integer initially 0;
+CleanAccount is an integer initially 0;
+loanAmounts is an real initially 0;
+peakDPDs is an real  initially 0;
+noOfBounceses is an real  initially 0;
+NOdpdFound is a boolean initially false;
+YesBankAccountTypeObligationsAndDPD is a boolean initially false;
+SanctionedAmounts is a real initially 0;
+
+for each Applicant in theFMABT.termSetInput.request.application.applicants such that (it.applicantType is known) do{
+anApplicant = it;
+//financierName check
+for each Liability in anApplicant.liabilities do {
+	if( it.loanAmount is (known and available) 
+      and it.typeOfLoanProduct is  (known and available)  and it.typeOfLoanProduct is not equal to("08" and "02")) then{
+  		 if(it.loanAmount>=200000 )then{loanAmounts=loanAmounts+1;}
+        if(it.peakDPD is (known and available ) and it.peakDPD=0)then{peakDPDs=peakDPDs+1;}
+        if(it.noOfBounces is (known and available) and it.noOfBounces=0)then{noOfBounceses=noOfBounceses+1;}
+        
+//print("loanAmounts=="loanAmounts);
+ // print("peakDPDs=="peakDPDs);
+ // print("noOfBounceses=="noOfBounceses);
+      
+       		if(loanAmounts>=1 and peakDPDs>=1 and noOfBounceses>=1)then{
+				YesBankAccountTypeAndObligations = true;
+				}
+		} 
+}
+  
+//print("loanAmounts=="loanAmounts);
+ // print("peakDPDs=="peakDPDs);
+ // print("noOfBounceses=="noOfBounceses);
+//dpd calculation
+if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is known and
+anApplicant.multiBureauReport.cibilResponse.accounts is known and anApplicant.multiBureauReport.cibilResponse.accounts.count > 0) then {
+for each Account in anApplicant.multiBureauReport.cibilResponse.accounts do {
+if(it.accountType<>(ignoring case)("OVRDRAFT"and"12" and "CC"and "10" and "Credit Card" and
+                                   "36" and  "Kisan Credit Card"  and "KISAN CREDIT CARD" and "38" and "Prime Minister Jaan Dhan Yojana - Overdraft") ) then{
+   if(it.highCreditOrSanctionedAmount <>"" and it.highCreditOrSanctionedAmount is (known and available) )then{
+  SanctionedAmounts=portable().toFloat(it.highCreditOrSanctionedAmount);
+   }
+  if(it.paymentHistory1 is (known and available)) then {
+	paymentHistory = it.paymentHistory1;
+	}
+	if(it.paymentHistory2 is (known and available)) then {
+	paymentHistory = paymentHistory.concat(it.paymentHistory2);
+	}
+		historyLength = paymentHistory.length();
+		numberOfMonths = math().truncate(historyLength/3);
+		paymentHistory = paymentHistory.replaceAll("X","0");
+		paymentHistory = paymentHistory.replaceAll("DDD", "000");
+		paymentHistory = paymentHistory.replaceAll("LSS", "180");
+		paymentHistory = paymentHistory.replaceAll("SUB", "180");
+		paymentHistory = paymentHistory.replaceAll("DBT", "180");
+		paymentHistory = paymentHistory.replaceAll("SMA", "089");
+		paymentHistory = paymentHistory.replaceAll("STD", "000");
+
+
+monthCounter is a integer initially 0;
+pos1 is an integer initially 0;
+pos2 is an integer initially 3;
+dpdValue is an integer initially 0;
+tempIntArray is some array of integer initially an array of integer;
+	while(monthCounter <= numberOfMonths-1) do {
+	dpdValue=paymentHistory.substring(pos1, pos2) as an integer;
+	tempIntArray.append(dpdValue);
+	pos1=pos2;
+	pos2=pos2+3;
+	monthCounter+=1;
+	}
+	dpdArrCount is an integer initially 0;
+	if(tempIntArray.count > 0) then {
+	while(dpdArrCount < (tempIntArray.count)) do{
+	if(tempIntArray[dpdArrCount] > 0) then {
+	noOfDPDBounces = noOfDPDBounces +1;
+}	else if(dpdArrCount= 0) then { 
+           CleanAccount=CleanAccount+1;
+ 	}
+	dpdArrCount = dpdArrCount +1;
+}
+}
+}//if
+}
+}
+}
+
+print("CleanAccount=="CleanAccount);
+if(CleanAccount >0 and  SanctionedAmounts>=200000) then{
+NOdpdFound = true;
+}
+if(YesBankAccountTypeAndObligations = true or NOdpdFound = true  or  theBlazeMessageBT.appLevelCibilScore>=740) then{
+YesBankAccountTypeObligationsAndDPD = true;
+}
+theFMABT.NoDPD=YesBankAccountTypeObligationsAndDPD ;
+print("YesBankAccountTypeObligationsAndDPD =="YesBankAccountTypeObligationsAndDPD );
+print("cibilscore::::::::::"theBlazeMessageBT.appLevelCibilScore);
+print("NOdpdFound=="NOdpdFound);
+print("FMADPD=="theFMABT.NoDPD);]]></value>
+  </instance>
+ </instance>
+ <instance ref='constraintContainerVH'>
+  <instance-selection ref='constraintVH'>
+   <item template='Atv03JffIeVVgsPZppyIx4mkGHC.template5' id='9xoe8M'>
+    <instance ref='fromVH'>
+     <value></value>
+    </instance>
+    <instance ref='toVH'>
+     <value></value>
+    </instance>
+    <instance ref='constraintNameVH'>
+     <value>Range</value>
+    </instance>
+    <instance ref='constraintEntriesVH'>
+    </instance>
+   </item>
+  </instance-selection>
+  <instance ref='termTypeConstraintTemplateAssocVH'>
+   <value>Atv03JffIeVVgsPZppyIx4mkGHC.template5</value>
+  </instance>
+ </instance>
+</instantiation>

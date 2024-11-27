@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='TC_Eligibility_Normal_Pos'>
+ <ide-name>TC_Eligibility_Normal_MinIncomeNormsMeet</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='JPIHFFSGcpsgc9D37Z4EXju2UJI'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>Eligibility</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='JPIHFFSGcpsgc9D37Z4EXju2UJI'>
+   <name>TC_Eligibility_Normal_MinIncomeNormsMeet</name>
+   <body>//Salaried Applicant<template:br/>salariedIncome is some Income;<template:br/>salariedIncome = an Income initially{<template:br/>it.amount=30000;<template:br/>it.frequency="M";<template:br/>}<template:br/><template:br/>salariedIncomeArr is some array of Income initially an array of Income;<template:br/>salariedIncomeArr.append(salariedIncome);<template:br/><template:br/>salariedLiability is some Liability;<template:br/>salariedLiability = a Liability initially{<template:br/>it.considerForObligations =true;<template:br/>it.EMIAmount = 1000;<template:br/>}<template:br/><template:br/>salariedLiabilityArr is some array of Liability initially an array of Liability;<template:br/>salariedLiabilityArr.append(salariedLiability);<template:br/><template:br/>salariedApplicant is some Applicant;<template:br/>salariedApplicant = an Applicant initially{<template:br/>it.customerSegment = "1";<template:br/>it.constitution = "1";<template:br/>it.liabilities = salariedLiabilityArr;<template:br/>it.incomes = salariedIncomeArr;<template:br/>}<template:br/><template:br/><template:br/>//Proprietor Type Applicant<template:br/>proprietorIncome is some Income;<template:br/>proprietorIncome = an Income initially{<template:br/>it.amount=3000000;<template:br/>it.head="120";<template:br/>it.frequency="A";<template:br/>}<template:br/><template:br/>proprietorIncome2 is some Income;<template:br/>proprietorIncome2 = an Income initially{<template:br/>it.amount=50000;<template:br/>it.head="37";<template:br/>it.frequency="M";<template:br/>}<template:br/><template:br/>proprietorIncomeArr is some array of Income initially an array of Income;<template:br/>proprietorIncomeArr.append(proprietorIncome);<template:br/>proprietorIncomeArr.append(proprietorIncome2);<template:br/><template:br/>proprietorLiability is some Liability;<template:br/>proprietorLiability = a Liability initially{<template:br/>it.considerForObligations =true;<template:br/>it.EMIAmount = 1000;<template:br/>}<template:br/><template:br/>proprietorLiabilityArr is some array of Liability initially an array of Liability;<template:br/>proprietorLiabilityArr.append(proprietorLiability);<template:br/><template:br/>proprietorApplicant is some Applicant;<template:br/>proprietorApplicant = an Applicant initially{<template:br/>it.customerSegment = "10019";<template:br/>it.constitution = "10";<template:br/>it.liabilities = proprietorLiabilityArr;<template:br/>it.incomes = proprietorIncomeArr;<template:br/>}<template:br/><template:br/><template:br/><template:br/>//Corporate Type Applicant<template:br/>corporateIncome is some Income;<template:br/>corporateIncome = an Income initially{<template:br/>it.amount=3000000;<template:br/>it.head="120";<template:br/>it.frequency="A";<template:br/>}<template:br/><template:br/>corporateIncome2 is some Income;<template:br/>corporateIncome2 = an Income initially{<template:br/>it.amount=50000;<template:br/>it.head="125";<template:br/>it.frequency="M";<template:br/>}<template:br/><template:br/>corporateIncomeArr is some array of Income initially an array of Income;<template:br/>corporateIncomeArr.append(corporateIncome);<template:br/>corporateIncomeArr.append(corporateIncome2);<template:br/><template:br/>corporateLiability is some Liability;<template:br/>corporateLiability = a Liability initially{<template:br/>it.considerForObligations =true;<template:br/>it.EMIAmount = 10000;<template:br/>}<template:br/><template:br/>corporateLiabilityArr is some array of Liability initially an array of Liability;<template:br/>corporateLiabilityArr.append(corporateLiability);<template:br/><template:br/>corporateApplicant is some Applicant;<template:br/>corporateApplicant = an Applicant initially{<template:br/>it.customerSegment = "10010";<template:br/>it.constitution = "13";<template:br/>it.liabilities = corporateLiabilityArr;<template:br/>it.incomes = corporateIncomeArr;<template:br/>}<template:br/><template:br/><template:br/><template:br/>//Partnership Type Applicant<template:br/>partnershipIncome is some Income;<template:br/>partnershipIncome = an Income initially{<template:br/>it.amount=30000;<template:br/>it.frequency="M";<template:br/>it.head="120";<template:br/>}<template:br/><template:br/>partnershipIncomeArr is some array of Income initially an array of Income;<template:br/>partnershipIncomeArr.append(partnershipIncome);<template:br/><template:br/>partnershipLiability is some Liability;<template:br/>partnershipLiability = a Liability initially{<template:br/>it.considerForObligations =true;<template:br/>it.EMIAmount = 1000;<template:br/>}<template:br/><template:br/>partnershipLiabilityArr is some array of Liability initially an array of Liability;<template:br/>partnershipLiabilityArr.append(partnershipLiability);<template:br/><template:br/>partnershipApplicant is some Applicant;<template:br/>partnershipApplicant = an Applicant initially{<template:br/>it.customerSegment = "10012";<template:br/>it.constitution = "2";<template:br/>it.liabilities = partnershipLiabilityArr;<template:br/>it.incomes = partnershipIncomeArr;<template:br/>}<template:br/><template:br/><template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(salariedApplicant);<template:br/>applicantArr.append(corporateApplicant);<template:br/>applicantArr.append(proprietorApplicant);<template:br/>applicantArr.append(partnershipApplicant);<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.schemeGroup = "13";<template:br/>application.scheme = "29";<template:br/>application.applicants=applicantArr;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);<template:br/><template:br/>fn_Apply_NewCar_EligibilityCompuation(blazeMessage);<template:br/><template:br/>assert().checkTrue("TC_Eligibility_Normal_MinIncomeNormsMeet_Pos", theBlazeMessageBT.maxEligibleAmount = 30960000);</body>
+  </function></template:content>
+</template>

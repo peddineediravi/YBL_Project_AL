@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_DownpaymentRate'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_DownpaymentRate</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("inside DownpaymentRate");
+ percentageOfDownPayment is a real initially 0.00;
+assetvalues is a real initially 0.0;
+accessvalue is a real initially 0.0;
+
+if(blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost is (known and available))then{
+  blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost=blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost;
+} else {
+  blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost=0;
+}
+if(blazeMessage.request.application.assetDetails.detailAssetLoan.accessoriesCost is (known and available))then{
+  blazeMessage.request.application.assetDetails.detailAssetLoan.accessoriesCost=blazeMessage.request.application.assetDetails.detailAssetLoan.accessoriesCost;
+} else {
+  blazeMessage.request.application.assetDetails.detailAssetLoan.accessoriesCost=0;
+}
+
+assetvalues=((blazeMessage.request.application.assetDetails.detailAssetLoan.accessoriesCost+blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost )-blazeMessage.request.application.loanDetails.loanAmount-theFMABT.InuranceAmount);
+accessvalue =((blazeMessage.request.application.assetDetails.detailAssetLoan.accessoriesCost+blazeMessage.request.application.assetDetails.newVehicleDetails.assetCost ));
+print("assetvalues==="assetvalues);
+print("accessvalue==="accessvalue);
+
+if(accessvalue>0)then{
+percentageOfDownPayment=assetvalues/accessvalue;
+}else {
+percentageOfDownPayment=0;
+}
+//percentageOfDownPayment =blazeMessage.request.application.assetDetails.newVehicleDetails.percentageOfDownPayment;
+print("percentageOfDownPayment"percentageOfDownPayment);
+blazeMessage.charNameToCharVal["Down payment rate (in %)"] = percentageOfDownPayment  as a string;
+return percentageOfDownPayment;
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='OceXt4'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

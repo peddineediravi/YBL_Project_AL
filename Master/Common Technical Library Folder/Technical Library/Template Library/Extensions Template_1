@@ -1,0 +1,1671 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='Extensions Template'>
+ <ide-name>Extensions Template</ide-name>
+ <display-name>Extensions</display-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <parameters>
+  <parameter name='rootClass' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate' ideName='rootClass'>
+  </parameter>
+  <parameter-list name='otherClasses' type='EPfFtzMcOJaLcQkALOceuCtOffN.BlazeRootClassTemplate1' ideName='otherClasses' min='0'>
+  </parameter-list>
+ </parameters>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='adv'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='jcp'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='dbcp'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ccp'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='xcp'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='cpc'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/flow' section='flow'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/aai' section='aai'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ncp'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='bcp'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='' section='xml'><template:placeholder ref='rootClass' relative='false'/><template:placeholder ref='otherClasses' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[<style>.h1div {font-family: 'Lato','Arial Unicode MS', Arial, sans-serif; font-size: 20px; font-weight:bold; color: #FFFFFF;line-height: 40px; background-color: #336699}</style>]]><template:br/><![CDATA[<div style="background-color:#336699; font-family:'Lato','Arial Unicode MS', Arial, sans-serif; text-align:center; font-size:23px; line-height:50px; font-weight:bold; color:white;">Extensions</div>]]><template:br/><![CDATA[<p style="font-size:14px" style="margin-bottom: -5em;"><i>&nbsp;Many times the information sent to the decision service is a simplified and normalised version of the information actually needed to make a decision. Extensions are an easy way to extend your "vocabulary" by creating more expressive variables, called decision keys.</i></p>]]><template:br/><![CDATA[<div class="h1div";>&nbsp;<font color="white">BlazeRoot</font></div>]]><template:br/><![CDATA[<p style="font-size:14px" ;style="margin-bottom: -5em;"><i>&nbsp;<font color="black" ; "text-align:center">The root class represents the type of the object being sent to the Decision Service. There can only be one root class. Like any other class, the root class can be extended with decision keys. The name of the root class will always be <b>"BlazeMessage"</b>.The root class extends Message class</font></i></p>]]><template:br/><placeholder ref='rootClass' relative='false'>
+   <attribute>
+    <attribute-name>none</attribute-name>
+    <attribute-value>none</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rangeRole</attribute-name>
+    <attribute-value>none</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>style</attribute-name>
+    <attribute-value>standardTextEdit</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>readWriteProperty</attribute-name>
+    <attribute-value>readNWrite</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>selectionMethod</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>size</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>samePage</attribute-name>
+    <attribute-value>true</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>password</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>ref-type</attribute-name>
+    <attribute-value>0</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>paginate</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rowsPerPage</attribute-name>
+    <attribute-value>5</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarLocation</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>linkSupport</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarMode</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>uiLayout</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+  </placeholder><template:br/><![CDATA[<div class="h1div";>&nbsp;<font color="white">Other Classes</font></div>]]><template:br/><![CDATA[<p style="font-size:14px" ;style="margin-bottom: -5em;"><i>&nbsp;<font color="black" ; "text-align:center">Any class can be extended with decision keys to make it more expressive. The extended class will be called "Blaze" followed by the name of the original class (e.g. the class Application when extended is called BlazeApplication)</font></i></p>]]><template:br/><table ref='otherClasses' relative='false'><attribute>
+    <attribute-name>showFilterBand</attribute-name>
+    <attribute-value>false</attribute-value>
+   </attribute><attribute>
+    <attribute-name>samePage</attribute-name>
+    <attribute-value>true</attribute-value>
+   </attribute><attribute>
+    <attribute-name>ref-type</attribute-name>
+    <attribute-value>0</attribute-value>
+   </attribute><attribute>
+    <attribute-name>paginate</attribute-name>
+    <attribute-value>yes</attribute-value>
+   </attribute><attribute>
+    <attribute-name>rowsPerPage</attribute-name>
+    <attribute-value>5</attribute-value>
+   </attribute><attribute>
+    <attribute-name>showIndexCol</attribute-name>
+    <attribute-value>false</attribute-value>
+   </attribute><attribute>
+    <attribute-name>toolbarLocation</attribute-name>
+    <attribute-value>bottom</attribute-value>
+   </attribute><attribute>
+    <attribute-name>caseSensitiveFilterBand</attribute-name>
+    <attribute-value>false</attribute-value>
+   </attribute><attribute>
+    <attribute-name>showColHeaders</attribute-name>
+    <attribute-value>true</attribute-value>
+   </attribute><table-column header='Extension Class Name'><placeholder ref='otherClasses.VH1' relative='false'>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value>standardTextEdit</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>readWriteProperty</attribute-name>
+      <attribute-value>readNWrite</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>paginate</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rowsPerPage</attribute-name>
+      <attribute-value>5</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarLocation</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>linkSupport</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarMode</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>uiLayout</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+    </placeholder></table-column><table-column header='Extended Class Name'><placeholder ref='otherClasses.parentClassVH' relative='false'>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>readWriteProperty</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value>useDhtmlChoiceBox</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>paginate</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rowsPerPage</attribute-name>
+      <attribute-value>5</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarLocation</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>linkSupport</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarMode</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>uiLayout</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+    </placeholder></table-column></table></template:content>
+ <template name='RootClassTemplate'>
+  <ide-name>BlazeRootClassTemplate</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+   <instance ref='Source Reference'>
+    <instance ref='value'>
+     <instance ref='locationVH'>
+      <value></value>
+     </instance>
+     <instance ref='repositoryNameVH'>
+      <value></value>
+     </instance>
+     <instance ref='versionVH'>
+      <value></value>
+     </instance>
+     <instance ref='filterVH'>
+      <value></value>
+     </instance>
+     <instance ref='releaseDateVH'>
+      <value></value>
+     </instance>
+     <instance ref='repositoryAccessVH'>
+      <value></value>
+     </instance>
+    </instance>
+   </instance>
+   <instance ref='Predictive Model Type'>
+    <instance ref='value'>
+     <value>NotApplicable</value>
+    </instance>
+   </instance>
+  </instantiation>
+  <parameters>
+   <parameter name='Value Holder1' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template8' ideName='vhClass'>
+   </parameter>
+  </parameters>
+  <family>Project Items Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='Value Holder1' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>true</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='adv'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='jcp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='dbcp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ccp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='xcp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='cpc'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/flow' section='flow'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/aai' section='aai'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ncp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='bcp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='' section='xml'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template name='PropertiesTemplate'>
+   <ide-name>PropertyTemplate</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+    <instance ref='Source Reference'>
+     <instance ref='value'>
+      <instance ref='locationVH'>
+       <value></value>
+      </instance>
+      <instance ref='repositoryNameVH'>
+       <value></value>
+      </instance>
+      <instance ref='versionVH'>
+       <value></value>
+      </instance>
+      <instance ref='filterVH'>
+       <value></value>
+      </instance>
+      <instance ref='releaseDateVH'>
+       <value></value>
+      </instance>
+      <instance ref='repositoryAccessVH'>
+       <value></value>
+      </instance>
+     </instance>
+    </instance>
+    <instance ref='Predictive Model Type'>
+     <instance ref='value'>
+      <value>NotApplicable</value>
+     </instance>
+    </instance>
+   </instantiation>
+   <parameters>
+    <parameter-noninstantiable name='argClassName' type='string' mechanism='argument' repeatable='false' ideName='argClassName'>
+    </parameter-noninstantiable>
+    <parameter name='nameVH' type='srlname' ideName='nameVH'>
+    </parameter>
+    <parameter name='datatypeVH' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template4' ideName='typeVH'>
+    </parameter>
+   </parameters>
+   <family>Properties Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><property>
+     <name><template:placeholder ref='nameVH' relative='true'/></name>
+     <type><template:placeholder ref='datatypeVH' relative='true'/></type>
+    </property></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[<h2>Decision Keys</h2>]]><template:br/><![CDATA[<em>For each key, a name and a type can be defined. Any primitive or complex type is allowed, including custom enumerations. </em>]]><template:br/><template:br/><![CDATA[<table><tr><td><strong>Custom Key:</strong></td><td>]]><placeholder ref='nameVH' relative='true'>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value>standardTextEdit</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>readWriteProperty</attribute-name>
+      <attribute-value>readNWrite</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>paginate</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rowsPerPage</attribute-name>
+      <attribute-value>5</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarLocation</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>linkSupport</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarMode</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>uiLayout</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+    </placeholder><![CDATA[ </td></tr><tr><td><strong>Type:</strong></td><td>]]><placeholder ref='datatypeVH' relative='true'>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value>standardTextEdit</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>readWriteProperty</attribute-name>
+      <attribute-value>readNWrite</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value>true</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>linkSupport</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+    </placeholder><![CDATA[</td></tr></table>]]></template:content>
+  </template>
+  <template name='template3'>
+   <ide-name>NoCalculationTemplate</ide-name>
+   <display-name>No calculation</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'></template:content>
+  </template>
+  <template name='template2'>
+   <ide-name>CalculationTemplateList</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+   </instantiation>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdTemplateListProvider</provider>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template3</arg>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.CastCalculationTemplate</arg>
+   </value>
+  </template>
+  <template name='template4'>
+   <ide-name>TypeTemplate</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <parameters>
+    <parameter name='classname' type='OCgJuQBql5dFy2dHzWiLVAUeFZy' ideName='classname'>
+    </parameter>
+    <parameter-selection name='Value Holder1' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template5' ideName='fixedArray' min='1' max='1'>
+    </parameter-selection>
+   </parameters>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='Value Holder1' relative='true'/><template:placeholder ref='classname' relative='true'/></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='Value Holder1' relative='true'>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value>false</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value>useMiniDhtmlChoiceBox</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+    </placeholder><placeholder ref='classname' relative='true'>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>readWriteProperty</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value>useDhtmlChoiceBox</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>paginate</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rowsPerPage</attribute-name>
+      <attribute-value>5</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarLocation</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>linkSupport</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarMode</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>uiLayout</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+    </placeholder></template:content>
+  </template>
+  <template name='ListTypeProvider1'>
+   <ide-name>FixedArrayTemplate</ide-name>
+   <display-name>fixed array</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>fixed array of </template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>fixed array of </template:content>
+  </template>
+  <template name='template5'>
+   <ide-name>TypeProvider</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+   </instantiation>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdTemplateListProvider</provider>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.FixedArrayTemplate</arg>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.ListTypeProvider1</arg>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template6</arg>
+   </value>
+  </template>
+  <template name='template1'>
+   <comment>//This provider the list of primitive type and classes</comment>
+   <ide-name>DataTypeProvider</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+   </instantiation>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+    <instance ref='Source Reference'>
+     <instance ref='value'>
+      <instance ref='locationVH'>
+       <value></value>
+      </instance>
+      <instance ref='repositoryNameVH'>
+       <value></value>
+      </instance>
+      <instance ref='versionVH'>
+       <value></value>
+      </instance>
+      <instance ref='filterVH'>
+       <value></value>
+      </instance>
+      <instance ref='releaseDateVH'>
+       <value></value>
+      </instance>
+      <instance ref='repositoryAccessVH'>
+       <value></value>
+      </instance>
+     </instance>
+    </instance>
+    <instance ref='Predictive Model Type'>
+     <instance ref='value'>
+      <value>NotApplicable</value>
+     </instance>
+    </instance>
+   </instantiation>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdListProvider</provider>
+    <arg name='type'>string</arg>
+    <arg name='list'>A0T1fbTq1VgIMkfVTxF9CzkW4BL</arg>
+    <arg name='list'>UsseNkBhugwqrrHK1SBLpkdVl9X</arg>
+    <arg name='element'>NdScoredCharacteristic</arg>
+   </value>
+  </template>
+  <template name='DataTypeProvider'>
+   <comment>//This provider the list of primitive type and classes</comment>
+   <ide-name>DataTypeProvider</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+   </instantiation>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+    <instance ref='Source Reference'>
+     <instance ref='value'>
+      <instance ref='locationVH'>
+       <value></value>
+      </instance>
+      <instance ref='repositoryNameVH'>
+       <value></value>
+      </instance>
+      <instance ref='versionVH'>
+       <value></value>
+      </instance>
+      <instance ref='filterVH'>
+       <value></value>
+      </instance>
+      <instance ref='releaseDateVH'>
+       <value></value>
+      </instance>
+      <instance ref='repositoryAccessVH'>
+       <value></value>
+      </instance>
+     </instance>
+    </instance>
+    <instance ref='Predictive Model Type'>
+     <instance ref='value'>
+      <value>NotApplicable</value>
+     </instance>
+    </instance>
+   </instantiation>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdListProvider</provider>
+    <arg name='type'>string</arg>
+    <arg name='list'>A0T1fbTq1VgIMkfVTxF9CzkW4BL</arg>
+    <arg name='list'>UsseNkBhugwqrrHK1SBLpkdVl9X</arg>
+    <arg name='element'>NdScoredCharacteristic</arg>
+   </value>
+  </template>
+  <template name='FixedArrayTemplate'>
+   <ide-name>EmptyTemplate</ide-name>
+   <display-name>class</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'></template:content>
+  </template>
+  <template name='template6'>
+   <ide-name>ArrayTemplate</ide-name>
+   <display-name>array</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>array of </template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>array of </template:content>
+  </template>
+  <template name='CastCalculationTemplate'>
+   <ide-name>CreateTemplate</ide-name>
+   <display-name>New instance</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <parameters>
+    <parameter name='Value Holder1' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template1' ideName='otherPropertyVH'>
+    </parameter>
+   </parameters>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>new instance</template:content>
+  </template>
+  <template name='template8' resource-bundle='com.blazesoft.template.repository.strings'>
+   <ide-name>RootClassTemplate</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1RaoORulMMLlNlYZXj9utiAR34f' name='SRL Class' id='G8tiRsY9m38Dq2onef9MSOqm5Lh'>
+   </instantiation>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <parameters>
+    <parameter name='__ENTITY_PROPERTIES__VH__' type='1RaoORulMMLlNlYZXj9utiAR34f' ideName='Management Properties'>
+    </parameter>
+    <parameter-list name='vhProperty' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.PropertiesTemplate' ideName='vhProperty' displayName='decision key' min='0'>
+     <arg name='argClassName'>Root</arg>
+    </parameter-list>
+   </parameters>
+   <family>Class Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><class managementPropertiesRef='G8tiRsY9m38Dq2onef9MSOqm5Lh'>
+     <name>BlazeMessage</name>
+     <type>Message</type>
+     <properties>
+      <template:placeholder ref='vhProperty' relative='true'/>
+      <property>
+       <name>enableLogging</name>
+       <type>boolean</type>
+      </property>
+      <property>
+       <name>charNameToCharVal</name>
+       <association>
+        <assoc-from>
+         <type>string</type>
+        </assoc-from>
+        <assoc-to>
+         <type>string</type>
+        </assoc-to>
+       </association>
+      </property>
+      <property>
+       <name>rulesetNameToRuleID</name>
+       <association>
+        <assoc-from>
+         <type>string</type>
+        </assoc-from>
+        <assoc-to>
+         <association>
+          <assoc-from>
+           <type>string</type>
+          </assoc-from>
+          <assoc-to>
+           <type>string</type>
+          </assoc-to>
+         </association>
+        </assoc-to>
+       </association>
+      </property>
+      <property>
+       <name>blazeSpecialValues</name>
+       <type>BlazeSpecialValues</type>
+      </property>
+     </properties>
+     <initializer>rulesetNameToRuleID = an association from string to association from string to string;</initializer>
+    </class></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><template:static_placeholder type='localizedstring'>
+     <template:arg name='resource-bundle'>com.blazesoft.template.repository.strings</template:arg>
+     <template:arg name='string-name'>BlazeRoot Class Extensions</template:arg>
+    </template:static_placeholder><template:br/><template:br/><table ref='vhProperty' relative='true'><attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value>true</attribute-value>
+     </attribute><attribute>
+      <attribute-name>showIndexCol</attribute-name>
+      <attribute-value>true</attribute-value>
+     </attribute><attribute>
+      <attribute-name>showFilterBand</attribute-name>
+      <attribute-value>false</attribute-value>
+     </attribute><attribute>
+      <attribute-name>showColHeaders</attribute-name>
+      <attribute-value>true</attribute-value>
+     </attribute><attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute><table-column header='Name'><placeholder ref='vhProperty.nameVH' relative='true'>
+       <attribute>
+        <attribute-name>none</attribute-name>
+        <attribute-value>none</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>rangeRole</attribute-name>
+        <attribute-value>none</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>style</attribute-name>
+        <attribute-value>standardTextEdit</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>readWriteProperty</attribute-name>
+        <attribute-value>readNWrite</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>selectionMethod</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>size</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>samePage</attribute-name>
+        <attribute-value>false</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>password</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>ref-type</attribute-name>
+        <attribute-value>0</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>paginate</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>rowsPerPage</attribute-name>
+        <attribute-value>5</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>toolbarLocation</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>linkSupport</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>toolbarMode</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>uiLayout</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+      </placeholder></table-column></table></template:content>
+  </template>
+ </template>
+ <template name='BlazeRootClassTemplate1'>
+  <ide-name>Other Classes Extension Template</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+   <instance ref='Source Reference'>
+    <instance ref='value'>
+     <instance ref='locationVH'>
+      <value></value>
+     </instance>
+     <instance ref='repositoryNameVH'>
+      <value></value>
+     </instance>
+     <instance ref='versionVH'>
+      <value></value>
+     </instance>
+     <instance ref='filterVH'>
+      <value></value>
+     </instance>
+     <instance ref='releaseDateVH'>
+      <value></value>
+     </instance>
+     <instance ref='repositoryAccessVH'>
+      <value></value>
+     </instance>
+    </instance>
+   </instance>
+   <instance ref='Predictive Model Type'>
+    <instance ref='value'>
+     <value>NotApplicable</value>
+    </instance>
+   </instance>
+  </instantiation>
+  <parameters>
+   <parameter name='Value Holder1' type='EPfFtzMcOJaLcQkALOceuCtOffN.BlazeRootClassTemplate1.template8' ideName='vhClass'>
+    <dynamic-arg name='argClass' ref='VH1' relative='true'/>
+    <dynamic-arg name='Value Holder1' ref='parentClassVH' relative='true'/>
+   </parameter>
+   <parameter name='parentClassVH' type='UsseNkBhugwqrrHK1SBLpkdVl9X' ideName='parentClassVH'>
+    <arg name='include-business-termset'>true</arg>
+    <arg name='include-java-class'>true</arg>
+    <arg name='include-srl-class'>true</arg>
+    <arg name='include-xml-class'>true</arg>
+   </parameter>
+   <parameter name='VH1' type='srlname' ideName='extensionClassNameVH' displayName='ExtensionClassName'>
+   </parameter>
+  </parameters>
+  <family>Project Items Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>Extension Class <placeholder ref='VH1' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder> Extend <placeholder ref='parentClassVH' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useDhtmlChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder> with the following keys<template:br/><placeholder ref='Value Holder1' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>true</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='adv'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='jcp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='dbcp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ccp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='xcp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='cpc'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/flow' section='flow'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/aai' section='aai'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ncp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='bcp'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='' section='xml'><template:placeholder ref='Value Holder1' relative='true'/></template:content>
+  <template name='PropertiesTemplate'>
+   <ide-name>PropertyTemplate</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+    <instance ref='Source Reference'>
+     <instance ref='value'>
+      <instance ref='locationVH'>
+       <value></value>
+      </instance>
+      <instance ref='repositoryNameVH'>
+       <value></value>
+      </instance>
+      <instance ref='versionVH'>
+       <value></value>
+      </instance>
+      <instance ref='filterVH'>
+       <value></value>
+      </instance>
+      <instance ref='releaseDateVH'>
+       <value></value>
+      </instance>
+      <instance ref='repositoryAccessVH'>
+       <value></value>
+      </instance>
+     </instance>
+    </instance>
+    <instance ref='Predictive Model Type'>
+     <instance ref='value'>
+      <value>NotApplicable</value>
+     </instance>
+    </instance>
+   </instantiation>
+   <parameters>
+    <parameter-noninstantiable name='argClassName' type='string' mechanism='argument' repeatable='false' ideName='argClassName'>
+    </parameter-noninstantiable>
+    <parameter name='nameVH' type='srlname' ideName='nameVH'>
+    </parameter>
+    <parameter name='datatypeVH' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template4' ideName='typeVH'>
+    </parameter>
+   </parameters>
+   <family>Properties Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><property>
+     <name><template:placeholder ref='nameVH' relative='true'/></name>
+     <type><template:placeholder ref='datatypeVH' relative='true'/></type>
+    </property></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[<h2>Decision Keys</h2>]]><template:br/><![CDATA[<em>For each key, a name and a type can be defined. Any primitive or complex type is allowed, including custom enumerations. </em>]]><template:br/><template:br/><![CDATA[<table><tr><td><strong>Custom Key:</strong></td><td>]]><placeholder ref='nameVH' relative='true'>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value>standardTextEdit</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>readWriteProperty</attribute-name>
+      <attribute-value>readNWrite</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>paginate</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rowsPerPage</attribute-name>
+      <attribute-value>5</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarLocation</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>linkSupport</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarMode</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>uiLayout</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+    </placeholder><![CDATA[ </td></tr><tr><td><strong>Type:</strong></td><td>]]><placeholder ref='datatypeVH' relative='true'>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value>standardTextEdit</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>readWriteProperty</attribute-name>
+      <attribute-value>readNWrite</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value>true</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>linkSupport</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+    </placeholder><![CDATA[</td></tr></table>]]></template:content>
+  </template>
+  <template name='template3'>
+   <ide-name>NoCalculationTemplate</ide-name>
+   <display-name>No calculation</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'></template:content>
+  </template>
+  <template name='template2'>
+   <ide-name>CalculationTemplateList</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+   </instantiation>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdTemplateListProvider</provider>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template3</arg>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.CastCalculationTemplate</arg>
+   </value>
+  </template>
+  <template name='template4'>
+   <ide-name>TypeTemplate</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <parameters>
+    <parameter name='classname' type='OCgJuQBql5dFy2dHzWiLVAUeFZy' ideName='classname'>
+    </parameter>
+    <parameter-selection name='Value Holder1' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template5' ideName='fixedArray' min='1' max='1'>
+    </parameter-selection>
+   </parameters>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='Value Holder1' relative='true'/><template:placeholder ref='classname' relative='true'/></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='Value Holder1' relative='true'>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value>false</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value>useMiniDhtmlChoiceBox</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+    </placeholder><placeholder ref='classname' relative='true'>
+     <attribute>
+      <attribute-name>none</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rangeRole</attribute-name>
+      <attribute-value>none</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>style</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>readWriteProperty</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>selectionMethod</attribute-name>
+      <attribute-value>useDhtmlChoiceBox</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>size</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>password</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>paginate</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>rowsPerPage</attribute-name>
+      <attribute-value>5</attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarLocation</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>linkSupport</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>toolbarMode</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+     <attribute>
+      <attribute-name>uiLayout</attribute-name>
+      <attribute-value></attribute-value>
+     </attribute>
+    </placeholder></template:content>
+  </template>
+  <template name='ListTypeProvider1'>
+   <ide-name>FixedArrayTemplate</ide-name>
+   <display-name>fixed array</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>fixed array of </template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>fixed array of </template:content>
+  </template>
+  <template name='template5'>
+   <ide-name>TypeProvider</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+   </instantiation>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdTemplateListProvider</provider>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.FixedArrayTemplate</arg>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.ListTypeProvider1</arg>
+    <arg name='element'>EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template6</arg>
+   </value>
+  </template>
+  <template name='FixedArrayTemplate'>
+   <ide-name>EmptyTemplate</ide-name>
+   <display-name>class</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'></template:content>
+  </template>
+  <template name='template6'>
+   <ide-name>ArrayTemplate</ide-name>
+   <display-name>array</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>array of </template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>array of </template:content>
+  </template>
+  <template name='CastCalculationTemplate'>
+   <ide-name>CreateTemplate</ide-name>
+   <display-name>New instance</display-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <parameters>
+    <parameter name='Value Holder1' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.template1' ideName='otherPropertyVH'>
+    </parameter>
+   </parameters>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'>new instance</template:content>
+  </template>
+  <template name='template8' resource-bundle='com.blazesoft.template.repository.strings'>
+   <ide-name>ExtensionClassTemplate</ide-name>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1RaoORulMMLlNlYZXj9utiAR34f' name='SRL Class' id='G8tiRsY9m38Dq2onef9MSOqm5Lh'>
+   </instantiation>
+   <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+   </instantiation>
+   <parameters>
+    <parameter name='__ENTITY_PROPERTIES__VH__' type='1RaoORulMMLlNlYZXj9utiAR34f' ideName='Management Properties'>
+    </parameter>
+    <parameter-list name='vhProperty' type='EPfFtzMcOJaLcQkALOceuCtOffN.RootClassTemplate.PropertiesTemplate' ideName='vhProperty' displayName='decision key' min='0'>
+     <arg name='argClassName'>Root</arg>
+    </parameter-list>
+    <parameter-noninstantiable name='argClass' type='string' mechanism='argument' repeatable='false' ideName='argClass'>
+    </parameter-noninstantiable>
+    <parameter-noninstantiable name='Value Holder1' type='string' mechanism='argument' repeatable='false' ideName='argParentClass'>
+    </parameter-noninstantiable>
+   </parameters>
+   <family>Class Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><class managementPropertiesRef='G8tiRsY9m38Dq2onef9MSOqm5Lh'>
+     <name><template:placeholder ref='argClass' relative='true'/></name>
+     <type><template:placeholder ref='Value Holder1' relative='true'/></type>
+     <properties>
+      <template:placeholder ref='vhProperty' relative='true'/>
+     </properties>
+    </class></template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><template:br/><table ref='vhProperty' relative='true'><attribute>
+      <attribute-name>samePage</attribute-name>
+      <attribute-value>true</attribute-value>
+     </attribute><attribute>
+      <attribute-name>showIndexCol</attribute-name>
+      <attribute-value>true</attribute-value>
+     </attribute><attribute>
+      <attribute-name>showFilterBand</attribute-name>
+      <attribute-value>false</attribute-value>
+     </attribute><attribute>
+      <attribute-name>showColHeaders</attribute-name>
+      <attribute-value>true</attribute-value>
+     </attribute><attribute>
+      <attribute-name>ref-type</attribute-name>
+      <attribute-value>0</attribute-value>
+     </attribute><table-column header='Name'><placeholder ref='vhProperty.nameVH' relative='true'>
+       <attribute>
+        <attribute-name>none</attribute-name>
+        <attribute-value>none</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>rangeRole</attribute-name>
+        <attribute-value>none</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>style</attribute-name>
+        <attribute-value>standardTextEdit</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>readWriteProperty</attribute-name>
+        <attribute-value>readNWrite</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>selectionMethod</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>size</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>samePage</attribute-name>
+        <attribute-value>false</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>password</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>ref-type</attribute-name>
+        <attribute-value>0</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>paginate</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>rowsPerPage</attribute-name>
+        <attribute-value>5</attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>toolbarLocation</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>linkSupport</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>toolbarMode</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+       <attribute>
+        <attribute-name>uiLayout</attribute-name>
+        <attribute-value></attribute-value>
+       </attribute>
+      </placeholder></table-column></table></template:content>
+  </template>
+ </template>
+ <template name='template2'>
+  <comment>//This provider the list of primitive type and classes</comment>
+  <ide-name>DataTypeProvider</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+   <instance ref='Source Reference'>
+    <instance ref='value'>
+     <instance ref='locationVH'>
+      <value></value>
+     </instance>
+     <instance ref='repositoryNameVH'>
+      <value></value>
+     </instance>
+     <instance ref='versionVH'>
+      <value></value>
+     </instance>
+     <instance ref='filterVH'>
+      <value></value>
+     </instance>
+     <instance ref='releaseDateVH'>
+      <value></value>
+     </instance>
+     <instance ref='repositoryAccessVH'>
+      <value></value>
+     </instance>
+    </instance>
+   </instance>
+   <instance ref='Predictive Model Type'>
+    <instance ref='value'>
+     <value>NotApplicable</value>
+    </instance>
+   </instance>
+  </instantiation>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdListProvider</provider>
+   <arg name='type'>string</arg>
+   <arg name='list'>A0T1fbTq1VgIMkfVTxF9CzkW4BL</arg>
+   <arg name='list'>UsseNkBhugwqrrHK1SBLpkdVl9X</arg>
+   <arg name='element'>NdScoredCharacteristic</arg>
+  </value>
+ </template>
+ <template name='DataTypeProvider'>
+  <comment>//This provider the list of primitive type and classes</comment>
+  <ide-name>DataTypeProvider</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1IBbJ02ODol1ycsh7pzUBwhf6T6' name='Provider' id='Provider'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+   <instance ref='Source Reference'>
+    <instance ref='value'>
+     <instance ref='locationVH'>
+      <value></value>
+     </instance>
+     <instance ref='repositoryNameVH'>
+      <value></value>
+     </instance>
+     <instance ref='versionVH'>
+      <value></value>
+     </instance>
+     <instance ref='filterVH'>
+      <value></value>
+     </instance>
+     <instance ref='releaseDateVH'>
+      <value></value>
+     </instance>
+     <instance ref='repositoryAccessVH'>
+      <value></value>
+     </instance>
+    </instance>
+   </instance>
+   <instance ref='Predictive Model Type'>
+    <instance ref='value'>
+     <value>NotApplicable</value>
+    </instance>
+   </instance>
+  </instantiation>
+  <value>
+   <provider>com.blazesoft.template.engine.provider.NdListProvider</provider>
+   <arg name='type'>string</arg>
+   <arg name='list'>A0T1fbTq1VgIMkfVTxF9CzkW4BL</arg>
+   <arg name='list'>UsseNkBhugwqrrHK1SBLpkdVl9X</arg>
+   <arg name='element'>NdScoredCharacteristic</arg>
+  </value>
+ </template>
+</template>

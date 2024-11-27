@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='DT_ltvEligibility'>
+ <ide-name>DT_ltvStandardGrid</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='TxtMG5Yndv4QpgxGtiGxcelXHa9'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ltvGrid</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='QoJu9cB2iql5Aw8YuxlDAKWnnvy'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ltvGrid</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='6VyHwyrVTRBYGGy0mmCHs48pySM'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ltvGrid</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='YpWZwR724IcbysQAss9zsgLklaZ'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ltvGrid</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='NgwlHjqdlSpdiphlVmGYxMR7P7s'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ltvGrid</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='RcMYxrJgRlj1Uvj14WxNNWlykik'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ltvGrid</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='GECui42umbD5iVyRgGfZ6yIYF6D'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value>ltvGrid</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='TxtMG5Yndv4QpgxGtiGxcelXHa9'>
+   <name>TC_ltvStandardGrid1</name>
+   <body>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "Figo";<template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 23;<template:br/>DT_LTVStandardGrid(detailAssetLoan.assetModel,loan.tenure);<template:br/>assert().checkEquals("eligibility percentage", 90, theBlazeMessageBT.ltvLookup, 0);<template:br/><template:br/></body>
+  </function><function managementPropertiesRef='QoJu9cB2iql5Aw8YuxlDAKWnnvy'>
+   <name>TC_ltvStandardGrid2</name>
+   <body>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel  = "Swift";<template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 63;<template:br/> DT_LTVStandardGrid(detailAssetLoan.assetModel,loan.tenure);<template:br/>assert().checkEquals("eligibility percentage", 80, theBlazeMessageBT.ltvLookup, 0);<template:br/><template:br/></body>
+  </function><function managementPropertiesRef='6VyHwyrVTRBYGGy0mmCHs48pySM'>
+   <name>TC_ltvStandardGrid3</name>
+   <body>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "Beetle";<template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 37;<template:br/>DT_LTVStandardGrid(detailAssetLoan.assetModel,loan.tenure);<template:br/>assert().checkEquals("eligibility percentage", 80, theBlazeMessageBT.ltvLookup, 0);<template:br/><template:br/></body>
+  </function><function managementPropertiesRef='YpWZwR724IcbysQAss9zsgLklaZ'>
+   <name>TC_ltvStandardGrid4</name>
+   <body>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "Etios";<template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 55;<template:br/> DT_LTVStandardGrid(detailAssetLoan.assetModel ,loan.tenure);<template:br/>assert().checkEquals("eligibility percentage", 80, theBlazeMessageBT.ltvLookup, 0);<template:br/><template:br/></body>
+  </function><function managementPropertiesRef='NgwlHjqdlSpdiphlVmGYxMR7P7s'>
+   <name>TC_ltvStandardGrid5</name>
+   <body>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel  = "Isuzu MUX";<template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 55;<template:br/> DT_LTVStandardGrid(detailAssetLoan.assetModel,loan.tenure);<template:br/>assert().checkEquals("eligibility percentage", 85, theBlazeMessageBT.ltvLookup, 0);<template:br/><template:br/></body>
+  </function><function managementPropertiesRef='RcMYxrJgRlj1Uvj14WxNNWlykik'>
+   <name>TC_ltvStandardGrid6</name>
+   <body>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "Backed by Dealer";<template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 41;<template:br/>DT_LTVStandardGrid(detailAssetLoan.assetModel ,loan.tenure);<template:br/>assert().checkEquals("eligibility percentage", 80, theBlazeMessageBT.ltvLookup, 0);<template:br/><template:br/></body>
+  </function><function managementPropertiesRef='GECui42umbD5iVyRgGfZ6yIYF6D'>
+   <name>TC_ltvStandardGrid7</name>
+   <body>detailAssetLoan is some DetailAssetLoan initially a DetailAssetLoan;<template:br/>detailAssetLoan.assetModel = "abcd";<template:br/>loan is some LoanDetails initially a LoanDetails;<template:br/>loan.tenure = 41;<template:br/>DT_LTVStandardGrid(detailAssetLoan.assetModel ,loan.tenure);<template:br/>assert().checkEquals("eligibility percentage", 0, theBlazeMessageBT.ltvLookup, 0);<template:br/><template:br/></body>
+  </function></template:content>
+</template>

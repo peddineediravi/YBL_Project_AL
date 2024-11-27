@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_LTV_Restriction_for_High_Risk'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_LTV_Restriction_for_High_Risk</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("Entering to LTV Restriction for High Risk Function");
+anApplicant is some Applicant;
+numberofacres is a real initially 0.0;
+manufacturerreturn is a real initially 0.0;
+pincodereturn  is a real initially 0.0;
+manufacturer is a real initially 0.0;
+thepincode is a real  initially 0.0;
+count is a real  initially 0.0;
+actualLTV is a real initially 0.0;
+isApplicant is a boolean initially false;
+restrictedLTV is a real initially 0.0;
+ 
+//fn(High_Risk_Dealer);
+for each Applicant in theFMABT.termSetInput.request.application.applicants do{
+  anApplicant = it;
+if( it.applicantType=("P" or "C"))then{
+              if(it.noOfAcres is known)then{
+				  numberofacres = numberofacres + it.noOfAcres;
+			  }
+}		  
+}
+print("numberofacres==="numberofacres);
+ 
+manufacturer = apply DT_HighRiskManufacturer(blazeMessage);
+if(manufacturer is (unknown or unavailable) ) then {
+  manufacturer = 0;
+}
+ 
+print("theBlazeMessageBT.actualLtv==initial"theBlazeMessageBT.actualLtv);
+print(" theBlazeMessageBT.appLevelCibilScore===" theBlazeMessageBT.appLevelCibilScore);
+ 
+if(blazeMessage.request.application.scheme is (known and available) and blazeMessage.request.application.scheme=("130" or "125") and theBlazeMessageBT.appLevelCibilScore is (known and available) and theBlazeMessageBT.appLevelCibilScore <= 730 and numberofacres is (known and available) and numberofacres <=1 and
+manufacturer = 1) then {
+actualLTV = theBlazeMessageBT.actualLtv;
+if(actualLTV > 60) then {
+	 actualLTV = 60;
+}
+theBlazeMessageBT.actualLtv = actualLTV;
+}
+ 
+print(" theBlazeMessageBT.actualLtv====manufacturer" theBlazeMessageBT.actualLtv);
+ 
+  //Funding to NTC in High-Risk District 
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants do{
+  		anApplicant=it;
+//      if(it.liabilities.count>0)then{
+      //  		for each Liability in anApplicant.liabilities do {
+  print("Campaign"it.Campaign);
+              if(it.Campaign is (known and available) and it.Campaign = ("New to Credit Customer" or "34" or "RTR Customer" or "35") )then{
+						count = count + 1;
+					}
+				}
+
+	//   }
+//}
+//print("Applicant.Campaign"Applicant.Campaign);
+for each Applicant in blazeMessage.request.application.applicants do{
+anApplicant = it;
+for each Address in anApplicant.addresses such that( it.pincode is (known and available))do{
+	 print("pincode ="it.pincode);
+thepincode = apply DT_HighRiskPincode(it.pincode);
+}
+}
+ 
+if(blazeMessage.request.application.scheme is (known and available) and blazeMessage.request.application.scheme=("130" or "125") and theBlazeMessageBT.appLevelCibilScore is (known and available) and theBlazeMessageBT.appLevelCibilScore <= 5 and numberofacres is (known and available) and numberofacres <=1 and
+thepincode is (known and available)and  thepincode = 1 and count > 0) then {
+	actualLTV = theBlazeMessageBT.actualLtv;
+if(actualLTV > 70) then {
+	 actualLTV = 70;
+}
+theBlazeMessageBT.actualLtv = actualLTV;
+}
+print("theBlazeMessageBT.actualLtv pincode=="theBlazeMessageBT.actualLtv);
+    //Funding to Cibil Score <=680
+ 
+for each Applicant in blazeMessage.request.application.applicants such that (it.applicantType is known and (it.applicantType="P" or it.applicantType="C") and theBlazeMessageBT.appLevelCibilScore is (known and available) and
+theBlazeMessageBT.appLevelCibilScore>5 and theBlazeMessageBT.appLevelCibilScore<=680 )do{
+	isApplicant = true;
+}
+if(blazeMessage.request.application.scheme="125" and isApplicant = true)then{
+actualLTV = theBlazeMessageBT.actualLtv;
+if(actualLTV> 70)then {
+	actualLTV = 70;
+}
+restrictedLTV=actualLTV-10;
+print("restrictedLTV=125="restrictedLTV);
+theBlazeMessageBT.actualLtv=math().min(actualLTV,restrictedLTV);
+print("theBlazeMessageBT.actualLtv125"theBlazeMessageBT.actualLtv);
+}
+ 
+  //Funding to Cibil Score <=680
+ 
+if(blazeMessage.request.application.scheme="130" and isApplicant = true)then {
+actualLTV = theBlazeMessageBT.actualLtv;
+if(actualLTV > 70)then {
+	actualLTV = 75;
+}
+restrictedLTV=actualLTV-10;
+print("restrictedLTV=130="restrictedLTV);
+theBlazeMessageBT.actualLtv=math().min(actualLTV,restrictedLTV);
+  print("theBlazeMessageBT.actualLtv@@"theBlazeMessageBT.actualLtv);
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='IwlsNE'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

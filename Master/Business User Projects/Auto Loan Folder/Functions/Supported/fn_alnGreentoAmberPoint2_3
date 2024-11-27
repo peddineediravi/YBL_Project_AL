@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_alnGreentoAmberPoint2and3'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_alnGreentoAmberPoint2and3</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value>  //2.	All cases Banking Deviations to be moved from Green to Amber- 
+print("entering fn_alnGreentoAmberPoint2");
+
+anApplicant is some Applicant;
+anDeviation is  some Deviation initially an Deviation;
+tempArray is some array of string initially an array of string;
+AppFilterDeviation is some array of Deviation initially an array of Deviation;
+//if(blazeMessage.request.application.product=("ALN"))then{
+
+for each Deviation in blazeMessage.response.applicationDecision.deviations such that(it is not null and it is known)do{
+			AppFilterDeviation.append(it);
+}
+//Income Based schmes  ("6" or "7" or "10" or "13" or "143" or "17" or "18" or "19" or "15" ) 
+  if(blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup = ("6" or "7" or "10" or "13" or "143" or "17" or "18" or "19" or "15" ) )then{
+    	print("Income Based schmes ");
+    for each Deviation in AppFilterDeviation do {
+				print("Entering Green point2");
+    		if(it.ruleID is (known and available) and (it.ruleID =( "Normal007" or  "Banking030"  or "KeralaNIP016" or "KerelaNIP011" or  "Normal020" or "PremiumCar009" or
+                "Banking016" or "KerelaNIP010" or "CVS001" or   "Banking029"  or "Banking035"  or "ILC011" or "Banking028" or  "Banking010"  or
+                "Banking032" or "Banking033" or "ILC017" or "Tamilnadu008" or "Tamilnadu010" or "Common035" or  "Banking011"  or
+               "DV022" or "KerelaNIP025" or  "Banking021"  or "LowLtv007" or  "Banking017" or "Agri8"  or "LowLtv004" or "KerelaNIP013" or 
+               "Banking022"  or  "KerelaNIP014" or "Banking034"  
+               )) )then{
+              				    //blazeMessage.response.applicationDecision.scorecardResult[0].scorecardScore=700;
+              					blazeMessage.response.applicationDecision.responseCode="Blue";
+              					print("2nd point");
+              	//Refer L0: Income case – Banking norms – Blue
+              				anDeviation.ruleID="12354";
+              				anDeviation.ruleName="Banking Rule";
+              				 anDeviation.overrideLevel="L0";
+							anDeviation.decisionResult="REFER";
+							anDeviation.reasonText="Income case – Banking norms – Blue";
+							fn_AppendDeviations(anDeviation);
+              			
+            }
+     
+       //3.	All L3 Deviation cases to be moved from Green to Amber
+    	if( it.overrideLevel ="L3")then{
+         print("enteringL3 " blazeMessage.response.applicationDecision.scorecardResult[0].scorecardScore"Color"  blazeMessage.response.applicationDecision.responseCode);
+          blazeMessage.response.applicationDecision.scorecardResult[0].scorecardScore=700;
+          blazeMessage.response.applicationDecision.responseCode="AMBER";
+          
+        }
+  }
+  }
+//Surrogate case 
+else{
+  
+  		print("Surrogate case  Based schmes ");
+       for each Deviation in AppFilterDeviation do {
+         		if(it.ruleID is (known and available) and (it.ruleID =( "Normal007"  or  "Normal020" or "PremiumCar009" or "Common035" or  "DV022"   )) )then{
+                    //blazeMessage.response.applicationDecision.scorecardResult[0].scorecardScore=700;
+            		blazeMessage.response.applicationDecision.responseCode="AMBER";
+                   			//anDeviation.overrideLevel="L0";
+							//anDeviation.decisionResult="REFER";
+							//anDeviation.reasonText="Surrogate case - Blue";
+							//fn_AppendDeviations(anDeviation);
+                  //Refer L0: Surrogate case – Blue
+                  
+                }
+         		if( it.overrideLevel ="L3")then{
+                   print("enteringL3 leel" blazeMessage.response.applicationDecision.scorecardResult[0].scorecardScore"Color"  blazeMessage.response.applicationDecision.responseCode);
+                   // blazeMessage.response.applicationDecision.scorecardResult[0].scorecardScore=700;
+                    blazeMessage.response.applicationDecision.responseCode="AMBER";
+      
+        }
+       }
+}
+
+</value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='TaFV22'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

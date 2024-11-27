@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='DSG71szD5AH5G0pcZCfjmcoPvq0' name='IsYBlCustomer'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='nameVH'>
+  <value>IsYBlCustomer</value>
+ </instance>
+ <instance ref='typeVH'>
+  <value>boolean</value>
+ </instance>
+ <instance ref='descriptionVH'>
+  <value></value>
+ </instance>
+ <instance ref='termPropertyVH'>
+ </instance>
+ <instance ref='isNeededEventRuleVH'>
+  <instance ref='__ENTITY_PROPERTIES__VH__'>
+  </instance>
+  <instance ref='calculationVH'>
+   <value>theBlazeMessageBT.IsYBlCustomer=false;
+anApplicant is some Applicant;
+
+ 
+
+for each Applicant in theBlazeMessageBT.termSetInput.request.application.applicants do {
+  anApplicant = it;
+  if(anApplicant.existingCustomer is known and anApplicant.existingCustomer =(ignoring case) "Yes" ) then {
+        theBlazeMessageBT.IsYBlCustomer = true; // true means ETB
+  }
+  else if (at least 1 BankDetails in anApplicant.bankDetails satisfies (bankName is known and bankName =("532" or "YES" or "YESB" or "YBL")) ) then {
+          theBlazeMessageBT.IsYBlCustomer= true; // true means ETB
+  }
+  else if (at least 1 Liability in anApplicant.liabilities satisfies (financierName is known and financierName ="532") ) then {
+    theBlazeMessageBT.IsYBlCustomer= true; // true means ETB
+  }
+  }</value>
+  </instance>
+ </instance>
+ <instance ref='constraintContainerVH'>
+  <instance-selection ref='constraintVH'>
+   <item template='Atv03JffIeVVgsPZppyIx4mkGHC.template5' id='UzPJzj'>
+    <instance ref='fromVH'>
+     <value></value>
+    </instance>
+    <instance ref='toVH'>
+     <value></value>
+    </instance>
+    <instance ref='constraintNameVH'>
+     <value>Range</value>
+    </instance>
+    <instance ref='constraintEntriesVH'>
+    </instance>
+   </item>
+  </instance-selection>
+  <instance ref='termTypeConstraintTemplateAssocVH'>
+   <value>Atv03JffIeVVgsPZppyIx4mkGHC.template5</value>
+  </instance>
+ </instance>
+</instantiation>

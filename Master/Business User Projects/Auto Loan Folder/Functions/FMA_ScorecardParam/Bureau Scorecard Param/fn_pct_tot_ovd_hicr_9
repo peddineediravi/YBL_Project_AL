@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_pct_tot_ovd_hicr'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_pct_tot_ovd_hicr</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>real</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("in side fn_pct_tot_ovd_hicr");
+anApplicant is some Applicant;
+tempamountOverdue  is an real initially 0.0;
+temphighCreditOrSanctionedAmount is an real initially 0.0;
+//todayDate is a date initially calendar().currentDate();
+//Test Freeze todayDate to be considered to 27-01-2022
+//todayDate is a date ;
+todayDate is a date  initially  '27-Jan-2022';
+todayDate=calendar().date(todayDate);
+//todayDate = calendar().date(todayDate, "yyyy-mm-dd");
+print("todayDate"todayDate);
+temppct_tot_ovd_hicr  is an real initially 0.0;
+for each Applicant in blazeMessage.request.application.applicants such that (it is (known and available) and it.applicantType is (known and available) and it.applicantType ="P")do {
+anApplicant =it; 
+  if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is (known and available) 
+	and  anApplicant.multiBureauReport.cibilResponse.accounts is (known and available) and anApplicant.multiBureauReport.cibilResponse.accounts.count > 0 ) then {
+  		for each  Account in anApplicant.multiBureauReport.cibilResponse.accounts  do {	
+		
+          print("date duration" todayDate.subtractInDays(it.dateReportedAndCertified).days);
+		  if(it.highCreditOrSanctionedAmount <>"" and it.highCreditOrSanctionedAmount is (known and available) )then{
+         
+		  temphighCreditOrSanctionedAmount =temphighCreditOrSanctionedAmount+portable().toFloat(it.highCreditOrSanctionedAmount);
+		   print("portable().toFloat(it.highCreditOrSanctionedAmount)"portable().toFloat(it.highCreditOrSanctionedAmount));
+		}else if(it.highCreditOrSanctionedAmount =unknown)then{
+			temphighCreditOrSanctionedAmount =-22222;
+             print("unknown "temphighCreditOrSanctionedAmount);
+		}
+	  }
+	}
+  
+}	
+for each Applicant in blazeMessage.request.application.applicants such that (it is (known and available) and it.applicantType is (known and available) and it.applicantType ="P")do {
+anApplicant =it; 
+  if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is (known and available) 
+	and  anApplicant.multiBureauReport.cibilResponse.accounts is (known and available) and anApplicant.multiBureauReport.cibilResponse.accounts.count > 0 ) then {
+  		for each  Account in anApplicant.multiBureauReport.cibilResponse.accounts  do {		
+		
+          if(it.dateReportedAndCertified is (known and available) and 
+		  todayDate.subtractInDays(it.dateReportedAndCertified).days >0 
+		  and todayDate.subtractInDays(it.dateReportedAndCertified).days <=90)then{
+	
+          if (it.amountOverdue is (known and available) )then{
+            		tempamountOverdue =tempamountOverdue+it.amountOverdue;
+            		print("tempamountOverdue"tempamountOverdue);
+          }else    if (it.amountOverdue=unknown)then{
+            	tempamountOverdue=-66666;
+            print("tempamountOverdue else")
+          }
+          
+		
+        }else{
+          tempamountOverdue=0;
+        }
+          
+        }
+	}
+  
+}
+print("tempamountOverdue"tempamountOverdue);
+print("temphighCreditOrSanctionedAmount==="temphighCreditOrSanctionedAmount);
+if ((tempamountOverdue is (known and available)  and temphighCreditOrSanctionedAmount is (known and available) )
+    and tempamountOverdue >0 and temphighCreditOrSanctionedAmount >0)then{
+   temppct_tot_ovd_hicr =(tempamountOverdue/temphighCreditOrSanctionedAmount)*100;
+  print("temppct_tot_ovd_hicr"temppct_tot_ovd_hicr);
+}else  if ((tempamountOverdue is (known and available) and temphighCreditOrSanctionedAmount is (known and available) )
+    and( (tempamountOverdue=0 and temphighCreditOrSanctionedAmount>0)))then{
+		temppct_tot_ovd_hicr=0;
+        print("temppct_tot_ovd_hicr inside  ===="temppct_tot_ovd_hicr);
+	}else if ((tempamountOverdue is (known and available) and temphighCreditOrSanctionedAmount is (known and available) )
+    and( (tempamountOverdue>0 and temphighCreditOrSanctionedAmount=0)))then{
+      	temppct_tot_ovd_hicr =-111111;
+    }else if(tempamountOverdue =unknown  or  temphighCreditOrSanctionedAmount =unknown or temppct_tot_ovd_hicr<0 or tempamountOverdue<0 or temphighCreditOrSanctionedAmount<0)then{
+	  		temppct_tot_ovd_hicr =-111111;
+  		print("temppct_tot_ovd_hicr"temppct_tot_ovd_hicr);
+}
+print("temppct_tot_ovd_hicr final=="temppct_tot_ovd_hicr);
+return temppct_tot_ovd_hicr;]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='ReXQrt'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

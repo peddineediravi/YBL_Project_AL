@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_CommercialSegmentComputation'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_CommercialSegmentComputation</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anApplication is some Application initially blazeMessage.request.application;
+isSingleApplicantMeetsMinimumNorms is a boolean initially false;
+assetDetails is some AssetDetails initially anApplication.assetDetails;
+theBlazeMessageBT.maxEligibleAmount = 0;
+cashAccurals is a real initially 0;   		
+anApplicant is some BlazeApplicant;
+anIncome is some Income;
+
+//Commerical Vehicle Segment
+if(anApplication.schemeGroup is known and anApplication.schemeGroup="6" ) 
+then{   
+        print("entering into commercial");
+		if(blazeMessage.blazeApplicants is known and blazeMessage.blazeApplicants.count > 0)
+		then{
+               
+				for each BlazeApplicant in blazeMessage.blazeApplicants such that (it.customerSegment is known and customerSegment <> "1")
+				do{  
+						// Excluding Salaried Applicant ("1" is Salaried applicant customer segment)
+						anApplicant=it;
+                  		anApplicant.annualIncome.totalIncome=0;
+                  		anApplicant.annualGrossReceipts=0;
+						if( anApplicant.incomes is known and anApplicant.incomes.count > 0) 
+						then{
+						//Cash Accurals = current Year PAT+Depricaition+INTEREST TO PARTNERS +SALARY TO PARTNERS + DIRECTORS SALARY 
+								for each Income in anApplicant.incomes 
+								do{
+									anIncome=it;
+									if(anIncome.head is known and anApplicant.annualIncome is known)
+									then{
+											if(anIncome.head = "120") then //PAT 
+												anApplicant.annualIncome.totalIncome+=anIncome.netIncome;
+											else if(anIncome.head = "122") then //Depreciation
+												anApplicant.annualIncome.totalIncome+=anIncome.netIncome;
+											else if(anIncome.head = "125") then //Directors salary
+												anApplicant.annualIncome.totalIncome+=anIncome.netIncome;
+											else if(anIncome.head = "124") then //Interest to partners
+												anApplicant.annualIncome.totalIncome+=anIncome.netIncome;
+											else if(anIncome.head = "123") then //Salary to partners
+												anApplicant.annualIncome.totalIncome+=anIncome.netIncome;
+                                      		else if(anIncome.head is equal to (ignoring case) "GRP") then //Gross Receipts used for Deviation rules check not for Eligibility purpose.
+												anApplicant.annualGrossReceipts=anIncome.netIncome;
+											else if(anIncome.head is equal to (ignoring case) "GRTURNOV") then //GROSS TURNOVER
+												anApplicant.annualIncome.totalIncome+=anIncome.netIncome;
+											
+										}
+									}     
+									 anApplicant.annualIncome.incomeBasedEligbileAmount = anApplicant.annualIncome.totalIncome *4;
+								}         
+							if(isSingleApplicantMeetsMinimumNorms is available and isSingleApplicantMeetsMinimumNorms = false) then {
+								isSingleApplicantMeetsMinimumNorms = (anApplicant.annualIncome.totalIncome >= DT_MinimumIncomeLookup(anApplication.schemeGroup,anApplication.scheme,it.customerSegment,assetDetails.detailAssetLoan,assetDetails.newVehicleDetails.assetCost));
+							 }     
+                            print("isSingleApplicantMeetsMinimumNorms"isSingleApplicantMeetsMinimumNorms);
+							// Annualized all EMI obligations
+							// if( anApplicant.liabilities is known and anApplicant.liabilities.count > 0) then {         
+							 //		for each Liability in anApplicant.liabilities such that considerForObligations=true do {
+							 //         		anApplicant.totalObligations+=it.EMIAmount *12; //Annualized Obligation
+							  //      }         
+							// }
+			        }
+		      }
+
+						totalObligations is a real initially 0;  
+		
+		if(blazeMessage.blazeApplicants is known and blazeMessage.blazeApplicants.count > 0)
+		then{
+			for each BlazeApplicant in blazeMessage.blazeApplicants such that (it.customerSegment is known and customerSegment <> "1") 
+			do{
+				if(isSingleApplicantMeetsMinimumNorms is available and isSingleApplicantMeetsMinimumNorms = true and it.annualIncome is known and it.annualIncome.totalIncome is known) then { // Sum of all applicants total income and Obligations
+					cashAccurals = cashAccurals + it.annualIncome.totalIncome;
+				if(it.annualIncome.totalObligation is known) then {
+						
+					totalObligations += it.annualIncome.totalObligation; 
+					} else {
+						totalObligations = 0;
+				}
+				}
+				
+					if(it.annualIncome is known and it.annualIncome.totalIncome is known and  cashAccurals < it.annualIncome.totalIncome)
+					then{		                        	
+							cashAccurals = it.annualIncome.totalIncome; // Maximum of all applicants total income. 
+							
+								if(it.annualIncome.totalObligation is known) then {
+						
+					totalObligations += it.annualIncome.totalObligation; 
+					} else {
+						totalObligations = 0;
+				}
+					}                
+				               
+			}
+			
+		}
+      print("cashAccurals" cashAccurals);
+	  
+     print("totalObligations" totalObligations); 
+	 
+		theBlazeMessageBT.maxEligibleAmount = (cashAccurals -totalObligations)*4;
+       print("theBlazeMessageBT.maxEligibleAmount 11" theBlazeMessageBT.maxEligibleAmount);
+  
+
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='VTQleH'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

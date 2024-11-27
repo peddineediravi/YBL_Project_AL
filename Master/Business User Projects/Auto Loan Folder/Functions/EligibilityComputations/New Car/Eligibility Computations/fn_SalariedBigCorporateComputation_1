@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_SalariedBigCorporateComputation'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_SalariedBigCorporateComputation</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anApplication is some Application initially blazeMessage.request.application;
+isSBCEmployeeApplicantMeetsMinimumNorms is a boolean initially false;
+assetDetails is some AssetDetails initially anApplication.assetDetails;
+theBlazeMessageBT.maxEligibleAmount = 0;
+maxEligibleAmount is a real initially 0;   		
+higerIncomeApplicant is some Applicant;
+totalIncome is a real initially 0;
+totalObligation is a real initially 0;
+higherIncome is a real initially 0;
+anDeviation is some Deviation initially an Deviation;
+minimumIncomeMeetingApplicant is some Applicant;
+//  Salaried Big Corporate Program
+if (anApplication.schemeGroup is known and anApplication.schemeGroup="17")then
+  {
+    	maxEligibleAmount=0;
+    	isSBCEmployeeApplicantMeetsMinimumNorms = false;
+    //Checking whether SBC employee meeting minimum income norms.
+    	if(blazeMessage.request is known and blazeMessage.request.application is known and blazeMessage.request.application.applicants is known and blazeMessage.request.application.applicants.count > 0)then{
+          		for each Applicant in blazeMessage.request.application.applicants such that (it.customerSegment is known and customerSegment ="1" and it.employmentDetails is known and  it.employmentDetails.companyProfileCategory is known and  employmentDetails.companyProfileCategory is equal to(ignoring case) ("D" or "DP" or "G" or "GP" or "P") ) do {        		
+ 						if(isSBCEmployeeApplicantMeetsMinimumNorms is available and isSBCEmployeeApplicantMeetsMinimumNorms = false) then {                 
+  								  isSBCEmployeeApplicantMeetsMinimumNorms = ((it.annualIncome is known and it.annualIncome.totalIncome is known and (it.annualIncome.totalIncome >= DT_MinimumIncomeLookup(anApplication.schemeGroup,anApplication.scheme,it.customerSegment,assetDetails.detailAssetLoan.assetCategory,assetDetails.newVehicleDetails.assetCost))));
+ 			 					  minimumIncomeMeetingApplicant=it;
+                        }     
+		        }
+        }
+    	
+    			for each Applicant in blazeMessage.request.application.applicants such that( it.annualIncome is known and  it.annualIncome.incomeBasedEligbileAmount is known) do {
+				// SBC Employee meeting minimum income norms then clubbing income of all other co-applicants income for elibility.
+			   if(isSBCEmployeeApplicantMeetsMinimumNorms is (known and available) and isSBCEmployeeApplicantMeetsMinimumNorms = true) then { // Sum of all applicants income based eligbile amount (i.e income*multiplier)
+           			maxEligibleAmount = maxEligibleAmount + it.annualIncome.incomeBasedEligbileAmount;
+                  	totalIncome=totalIncome+it.annualIncome.totalIncome;
+                  	totalObligation = totalObligation+it.annualIncome.totalObligation;
+    		  }
+          	 else if(isSBCEmployeeApplicantMeetsMinimumNorms is (known and available) and isSBCEmployeeApplicantMeetsMinimumNorms = false) then  {// Maximum of all applicants income based eligible amount if none of them meeting minimum income norms.	               
+               		if(higherIncome<it.annualIncome.totalIncome) then{
+                      	 higherIncome=it.annualIncome.totalIncome;
+                         maxEligibleAmount = it.annualIncome.incomeBasedEligbileAmount; 
+            		     higerIncomeApplicant=it;
+                   }               
+             }               
+       }
+   theBlazeMessageBT.maxEligibleAmount = maxEligibleAmount;
+   
+   // IIR Computation
+ 
+   higherIncome = 0;
+   foir is a real initially 0;
+   applicantResidentPropertyType is a string;
+   sbcHigherIncomeApplicant is some Applicant;
+   
+    // Finding higer income SBC applicant profile for applying on IIR grid incase of clubbed income used for eligibility amount.
+   for each Applicant in blazeMessage.request.application.applicants such that( it.annualIncome is known and  it.annualIncome.totalIncome is known and it.customerSegment is known and customerSegment ="1" and it.employmentDetails is known and  it.employmentDetails.companyProfileCategory is known and  employmentDetails.companyProfileCategory is equal to ("D" or "DP" or "G" or "GP" or "P")) do {
+               	if (higherIncome<it.annualIncome.totalIncome) then {
+            				  higherIncome=it.annualIncome.totalIncome;
+             				  sbcHigherIncomeApplicant=it;
+                }                           
+         	}      
+    if(isSBCEmployeeApplicantMeetsMinimumNorms is (known and available) and isSBCEmployeeApplicantMeetsMinimumNorms = true) then {       		     		
+		   if(sbcHigherIncomeApplicant is (known and available)) then {
+      			 foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/totalIncome)*100;  
+		   		 applicantResidentPropertyType = fn_GetApplicantPropertyType(sbcHigherIncomeApplicant);
+		  		 anDeviation = DT_IIRNorms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(sbcHigherIncomeApplicant as a BlazeApplicant).cibilScore,sbcHigherIncomeApplicant.customerSegment,applicantResidentPropertyType,foir);
+		 		  fn_AppendDeviations(anDeviation);
+           }
+      	   else {
+				  foir=((totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/totalIncome)*100;  
+		   		 applicantResidentPropertyType = fn_GetApplicantPropertyType(minimumIncomeMeetingApplicant);
+		  		 anDeviation = DT_IIRNorms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(minimumIncomeMeetingApplicant as a BlazeApplicant).cibilScore,minimumIncomeMeetingApplicant.customerSegment,applicantResidentPropertyType,foir);
+		 		  fn_AppendDeviations(anDeviation);   
+           }
+   	 }
+   else  if(isSBCEmployeeApplicantMeetsMinimumNorms is (known and available) and isSBCEmployeeApplicantMeetsMinimumNorms = false and sbcHigherIncomeApplicant is (known and available) ) then{
+			// Higher income applicant details used for IIR as eligibility derived on this applicant income.
+			foir=((higerIncomeApplicant.annualIncome.totalObligation+(blazeMessage.request.application.loanDetails.loanEMI*12))/higerIncomeApplicant.annualIncome.totalIncome)*100;  
+			applicantResidentPropertyType = fn_GetApplicantPropertyType(sbcHigherIncomeApplicant);
+			anDeviation = DT_IIRNorms(anApplication.schemeGroup,anApplication.scheme,blazeMessage.request.application.assetDetails.detailAssetLoan,(sbcHigherIncomeApplicant as a BlazeApplicant).cibilScore,sbcHigherIncomeApplicant.customerSegment,applicantResidentPropertyType,foir);
+			fn_AppendDeviations(anDeviation);          
+     }
+  }]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='VTQleH'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

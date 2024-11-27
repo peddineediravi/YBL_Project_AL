@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_enquirypurposeHandler'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_enquirypurposeHandler</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[anApplicant is some Applicant;
+for each Applicant in blazeMessage.request.application.applicants do {
+	anApplicant =it;	
+  
+	if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is known and
+       anApplicant.multiBureauReport.cibilResponse.enquiries is known and
+       anApplicant.multiBureauReport.cibilResponse.enquiries.count > 0) then
+    {
+		for each Enquiry in anApplicant.multiBureauReport.cibilResponse.enquiries  do {
+          if(it.enquiryPurpose is known and it.enquiryPurpose =(ignoring case) ("MICROFINANCE – HOUSING LOAN" or "42") ) then
+{
+	it.enquiryPurpose="MICROFINANCE - HOUSING LOAN";
+       // print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose = (ignoring case) ("CURRENT BUSINESS NON-FUNDED CREDIT FACILITY – PRIORITY SECTOR – AGRICULTURE" or "57" or "BUSINESS NON-FUNDED CREDIT FACILITY – PRIORITY SECTOR – AGRICULTURE") ) then
+{
+	it.enquiryPurpose="CURRENT BUSINESS NON-FUNDED CREDIT FACILITY - PRIORITY SECTOR - AGRICULTURE";
+//        print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose =(ignoring case) ("MICROFINANCE – PERSONAL LOAN" or "41") ) then
+{
+	it.enquiryPurpose="MICROFINANCE - PERSONAL LOAN";
+  //      print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose =( ignoring case)("BUSINESS LOAN – GENERAL" or "51") ) then
+{
+	it.enquiryPurpose="BUSINESS LOAN - GENERAL";
+    //    print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose=( ignoring case)("CURRENT BUSINESS LOAN – PRIORITY SECTOR – OTHERS"  or "54" or "BUSINESS LOAN – PRIORITY SECTOR – OTHERS")) then
+{
+	it.enquiryPurpose="CURRENT BUSINESS LOAN - PRIORITY SECTOR - OTHERS";
+      //  print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose = ( ignoring case) ("MICROFINANCE – BUSINESS LOAN" or "40") ) then
+{
+	it.enquiryPurpose="MICROFINANCE - BUSINESS LOAN";
+        //print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose =  ( ignoring case)("MUDRA LOANS – SHISHU / KISHOR / TARUN"  or "39")) then
+{
+	it.enquiryPurpose="MUDRA LOANS - SHISHU / KISHOR / TARUN";
+       // print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose is equal to ( ignoring case)("CURRENT BUSINESS NON-FUNDED CREDIT FACILITY – PRIORITY SECTOR – SMALL BUSINESS"  or "56" or "BUSINESS NON-FUNDED CREDIT FACILITY – PRIORITY SECTOR – SMALL BUSINESS")) then
+{
+	it.enquiryPurpose="CURRENT BUSINESS NON-FUNDED CREDIT FACILITY - PRIORITY SECTOR - SMALL BUSINESS";
+        //print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose =( ignoring case)("CURRENT BUSINESS NON-FUNDED CREDIT FACILITY – PRIORITY SECTOR-OTHERS"  or "58" or "BUSINESS NON-FUNDED CREDIT FACILITY – PRIORITY SECTOR-OTHERS")) then
+{
+	it.enquiryPurpose="CURRENT BUSINESS NON-FUNDED CREDIT FACILITY - PRIORITY SECTOR-OTHERS";
+        //print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose=( ignoring case) ("CURRENT BUSINESS NON-FUNDED CREDIT FACILITY – GENERAL" or "55" or "BUSINESS NON-FUNDED CREDIT FACILITY – GENERAL") ) then
+{
+	it.enquiryPurpose="CURRENT BUSINESS NON-FUNDED CREDIT FACILITY - GENERAL";
+        //print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose is equal to  (ignoring case) ("CURRENT BUSINESS LOAN – PRIORITY SECTOR – AGRICULTURE" or "53" or "BUSINESS LOAN – PRIORITY SECTOR – AGRICULTURE")) then
+{
+	it.enquiryPurpose="CURRENT BUSINESS LOAN - PRIORITY SECTOR - AGRICULTURE";
+        //print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose is equal to ( ignoring case) ("CURRENT BUSINESS LOAN – PRIORITY SECTOR – SMALL BUSINESS" or "52" or "BUSINESS LOAN – PRIORITY SECTOR – SMALL BUSINESS") ) then
+{
+	it.enquiryPurpose="CURRENT BUSINESS LOAN - PRIORITY SECTOR - SMALL BUSINESS";
+        //print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+if(it.enquiryPurpose is known and it.enquiryPurpose is equal to (ignoring case)("MICROFINANCE – OTHER" or "43") ) then
+{
+	it.enquiryPurpose="MICROFINANCE - OTHER";
+        //print("it.enquiryPurpose::::"it.enquiryPurpose);
+}
+          
+        }
+    }
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='2nVVcw'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

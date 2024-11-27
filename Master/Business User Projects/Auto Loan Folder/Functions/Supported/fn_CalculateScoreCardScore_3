@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_CalculateScoreCardScore'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_CalculateScoreCardScore</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[returnInfo is some NdScoreModelReturnInfo;
+returnInfo = SC_STP_ScoreCard();
+//
+response is some Response initially a Response;
+blazeMessage.response = response;
+appDecision is some Decision initially a Decision;
+blazeMessage.response.applicationDecision = appDecision;
+blazeMessage.charNameToCharVal = an association from string to string;
+charMap is an association from string to string;
+segmentScore is an integer initially 0; 
+segmentScore =fn_segmentParam(blazeMessage);
+print("segmentScore  score Anil=="segmentScore);
+anApplicant is some Applicant;
+returnInfo1 is some NdScoreModelReturnInfo initially a NdScoreModelReturnInfo;
+
+
+
+//ALN segment1
+noOfDedupedFinanceInquiries_g407s  is a real initially 0.0;
+  monthsSinceMostRecentFinanceInstallmentTradeOpened_fi21s  is a real initially 0.0;
+  seg1utilizationOfOpenTradesVerifiedInPast12Months_at34b  is a real initially 0.0;
+  noOfMissedPaymentsInLast12MonthsForFinancialTrades_payment58  is a real initially 0.0;
+  noOfOpenInstallmentTrades_in02s  is a real initially 0.0;
+  worstRatingOnInstallmentTradesInPast12Months_g304s  is a real initially 0.0;
+  noOfDedupedAutoInquriesInPast12Months_g414s  is a real initially 0.0;
+//ALN segment2
+worstRatingOnInstallmentTrades_g305s1 is a real initially 0.0;
+  noOfDedupedInquiriesInPast6Moths_g980s  is a real initially 0.0;
+  utilizationOfOpenTradesVerifiedInPast12Months_at34b1  is a real initially 0.0;
+  ALN_Seg2_PercentageOfTradesEverDelinquent_g051s  is a real initially 0.0;
+  averageNoOfMonthsTradesHaveBeenOnFile_s004s  is a real initially 0.0;
+  ALN_noOfCurrentlyOpenAndSatisfactoryTrades24MonthsOrOlder_at27s  is a real initially 0.0;
+  noOfDedupedAutoInquiriesInPast12Months_g414s  is a real initially 0.0;
+  monthsSinceOldestCreditCardTradeOpened_bc20s  is a real initially 0.0;
+
+ if (blazeMessage.request.application.product  is (known and available) and  blazeMessage.request.application.product  =("ALN" or "AL"))then{
+	if(segmentScore is (known and available) and (segmentScore<=36) )then{
+      noOfDedupedFinanceInquiries_g407s =fn_NoOfDedupedFinanceInquiries_g407s(blazeMessage);
+      monthsSinceMostRecentFinanceInstallmentTradeOpened_fi21s=fn_MonthsSinceMostRecentFinanceInstallmentTradeOpened_fi21s(blazeMessage);
+      seg1utilizationOfOpenTradesVerifiedInPast12Months_at34b=fn_Seg1_UtilizationOfOpenTradesVerifiedInPast12Months_at34b(blazeMessage);
+      noOfMissedPaymentsInLast12MonthsForFinancialTrades_payment58=fn_NoOfMissedPaymentsInLast12MonthsForFinancialTrades_payment58(blazeMessage);
+      noOfOpenInstallmentTrades_in02s=fn_NoOfOpenInstallmentTrades_in02s(blazeMessage);
+      worstRatingOnInstallmentTradesInPast12Months_g304s=fn_WorstRatingOnInstallmentTradesInPast12Months_g304s(blazeMessage);
+      noOfDedupedAutoInquriesInPast12Months_g414s=fn_NoOfDedupedAutoInquriesInPast12Months_g414s(blazeMessage);
+      returnInfo1=ALN_Segment1_ScoreCard(noOfDedupedFinanceInquiries_g407s, monthsSinceMostRecentFinanceInstallmentTradeOpened_fi21s, seg1utilizationOfOpenTradesVerifiedInPast12Months_at34b, noOfMissedPaymentsInLast12MonthsForFinancialTrades_payment58, noOfOpenInstallmentTrades_in02s, worstRatingOnInstallmentTradesInPast12Months_g304s, noOfDedupedAutoInquriesInPast12Months_g414s);
+	}
+	else if(segmentScore is (known and available) and (segmentScore>=36) )then{
+      worstRatingOnInstallmentTrades_g305s1=fn_WorstRatingOnInstallmentTrades_g305s1(blazeMessage);
+      noOfDedupedInquiriesInPast6Moths_g980s=fn_NoOfDedupedInquiriesInPast6Moths_g980s(blazeMessage);
+      utilizationOfOpenTradesVerifiedInPast12Months_at34b1=fn_UtilizationOfOpenTradesVerifiedInPast12Months_at34b1(blazeMessage);
+      ALN_Seg2_PercentageOfTradesEverDelinquent_g051s=fn_ALN_Seg2_PercentageOfTradesEverDelinquent_g051s(blazeMessage);
+      averageNoOfMonthsTradesHaveBeenOnFile_s004s=fn_AverageNoOfMonthsTradesHaveBeenOnFile_s004s(blazeMessage);
+      ALN_noOfCurrentlyOpenAndSatisfactoryTrades24MonthsOrOlder_at27s=fn_NoOfCurrentlyOpenandSatisfactoryTrades24Monthsorolder_at27s(blazeMessage);
+      noOfDedupedAutoInquiriesInPast12Months_g414s=fn_NoOfDedupedAutoInquiriesInPast12Months_g414s(blazeMessage);
+      monthsSinceOldestCreditCardTradeOpened_bc20s=fn_MonthsSinceOldestCreditCardTradeOpened_bc20s(blazeMessage);
+      returnInfo1=ALN_Segment2_ScoreCard(worstRatingOnInstallmentTrades_g305s1, noOfDedupedInquiriesInPast6Moths_g980s, utilizationOfOpenTradesVerifiedInPast12Months_at34b1, ALN_Seg2_PercentageOfTradesEverDelinquent_g051s, averageNoOfMonthsTradesHaveBeenOnFile_s004s, ALN_noOfCurrentlyOpenAndSatisfactoryTrades24MonthsOrOlder_at27s, noOfDedupedAutoInquiriesInPast12Months_g414s, monthsSinceOldestCreditCardTradeOpened_bc20s);
+	}
+  scoredCharacteristics is some array of ScoreDetail initially an array of ScoreDetail;
+score is some Score initially a Score;
+if returnInfo.scoredCharacteristics is not  null then{
+  		for each NdScoredCharacteristic in returnInfo1.scoredCharacteristics do{
+		
+		characteristic is some ScoreDetail initially a ScoreDetail;
+			if(it.binLabel is known)then
+				characteristic.binLabel = it.binLabel;
+			if(it.characteristicName is known)then
+				characteristic.characteristicName = it.characteristicName;
+				
+			if(it.partialScore is known)then 
+				characteristic.partialScore = it.partialScore;
+				
+          characteristic.characteristicValue = blazeMessage.charNameToCharVal[it.characteristicName];
+          scoredCharacteristics.append(characteristic);
+}
+}
+score.scorecardScore = returnInfo.score;
+score.scoredCharacteristics = scoredCharacteristics;
+score.characteristicCount= score.scoredCharacteristics.count;
+ if(segmentScore is (known and available) and (segmentScore<=36))then{
+  score.scorecardName="ALN_Segement1";
+  	  theBlazeMessageBT.Segment1ScoreCardScore=score.scorecardScore;
+	  print("Segment1ScoreCardScore===="theBlazeMessageBT.Segment1ScoreCardScore);
+
+}else   if(segmentScore is (known and available) and segmentScore>36)then{
+	score.scorecardName="ALN_Segement2";
+	  	  theBlazeMessageBT.Segment2ScoreCardScore=score.scorecardScore;
+	  print("Segment2ScoreCardScore===="theBlazeMessageBT.Segment2ScoreCardScore);
+
+}
+ blazeMessage.response.applicationDecision.scorecardResult.append(score);
+}
+
+///
+scoredCharacteristics is some array of ScoreDetail initially an array of ScoreDetail;
+score is some Score initially a Score;
+for each NdScoredCharacteristic in returnInfo.scoredCharacteristics do{
+    characteristic is some ScoreDetail initially a ScoreDetail;
+  
+      if(it.binLabel is known)then
+          characteristic.binLabel = it.binLabel;
+    if(it.characteristicName is known)then
+          characteristic.characteristicName = it.characteristicName;
+      if(it.partialScore is known)then
+          characteristic.partialScore = math().truncate(it.partialScore);
+  
+  	characteristic.characteristicValue = theApplicationScoreCard.termSetInput.charNameToCharVal[it.characteristicName];
+      scoredCharacteristics.append(characteristic);
+}
+//Assign final score
+score.scorecardScore = math().truncate(returnInfo.score);
+//Assign scorecard characteristics
+score.scoredCharacteristics = scoredCharacteristics;
+score.characteristicCount= score.scoredCharacteristics.count;
+score.applicantType="P";
+score.scorecardName="SC_STP_ScoreCard";
+//blazeMessage.response.applicationDecision.scorecardResult =  an array of Score;
+
+blazeMessage.response.applicationDecision.scorecardResult.append(score);
+theBlazeMessageBT.scorecardtotalScore=blazeMessage.response.applicationDecision.scorecardResult[0].scorecardScore;
+print("Scorecardtotalscore=="theBlazeMessageBT.scorecardtotalScore);]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='FyDMQP'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

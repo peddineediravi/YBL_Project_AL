@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_applicantBankingDetails'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_applicantBankingDetails</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("Entering fn_applicantBankingDetails");
+anApplicant is some Applicant; 
+tempAverageBalance is a real initially 0.0;
+tempAverageBalance1 is a real initially 0.0;
+tempAccountType is a string initially "";
+tempAccountType1 is a string initially "";
+tempCoAccountType is a string initially "";
+tempBankName is a string initially "";
+tempBankName1 is a string initially "";
+tempAccountNumber is a string initially "";
+tempAccountNumber1 is a string initially "";
+temploanEmi is a real  initially 0.0;
+isPrimaryBankDetails is a boolean initially false;
+isPrimaryBankDetails1 is a boolean initially false;
+tempAvgRatio is a real initially 0.0;
+tempAvgRatio1 is a real initially 0.0;
+tempCoAvgRatio is a real initially 0.0;
+ 
+//blazeMessage.request.application.applicants[0].bankDetails[0].accountNumber
+for each Applicant in blazeMessage.request.application.applicants do{
+  	anApplicant=it;
+  		if(it.applicantType  is (known and available) and it.applicantType ="P")then{
+        //  		if(it.constitution is (known and available) and it.constitution ="1" and it.customerSegment is (known and available) and it.customerSegment =("1" ))then{
+               			 if(it.bankDetails  is (known and available) and it.bankDetails.count>0) then{
+                           		for each BankDetails in anApplicant.bankDetails such that (it.isRepaymentAccount  is (known and available) and it.isRepaymentAccount = true)do{
+                               			tempAverageBalance =tempAverageBalance+it.averageBalance;
+                                  		tempAccountType =it.accountType;
+                                  		if(it.bankName is (known and available) )then{
+                                          			if(it.bankName =("532"))then{
+                                                      	tempBankName ="YES BANK LTD ";
+                                                    }else if(it.bankName =("YBL"))then{
+                                                     	  tempBankName ="YES BANK LTD"; 
+                                                   }else if(it.bankName =("YES"))then{
+                                                      	 tempBankName ="YES BANK LTD"; 
+                                                   }else if(it.bankName =("YESB"))then{
+                                                       tempBankName ="YES BANK LTD"; 
+                                                   }else if(it.bankName =("YDCB"))then{
+                                                       tempBankName ="YOUTH DEVELOPMENT CO-OP BANK LTD"; 
+                                                   }else if(it.bankName =("ICBL"))then{
+                                                       tempBankName ="ICICI BANK LTD"; 
+												   }else if(it.bankName =("ICI"))then{  
+														tempBankName ="ICICI BANK LTD";
+												   }else if(it.bankName =("ICIC"))then{
+														tempBankName="ICICI BANK LTD";
+												      }else if(it.bankName =("ICICB"))then{
+														 tempBankName="ICICI BANK LTD"; 
+												    }else if(it.bankName =("ICICI"))then{
+															tempBankName="ICICI BANK LTD"; 
+											    	 }else if(it.bankName =("ICICIB"))then{
+															tempBankName="ICICI BANK LTD";
+													 }else if(it.bankName =("HDFB"))then{
+															tempBankName="HDFC BANK"; 
+													 }else if(it.bankName =("HDB"))then{
+															tempBankName="HDFC BANK LTD"; 
+													 }else if(it.bankName =("HDFC"))then{
+															tempBankName="HDFC BANK LTD"; 
+													 }else if(it.bankName =("HDFCB"))then{
+															tempBankName="HDFC BANK LTD"; 
+													 }else if(it.bankName =("HFDC"))then{
+															tempBankName="HDFC BANK LTD";
+													 }else if(it.bankName =("126"))then{
+															tempBankName="AXIS BANK LTD"; 
+													 }else if(it.bankName =("AXBL"))then{
+															tempBankName="AXIS BANK LTD"; 
+													 }else if(it.bankName =("UTBI"))then{
+															tempBankName="AXIS BANK LTD";
+													 }else if(it.bankName =("UTIB"))then{
+															tempBankName="AXIS BANK LTD"; 
+													 }else if(it.bankName =("KMBB"))then{
+															tempBankName="KOTAK MAHINDRA BANK"; 
+													 }else if(it.bankName =("KMBT"))then{
+															tempBankName="KOTAK MAHINDRA BANK"; 
+													 }else if(it.bankName =("KTMB"))then{
+															tempBankName="KOTAK MAHINDRA BANK"; 
+													 }else if(it.bankName =("KMBL"))then{
+															tempBankName="KOTAK MAHINDRA BANK LIMITED"; 
+													 }else if(it.bankName =("KKBK"))then{
+															tempBankName="KOTAK MAHINDRA BANK LTD"; 
+													 }else if(it.bankName =("KMB"))then{
+															tempBankName="KOTAK MAHINDRA BANK LTD"; 
+													 }else if(it.bankName =("KOT"))then{
+															tempBankName="KOTAK MAHINDRA BANK LTD"; 
+													 }else if(it.bankName =("CITI"))then{
+															tempBankName="CITI BANK"; 
+													 }else if(it.bankName =("CUBL"))then{
+															tempBankName="CITI UNION BANK LTD"; 
+													 }else if(it.bankName =("HSBC"))then{
+															tempBankName="HONGKONG and SHANGHAI BANKING CORPORATION"
+													}
+                                        }
+                                  		//tempBankName=
+                                  print("isPrimaryBankDetails@@@=="isPrimaryBankDetails);
+                                  		tempAccountNumber=it.accountNumber;
+                                  		isPrimaryBankDetails=true;  
+                                }    
+                               for each BankDetails in anApplicant.bankDetails such that (it.isRepaymentAccount  is (known and available) and it.isRepaymentAccount = false)do{
+                               			tempAverageBalance1 =tempAverageBalance1+it.averageBalance;
+                                  		tempAccountType1 =it.accountType;
+                                  		if(it.bankName is (known and available) )then{
+                                          			if(it.bankName =("532"))then{
+                                                      	tempBankName1 ="YES BANK LTD ";
+                                                    }else if(it.bankName =("YBL"))then{
+                                                     	  tempBankName1 ="YES BANK LTD"; 
+                                                   }else if(it.bankName =("YES"))then{
+                                                      	 tempBankName1 ="YES BANK LTD"; 
+                                                   }else if(it.bankName =("YESB"))then{
+                                                       tempBankName1 ="YES BANK LTD"; 
+                                                   }else if(it.bankName =("YDCB"))then{
+                                                       tempBankName1 ="YOUTH DEVELOPMENT CO-OP BANK LTD"; 
+                                                   }else if(it.bankName =("ICBL"))then{
+                                                       tempBankName1 ="ICICI BANK LTD"; 
+												   }else if(it.bankName =("ICI"))then{  
+														tempBankName1 ="ICICI BANK LTD";
+												   }else if(it.bankName =("ICIC"))then{
+														tempBankName1="ICICI BANK LTD";
+												      }else if(it.bankName =("ICICB"))then{
+														 tempBankName1="ICICI BANK LTD"; 
+												    }else if(it.bankName =("ICICI"))then{
+															tempBankName1="ICICI BANK LTD"; 
+											    	 }else if(it.bankName =("ICICIB"))then{
+															tempBankName1="ICICI BANK LTD";
+													 }else if(it.bankName =("HDFB"))then{
+															tempBankName1="HDFC BANK"; 
+													 }else if(it.bankName =("HDB"))then{
+															tempBankName1="HDFC BANK LTD"; 
+													 }else if(it.bankName =("HDFC"))then{
+															tempBankName1="HDFC BANK LTD"; 
+													 }else if(it.bankName =("HDFCB"))then{
+															tempBankName1="HDFC BANK LTD"; 
+													 }else if(it.bankName =("HFDC"))then{
+															tempBankName1="HDFC BANK LTD";
+													 }else if(it.bankName =("126"))then{
+															tempBankName1="AXIS BANK LTD"; 
+													 }else if(it.bankName =("AXBL"))then{
+															tempBankName1="AXIS BANK LTD"; 
+													 }else if(it.bankName =("UTBI"))then{
+															tempBankName1="AXIS BANK LTD";
+													 }else if(it.bankName =("UTIB"))then{
+															tempBankName1="AXIS BANK LTD"; 
+													 }else if(it.bankName =("KMBB"))then{
+															tempBankName1="KOTAK MAHINDRA BANK"; 
+													 }else if(it.bankName =("KMBT"))then{
+															tempBankName1="KOTAK MAHINDRA BANK"; 
+													 }else if(it.bankName =("KTMB"))then{
+															tempBankName1="KOTAK MAHINDRA BANK"; 
+													 }else if(it.bankName =("KMBL"))then{
+															tempBankName1="KOTAK MAHINDRA BANK LIMITED"; 
+													 }else if(it.bankName =("KKBK"))then{
+															tempBankName1="KOTAK MAHINDRA BANK LTD"; 
+													 }else if(it.bankName =("KMB"))then{
+															tempBankName1="KOTAK MAHINDRA BANK LTD"; 
+													 }else if(it.bankName =("KOT"))then{
+															tempBankName1="KOTAK MAHINDRA BANK LTD"; 
+													 }else if(it.bankName =("CITI"))then{
+															tempBankName1="CITI BANK"; 
+													 }else if(it.bankName =("CUBL"))then{
+															tempBankName1="CITI UNION BANK LTD"; 
+													 }else if(it.bankName =("HSBC"))then{
+															tempBankName1="HONGKONG and  SHANGHAI BANKING CORPORATION"
+													}
+                                        }
+                                  		//tempBankName=
+                                  		tempAccountNumber1=it.accountNumber;
+                                  		isPrimaryBankDetails1=true;
+                                } 
+                         }
+            //    }
+        }
+  
+}
+if(blazeMessage.request.application.loanDetails.loanEMI  is (known and available) and  blazeMessage.request.application.loanDetails.loanEMI >0)then{
+  		temploanEmi =blazeMessage.request.application.loanDetails.loanEMI ;
+}
+if(temploanEmi>0)then{
+tempAvgRatio = tempAverageBalance/temploanEmi;
+}
+if(temploanEmi>0)then{
+tempAvgRatio1 = tempAverageBalance1/temploanEmi;
+}
+if(tempAvgRatio  is (known and available)  )then{
+  tempAvgRatio = math().round(tempAvgRatio,-2);
+}else {
+  tempAvgRatio=0.0;
+}
+if (tempAvgRatio1 is (known and available)  )then{
+tempAvgRatio1 =math().round(tempAvgRatio1,-2);
+}else {
+  tempAvgRatio1=0.0;
+}
+if (tempAverageBalance is (known and available)  )then{
+ tempAverageBalance = math().round(tempAverageBalance,-2) ;
+}else{
+  tempAverageBalance =0.0;
+}
+if (tempAverageBalance1 is (known and available)  )then{
+tempAverageBalance1 = math().round(tempAverageBalance1,-2);
+}else{
+  tempAverageBalance1=0.0;
+}
+print("isPrimaryBankDetails=="isPrimaryBankDetails);
+if(isPrimaryBankDetails=true )  then{
+fn_AppendActionMessage("Applicant has "tempAccountType " bank a/c in " tempBankName " and account number is  "tempAccountNumber " ABB is INR " tempAverageBalance " at "    tempAvgRatio " times of EMI This account is Repayment Account ");
+}
+
+if(isPrimaryBankDetails1=true)then{
+fn_AppendActionMessage("Applicant has "tempAccountType1 " bank a/c in " tempBankName1 " and account number is  "tempAccountNumber1 " ABB is INR " tempAverageBalance  " at "    tempAvgRatio1  " times of EMI ");
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='8hrtTs'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

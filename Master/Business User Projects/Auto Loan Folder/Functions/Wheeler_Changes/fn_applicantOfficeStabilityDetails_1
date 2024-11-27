@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_applicantOfficeStabilityDetails'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_applicantOfficeStabilityDetails</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("fn_applicantOfficeStabilityDetails Entering...");
+anApplicant is some Applicant;		
+//Primary Applicant 
+for each Applicant in ablazeMessage1.request.application.applicants  such that (it.applicantType  is (known and available) and it.applicantType ="P")do{
+			anApplicant=it;
+  			   if(it.constitution  is (known and available) and  it.constitution ="1" and  it.customerSegment  is (known and available) and it.customerSegment =("1" ))then{
+                 		
+                 fn_AppendActionMessage("Applicant is working as salaried employee in "it.employmentDetails.employerName" since "it.employmentDetails.yearsInPresentJob " years "it.employmentDetails.monthsInPresentJob " months  as "  it.employmentDetails.designation
+                                        " . Total work experience is "it.employmentDetails.totalWorkExperienceInYears " years" it.employmentDetails.totalWorkExperienceInMonths " months." );
+               }else    if(it.constitution  is (known and available) and  it.constitution <> "1")then{
+                 fn_AppendActionMessage("Applicant is self employed in"it.businessDetails.businessName " since "it.businessDetails.businessVintageInYears " years "it.businessDetails.businessVintageInMonths "months  as ");
+               }
+}
+//Co Applicant 
+for each Applicant in ablazeMessage1.request.application.applicants  such that (it.applicantType  is (known and available) and it.applicantType <>"P")do{
+			anApplicant=it;
+  			   if((it.constitution  is (known and available) and  it.constitution ="1" ) and ( it.customerSegment  is (known and available) and it.customerSegment =("1" )))then{
+                 		
+                 fn_AppendActionMessage("Co - Applicant is working as salaried employee in "it.employmentDetails.employerName" since "it.employmentDetails.yearsInPresentJob " years "it.employmentDetails.monthsInPresentJob " months  as "  it.employmentDetails.designation
+                                        " . Total work experience is "it.employmentDetails.totalWorkExperienceInYears " years" it.employmentDetails.totalWorkExperienceInMonths " months." );
+               }else    if((it.constitution  is (known and available) and  it.constitution <> "1") and ( it.customerSegment  is (known and available) and it.customerSegment =("1" )))then{
+                 fn_AppendActionMessage("Co - Applicant is self employed in"it.businessDetails.businessName " since "it.businessDetails.businessVintageInYears " years "it.businessDetails.businessVintageInMonths "months  as ");
+               }
+}]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='Ir2pI7'>
+    <instance ref='ParameterNameVH'>
+     <value>ablazeMessage1</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_UCL_ColorCode_GreenToAmber'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_UCL_ColorCode_GreenToAmber</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("Entering into  fn_UCL_ColorCode_GreenToAmber");
+print("responseCode==="blazeMessage.response.applicationDecision.responseCode);
+AppFilterDeviation is some array of Deviation initially an array of Deviation;
+anApplicant is some Applicant;
+aDeviation is some Deviation initially an Deviation;
+WilfulDefaulter is a boolean initially false;
+ODFlag is a boolean initially false;
+
+//1.Non Individual 	Amber	Primary Applciant constitution <> 1 and 5
+
+if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN" or "RED"))then{
+for each Applicant in blazeMessage.request.application.applicants do{
+      anApplicant =it;
+        if(it.applicantType is   (known and available) and it.applicantType =("P") )then{
+				if(it.constitution is   (known and available) and it.constitution <>("1" and "5") and
+blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup <>("48" and "49"))then{
+						 blazeMessage.response.applicationDecision.responseCode="AMBER";
+                  print("responseCode===primaryAplicant non indual"blazeMessage.response.applicationDecision.responseCode);
+				   aDeviation.reasonCode = "50000";
+	  		aDeviation.overrideLevel="L0";
+	  		aDeviation.decisionResult="REFER";
+	  		aDeviation.reasonText="Green to Amber due to non individual primary applicant";
+	  		fn_AppendDeviations(aDeviation);
+				}
+		}
+  }
+}
+
+//2.Max Loan amt > 20 lacs 	Amber	Loan Amount- InsuranceAmt > 20 lacs
+if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN"))then{
+ if (theBlazeMessageBT.InsuredLoanAmount   is   (known and available) and   theBlazeMessageBT.InsuredLoanAmount >2000000 and
+blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup <>("48" and "49"))then{
+	  blazeMessage.response.applicationDecision.responseCode="AMBER";
+   print("responseCode===loanamouunt-insureanceamt>20L"blazeMessage.response.applicationDecision.responseCode);
+    aDeviation.reasonCode = "50000";
+	  		aDeviation.overrideLevel="L0";
+	  		aDeviation.decisionResult="REFER";
+	  		aDeviation.reasonText="Green to Amber due to Loan Amount more than 2000000";
+	  		fn_AppendDeviations(aDeviation);
+ }
+}
+//3.Primary Applicant CIBIL -1
+if(blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup <>("48" and "49"))then{
+if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN" or "RED"))then{
+for each Applicant in blazeMessage.request.application.applicants do{
+      anApplicant =it;
+        if(it.applicantType is   (known and available) and it.applicantType =("P") )then{
+				if(it.multiBureauReport is known is (known and available) and it.multiBureauReport.cibilResponse  is (known and available) and it.multiBureauReport.cibilResponse.scores is known) then {
+										for each ScoreSegment in it.multiBureauReport.cibilResponse.scores do{
+                                        if(it.scoreName contains match (ignoring case)("CIBIL" )and it.score is (known and available))then{
+												if(it.score= -1)then{
+                                                   blazeMessage.response.applicationDecision.responseCode="AMBER"; 	
+                                                  print("responseCode===CIBIL-1"blazeMessage.response.applicationDecision.responseCode);
+												  aDeviation.reasonCode = "50000";
+	  		aDeviation.overrideLevel="L0";
+	  		aDeviation.decisionResult="REFER";
+	  		aDeviation.reasonText="Green to Amber due to NTC applicant";
+	  		fn_AppendDeviations(aDeviation);
+                                                } 
+                                        }
+									}
+				
+				}
+  }
+}
+}
+}
+
+//4.If Color code is Green or Amber and L99 has triggered then Brown
+
+if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN" or "AMBER"))then{
+ for each Deviation in blazeMessage.response.applicationDecision.deviations such that (it is not null and it is known) do{
+AppFilterDeviation.append(it);
+}
+
+for each Deviation in AppFilterDeviation do {
+if(it.overrideLevel is known and it.overrideLevel = ("L99")) then {
+ blazeMessage.response.applicationDecision.responseCode="BROWN";
+  print("responseCode===L99"blazeMessage.response.applicationDecision.responseCode);
+}
+}
+}
+
+//5.If Color code is Green and L3 has triggered then Amber
+if(blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup <>("48" and "49"))then{
+
+if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN"))then{
+ for each Deviation in blazeMessage.response.applicationDecision.deviations such that (it is not null and it is known) do {
+AppFilterDeviation.append(it);
+}
+
+
+for each Deviation in AppFilterDeviation do {
+if(it.overrideLevel is known and it.overrideLevel = ("L3")) then {
+ blazeMessage.response.applicationDecision.responseCode="AMBER";
+  print("responseCode===L3"blazeMessage.response.applicationDecision.responseCode);
+  aDeviation.reasonCode = "50000";
+	  		aDeviation.overrideLevel="L0";
+	  		aDeviation.decisionResult="REFER";
+	  		aDeviation.reasonText="Green to Amber due to L3 deviations";
+	  		fn_AppendDeviations(aDeviation);
+}
+}
+}
+}
+
+
+//7.If Color code is Green and CIBIL L1/L2 has triggered has triggered then Amber(Cibil004 -L1 /Cibil005-L2/Cibil007-L2)
+if(blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup <>("48" and "49"))then{
+print("reponse code will be:" blazeMessage.response.applicationDecision.responseCode);
+if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN"))then{
+for each Deviation in blazeMessage.response.applicationDecision.deviations such that (it is not null and it is known) do{
+ AppFilterDeviation.append(it);
+}
+for each Applicant in blazeMessage.request.application.applicants do {
+	anApplicant =it;	
+	if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is known and anApplicant.multiBureauReport.cibilResponse.accounts is known and anApplicant.multiBureauReport.cibilResponse.accounts.count > 0) then {
+		for each Account in anApplicant.multiBureauReport.cibilResponse.accounts do {
+			if(it.amountOverdue is (known and available)  and it.amountOverdue > 1500) then {
+				ODFlag = true;
+			}
+			
+		}
+		
+	}
+}
+		print("OD flag will be:" ODFlag);
+ for each Deviation in AppFilterDeviation do{
+     //  print("it.ruleID=insideeCIBIL"it.ruleID);
+       	if(it.ruleID is known and (it.ruleID =("Cibil004" or "Cibil005")) and ODFlag = true)then{
+           blazeMessage.response.applicationDecision.responseCode="AMBER";
+          print("responseCode===Cibil"blazeMessage.response.applicationDecision.responseCode);
+		  aDeviation.reasonCode = "50000";
+	  		aDeviation.overrideLevel="L0";
+	  		aDeviation.decisionResult="REFER";
+	  		aDeviation.reasonText="Green to Amber due to CIBIL derog matches";
+	  		fn_AppendDeviations(aDeviation);
+		}
+ }
+}
+}
+//wilful defaulter moved to BRown L99//
+for each Applicant in blazeMessage.request.application.applicants do {
+	anApplicant =it;	
+	if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is known and anApplicant.multiBureauReport.cibilResponse.accounts is known and anApplicant.multiBureauReport.cibilResponse.accounts.count > 0) then {
+		for each Account in anApplicant.multiBureauReport.cibilResponse.accounts do {
+			   if( it.suitFiledOrWilfulDefault is (known and available) and it.suitFiledOrWilfulDefault is not null and
+                     it.suitFiledOrWilfulDefault =(ignoring case) "WILFUL DEFAULT" )then {
+                    	WilfulDefaulter = true;
+                  }
+			
+		}
+		
+	}
+}
+	if(WilfulDefaulter = true) then {
+		 blazeMessage.response.applicationDecision.responseCode="BROWN";
+			aDeviation.reasonCode = "50000";
+	  		aDeviation.overrideLevel="L99";
+	  		aDeviation.decisionResult="REJECT";
+	  		aDeviation.reasonText="Green to Brown  due to Wilful Defaulter";
+	  		fn_AppendDeviations(aDeviation);
+		}
+		
+	
+
+//8.If Scheme group is Agri//12.if scheme group is FD lien//15.If scheme group is banking based
+
+
+
+//if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN"))then{
+		// if(blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup =
+	//	 ("154" or "36" or "45" or "46") ) then{
+			// blazeMessage.response.applicationDecision.responseCode="AMBER";
+           //print("responseCode===schmeGroupAgri/FD/Bankbaed "blazeMessage.response.applicationDecision.responseCode);
+		 //  aDeviation.reasonCode = "50000";
+	  	//	aDeviation.overrideLevel="L0";
+	  	//	aDeviation.decisionResult="REFER";
+	  		//aDeviation.reasonText="Green to Amber due to Surrogate program";
+	  		//fn_AppendDeviations(aDeviation);
+		//}
+//}
+//17.if scheme group is preapproved
+
+//if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN" or "AMBER" or "BLUE" or "RED"))then{
+	 if(blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup =
+		 ("48" or "49") ) then{
+			  blazeMessage.response.applicationDecision.responseCode="GREEN";
+       print("responseCode===preapproved"blazeMessage.response.applicationDecision.responseCode);
+	    aDeviation.reasonCode = "50000";
+	  		aDeviation.overrideLevel="L0";
+	  		aDeviation.decisionResult="REFER";
+	  		aDeviation.reasonText="Green colour code due to pre approved program";
+	  		fn_AppendDeviations(aDeviation);
+		 }
+//}
+//13if specialtieup is Caution
+if(blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup <>("48" and "49"))then{
+
+if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN"))then{
+  if(blazeMessage.request.application.specialTieup is  (known and available) and blazeMessage.request.application.specialTieup = (ignoring case)("1405202102"))then{
+	  	 blazeMessage.response.applicationDecision.responseCode="AMBER";
+    print("responseCode===specialTieup"blazeMessage.response.applicationDecision.responseCode);
+	 aDeviation.reasonCode = "50000";
+	  		aDeviation.overrideLevel="L0";
+	  		aDeviation.decisionResult="REFER";
+	  		aDeviation.reasonText="Green to Amber due to Caution profile";
+	  		fn_AppendDeviations(aDeviation);
+  }
+}
+}
+//14.if Assessement method = 1 or 2 or 3 or 4 -High yield
+//Commented -06-06-23-1.	High yield will not be part of overlays ( green will be continue to be green , amber will continue to be amber ) 
+//if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN"))then{
+	//if(blazeMessage.request.application.loanDetails.assesmentMethod is(known and available) and blazeMessage.request.application.loanDetails.assesmentMethod = ("1" or "2" or "3" or"4"))then{
+		// blazeMessage.response.applicationDecision.responseCode="AMBER";
+      
+     // print("Color code===Assessement method = 1 or 2 or 3 or 4 "blazeMessage.response.applicationDecision.responseCode);
+	//}
+//}
+//6.If Color code is Green and Prime L1/L2 has triggered then Amber================hold
+//16.if color code is Green and deviation level is L1 or l2
+if(blazeMessage.request.application.schemeGroup  is (known and available) and blazeMessage.request.application.schemeGroup <>("48" and "49"))then{
+
+if(blazeMessage.response.applicationDecision.responseCode is   (known and available) and  blazeMessage.response.applicationDecision.responseCode =("GREEN" ))then{
+ for each Deviation in blazeMessage.response.applicationDecision.deviations such that (it is not null and it is known) do{
+AppFilterDeviation.append(it);
+}
+
+for each Deviation in AppFilterDeviation do {
+if(it.overrideLevel is known and it.overrideLevel = ("L2" or "L1")) then {
+  		 //if it.reasonText  contains match (ignoring case) ("PRIME")then{
+           	blazeMessage.response.applicationDecision.responseCode="AMBER";
+           	print("prime");
+			 aDeviation.reasonCode = "50000";
+	  		aDeviation.overrideLevel="L0";
+	  		aDeviation.decisionResult="REFER";
+	  		aDeviation.reasonText="Green to Amber due to L1 or L2 deviations";
+	  		fn_AppendDeviations(aDeviation);
+         //}else {
+           	//blazeMessage.response.applicationDecision.responseCode="AMBER";
+           //	print("not prime");
+         //}
+       
+  print("responseCode===L1or L2"blazeMessage.response.applicationDecision.responseCode);
+}
+}
+}
+}
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='4kDd5C'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

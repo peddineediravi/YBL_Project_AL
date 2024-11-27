@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_l99tol3_UCL'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_l99tol3_UCL</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>void</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("printing ExtraL99 to L3_ucl");
+l3level22 is an integer initially 0;
+KERLANIP is a boolean initially false;
+BankingMax is a boolean initially false;
+reasonTextLength is an integer initially 0;
+anApplicant is some Applicant;
+anDeviation is some Deviation initially an Deviation;
+tempArray is some array of string initially an array of string;
+AppFilterDeviation is some array of Deviation initially an array of Deviation;
+cibilscoregt is a boolean initially false;
+curesop is a integer initially 0 ;
+nonrefinance is a boolean initially false;
+//if(blazeMessage.request.application.loanDetails.assesmentMethod is(known and available) and  blazeMessage.request.application.loanDetails.assesmentMethod <> ("1" and "2" and "3" and "4"))then{
+if(blazeMessage.request.application.product="UCL" and blazeMessage.request.application.schemeGroup<>"154")then{
+  if( blazeMessage.request.application.scheme<>"491")then{
+   print("inside UCLloop");
+  if(theBlazeMessageBT.appLevelCibilScore is (known and available) and theBlazeMessageBT.appLevelCibilScore>700)then{
+cibilscoregt=true;
+ }
+  
+print("cibilscoregt="cibilscoregt) ;
+  
+  for each Applicant in blazeMessage.request.application.applicants do{
+    anApplicant=it;
+    	for each Address in anApplicant.addresses do {
+			if(it.addressType is known and it.addressType=(ignoring case)"CURRES" and it.propertyType is equal to ("O" or "OWNERSHI" or "OWN_COAP" or "OP" ))then{
+			curesop=curesop+1;	
+		}
+	}
+}
+  print("curesop=="curesop);
+  
+if(curesop>=1 and theBlazeMessageBT.appLevelCibilScore is (known and available) and theBlazeMessageBT.appLevelCibilScore<0 and
+blazeMessage.request.application.schemeGroup <> "50")then{
+	nonrefinance=true;
+}
+
+for each Deviation in blazeMessage.response.applicationDecision.deviations such that (it is not null and it is known) do {
+  AppFilterDeviation.append(it);
+}
+print("cibilscoregt_39="cibilscoregt) ;
+print("nonrefinance_40="nonrefinance) ; 
+if(cibilscoregt=true or nonrefinance=true)then{
+  for each Deviation in AppFilterDeviation do { 
+    print("theBlazeMessageBT.IIRSalary XXXX::"theBlazeMessageBT.IIRSalary);
+    if(theBlazeMessageBT.IIRSalary="salaried" and it.reasonCode="42002" and theBlazeMessageBT.UCLFOIR>80 and theBlazeMessageBT.UCLFOIR<100 )then{
+      it.ruleID="IIR_Salaried";
+    }
+    if(theBlazeMessageBT.IIRSalary="self" and it.reasonCode="42002")then{
+      it.ruleID="IIR_Self";
+    }
+    if(it.reasonCode="99999" and  blazeMessage.request.application.scheme=("163" or "164" or "165" or "376" or "377" or "177" or "178" or "506"))then{
+      it.ruleID="LTV";
+    }
+    if(it.reasonCode="40003")then{
+         it.ruleID="minIncome";
+       }
+    if(it.ruleID="USEDRefinanceMultiplier022" and  it.decisionResult is equal to (ignoring case) "ERROR")then{
+      it.ruleID="USEDRefinanceMultiplier022";
+      it.decisionResult="REJECT";
+    }
+     if(it.ruleID="USED_Premium007" and  it.decisionResult is equal to (ignoring case) "ERROR")then{
+      it.ruleID="USED_Premium007";
+       it.decisionResult="REJECT";
+    }
+    
+       print("ruleid===="it.ruleID);
+			if(it.ruleID is known and it.ruleID <> ( "minIncome" and "LTV" and "IIR_Salaried" and "Cibil010"  and "Cibil002"and  "Common002" and  "Common003" and  "Common016" and "Common021"
+              and "Common023" and "Common025" and "Common031" and "USED_Premium001" and "USED_Premium002" and "USED_Premium008" and "Common006"and
+              "Normal001" and  "USEDBanking004" and "UsedFDLien003" and "UsedFDLien004" and "UsedYesBank004" and "USEDRefinanceMultiplier006" and "USEDRefinanceMultiplier007" and
+              "USEDRefinanceMultiplier015" and "USEDRefinanceMultiplie016" and "USEDRefinanceMultiplier019" and "USEDRefinanceMultiplier020" and "Common007"and "Common040" and
+               "USEDRefinanceMultiplier021" and "USEDRefinanceMultiplier026" and "Common046" and  "Common020" and  "Common027" and "Common003"
+              and "Normal003" and "Normal004" and "Normal001" and "Common019"  and "USEDRefinanceMultiplier015" and
+               "USEDRefinanceMultiplier024" and "USEDRefinanceMultiplier032" and "RefiananceMultiplier019"  and "USED_Premium009" and
+              "USEDBanking004" and "USED_Premium007" and  "USEDRefinanceMultiplier022"  and "RefInc007" and "Common035" and 
+              "Common034" and "Common053" and "Common054" and "Common055" and "Common056" and "Common057" and "Common058" and "Common059" and 
+               "USEDRefinanceMultiplier036" and "USEDBanking020" and "USEDRefinanceMultiplier038" and "USEDRefinanceMultiplier034" and "USEDRefinanceMultiplier037" and 
+              	"PremiumMultiplier016" and "USEDRefinanceMultiplier041"   and "USEDBanking029" and  "Common051" and "Common028" and "PremiumMultiplier017" and "PremiumMultiplier018" and 
+              "USEDBanking034" and "USEDBanking008_3" and "USEDBanking015" and "USEDBanking010" and "USEDBanking035" and  "USEDBanking005")    )then {
+                      if(it.overrideLevel="L99" and it.decisionResult is equal to (ignoring case) "REJECT")then{
+                     		it.overrideLevel ="L3";
+                        print("override=="it.overrideLevel );
+                        it.decisionResult="Deviation";
+                        l3level22=l3level22+1;
+                        reasonTextLength=(it.reasonText).length();
+						it.reasonText=portable().subString(it.reasonText,8,reasonTextLength);
+                        it.reasonText=portable().compressString(it.reasonText,"REJECT");
+						it.reasonText=portable().concat("", it.reasonText);
+                           AppFilterDeviation.append(it);
+							tempArray.append(it.ruleID);
+                     }
+                   }                  
+                 }
+              }
+            }
+}
+if(l3level22>=4)then{
+anDeviation.ruleID="L3CODE";
+            anDeviation.ruleName="L3 codes are GT 3";
+            anDeviation.ruleDescription="L3 codes are GT 3";
+            anDeviation.decisionResult = "Reject";
+            anDeviation.reasonText = "More than 3 L3 deviations not allowed";
+            anDeviation.reasonCode = "98909";
+            anDeviation.overrideLevel ="L99";
+            fn_AppendDeviations(anDeviation);      
+}
+//}
+print("l3levelaaa==="l3level22);]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='5FSQHj'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

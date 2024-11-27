@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='Test_FuzzyAddress'>
+ <ide-name>Test_FuzzyAddress</ide-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1rl2Kmfiy8OJi5vUhYbsYmASJIF' name='SRL Function' id='SjJO5bFg05NdYaV3DMk17DvDcPi'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>Test</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <family>Function Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><function managementPropertiesRef='SjJO5bFg05NdYaV3DMk17DvDcPi'>
+   <comment>address is some Address initially an Address;<template:br/>address.addressLine1="44/1";<template:br/>address.addressLine2="block r";<template:br/>address.addressLine3="santosh reddy building";<template:br/>address.addressType="CURRES";<template:br/><template:br/><template:br/>addressArr is some array of Address initially an array of Address;<template:br/>addressArr.append(address);<template:br/><template:br/><template:br/>multib is some MultiBureauReport initially a MultiBureauReport;<template:br/>cibil is some CibilReport initially a CibilReport;<template:br/> add is some AddressInCibil initially an AddressInCibil;<template:br/>add.addressCategory="02";<template:br/>add.addressLine1="44/1";<template:br/>add.addressLine2="block r";<template:br/>add.addressLine3="santosh reddy building";<template:br/>add.addressLine4="konena agrahara";<template:br/>add.addressLine5="murgeshpaalya";<template:br/>add.dateReported='11-MAY-2019';<template:br/><template:br/>addCibilArr is some array of AddressInCibil initially an array of AddressInCibil;<template:br/>addCibilArr.append(add);<template:br/><template:br/>scoreseg is some ScoreSegment initially a ScoreSegment;<template:br/>scoreseg.scoreName="Cibil";<template:br/>scoreseg.score=4;<template:br/>scores is some array of ScoreSegment  initially an array of ScoreSegment;<template:br/>scores.append(scoreseg);<template:br/>cibil.scores=scores;<template:br/>cibil.AddressInCibil=addCibilArr;<template:br/>multib.cibilResponse=cibil;<template:br/><template:br/>applicant is some Applicant initially an Applicant;<template:br/>applicant.addresses = addressArr;<template:br/>applicant.multiBureauReport=multib;<template:br/>applicant.PanNumber="AWSPN001";<template:br/><template:br/>applicantArr is some array of Applicant initially an array of Applicant;<template:br/>applicantArr.append(applicant);<template:br/><template:br/>application is some Application initially an Application;<template:br/>application.applicants = applicantArr;<template:br/><template:br/>request is some Request initially a Request;<template:br/>request.application = application;<template:br/><template:br/>message is some Message initially a Message;<template:br/>message.request = request;<template:br/><template:br/>blazeMessage is some BlazeMessage initially a BlazeMessage;<template:br/>blazeMessage = message as a BlazeMessage;<template:br/><template:br/>blazeMessage = fn_PreProcessing(blazeMessage);</comment>
+   <name>Test_FuzzyAddress</name>
+   <body><template:br/>address is a string initially "44/1abcdefghi";<template:br/>cibiladdress is a string initially "44/1";<template:br/>proximity is a real;<template:br/>proximity=fn_Implement_FuzzyLogic(address,cibiladdress);<template:br/>print("proximity is ="proximity);<template:br/><template:br/><template:br/></body>
+  </function></template:content>
+</template>

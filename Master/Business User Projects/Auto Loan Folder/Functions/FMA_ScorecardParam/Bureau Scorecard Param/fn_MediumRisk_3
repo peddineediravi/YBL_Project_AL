@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_MediumRisk'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_MediumRisk</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>integer</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("inside the Medium Param");
+MediumRisk  is an integer initially 0;
+MediumLessthan31DPDinlast12Months is an integer initially 0;
+Medium91MorethanDPDin13to24Month  is an integer initially 0;
+Medium31to90DPDinlast12months  is an integer initially 0;
+Medium91to360DPDinlast12months  is an integer initially 0;
+MediumMorethan360DPDin13to24Months  is an integer initially 0;
+
+MediumLessthan31DPDinlast12Months =fn_MediumRiskLessthan31DPDinlast12Months(blazeMessage, 12);
+Medium91MorethanDPDin13to24Month =fn_MediumRiskMoreThan91DPDin13to24Months(blazeMessage, 24);
+Medium31to90DPDinlast12months =fn_MediumRisk31to90DPDinLast12Months(blazeMessage, 12);
+Medium91to360DPDinlast12months=fn_MediumRisk91to360DPDinLast12Months(blazeMessage, 12);
+MediumMorethan360DPDin13to24Months=fn_MediumRisk360MorethanDpdLast13to24Months(blazeMessage, 24);
+
+print("MediumLessthan31DPDinlast12Months"MediumLessthan31DPDinlast12Months);
+print("Medium91MorethanDPDin13to24Month"Medium91MorethanDPDin13to24Month);
+print("Medium31to90DPDinlast12months"Medium31to90DPDinlast12months);
+print("Medium91to360DPDinlast12months"Medium91to360DPDinlast12months);
+print("MediumMorethan360DPDin13to24Months"MediumMorethan360DPDin13to24Months);
+
+if(MediumLessthan31DPDinlast12Months >0 and Medium91MorethanDPDin13to24Month >0)then{
+	MediumRisk =50;
+}else if (Medium31to90DPDinlast12months >0 )then{
+	MediumRisk =50;
+}else if (Medium91to360DPDinlast12months >0  and MediumMorethan360DPDin13to24Months>0)then{
+  MediumRisk =50;
+}
+print("MediumRisk"MediumRisk);
+return MediumRisk;]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='8jWMP1'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

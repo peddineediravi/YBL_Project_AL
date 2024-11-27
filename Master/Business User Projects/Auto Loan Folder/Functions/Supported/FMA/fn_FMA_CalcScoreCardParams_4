@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_FMA_CalcScoreCardParams'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_FMA_CalcScoreCardParams</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>BlazeMessage</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[print("inside the CalcScoreCardParams");
+
+response is some Response initially a Response;
+blazeMessage.response = response;
+appDecision is some Decision initially a Decision;
+blazeMessage.response.applicationDecision = appDecision;
+cibel is an integer initially 0;
+cibel =fn_fma_appLevelCibilScore(blazeMessage);
+print(cibel"cibel");
+percentageOfDownPayment is an real initially 0.00;
+assetMake is an string initially "";
+irrigatedLandHolding is a real  initially 0.0;
+irrigated is a real  initially 0.0;
+percentageOfDownPayment =fn_DownpaymentRate(blazeMessage);
+print("percentageOfDownPayment"percentageOfDownPayment);
+assetMake =fn_AssetMake(blazeMessage);
+irrigated = fn_IrrigatedLandHolding(blazeMessage);
+tempage is an real initially 0.0;
+tempage =math().truncate(fn_Age(blazeMessage));
+print("age==="tempage);
+assetCategory is an string initially "";
+assetCategory =fn_AssetCategory(blazeMessage);
+isCoApplicant is a boolean initially false;
+isCoApplicant =fn_Co_applicant(blazeMessage);
+yearsatResidence is an integer initially 0;
+yearsatResidence =fn_ResidenceTypeandYearsatResidence(blazeMessage);
+preOwnCmmercialVehicle is an string initially "";
+preOwnCmmercialVehicle =fn_Pre_OwnCmmercialVehicle(blazeMessage);
+anyotherNonAgriIncome is an real initially 0.0;
+anyotherNonAgriIncome =fn_NonAgriIncomeCattleAssetShopAnyotherNonAgriIncome(blazeMessage);
+//BureauScorecard
+
+
+
+if(blazeMessage.invocation.lineOfBusiness is (known and available) and blazeMessage.invocation.lineOfBusiness = "FMA") then {
+returnInfo is some NdScoreModelReturnInfo initially a NdScoreModelReturnInfo;
+returnInfo1 is some NdScoreModelReturnInfo initially a NdScoreModelReturnInfo;
+  print("cal max cibil  score Anl"cibel);
+ 
+  if(cibel<=0 or cibel=(unknown or unavailable))then{
+	  print("insode");
+  			 returnInfo=FMA_Export_ScoreCard(percentageOfDownPayment,assetMake,irrigated,tempage,assetCategory,isCoApplicant,yearsatResidence,preOwnCmmercialVehicle,anyotherNonAgriIncome);
+  }else{
+      print("else");
+DIFF_DLQ_C12M_P12M is an string initially "";
+DIFF_DLQ_C12M_P12M =fn_DIFF_DLQ_C12M_P12M(blazeMessage);
+
+PINCODE_1 is an string initially "";
+PINCODE_1=fn_pincode(blazeMessage);
+
+  MOB_TPL is an string initially "";
+MOB_TPL =fn_MobRisk(blazeMessage);
+MonSinceL30P_SEC is an integer initially 0;
+MonSinceL30P_SEC =fn_NoOfMonthsRecent30PlusDPDonAnysecuredloans(blazeMessage);
+MonSinceL90P_TL  is an string initially "";
+MonSinceL90P_TL =fn_noOfmonthsRecent90PlusdpdonTractorloans(blazeMessage);
+RATIO_30P_DEL_L24_LOANS  is an real initially 0.0;
+RATIO_30P_DEL_L24_LOANS =fn_RatioOf30PdpdLast24MonthsTotalLoans(blazeMessage, 24);
+  pct_tot_ovd_hicr is a real initially 0.0;
+pct_tot_ovd_hicr =fn_pct_tot_ovd_hicr(blazeMessage);
+ratio_rec_6m_tot_loans is a real initially 0.0;
+ratio_rec_6m_tot_loans =fn_ratio_rec_6m_tot_loans(blazeMessage);
+	print("DIFF_DLQ_C12M_P12M="DIFF_DLQ_C12M_P12M"MOB_TPL="MOB_TPL"MonSinceL30P_SEC="MonSinceL30P_SEC"MonSinceL90P_TL="MonSinceL90P_TL"PINCODE_1="PINCODE_1"");
+    print("RATIO_30P_DEL_L24_LOANS="RATIO_30P_DEL_L24_LOANS"pct_tot_ovd_hicr="pct_tot_ovd_hicr"ratio_rec_6m_tot_loans="ratio_rec_6m_tot_loans);
+  	
+    print("FMA_Export_ScoreCard"percentageOfDownPayment","assetMake","irrigated","tempage","assetCategory);
+       print("FMA_Export_ScoreCard" isCoApplicant","yearsatResidence","preOwnCmmercialVehicle","anyotherNonAgriIncome);
+    
+    returnInfo=FMA_Export_ScoreCard(percentageOfDownPayment,assetMake,irrigated,tempage,assetCategory,isCoApplicant,yearsatResidence,preOwnCmmercialVehicle,anyotherNonAgriIncome);
+   
+    returnInfo1 = FMA_Bureau_ScoreCard(DIFF_DLQ_C12M_P12M,MOB_TPL,MonSinceL30P_SEC,MonSinceL90P_TL,PINCODE_1,RATIO_30P_DEL_L24_LOANS,pct_tot_ovd_hicr,ratio_rec_6m_tot_loans);
+   //returnInfo =BureauScorecard(DIFF_DLQ_C12M_P12M,MOB_TPL,MonSinceL30P_SEC,MonSinceL90P_TL,PINCODE_1,RATIO_30P_DEL_L24_LOANS,pct_tot_ovd_hicr,ratio_rec_6m_tot_loans);
+  }
+
+	scoredCharacteristics is some array of ScoreDetail initially an array of ScoreDetail;
+	scoredCharacteristics1 is some array of ScoreDetail initially an array of ScoreDetail;
+	score is some Score initially a Score;
+	score1 is some Score initially a Score;
+	//score is some array of Score initially an array of Score;
+
+	if returnInfo.scoredCharacteristics is not  null then{
+	for each NdScoredCharacteristic in returnInfo.scoredCharacteristics do{
+		
+		characteristic is some ScoreDetail initially a ScoreDetail;
+			if(it.binLabel is known)then
+				characteristic.binLabel = it.binLabel;
+			if(it.characteristicName is known)then
+				characteristic.characteristicName = it.characteristicName;
+		      if(it.partialScore is known)then 
+              	characteristic.partialScore =math().truncate(it.partialScore);
+			 
+      
+		characteristic.characteristicValue = blazeMessage.charNameToCharVal[it.characteristicName];
+		scoredCharacteristics.append(characteristic);
+		
+	}
+
+}
+	if returnInfo1.scoredCharacteristics is not  null then{
+	for each NdScoredCharacteristic in returnInfo1.scoredCharacteristics do{
+		
+		characteristic is some ScoreDetail initially a ScoreDetail;
+			if(it.binLabel is known)then
+				characteristic.binLabel = it.binLabel;
+			if(it.characteristicName is known)then
+				characteristic.characteristicName = it.characteristicName;
+		      if(it.partialScore is known)then 
+              	characteristic.partialScore =math().truncate(it.partialScore);
+			 
+      
+		characteristic.characteristicValue = blazeMessage.charNameToCharVal[it.characteristicName];
+		scoredCharacteristics1.append(characteristic);
+		
+	}
+
+}
+	if(returnInfo.score>0)then{
+	score.scorecardScore = math().truncate(returnInfo.score);
+	score.scorecardName="Expert Scorecard";
+	score.applicantType="P";
+	}
+	if(returnInfo1.score>0)then{
+	score1.scorecardScore = math().truncate(returnInfo1.score);
+	score1.scorecardName="Expert,Bureau Scorecard";
+	score1.applicantType="P";
+	}
+	print("printing the score " score.scorecardScore);
+	print("printing the score " score1.scorecardScore);
+	
+	score.scoredCharacteristics = scoredCharacteristics;
+	score1.scoredCharacteristics =scoredCharacteristics1;
+	print(" characterstics are "score.scoredCharacteristics);
+	print(" characterstics are "score1.scoredCharacteristics);
+	
+	if(score.scoredCharacteristics.count >0)then{
+	score.characteristicCount= score.scoredCharacteristics.count;
+	}
+	if(score1.scoredCharacteristics.count>0)then{
+	score1.characteristicCount= score1.scoredCharacteristics.count;
+	}
+	print("before appending the score to scorecardResult "  score);
+	print("before appending the score to scorecardResult "  score1);
+  if(score is (known and available ))then{
+	blazeMessage.response.applicationDecision.scorecardResult.append(score);
+    //score.scorecardName="Expert Scorecard";
+		
+  }
+  if(score1 is (known and available ))then{
+	blazeMessage.response.applicationDecision.scorecardResult.append(score1);
+    // score1.scorecardName="Expert,Bureau Scorecard";
+		//score1.applicantType="P";
+  }
+	
+	
+	 if(cibel<=0 or cibel=(unknown or unavailable))then{
+  		score.scorecardName="Expert Scorecard";	
+     }else if( cibel >0)then{
+       score.scorecardName="Expert,Bureau Scorecard";	
+     }
+	print("after appending the score to scorecardResult");
+}
+
+return blazeMessage;
+
+
+
+]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='8QK23D'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

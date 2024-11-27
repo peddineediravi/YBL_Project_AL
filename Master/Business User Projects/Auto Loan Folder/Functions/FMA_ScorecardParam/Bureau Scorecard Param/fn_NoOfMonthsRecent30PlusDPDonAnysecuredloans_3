@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='Q8jH6kHdOYIZ1uG0WKXqvvejqv0' name='fn_NoOfMonthsRecent30PlusDPDonAnysecuredloans'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='__ENTITY_PROPERTIES__VH__'>
+  <instance ref='Test Role'>
+   <instance ref='value'>
+    <value>None</value>
+   </instance>
+  </instance>
+  <instance ref='Test Case'>
+   <instance ref='value'>
+    <value></value>
+   </instance>
+  </instance>
+ </instance>
+ <instance ref='InstanceName'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionNameVH'>
+  <value>fn_NoOfMonthsRecent30PlusDPDonAnysecuredloans</value>
+ </instance>
+ <instance ref='FunctionReturnType'>
+  <value>integer</value>
+ </instance>
+ <instance ref='FunctionBodyVH'>
+  <value><![CDATA[	print("Entering noOfMonths30PlusDPDonAnysecuredloans::::::::");
+	anApplicant is some Applicant;
+	historyLength is an integer initially 0;
+	numberOfMonths is an integer initially 0;
+	minimumvalue  is an integer initially 0;
+	paymentHistory is a string initially "";
+	accountType is a string initially "";
+	isaccountType is a string initially "";
+	noOfDPDBounces is an integer initially 0;
+	isSecureProduct is a boolean initially false;
+    sumofdpdmindateList is some array of integer initially an array of integer ;
+	todayDate is a date initially calendar().currentDate();
+	tempAccount is some array of string initially an array of string;
+	
+	RecentMonths is an integer initially 0;
+	months is an integer initially 0;
+	noOfMonths is an integer initially 0;
+	noOfDays is an integer initially 0;
+	month is an integer initially 0;
+	monthList is some array of integer initially an array of integer ;
+	unSecureAccountsCount is an integer initially 0;
+	totalAcountsCount is an integer initially 0;
+	tempDPDIntArray is some array of integer initially an array of integer ;
+	Noofmonthrecent30plusdpdonanysecuredloans is an integer initially 0;
+	for each Applicant in blazeMessage.request.application.applicants such that (it  is (known and available)  and  it.applicantType  is (known and available) and  it.applicantType="P")do {
+	anApplicant =it; 
+	if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is (known and available) and 
+	anApplicant.multiBureauReport.cibilResponse.accounts is (known and available) and 
+	anApplicant.multiBureauReport.cibilResponse.accounts.count > 0) then {
+		
+		for each Account in anApplicant.multiBureauReport.cibilResponse.accounts such that (it  is (known and available) )do {
+				isSecureProduct = DT_SecuredProductsList(it.accountType);
+				 print("isSecureProduct"isSecureProduct"accountType="it.accountType);
+			if (isSecureProduct is (known and available) and isSecureProduct is equal to true )then{
+				
+				if(it.paymentHistory1 is (known and available)) then {
+					paymentHistory = it.paymentHistory1;
+				}
+				if(it.paymentHistory2 is (known and available)) then {
+					paymentHistory = paymentHistory.concat(it.paymentHistory2);
+				}
+						historyLength = paymentHistory.length();
+				numberOfMonths = math().truncate(historyLength/3);      	
+				paymentHistory = paymentHistory.replaceAll("X","0");
+				paymentHistory = paymentHistory.replaceAll("DDD", "000");
+				paymentHistory = paymentHistory.replaceAll("LSS", "180");
+				paymentHistory = paymentHistory.replaceAll("SUB", "180");
+				paymentHistory = paymentHistory.replaceAll("DBT", "180");
+				paymentHistory = paymentHistory.replaceAll("SMA", "089");
+				paymentHistory = paymentHistory.replaceAll("STD", "000"); 
+              	paymentHistory = paymentHistory.replaceAll("LOS","180");
+				monthCounter is a integer initially 0;
+				pos1 is an integer initially 0;
+				pos2 is an integer initially 3;
+				dpdValue is an integer initially 0;
+				
+				DPD is an integer initially 0;
+				tempIntArray is some array of integer initially an array of integer;
+				while(monthCounter <= numberOfMonths-1) do {
+					dpdValue=paymentHistory.substring(pos1, pos2) as an integer;
+					tempIntArray.append(dpdValue);
+					pos1=pos2;
+					pos2=pos2+3;
+					monthCounter+=1;
+				}	
+			dpdArrCount is an integer initially 0; 
+			tempMinimumDpdList is some array of integer initially an array of integer ;
+			//monthList is some array of integer initially an array of integer ;
+			
+			print("tempIntArray.count="tempIntArray.count);
+			if(tempIntArray.count > 0) then {
+            
+				while( dpdArrCount < tempIntArray.count) do{	
+					
+					if(tempIntArray[dpdArrCount] >30) then {
+					noOfDPDBounces = noOfDPDBounces +1;
+					tempMinimumDpdList.append(dpdArrCount);
+					//monthList.append(todayDate.subtractInMonths(it.dateReportedAndCertified).months);
+					print("tempMinimumDpdList minimum"tempMinimumDpdList.min);
+                    print("tempMinimumDpdList count"tempMinimumDpdList.count);
+                   print("(todayDate.subtractInMonths(it.dateReportedAndCertified).months="(todayDate.subtractInMonths(it.dateReportedAndCertified).months));
+					minimumvalue = tempMinimumDpdList.min+(todayDate.subtractInMonths(it.dateReportedAndCertified).months);
+              		print("minimumvalue="minimumvalue);
+					sumofdpdmindateList.append(minimumvalue);
+					}else{
+						minimumvalue =111111;
+						sumofdpdmindateList.append(minimumvalue);
+					}
+					dpdArrCount = dpdArrCount +1;
+				}
+			
+				
+			}
+								
+		}else {//no secure accounts
+				minimumvalue =333333;
+				sumofdpdmindateList.append(minimumvalue);
+				
+		}
+	}
+    }		
+	}
+if(sumofdpdmindateList is  (known and available) and sumofdpdmindateList.count>0)then{
+minimumvalue =sumofdpdmindateList.min;
+}
+print("finalllllyyy ======="minimumvalue);
+	
+	return minimumvalue;]]></value>
+ </instance>
+ <instance ref='CommentsVH'>
+  <value></value>
+ </instance>
+ <instance ref='FunctionParametersVH'>
+  <instance-list ref='ParametersVH'>
+   <item template='DRNZKQyw5rcjBd4Yxo6FN649lWN.template1' id='8hO6Iz'>
+    <instance ref='ParameterNameVH'>
+     <value>blazeMessage</value>
+    </instance>
+    <instance ref='ParameterTypeVH'>
+     <value>BlazeMessage</value>
+    </instance>
+   </item>
+  </instance-list>
+ </instance>
+</instantiation>

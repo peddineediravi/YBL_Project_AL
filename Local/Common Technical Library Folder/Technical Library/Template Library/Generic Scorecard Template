@@ -1,0 +1,824 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<template xmlns='http://www.blazesoft.com/template' name='Generic Scorecard Template'>
+ <ide-name>Generic Scorecard Template</ide-name>
+ <display-name>Scorecard Model</display-name>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <parameters>
+  <parameter name='stylesheet' type='HmJC3H6aliqZHsGhL8CNR7WhbjO' ideName='stylesheet'>
+  </parameter>
+  <parameter name='scorecardMetadata' type='68aLLguksVeX91HEiTQ46Crm6oO.template10' ideName='scorecardMetadata'>
+  </parameter>
+  <parameter name='scorecard' type='68aLLguksVeX91HEiTQ46Crm6oO.template2' ideName='scorecard'>
+  </parameter>
+ </parameters>
+ <family>Project Items Template</family>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><placeholder ref='stylesheet' relative='false'>
+   <attribute>
+    <attribute-name>none</attribute-name>
+    <attribute-value>none</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rangeRole</attribute-name>
+    <attribute-value>none</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>style</attribute-name>
+    <attribute-value>standardTextEdit</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>readWriteProperty</attribute-name>
+    <attribute-value>readNWrite</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>selectionMethod</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>size</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>samePage</attribute-name>
+    <attribute-value>true</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>password</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>ref-type</attribute-name>
+    <attribute-value>0</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>paginate</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rowsPerPage</attribute-name>
+    <attribute-value>5</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarLocation</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>linkSupport</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarMode</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>uiLayout</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+  </placeholder><![CDATA[<style>.h1div {font-family: 'Lato','Arial Unicode MS', Arial, sans-serif; font-size: 20px; font-weight:bold; color: #FFFFFF;line-height: 40px; background-color: #336699}</style>]]><template:br/><![CDATA[<div style="background-color:#336699; font-family:'Lato','Arial Unicode MS', Arial, sans-serif; text-align:center; font-size:23px; line-height:50px; font-weight:bold; color:white;">Score Model</div><br><br>]]><template:br/><![CDATA[<div class="h1div"><i class="cf flaticon-bars20"></i>&nbsp; Scoremodel Definition</i></p></div>]]><placeholder ref='scorecardMetadata' relative='false'>
+   <attribute>
+    <attribute-name>none</attribute-name>
+    <attribute-value>none</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rangeRole</attribute-name>
+    <attribute-value>none</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>style</attribute-name>
+    <attribute-value>standardTextEdit</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>readWriteProperty</attribute-name>
+    <attribute-value>readNWrite</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>selectionMethod</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>size</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>samePage</attribute-name>
+    <attribute-value>true</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>password</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>ref-type</attribute-name>
+    <attribute-value>0</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>paginate</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rowsPerPage</attribute-name>
+    <attribute-value>5</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarLocation</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>linkSupport</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarMode</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>uiLayout</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+  </placeholder><template:br/><![CDATA[<div class="h2div"><i class="cf flaticon-bars20"></i>ScoreModel</div>]]><placeholder ref='scorecard' relative='false'>
+   <attribute>
+    <attribute-name>none</attribute-name>
+    <attribute-value>none</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rangeRole</attribute-name>
+    <attribute-value>none</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>style</attribute-name>
+    <attribute-value>standardTextEdit</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>readWriteProperty</attribute-name>
+    <attribute-value>readNWrite</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>selectionMethod</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>size</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>samePage</attribute-name>
+    <attribute-value>true</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>password</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>ref-type</attribute-name>
+    <attribute-value>0</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>paginate</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>rowsPerPage</attribute-name>
+    <attribute-value>5</attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarLocation</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>linkSupport</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>toolbarMode</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+   <attribute>
+    <attribute-name>uiLayout</attribute-name>
+    <attribute-value></attribute-value>
+   </attribute>
+  </placeholder><template:br/><![CDATA[</div>]]><template:br/><![CDATA[</div>]]></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='adv'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='jcp'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='dbcp'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ccp'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='xcp'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='cpc'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/flow' section='flow'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/aai' section='aai'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='ncp'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/resource' section='bcp'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='' section='xml'><template:placeholder ref='scorecard' relative='false'/></template:content>
+ <template name='template10'>
+  <ide-name>Scoremodel Metadata Template</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <parameters>
+   <parameter name='scorecardDescription' type='string' ideName='scorecardDescription'>
+   </parameter>
+   <parameter name='Value Holder1' type='real' ideName='initialScore'>
+   </parameter>
+   <parameter name='VH1' type='string' ideName='vehicleCategory'>
+   </parameter>
+  </parameters>
+  <family>Information template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[<table><tr><td>Scorecard Model:</td><td>]]><placeholder ref='scorecard.rulesetName' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value>useChoiceBox</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value>70</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder><![CDATA[&nbsp;&nbsp;</td></tr><!--]]><template:br/><![CDATA[--><tr><td valign="top">Vehicle Category:</td><td>]]><placeholder ref='VH1' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readOnly</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder><![CDATA[</td></tr><!--]]><template:br/><![CDATA[--><tr><td valign="top">Description:</td><td>]]><placeholder ref='scorecardDescription' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextAreaEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value>4x70</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value>false</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder><![CDATA[</td></tr><!--]]><template:br/><![CDATA[--><tr><td valign="top">Initial Score:</td><td>]]><placeholder ref='Value Holder1' relative='true'>
+    <attribute>
+     <attribute-name>none</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rangeRole</attribute-name>
+     <attribute-value>none</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>style</attribute-name>
+     <attribute-value>standardTextEdit</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>readWriteProperty</attribute-name>
+     <attribute-value>readNWrite</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>selectionMethod</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>size</attribute-name>
+     <attribute-value>70</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>samePage</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>password</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>ref-type</attribute-name>
+     <attribute-value>0</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>paginate</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>rowsPerPage</attribute-name>
+     <attribute-value>5</attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarLocation</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>linkSupport</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>toolbarMode</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+    <attribute>
+     <attribute-name>uiLayout</attribute-name>
+     <attribute-value></attribute-value>
+    </attribute>
+   </placeholder><![CDATA[</td></tr></table>]]></template:content>
+ </template>
+ <template name='template2'>
+  <ide-name>ScoreModelTemplate</ide-name>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1pFh8JpMe3aFUD4luIxLfQWAEXl' name='Score Model' id='QNA0RNFsFUMPVKBgezDCErucfwV'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1ryqjy2wlawpW8dy391IVawONdo' name='Template' id='Template'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1e4Fwj577fuGSTbTbZVTMCQNc91' name='SRL Rule' id='R9CJ6RTbHL7o00F1akbOKOMq2lY'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='H5kErTGImpLnxtzW9egFOg04B7n'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='4fiFedrYWcJzJ9Z5XRL0fwMUuQp'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1DRDrpW6ok6ZGNee0wO8XQa1Qwc' name='SRL Variable' id='IwmU1ipGvbejxq9EBCGPrhJn6m9'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1e4Fwj577fuGSTbTbZVTMCQNc91' name='SRL Rule' id='BVddXfYIWsqdqk8wS7AWWvM1gZ0'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1e4Fwj577fuGSTbTbZVTMCQNc91' name='SRL Rule' id='4S8SZY83lcl51fHYQRIt8LYlUp8'>
+  </instantiation>
+  <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1e4Fwj577fuGSTbTbZVTMCQNc91' name='SRL Rule' id='HVdSGdVJZNofIS7TpltJabmQGVe'>
+  </instantiation>
+  <parameters>
+   <parameter-noninstantiable name='Score_Model_Condition_Group1 properties provider' type='ZflwwyXLKEhzcbPIeMdeUOafcgR.Built-inClassPropertiesProvider' mechanism='allowed-values' ideName='Score_Model_Condition_Group1 properties provider' metaphor-support='true'>
+   </parameter-noninstantiable>
+   <parameter name='__ENTITY_PROPERTIES__VH__' type='1pFh8JpMe3aFUD4luIxLfQWAEXl' ideName='Management Properties' displayName='ManagementProperties' name-localized='true'>
+   </parameter>
+   <parameter-noninstantiable name='Score_Model_Condition_Group3 properties provider' type='ZflwwyXLKEhzcbPIeMdeUOafcgR.Built-inClassPropertiesProvider' mechanism='allowed-values' ideName='Score_Model_Condition_Group3 properties provider' metaphor-support='true'>
+   </parameter-noninstantiable>
+   <parameter name='rulesetName' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.MetaphorNameProvider' ideName='rulesetName'>
+   </parameter>
+   <parameter-list name='cases' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_MetaphorRuleTemplate' ideName='cases' min='0'>
+   </parameter-list>
+   <parameter-list name='__ND_ScoredCharacteristicInitializersVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ScoredCharacteristicInitializerTemplate' ideName='__ND_ScoredCharacteristicInitializersVH' min='0'>
+   </parameter-list>
+   <parameter name='__ND_ScoredCharacteristicCountVH' type='integer' ideName='__ND_ScoredCharacteristicCountVH'>
+   </parameter>
+   <parameter name='casesInfo' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.Cases Info Template' ideName='casesInfo'>
+   </parameter>
+   <parameter name='editingInfo' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.Editing Info Template' ideName='editingInfo'>
+   </parameter>
+  </parameters>
+  <family>Score Model Template</family>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><ruleset managementPropertiesRef='QNA0RNFsFUMPVKBgezDCErucfwV'>
+    <name><template:placeholder ref='rulesetName' relative='true'/></name>
+    <parameters>
+     <parameter>
+      <name>theRoot</name>
+      <type>BlazeMessage</type>
+     </parameter>
+    </parameters>
+    <ruleset-body>
+     <template:placeholder ref='cases' relative='true'/>
+     <rule managementPropertiesRef='R9CJ6RTbHL7o00F1akbOKOMq2lY'>
+      <name>settingScorecardResponse</name>
+      <priority immediate='false'>-999999</priority>
+      <body>if true then {<template:br/><template:tab/>if(theRoot.enableLogging as an Object is not null and theRoot.enableLogging = true) then<template:br/><template:tab/><template:tab/>print("Logging Enabled");//logger.info("Entering function : settingScorecardResponse");<template:br/><template:br/><template:tab/>try {<template:br/><template:br/><template:tab/><template:tab/>scorecardCard is some ScoreCardDetail initially an ScoreCardDetail;<template:br/><template:tab/><template:tab/>scorecardCard.applicantId = theRoot.currentApplicant.applicantId;<template:br/><template:tab/><template:tab/>scorecardCard.applicantType = theRoot.currentApplicant.applicantType;<template:br/><template:tab/><template:tab/>scorecardCard.scorecardName = __ND_returnInfo.scoreModelName;<template:br/><template:tab/><template:tab/>scorecardCard.scorecardScore = __ND_returnInfo.score;<template:br/><template:tab/><template:tab/>scorecardCard.characteristicCount = __ND_returnInfo.characteristicCount;<template:br/><template:tab/><template:tab/>scoredCharacteristics is some array of  ScoreCardCharacteristicsDetail initially an array of ScoreCardCharacteristicsDetail;<template:br/><template:br/><template:tab/><template:tab/>for each NdScoredCharacteristic in __ND_returnInfo.scoredCharacteristics do {<template:br/><template:tab/><template:tab/><template:tab/>scoreDetail is some ScoreCardCharacteristicsDetail  initially an ScoreCardCharacteristicsDetail;<template:br/><template:tab/><template:tab/><template:tab/>scoreDetail.baselineScore = it.baselineScore as a string;<template:br/><template:tab/><template:tab/><template:tab/>scoreDetail.binLabel = it.binLabel;<template:br/><template:tab/><template:tab/><template:tab/>scoreDetail.characteristicName = it.characteristicName;<template:br/><template:tab/><template:tab/><template:tab/>scoreDetail.characteristicValue = theRoot.charNameToCharVal[it.characteristicName];<template:br/><template:tab/><template:tab/><template:tab/>scoreDetail.reasonCode = it.binLabel;<template:br/><template:tab/><template:tab/><template:tab/>scoreDetail.partialScore = it.partialScore as a string;<template:br/><template:tab/><template:tab/><template:tab/>scoredCharacteristics.append(scoreDetail);<template:br/><template:tab/><template:tab/>}<template:br/><template:br/><template:tab/><template:tab/>scorecardCard.scoreCardCharacteristics = scoredCharacteristics as an fixed array of ScoreCardCharacteristicsDetail;<template:br/><template:tab/><template:tab/>theRoot.scoreCardDeatilArr.append(scorecardCard);<template:br/><template:br/><template:tab/>}catch an Exception with{<template:br/><template:tab/><template:tab/>customException is some BlazeCustomException;<template:br/><template:tab/><template:tab/>customException = a BlazeCustomException.newInstance("");<template:br/><template:tab/><template:tab/>if(it is not a BlazeCustomException) then<template:br/><template:tab/><template:tab/>{<template:tab/><template:br/><template:tab/><template:tab/><template:tab/>customException.code = "BlazeError";<template:br/><template:tab/><template:tab/><template:tab/>customException.description = "Error in settingScorecardResponse";<template:br/><template:tab/><template:tab/><template:tab/>customException.source = "Blaze: settingScorecardResponse"; <template:br/><template:tab/><template:tab/><template:tab/>customException.trace = it.message;<template:br/><template:tab/><template:tab/>}<template:br/><template:tab/><template:tab/>else<template:br/><template:tab/><template:tab/>{<template:br/><template:tab/><template:tab/><template:tab/>customException.code = (it as a BlazeCustomException).code;<template:br/><template:tab/><template:tab/><template:tab/>customException.description = (it as a BlazeCustomException).description;<template:br/><template:tab/><template:tab/><template:tab/>customException.source = (it as a BlazeCustomException).source  ", settingScorecardResponse"; <template:br/><template:tab/><template:tab/><template:tab/>customException.trace = (it as a BlazeCustomException).trace;<template:br/><template:tab/><template:tab/>}<template:br/><template:tab/><template:tab/>throw customException;<template:br/><template:tab/>}<template:br/><template:tab/>if(theRoot.enableLogging as an Object is not null and theRoot.enableLogging = true) then{}<template:br/><template:tab/><template:tab/>//logger.info("Leaving function : settingScorecardResponse");<template:br/><template:br/>}</body>
+     </rule>
+     <variable managementPropertiesRef='H5kErTGImpLnxtzW9egFOg04B7n'>
+      <name>characteristics</name>
+      <array fixed='true'>
+       <type>NdScoredCharacteristic</type>
+      </array>
+      <initializer>a fixed array of <template:placeholder ref='__ND_ScoredCharacteristicCountVH' relative='true'/> NdScoredCharacteristic initially {<template:br/><template:foreach ref='__ND_ScoredCharacteristicInitializersVH' relative='true'>
+        <template:prefix></template:prefix>
+        <template:infix></template:infix>
+        <template:postfix></template:postfix>
+        <template:item><template:placeholder ref='__ND_ScoredCharacteristicInitializersVH' relative='true'/></template:item>
+       </template:foreach><template:br/>}</initializer>
+     </variable>
+     <variable managementPropertiesRef='4fiFedrYWcJzJ9Z5XRL0fwMUuQp'>
+      <name>__ND_options</name>
+      <type>NdScoreModelReasonCalculationOptions</type>
+      <initializer>a NdScoreModelReasonCalculationOptions initially {<template:br/>allowExpressions = true,<template:br/>dedupeMethod = NdScoreModelReasonCalculationOptions.DEDUPE_BY_SUM,<template:br/>distanceComputationMethod = NdScoreModelReasonCalculationOptions.DISTANCE_FROM_BASELINE,<template:br/>includeOnlyPositiveDistances = true,<template:br/>numberOfReasons = 4,<template:br/>sortOrder = NdScoreModelReasonCalculationOptions.SORT_ORDER_DESCENDING,<template:br/>precalculateScore = false,<template:br/>swapValues = false,<template:br/>initialScore =0.0<template:br/>}</initializer>
+     </variable>
+     <variable managementPropertiesRef='IwmU1ipGvbejxq9EBCGPrhJn6m9'>
+      <name>__ND_returnInfo</name>
+      <type>NdScoreModelReturnInfo</type>
+      <initializer>a NdScoreModelReturnInfo</initializer>
+     </variable>
+     <rule managementPropertiesRef='BVddXfYIWsqdqk8wS7AWWvM1gZ0'>
+      <name>__ND_initialRule</name>
+      <priority immediate='false'>900000</priority>
+      <body><![CDATA[if (__ND_returnInfo.scoredCharacteristics <> null and __ND_returnInfo.scoredCharacteristics.count >= ]]><template:placeholder ref='__ND_ScoredCharacteristicCountVH' relative='true'/>) then {<template:br/><template:tab/>characteristics = __ND_returnInfo.scoredCharacteristics;<template:br/>}</body>
+     </rule>
+     <rule managementPropertiesRef='4S8SZY83lcl51fHYQRIt8LYlUp8'>
+      <name>__ND_initialRule2</name>
+      <priority immediate='false'>899999</priority>
+      <body>if (true) then {<template:br/><template:tab/>__ND_returnInfo.scoreModelName = "<template:placeholder ref='rulesetName' relative='true'/>";<template:br/><template:tab/>__ND_returnInfo.characteristicCount = <template:placeholder ref='__ND_ScoredCharacteristicCountVH' relative='true'/>;<template:br/><template:tab/><template:foreach ref='__ND_ScoredCharacteristicInitializersVH' relative='true'>
+        <template:prefix></template:prefix>
+        <template:infix></template:infix>
+        <template:postfix></template:postfix>
+        <template:item>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].characteristicName = "<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicLabelVH' relative='true'/>";<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].baselineScore = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_BaselineScoreVH' relative='true'/>;<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].maxBinScore = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_MaxBinScoreVH' relative='true'/>;<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].wminBinScore = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_MinBinScoreVH' relative='true'/>;<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].partialScore = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_PartialScoreVH' relative='true'/>;<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].binLabel = "<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_BinLabelVH' relative='true'/>";<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_CharacteristicNumberVH' relative='true'/>].unexpected = <template:placeholder ref='__ND_ScoredCharacteristicInitializersVH.__ND_UnexpectedVH' relative='true'/>;<template:br/><template:tab/></template:item>
+       </template:foreach>}<template:br/></body>
+     </rule>
+     <rule managementPropertiesRef='HVdSGdVJZNofIS7TpltJabmQGVe'>
+      <name>__ND_finalRule</name>
+      <priority immediate='false'>-900000</priority>
+      <body>if (__ND_options.precalculateScore)<template:br/>then {<template:br/><template:tab/>__ND_returnInfo.calculateReasons(characteristics, __ND_options).<template:br/>}<template:br/>else {<template:br/><template:tab/>__ND_returnInfo.scoredCharacteristics = characteristics.<template:br/><template:tab/>__ND_returnInfo.options = __ND_options.<template:br/>}<template:br/></body>
+     </rule>
+    </ruleset-body>
+   </ruleset></template:content>
+  <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/scoremodel' section='scoremodel'><name>ScoreModelTemplate</name><return-type>void</return-type><execution-mode></execution-mode><cell-group name='Score_Model_Condition_Group1' label='Score_Model_Condition_Group' depth='5' optional='true'>
+    <entity source='static'>theVLBusinessTerm</entity>
+    <class-property-provider ref='Score_Model_Condition_Group1 properties provider'></class-property-provider>
+    <binding source='dynamic'></binding>
+   </cell-group><cell-group name='Score_Model_Condition_Group3' label='Score_Model_Condition_Group' depth='5' optional='true'>
+    <entity source='static'>theBureauBusinessTerm</entity>
+    <class-property-provider ref='Score_Model_Condition_Group3 properties provider'></class-property-provider>
+    <binding source='dynamic'></binding>
+   </cell-group><options allow-expressions='true' use-reasons='false' reason-list-name='' reason-list-template-name='' max-reasons='4' compute-distances='true' initial_score='0.0' computation-method='baseline' dedupe-method='summed' positives-only='true' sort-order='descending' precalculate-score='false' swap-values='false'></options></template:content>
+  <template name='Cell Template'>
+   <ide-name>Cell Template</ide-name>
+   <parameters>
+    <parameter name='CELL GROUP NAME' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.Cell Group Names' ideName='CELL GROUP NAME' displayName='Internal Use Only - Not For Display: cell group name'>
+    </parameter>
+    <parameter name='type' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_CellGroupInfoProvider' ideName='type'>
+    </parameter>
+    <parameter name='property' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_CellGroupInfoProvider' ideName='property'>
+    </parameter>
+    <parameter-selection name='binding' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.Template List Provider' ideName='binding' min='1' max='1'>
+     <dynamic-arg name='property' ref='property' relative='true'/>
+     <dynamic-arg name='type' ref='type' relative='true'/>
+    </parameter-selection>
+    <parameter name='__ND_BindingDescriptionVH' type='string' ideName='__ND_BindingDescriptionVH'>
+    </parameter>
+   </parameters>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><template:placeholder ref='binding' relative='true'/></template:content>
+  </template>
+  <template name='Editing Info Template'>
+   <ide-name>Editing Info Template</ide-name>
+   <family>Information template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'></template:content>
+  </template>
+  <template name='Cell Group Names'>
+   <comment>This is the complete list of names for all condition and action groups.
+There is no real need for this list provider, as long as the client maintains
+this list.</comment>
+   <ide-name>Cell Group Names</ide-name>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdListProvider</provider>
+    <arg name='type'>string</arg>
+    <arg name='unique'>true</arg>
+    <arg name='element'>Score_Model_Condition_Group1</arg>
+    <arg name='element'>Score_Model_Condition_Group3</arg>
+   </value>
+  </template>
+  <template name='Template List Provider'>
+   <ide-name>Template List Provider</ide-name>
+   <value>
+    <provider>com.blazesoft.template.metaphor.NdMetaphorBindingTemplateListProvider</provider>
+   </value>
+  </template>
+  <template name='Enumeration Items Provider'>
+   <ide-name>Enumeration Items Provider</ide-name>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdEnumerationItemsProvider</provider>
+    <arg name='template'></arg>
+    <arg name='enumeration'></arg>
+   </value>
+  </template>
+  <template name='Cases Info Template'>
+   <ide-name>Cases Info Template</ide-name>
+   <parameters>
+    <parameter-list name='condition cells' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.Cell Group Info Template' ideName='condition cells' min='0'>
+    </parameter-list>
+   </parameters>
+   <family>Information template</family>
+  </template>
+  <template name='Cell Group Info Template'>
+   <comment>Holds Information about the Cell Groups in the metaphor.</comment>
+   <ide-name>Cell Group Info Template</ide-name>
+   <parameters>
+    <parameter name='name' type='string' ideName='name'>
+    </parameter>
+    <parameter name='displayName' type='string' ideName='displayName'>
+    </parameter>
+    <parameter name='property' type='string' ideName='property'>
+    </parameter>
+    <parameter name='type' type='string' ideName='type'>
+    </parameter>
+   </parameters>
+   <family>Information template</family>
+  </template>
+  <template name='__ND_CellGroupInfoProvider'>
+   <ide-name>__ND_CellGroupInfoProvider</ide-name>
+   <value>
+    <provider>com.blazesoft.template.repository.provider.NdPromMetaphorInstanceCellGroupInfoProvider</provider>
+   </value>
+  </template>
+  <template name='__ND_CaseIdProvider'>
+   <ide-name>__ND_CaseIdProvider</ide-name>
+   <value>
+    <provider>com.blazesoft.template.repository.provider.NdPromMetaphorUniqueCaseIdProvider</provider>
+   </value>
+  </template>
+  <template name='__ND_MetaphorRuleTemplate'>
+   <comment>$Date$ $Revision$</comment>
+   <ide-name>__ND_MetaphorRuleTemplate</ide-name>
+   <parameters>
+    <parameter name='__ENTITY_PROPERTIES__VH__' type='1e4Fwj577fuGSTbTbZVTMCQNc91' ideName='Management Properties'>
+    </parameter>
+    <parameter-list name='condition cells' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.Cell Template' ideName='condition cells' min='0'>
+    </parameter-list>
+    <parameter name='__ND_CharacteristicNumberVH' type='integer' ideName='__ND_CharacteristicNumberVH' displayName='characterisitic index'>
+    </parameter>
+    <parameter name='__ND_PartialScoreVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ScoreProvider' ideName='__ND_PartialScoreVH' displayName='partial score'>
+    </parameter>
+    <parameter name='__ND_ReasonCodeVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ReasonCodeProvider' ideName='__ND_ReasonCodeVH'>
+     <arg name='object'></arg>
+    </parameter>
+    <parameter name='__ND_ReasonCodeMessageVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ReasonCodeMessageProvider' ideName='__ND_ReasonCodeMessageVH'>
+     <arg name='namedObject'></arg>
+     <dynamic-arg name='member' ref='__ND_ReasonCodeVH' relative='true'/>
+    </parameter>
+    <parameter name='__ND_BinLabelVH' type='string' ideName='__ND_BinLabelVH'>
+    </parameter>
+    <parameter name='__ND_UnexpectedVH' type='boolean' ideName='__ND_UnexpectedVH'>
+    </parameter>
+    <parameter name='__ND_CharacteristicNameVH' type='string' ideName='__ND_CharacteristicNameVH'>
+    </parameter>
+    <parameter name='__ND_CharacteristicLabelVH' type='string' ideName='__ND_CharacteristicLabelVH'>
+    </parameter>
+    <parameter name='__ND_MetaphorRuleNameVH' type='string' ideName='__ND_MetaphorRuleNameVH'>
+    </parameter>
+    <parameter name='__ND_MetaphorRuleCreatedVH' type='string' ideName='__ND_MetaphorRuleCreatedVH'>
+    </parameter>
+   </parameters>
+   <family>Rule Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'><rule>
+     <comment>@scoreModelCharacteristicName <template:placeholder ref='__ND_CharacteristicLabelVH' relative='true'/><template:br/>@scoreModelBinLabel <template:placeholder ref='__ND_BinLabelVH' relative='true'/><template:br/>@scoreModelBinCreated <template:placeholder ref='__ND_MetaphorRuleCreatedVH' relative='true'/><template:br/></comment>
+     <name><template:placeholder ref='__ND_MetaphorRuleNameVH' relative='true'/></name>
+     <execution-mode>exhaustively</execution-mode>
+     <body>// Bin <template:placeholder ref='__ND_BinLabelVH' relative='true'/>  from characteristic <template:placeholder ref='__ND_CharacteristicLabelVH' relative='true'/><template:br/>if <template:foreach ref='condition cells' relative='true'>
+       <template:prefix>(</template:prefix>
+       <template:infix> or </template:infix>
+       <template:postfix>)</template:postfix>
+       <template:item><template:placeholder ref='condition cells' relative='true'/></template:item>
+      </template:foreach><template:br/>then {<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_CharacteristicNumberVH' relative='true'/>].partialScore = <template:placeholder ref='__ND_PartialScoreVH' relative='true'/>.<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_CharacteristicNumberVH' relative='true'/>].binLabel = "<template:placeholder ref='__ND_BinLabelVH' relative='true'/>".<template:br/><template:tab/>characteristics[<template:placeholder ref='__ND_CharacteristicNumberVH' relative='true'/>].unexpected = <template:placeholder ref='__ND_UnexpectedVH' relative='true'/>.<template:br/>} </body>
+    </rule></template:content>
+  </template>
+  <template name='__ND_ScoredCharacteristicInitializerTemplate'>
+   <comment>$Date$ $Revision$</comment>
+   <ide-name>__ND_ScoredCharacteristicInitializerTemplate</ide-name>
+   <parameters>
+    <parameter name='__ND_PartialScoreVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ScoreProvider' ideName='__ND_PartialScoreVH' displayName='partial score'>
+    </parameter>
+    <parameter name='__ND_CharacteristicNumberVH' type='integer' ideName='__ND_CharacteristicNumberVH' displayName='characterisitic index'>
+    </parameter>
+    <parameter name='__ND_BaselineScoreVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ScoreProvider' ideName='__ND_BaselineScoreVH' displayName='partial score'>
+    </parameter>
+    <parameter name='__ND_MaxBinScoreVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ScoreProvider' ideName='__ND_MaxBinScoreVH' displayName='partial score'>
+    </parameter>
+    <parameter name='__ND_MinBinScoreVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ScoreProvider' ideName='__ND_MinBinScoreVH' displayName='partial score'>
+    </parameter>
+    <parameter name='__ND_ReasonCodeVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ReasonCodeProvider' ideName='__ND_ReasonCodeVH'>
+     <arg name='object'></arg>
+    </parameter>
+    <parameter name='__ND_ReasonCodeMessageVH' type='68aLLguksVeX91HEiTQ46Crm6oO.template2.__ND_ReasonCodeMessageProvider' ideName='__ND_ReasonCodeMessageVH'>
+     <arg name='namedObject'></arg>
+     <dynamic-arg name='member' ref='__ND_ReasonCodeVH' relative='true'/>
+    </parameter>
+    <parameter name='__ND_BinLabelVH' type='string' ideName='__ND_BinLabelVH'>
+    </parameter>
+    <parameter name='__ND_UnexpectedVH' type='boolean' ideName='__ND_UnexpectedVH'>
+    </parameter>
+    <parameter name='__ND_CharacteristicNameVH' type='string' ideName='__ND_CharacteristicNameVH'>
+    </parameter>
+    <parameter name='__ND_CharacteristicLabelVH' type='string' ideName='__ND_CharacteristicLabelVH'>
+    </parameter>
+    <parameter name='__ND_CharacteristicDescriptionVH' type='string' ideName='__ND_CharacteristicDescriptionVH'>
+    </parameter>
+   </parameters>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>it[<template:placeholder ref='__ND_CharacteristicNumberVH' relative='true'/>] = an NdScoredCharacteristic,</template:content>
+  </template>
+  <template name='__ND_ScoreProvider'>
+   <comment>Simple provider for the score value. This is a string provider when expressions are allowed,
+and a real provider when expressions are not allowed.</comment>
+   <ide-name>__ND_ScoreProvider</ide-name>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdStringProvider</provider>
+   </value>
+  </template>
+  <template name='__ND_ReasonCodeProvider'>
+   <ide-name>__ND_ReasonCodeProvider</ide-name>
+   <value>
+    <provider>com.blazesoft.template.repository.provider.NdScoreModelPropertiesProvider</provider>
+    <arg name='object'></arg>
+   </value>
+  </template>
+  <template name='__ND_ReasonCodeMessageProvider'>
+   <ide-name>__ND_ReasonCodeMessageProvider</ide-name>
+   <value>
+    <provider>com.blazesoft.template.repository.provider.NdPromSrlNamedObjectPropertyValueProvider</provider>
+    <arg name='namedObject'></arg>
+    <arg name='member'></arg>
+    <arg name='property'>message</arg>
+   </value>
+  </template>
+  <template name='__ND_EmptyBindingTemplate'>
+   <comment>This template is used in a condition group when the condition binding has not yet
+			 been selected. It may resolve to true or false depending on the implementation.</comment>
+   <ide-name>__ND_EmptyBindingTemplate</ide-name>
+   <family>Code Template</family>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/srl' section='srl'>true</template:content>
+   <template:content xmlns:template='http://www.blazesoft.com/template' xmlns='http://www.blazesoft.com/display' section='display'><![CDATA[< ]]><template:static_placeholder type='localizedstring'>
+     <template:arg name='resource-bundle'>com.blazesoft.template.metaphor.dectree.strings</template:arg>
+     <template:arg name='string-name'>EmptyFormatLabel</template:arg>
+    </template:static_placeholder><![CDATA[ > ]]></template:content>
+  </template>
+  <template name='MetaphorNameProvider'>
+   <ide-name>MetaphorNameProvider</ide-name>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdStringProvider</provider>
+    <default-value>ScoreModelTemplate_Instance</default-value>
+   </value>
+  </template>
+  <template name='MetaphorDagProvider'>
+   <ide-name>MetaphorDagProvider</ide-name>
+   <value>
+    <provider>com.blazesoft.template.engine.provider.NdStringProvider</provider>
+   </value>
+  </template>
+ </template>
+</template>

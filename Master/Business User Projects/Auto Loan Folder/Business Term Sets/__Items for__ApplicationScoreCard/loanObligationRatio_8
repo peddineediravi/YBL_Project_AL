@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<instantiation xmlns='http://www.blazesoft.com/instantiation' template='DSG71szD5AH5G0pcZCfjmcoPvq0' name='loanObligationRatio'>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='1VBfZr8g32Q2FnSWcWO9txQWwEE' name='Instance' id='Instance'>
+ </instantiation>
+ <instantiation xmlns='http://www.blazesoft.com/instantiation' template='18uqQPJXnTmKrAiLEOVcQMUAFmD' name='Entry' id='Entry'>
+  <instance ref='Source Reference'>
+   <instance ref='value'>
+    <instance ref='locationVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryNameVH'>
+     <value></value>
+    </instance>
+    <instance ref='versionVH'>
+     <value></value>
+    </instance>
+    <instance ref='filterVH'>
+     <value></value>
+    </instance>
+    <instance ref='releaseDateVH'>
+     <value></value>
+    </instance>
+    <instance ref='repositoryAccessVH'>
+     <value></value>
+    </instance>
+   </instance>
+  </instance>
+  <instance ref='Predictive Model Type'>
+   <instance ref='value'>
+    <value>NotApplicable</value>
+   </instance>
+  </instance>
+ </instantiation>
+ <instance ref='nameVH'>
+  <value>loanObligationRatio</value>
+ </instance>
+ <instance ref='typeVH'>
+  <value>real</value>
+ </instance>
+ <instance ref='descriptionVH'>
+  <value></value>
+ </instance>
+ <instance ref='termPropertyVH'>
+ </instance>
+ <instance ref='isNeededEventRuleVH'>
+  <instance ref='__ENTITY_PROPERTIES__VH__'>
+  </instance>
+  <instance ref='calculationVH'>
+   <value><![CDATA[tempLoanObligationRatio is a real initially -111111;
+anApplicant is some Applicant;
+totalIncome is a real initially 0;
+totalLiability is a real initially 0;
+totalLiabilityBOT is a real initially 0;
+totalLoanEmi is a real initially 0;
+anIncome is some Income;
+anetIncome is a real initially 0.0;
+anEffectiveRate is a real initially 0.0;
+value1 is a real initially 0.0;
+tempAccountemiAmount  is a real initially 0.0;
+tempAccountfinalemiAmount is a real initially 0.0;
+for each Applicant in theApplicationScoreCard.termSetInput.request.application.applicants such that(it.applicantType is known and it.applicantType is equal to "P" )do{
+  			anApplicant =it;
+			//4.	FOIR Obligation calculation to be automated basis Bureau as per the logic shared earlier and
+			//			same obligation to be used for the purpose of Scorecard below code liabilities code Disabled a start
+		  //	aLiability is some Liability;
+  			//if(anApplicant.liabilities is known) then {
+          //		for each Liability in anApplicant.liabilities such that(it.considerForObligations is known and it.considerForObligations = true) do {
+          //     			aLiability=it;             
+           // 			print("EMIAmount=="it.EMIAmount);
+			//			totalLiability=it.EMIAmount*12;
+             //		}
+              // 	}
+				//4.	FOIR Obligation calculation to be automated basis Bureau as per the logic shared earlier and
+			//			same obligation to be used for the purpose of Scorecard liabilities  End
+			
+				//4.	FOIR Obligation calculation to be automated basis Bureau as per the logic shared earlier and
+				//	same obligation to be used for the purpose of Scorecard below code Disabled and taken Bureau start
+			if(anApplicant.multiBureauReport is known and anApplicant.multiBureauReport.cibilResponse is (known and available) and 
+		anApplicant.multiBureauReport.cibilResponse.accounts is (known and available) and anApplicant.multiBureauReport.cibilResponse.accounts.count > 0) then {
+          for each Account in anApplicant.multiBureauReport.cibilResponse.accounts do {		
+                if(it.dateClosed is (unknown or unavailable ))then{
+                  		if(it.emiAmount is (known and available) )then{
+						tempAccountemiAmount =tempAccountemiAmount+it.emiAmount;
+                  		print("tempAccountemiAmount="tempAccountemiAmount);
+                        }
+                }
+          }
+		}
+			
+					//4.	FOIR Obligation calculation to be automated basis Bureau as per the logic shared earlier and
+			      //same obligation to be used for the purpose of Scorecard below code Disabled and taken Bureau End
+			tempAccountfinalemiAmount =tempAccountemiAmount*12;
+  				//totalLiability = totalLiability + theApplicationScoreCard.termSetInput.request.application.loanDetails.loanAmount;
+			print("tempAccountfinalemiAmount====="tempAccountfinalemiAmount);
+			totalLoanEmi =theApplicationScoreCard.termSetInput.request.application.loanDetails.loanEMI*12;
+			print("totalLoanEmi"totalLoanEmi);
+	
+	 if(theApplicationScoreCard.termSetInput.invocation.decisionPoint<>("YESBOT"))then{
+                          
+  				if (anApplicant.incomes is unknown) then {
+                  	tempLoanObligationRatio =-111111;
+                }
+       else if( (anApplicant.incomes is known and anApplicant.incomes.count > 0)    and
+				((theApplicationScoreCard.termSetInput.request.application.schemeGroup="20")
+         or
+         (theApplicationScoreCard.termSetInput.request.application.schemeGroup="11" and
+         theApplicationScoreCard.termSetInput.request.application.scheme=("22" or "24" or "198" or "200"))))then{
+		 tempLoanObligationRatio =-111111;
+         }
+  				else{   
+						if(anApplicant.incomes is known and anApplicant.incomes.count > 0) then{					
+                          for each Income in anApplicant.incomes such that(it is known and it.frequency is known)do{
+                             anIncome=it;
+					if(anIncome.frequency="A")then{//Annually
+							 anetIncome=anIncome.amount*1;
+                    }else if(anIncome.frequency="B") then{ //Bi-monthly
+								anetIncome=anIncome.amount*(24);
+					}else if(anIncome.frequency="M") then{//Monthly
+									anetIncome=anIncome.amount*12;
+					}else if(anIncome.frequency="Q") then {//Quaterly
+									anetIncome=anIncome.amount*4;
+					}else if(anIncome.frequency="H") then {//Half Yearly
+									anetIncome=anIncome.amount*2;
+								}
+						}
+						}
+						totalIncome =anetIncome;
+					//	print("anetIncome"anetIncome);
+						tempLoanObligationRatio =(tempAccountfinalemiAmount+totalLoanEmi)/totalIncome;
+					 }  			
+}
+}
+
+  if(theApplicationScoreCard.termSetInput.invocation.decisionPoint=("YESBOT"))then{
+    
+    for each Applicant in theApplicationScoreCard.termSetInput.request.application.applicants such that(it.applicantType is known and it.applicantType is equal to "P" )do{
+  			anApplicant =it;
+		  	aLiability1 is some Liability;
+  			if(anApplicant.liabilities is known) then {
+          		for each Liability in anApplicant.liabilities  do {
+               			aLiability1=it;     
+                  		print("EMIAmount=="it.EMIAmount);
+						totalLiabilityBOT=it.EMIAmount*12;
+             		}
+               	}
+    }
+    
+  	anEffectiveRate=(theApplicationScoreCard.termSetInput.request.application.loanDetails.effectiveRate)/1200;
+		value1=math().power((1+anEffectiveRate),theApplicationScoreCard.termSetInput.request.application.loanDetails.tenure);
+ 		totalLoanEmi=math().round((theApplicationScoreCard.termSetInput.request.application.loanDetails.loanAmount*anEffectiveRate)*(value1/(value1-1)));
+	//  print("YESBOTEMI=="totalLoanEmi);
+        if (anApplicant.incomes is unknown) then {
+                  	tempLoanObligationRatio =-111111;
+                }
+     else if( (anApplicant.incomes is known and anApplicant.incomes.count > 0)    and
+				((theApplicationScoreCard.termSetInput.request.application.schemeGroup="20")
+         or
+         (theApplicationScoreCard.termSetInput.request.application.schemeGroup="11" and
+         theApplicationScoreCard.termSetInput.request.application.scheme=("22" or "24" or "198" or "200"))))then{
+		 tempLoanObligationRatio =-111111;
+         }
+  			else{   
+						if(anApplicant.incomes is known and anApplicant.incomes.count > 0) then{					
+                          for each Income in anApplicant.incomes such that(it is known)do{
+                             anIncome=it;
+			anetIncome=anIncome.netIncome*12;
+                             }
+                        }
+                }
+    				totalIncome =anetIncome;
+					//	print("anetIncome_bot"totalIncome);
+    				//	print("YESBOT+lia=="totalLiabilityBOT);
+    				//	print("totalLoanEmiYES=="totalLoanEmi);
+						tempLoanObligationRatio =(totalLiabilityBOT+totalLoanEmi)/totalIncome;
+						print("tempLoanObligationRatio"tempLoanObligationRatio);
+  						
+  }
+it.loanObligationRatio = tempLoanObligationRatio;
+theApplicationScoreCard.termSetInput.charNameToCharVal["Loan Obligation to Income Multiplier"] = it.loanObligationRatio as a string;]]></value>
+  </instance>
+ </instance>
+ <instance ref='constraintContainerVH'>
+  <instance-selection ref='constraintVH'>
+   <item template='Atv03JffIeVVgsPZppyIx4mkGHC.template5' id='H0lUyt'>
+    <instance ref='fromVH'>
+     <value></value>
+    </instance>
+    <instance ref='toVH'>
+     <value></value>
+    </instance>
+    <instance ref='constraintNameVH'>
+     <value>Range</value>
+    </instance>
+    <instance ref='constraintEntriesVH'>
+    </instance>
+   </item>
+  </instance-selection>
+  <instance ref='termTypeConstraintTemplateAssocVH'>
+   <value>Atv03JffIeVVgsPZppyIx4mkGHC.template5</value>
+  </instance>
+ </instance>
+</instantiation>
